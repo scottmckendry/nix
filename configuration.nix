@@ -109,18 +109,14 @@
       cinnamon.nemo
       cliphist
       discord
-      dolphin
       dunst
       fd
       firefox
       fzf
       gcc
-      git
       go
       grim
       hyprpaper
-      hyprpaper
-      lazygit
       neovim
       nodejs
       pamixer
@@ -129,14 +125,13 @@
       ripgrep
       slurp
       spotify
+      swayidle
       swappy
       unzip
       wget
       wl-clipboard
       wofi
-      xfce.thunar
       zig
-      swayidle
     ];
   };
 

@@ -2,6 +2,7 @@
 
 {
   programs.zoxide.enable = true;
+  programs.gh.enable = true;
 
   home.sessionVariables = {
     GTK_THEME = "Adementary-dark";
@@ -41,6 +42,27 @@
     enable = true;
     settings = {
       clock = true;
+    };
+  };
+
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      notARepository = "skip";
+      gui = {
+        nerdFontsVersion = "3";
+        showBottomLine = false;
+        border = "rounded";
+        mouseEvents = false;
+
+        theme = {
+          activeBorderColor = [ "cyan" ];
+          inactiveBorderColor = [ "magenta" ];
+        };
+      };
+      git = {
+        parseEmoji = true;
+      };
     };
   };
 

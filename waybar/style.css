@@ -1,11 +1,12 @@
 * {
     font-family: "Ubuntu Nerd Font";
+    font-weight: bold;
     font-size: 13px;
 }
 
 window#waybar {
     background-color: rgba(0, 0, 0, 0.5);
-    color: #ffffff;
+    color: #cccccc;
 }
 
 #clock,
@@ -19,20 +20,11 @@ window#waybar {
 #custom-nixlogo,
 #workspaces,
 #tray {
-    padding: 0 10px;
-    color: #ffffff;
+    padding: 0 5px;
 }
 
 #window {
     margin: 0 4px;
-}
-
-#workspaces {
-    padding-left: 0;
-}
-
-#custom-nixlogo {
-    padding-right: 0;
 }
 
 .modules-left > widget:first-child > #workspaces {

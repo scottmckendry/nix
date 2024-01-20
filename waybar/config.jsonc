@@ -3,11 +3,6 @@
     "height": 30, // Waybar height (to be removed for auto height)
     "output": "DP-1", // Only display on main monitor
     "spacing": 20, // Gaps between modules (4px)
-    "custom/nixlogo": {
-        "format": "",
-        "tooltip": false,
-        "on-click": "wlogout"
-    },
     // Module order
     "modules-left": [
         "custom/nixlogo",
@@ -35,8 +30,7 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
-        "spacing": 10
+        "spacing": 5
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",

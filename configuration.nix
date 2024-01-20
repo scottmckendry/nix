@@ -144,7 +144,6 @@
       wget
       wl-clipboard
       wlogout
-      wofi
       zig
     ];
   };

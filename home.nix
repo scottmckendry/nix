@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./rofi/rofi.nix
+  ];
+
   programs.zoxide.enable = true;
   programs.gh.enable = true;
 

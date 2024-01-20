@@ -60,6 +60,8 @@
     enableNvidiaPatches = true;
   };
 
+  security.pam.services.swaylock = { };
+
   # configuration.nix
 
   boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];

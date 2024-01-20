@@ -51,8 +51,15 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver = {
+    enable = true;
+    displayManager = {
+      autoLogin.enable = true;
+      autoLogin.user = "scott";
+      lightdm.enable = true;
+      defaultSession = "hyprland";
+    };
+  };
 
   programs.hyprland = {
     enable = true;
@@ -124,6 +131,7 @@
       neovim
       nodejs
       pamixer
+      pavucontrol
       playerctl
       powershell
       ripgrep
@@ -135,6 +143,7 @@
       waybar
       wget
       wl-clipboard
+      wlogout
       wofi
       zig
     ];
@@ -175,8 +184,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
+    libsForQt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5.qtmultimedia
+    libsForQt5.qt5.qtquickcontrols
+    libsForQt5.phonon-backend-gstreamer
+    gst_all_1.gst-libav
+    gst_all_1.gst-plugins-good
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

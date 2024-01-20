@@ -1,11 +1,10 @@
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: JetBrainsMono Nerd Font;
+    font-family: "Ubuntu Nerd Font";
     font-size: 13px;
 }
 
 window#waybar {
-    background-color: rgba(22, 24, 26, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
     color: #ffffff;
 }
 
@@ -17,17 +16,25 @@ window#waybar {
 #network,
 #pulseaudio,
 #wireplumber,
+#custom-nixlogo,
+#workspaces,
 #tray {
     padding: 0 10px;
     color: #ffffff;
 }
 
-#window,
-#workspaces {
+#window {
     margin: 0 4px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
+#workspaces {
+    padding-left: 0;
+}
+
+#custom-nixlogo {
+    padding-right: 0;
+}
+
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
 }

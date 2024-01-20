@@ -119,6 +119,8 @@
       go
       grim
       hyprpaper
+      inotify-tools
+      killall
       neovim
       nodejs
       pamixer
@@ -130,6 +132,7 @@
       swayidle
       swappy
       unzip
+      waybar
       wget
       wl-clipboard
       wofi
@@ -147,7 +150,7 @@
   fonts.packages = with pkgs;
     [
       (nerdfonts.override {
-        fonts = [ "JetBrainsMono" ];
+        fonts = [ "JetBrainsMono" "Ubuntu" ];
       })
     ];
 

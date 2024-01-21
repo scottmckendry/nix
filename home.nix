@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ./rofi/rofi.nix
     ./hyprland/hyprland.nix
+    ./rofi/rofi.nix
+    ./wallpapers/.swww.nix
     ./waybar/waybar.nix
   ];
 
@@ -12,10 +13,11 @@
 
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    discord
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "Ubuntu" ]; })
     cargo
     cinnamon.nemo
     cliphist
+    discord
     dunst
     fd
     firefox
@@ -35,13 +37,11 @@
     slurp
     spotify
     swappy
-    swww
     unzip
     wget
     wl-clipboard
     wlogout
     zig
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "Ubuntu" ]; })
   ];
 
   home.sessionVariables = {

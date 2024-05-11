@@ -3,37 +3,29 @@ return {
     event = "BufReadPre",
     config = function()
         vim.g.disable_autoformat = false
-        local lsp_fallback = setmetatable({
-            bicep = "always",
-        }, {
-            -- default true
-            __index = function()
-                return true
-            end,
-        })
         require("conform").setup({
             formatters_by_ft = {
-                bicep = { "trim_whitespace", "trim_newlines" },
+                bicep = { "bicep" },
                 css = { "prettier" },
                 go = { "goimports_reviser", "gofmt", "golines" },
                 html = { "prettier" },
                 javascript = { "prettier" },
                 json = { "prettier" },
                 lua = { "stylua" },
-                markdown = { "markdownlint-cli2" },
+                markdown = { "prettier" },
                 ps1 = { "powershell", "trim_whitespace", "trim_newlines" },
                 scss = { "prettier" },
+                sh = { "shfmt" },
                 toml = { "taplo" },
                 yaml = { "prettier" },
             },
 
-            format_after_save = function(buf)
+            format_after_save = function()
                 if vim.g.disable_autoformat then
                     return
+                else
+                    return { lsp_fallback = true }
                 end
-                return {
-                    lsp_fallback = lsp_fallback[vim.bo[buf].filetype],
-                }
             end,
 
             formatters = {
@@ -56,6 +48,11 @@ return {
                 },
             },
         })
+
+        -- Override bicep's default indent size
+        require("conform").formatters.bicep = {
+            args = { "format", "--stdout", "$FILENAME", "--indent-size", "4" },
+        }
 
         -- Override stylua's default indent type
         require("conform").formatters.stylua = {

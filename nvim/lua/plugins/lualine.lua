@@ -13,6 +13,7 @@ return {
         return {
             options = {
                 component_separators = { left = " ", right = " " },
+                section_separators = { left = " ", right = " " },
                 theme = cyberdream,
                 globalstatus = true,
                 disabled_filetypes = { statusline = { "dashboard", "alpha" } },
@@ -82,12 +83,12 @@ return {
                 },
                 lualine_z = {
                     function()
-                        return "  " .. os.date("%X") .. " 📎"
+                        return "  " .. os.date("%X") .. " 🚀 "
                     end,
                 },
             },
 
-            extensions = { "lazy" },
+            extensions = { "lazy", "toggleterm", "mason", "neo-tree", "trouble" },
         }
     end,
 }

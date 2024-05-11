@@ -25,13 +25,17 @@ return {
                                 { find = "; before #%d+" },
                             },
                         },
-                        view = "mini",
+                        opts = { skip = true },
                     },
+                },
+                presets = {
+                    bottom_search = true,
+                    long_message_to_split = true,
+                    lsp_doc_border = true,
                 },
                 cmdline = {
                     view = "cmdline",
                 },
-
                 views = {
                     mini = {
                         win_options = {

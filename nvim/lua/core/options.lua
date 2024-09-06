@@ -18,7 +18,7 @@ end
 opt.number = true
 opt.relativenumber = true
 opt.ignorecase = true
-opt.cursorline = true
+opt.cursorline = false
 opt.clipboard = "unnamedplus"
 opt.termguicolors = true
 opt.confirm = true
@@ -29,7 +29,8 @@ opt.conceallevel = 1
 opt.scrolloff = 12
 opt.wrap = true
 opt.linebreak = true
-opt.cursorline = false
+opt.spelllang = "en_nz"
+opt.showtabline = 0
 
 -- Set tab width
 opt.tabstop = 4
@@ -43,15 +44,3 @@ opt.guicursor = {
     "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
     "sm:block-blinkwait175-blinkoff150-blinkon175",
 }
-
--- Neovide
-if vim.g.neovide then
-    vim.o.guifont = "JetBrainsMono Nerd Font:h9"
-    vim.g.neovide_fullscreen = true
-    vim.g.neovide_scroll_animation_length = 0.3
-
-    -- Set padding
-    vim.g.neovide_padding_top = 5
-    vim.g.neovide_padding_right = 5
-    vim.g.neovide_padding_left = 5
-end

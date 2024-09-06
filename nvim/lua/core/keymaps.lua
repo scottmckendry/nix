@@ -1,3 +1,10 @@
+local utils = require("core.utils")
+
+--- Map a key combination to a command
+---@param modes string|string[]: The mode(s) to map the key combination to
+---@param lhs string: The key combination to map
+---@param rhs string|function: The command to run when the key combination is pressed
+---@param opts table: Options to pass to the keymap
 local map = function(modes, lhs, rhs, opts)
     local options = { silent = true }
     if opts then
@@ -36,24 +43,34 @@ map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Buffers
-map("n", "<S-h>", ":BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
-map("n", "<S-l>", ":BufferLineCycleNext<cr>", { desc = "Next buffer" })
-map("n", "[b", ":BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
-map("n", "]b", ":BufferLineCycleNext<cr>", { desc = "Next buffer" })
-map("n", "<leader>bb", ":e #<cr>", { desc = "Switch to Other buffer" })
-map("n", "<leader>`", ":e #<cr>", { desc = "Switch to Other buffer" })
+-- stylua: ignore start
+map("n", "<leader>bb", function() utils.switch_to_other_buffer() end, { desc = "Switch to other buffer" })
+map("n", "<leader>bd", function() utils.delete_buffer() end, { desc = "Delete buffer" })
+map("n", "L", ":bnext<cr>", { desc = "Next buffer" })
+map("n", "H", ":bprevious<cr>", { desc = "Previous buffer" })
+-- stylua: ignore end
 
 -- lazy
 map("n", "<leader>l", ":Lazy<cr>", { desc = "Lazy" })
+
+-- AI
+map("n", "<leader>at", ":Copilot toggle<cr>", { desc = "Toggle (Copilot Inline)" })
 
 -- Telescope
 map("n", "<leader>ff", ":Telescope find_files<cr>", { desc = "Fuzzy find files" })
 map("n", "<leader>fr", ":Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 map("n", "<leader>fs", ":Telescope live_grep<cr>", { desc = "Find string in CWD" })
 map("n", "<leader>fc", ":Telescope grep_string<cr>", { desc = "Find string under cursor in CWD" })
-
---keywordprg
-map("n", "<leader>K", ":norm! K<cr>", { desc = "Keywordprg" })
+map("n", "<leader>fb", ":Telescope buffers<cr>", { desc = "Fuzzy find buffers" })
+map("n", "<leader>ft", ":Telescope<cr>", { desc = "Other pickers..." })
+map("n", "<leader>fS", ":Telescope resession<cr>", { desc = "Find Session" })
+map("n", "<leader><leader>", ":Telescope smart_open<cr>", { desc = "Smart open" })
+map("n", "<leader>fh", ":Telescope help_tags<cr>", { desc = "Find help tags" })
+-- stylua: ignore start
+map("n", "<leader>df", function() utils.telescope_diff_file() end, { desc = "Diff file with current buffer" })
+map("n", "<leader>dr", function() utils.telescope_diff_file(true) end, { desc = "Diff recent file with current buffer" })
+map("n", "<leader>dg", function() utils.telescope_diff_from_history() end, { desc = "Diff from git history" })
+-- stylua: ignore end
 
 -- Clear search with <esc>
 map("n", "<esc>", ":noh<cr><esc>", { desc = "Escape and clear hlsearch" })
@@ -78,31 +95,25 @@ map("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 
 -- tabs
-map("n", "<leader><tab>l", ":tablast<cr>", { desc = "Last Tab" })
-map("n", "<leader><tab>f", ":tabfirst<cr>", { desc = "First Tab" })
 map("n", "<leader><tab><tab>", ":tabnew<cr>", { desc = "New Tab" })
-map("n", "<leader><tab>]", ":tabnext<cr>", { desc = "Next Tab" })
+map("n", "<leader><tab>l", ":tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader><tab>d", ":tabclose<cr>", { desc = "Close Tab" })
-map("n", "<leader><tab>[", ":tabprevious<cr>", { desc = "Previous Tab" })
+map("n", "<leader><tab>h", ":tabprevious<cr>", { desc = "Previous Tab" })
 
 -- Code/LSP
+-- stylua: ignore start
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 map("n", "<leader>cl", ":LspInfo<cr>", { desc = "LSP Info" })
-map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
-map("n", "gd", function()
-    require("telescope.builtin").lsp_definitions({ reuse_win = true })
-end, { desc = "Goto Definition" })
-map("n", "gr", ":Telescope lsp_references<cr>", { desc = "Goto References" })
-map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
-map("n", "gI", function()
-    require("telescope.builtin").lsp_implementations({ reuse_win = true })
-end, { desc = "Goto Implementation" })
-map("n", "gy", function()
-    require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
-end, { desc = "Goto Type Definition" })
 map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
 map("n", "gK", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+map("n", "gr", ":Telescope lsp_references<cr>", { desc = "Goto References" })
+map("n", "gI", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, { desc = "Goto Implementation" })
+map("n", "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, { desc = "Goto Definition" })
+map("n", "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, { desc = "Goto Type Definition" })
+-- stylua: ignore end
 
 -- Lazygit
 map("n", "<leader>gg", function()
@@ -110,26 +121,14 @@ map("n", "<leader>gg", function()
     local lazygit = term:new({
         cmd = "lazygit",
         dir = "git_dir",
-        direction = "float",
-        float_opts = {
-            border = "none",
-            -- fullscreen
-            width = vim.o.columns,
-            height = vim.o.lines,
-        },
+        direction = "tab",
     })
     lazygit:toggle()
 end, { desc = "Lazygit" })
 
--- Rest-nvim
-map("n", "<leader>rr", ":lua require('rest-nvim').run()<CR>", { desc = "Run HTTP Request" })
-map("n", "<leader>rl", ":lua require('rest-nvim').last()<CR>", { desc = "Run Last HTTP Request" })
-map("n", "<leader>rp", ":lua require('rest-nvim').run(true)<CR>", { desc = "Preview HTTP Request" })
-
--- Neovide specific
-if vim.g.neovide then
-    map({ "n", "v" }, "<C-c>", '"+y', { desc = "Copy to clipboard" })
-    map({ "n", "v" }, "<C-x>", '"+x', { desc = "Cut to clipboard" })
-    map({ "n", "v" }, "<C-v>", '"+gP', { desc = "Paste from clipboard" })
-    map({ "i", "t" }, "<C-v>", '<esc>"+gP', { desc = "Paste from clipboard" })
-end
+-- Run...
+-- stylua: ignore start
+map("n", "<leader>rlf", ":luafile %<cr>", { desc = "Run Current Lua File" })
+map("n", "<leader>rlt", ":PlenaryBustedFile %<cr>", { desc = "Run Lua Test File" })
+map("n", "<leader>rss", function() utils.run_shell_script() end, { desc = "Run shell script (bash, powershell, etc)" })
+-- stylua: ignore end

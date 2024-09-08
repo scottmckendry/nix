@@ -1,46 +1,26 @@
 { config, pkgs, ... }:
 
-{
-  imports =
-    [
-      /etc/nixos/hardware-configuration.nix
-      ./modules/locale.nix
-      ./modules/networking.nix
-      ./modules/nvidia.nix
-      <home-manager/nixos>
-    ];
+let
+  unstableTarball = fetchTarball
+    "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
+in {
+  imports = [
+    /etc/nixos/hardware-configuration.nix
+    ./modules/locale.nix
+    ./modules/networking.nix
+    ./modules/nvidia.nix
+    <home-manager/nixos>
+  ];
 
-  # Bootloader.
+  # bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    layout = "nz";
-    xkbVariant = "mao";
-    displayManager = {
-      autoLogin.enable = true;
-      autoLogin.user = "scott";
-      lightdm.enable = true;
-      defaultSession = "hyprland";
-    };
-  };
-
-  # Enable Hyprland
+  # enable Hyprland
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    enableNvidiaPatches = true;
   };
-
-  # Let swaylock use pam
-  security.pam.services.swaylock = { };
-
-  #Services
-  services.gvfs.enable = true;
-  services.udisks2.enable = true;
-  services.devmon.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -60,18 +40,17 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  # Import Home Manager configuration.
-  home-manager.users.scott = { pkgs, ... }: {
-    imports = [
-      ./home.nix
-    ];
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      unstable = import unstableTarball { config = config.nixpkgs.config; };
+    };
   };
 
-  # Install system packages.
-  environment.systemPackages = with pkgs; [
-    vim
-  ];
+  environment.systemPackages = with pkgs; [ unstable.neovim ];
 
-  # System state - do not edit.
-  system.stateVersion = "23.11";
+  # Import Home Manager configuration.
+  home-manager.users.scott = { pkgs, ... }: { imports = [ ./home.nix ]; };
+
+  system.stateVersion = "24.05";
 }

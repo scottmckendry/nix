@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./hyprland/hyprland.nix
+    # ./hypr/hyprland.nix
     ./rofi/rofi.nix
     ./wallpapers/.swww.nix
     ./waybar/waybar.nix
@@ -13,7 +13,13 @@
 
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "Ubuntu" ]; })
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+        "Ubuntu"
+      ];
+    })
+    brave
     cargo
     cinnamon.nemo
     cliphist
@@ -22,12 +28,13 @@
     fd
     firefox
     fzf
+    fzf
     gcc
     go
     grim
     inotify-tools
     killall
-    neovim
+    nixfmt-rfc-style
     nodejs
     pamixer
     pavucontrol
@@ -48,19 +55,6 @@
     GTK_THEME = "Adementary-dark";
   };
 
-  qt.enable = true;
-  qt.platformTheme = "gtk";
-  qt.style.name = "adwaita-dark";
-  qt.style.package = pkgs.adwaita-qt;
-
-  gtk.enable = true;
-  gtk.cursorTheme.package = pkgs.bibata-cursors;
-  gtk.cursorTheme.name = "Bibata-Modern-Classic";
-  gtk.theme.package = pkgs.adementary-theme;
-  gtk.theme.name = "Adementary-dark";
-  gtk.iconTheme.package = pkgs.gnome.adwaita-icon-theme;
-  gtk.iconTheme.name = "Adwaita-dark";
-
   xdg.desktopEntries = {
     discord = {
       name = "Discord";
@@ -69,7 +63,10 @@
       icon = "discord";
       exec = "discord --enable-features=UseOzonePlatform --ozone-platform=wayland";
       terminal = false;
-      categories = [ "Network" "InstantMessaging" ];
+      categories = [
+        "Network"
+        "InstantMessaging"
+      ];
     };
   };
 
@@ -116,7 +113,7 @@
     userEmail = "39483124+scottmckendry@users.noreply.github.com";
     aliases = {
       co = "checkout";
-      hist = "log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short";
+      hist = ''log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'';
     };
   };
 
@@ -206,5 +203,5 @@
   };
 
   # Do not modify state version
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 }

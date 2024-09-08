@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 {
-  nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
-  hardware.nvidia.powerManagement.enable = true;
 
   hardware.opengl = {
     enable = true;
@@ -12,6 +10,7 @@
   };
 
   hardware.nvidia = {
+    powerManagement.enable = true;
     modesetting.enable = true;
     open = false;
     nvidiaSettings = true;

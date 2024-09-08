@@ -3,7 +3,6 @@
 {
   imports = [
     ./rofi/rofi.nix
-    ./wallpapers/.swww.nix
     ./waybar/waybar.nix
   ];
 
@@ -34,6 +33,7 @@
     grim
     hypridle
     hyprlock
+    hyprpaper
     inotify-tools
     killall
     nixfmt-rfc-style

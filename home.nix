@@ -2,7 +2,6 @@
 
 {
   imports = [
-    # ./hypr/hyprland.nix
     ./rofi/rofi.nix
     ./wallpapers/.swww.nix
     ./waybar/waybar.nix
@@ -33,6 +32,8 @@
     gnumake
     go
     grim
+    hypridle
+    hyprlock
     inotify-tools
     killall
     nixfmt-rfc-style
@@ -46,6 +47,7 @@
     spotify
     swappy
     unzip
+    waybar
     wget
     wl-clipboard
     wlogout

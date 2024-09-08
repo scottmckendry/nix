@@ -1,0 +1,51 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+format = """$all $fill $cmd_duration
+$character"""
+
+add_newline = false
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+
+[cmd_duration]
+min_time = 10
+show_milliseconds = true
+format = "[$duration](bright-black)"
+
+[fill]
+symbol = ' '
+
+[golang]
+symbol = " "
+
+[nodejs]
+detect_extensions = []
+
+[git_metrics]
+disabled = false
+format = '(([ $added ]($added_style))([ $deleted ]($deleted_style)))'
+only_nonzero_diffs = true
+added_style = 'green'
+deleted_style = 'red'
+
+[line_break]
+disabled = true
+
+[jobs]
+disabled = true
+
+[battery]
+disabled = true
+
+[env_var.SOFTWARE_UPDATE_AVAILABLE]
+variable = 'SOFTWARE_UPDATE_AVAILABLE'
+format = '[$env_value]($style)'
+default = ''
+style = 'cyan'
+
+[env_var.DOTFILES_UPDATE_AVAILABLE]
+variable = 'DOTFILES_UPDATE_AVAILABLE'
+format = '[$env_value]($style)'
+default = ''
+style = 'cyan'

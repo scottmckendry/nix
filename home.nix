@@ -30,6 +30,7 @@
     fzf
     fzf
     gcc
+    gnumake
     go
     grim
     inotify-tools

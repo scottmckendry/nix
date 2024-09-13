@@ -3,10 +3,9 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   hardware.nvidia = {

@@ -1,15 +1,12 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  unstableTarball = fetchTarball
-    "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
-in {
+{
   imports = [
-    /etc/nixos/hardware-configuration.nix
+    ./hardware-configuration.nix
     ./modules/locale.nix
     ./modules/networking.nix
     ./modules/nvidia.nix
-    <home-manager/nixos>
+    ./modules/stylix.nix
   ];
 
   # bootloader.
@@ -22,8 +19,12 @@ in {
     xwayland.enable = true;
   };
 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -37,20 +38,15 @@ in {
   users.users.scott = {
     isNormalUser = true;
     description = "Scott McKendry";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   nixpkgs.config = {
     allowUnfree = true;
-    packageOverrides = pkgs: {
-      unstable = import unstableTarball { config = config.nixpkgs.config; };
-    };
   };
-
-  environment.systemPackages = with pkgs; [ unstable.neovim ];
-
-  # Import Home Manager configuration.
-  home-manager.users.scott = { pkgs, ... }: { imports = [ ./home.nix ]; };
 
   system.stateVersion = "24.05";
 }

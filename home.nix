@@ -1,31 +1,30 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
-    ./rofi/rofi.nix
-    ./waybar/waybar.nix
+    ./modules/stylix.nix
   ];
 
   programs.zoxide.enable = true;
   programs.gh.enable = true;
+  programs.lazygit.enable = true;
+  programs.starship.enable = true;
+  programs.fuzzel.enable = true;
+  programs.waybar.enable = true;
+  services.hyprpaper.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-        "Ubuntu"
-      ];
-    })
+    bat
     brave
     cargo
-    cinnamon.nemo
     cliphist
     discord
+    dolphin
     dunst
+    fastfetch
     fd
     firefox
-    fzf
     fzf
     gcc
     gnumake
@@ -36,6 +35,7 @@
     hyprpaper
     inotify-tools
     killall
+    neovim
     nixfmt-rfc-style
     nodejs
     pamixer
@@ -46,6 +46,7 @@
     slurp
     spotify
     swappy
+    teams-for-linux
     unzip
     waybar
     wget
@@ -53,10 +54,6 @@
     wlogout
     zig
   ];
-
-  home.sessionVariables = {
-    GTK_THEME = "Adementary-dark";
-  };
 
   xdg.desktopEntries = {
     discord = {
@@ -77,27 +74,6 @@
     [Default]
     early_exit=true
   '';
-
-  programs.lazygit = {
-    enable = true;
-    settings = {
-      notARepository = "skip";
-      gui = {
-        nerdFontsVersion = "3";
-        showBottomLine = false;
-        border = "rounded";
-        mouseEvents = false;
-
-        theme = {
-          activeBorderColor = [ "cyan" ];
-          inactiveBorderColor = [ "magenta" ];
-        };
-      };
-      git = {
-        parseEmoji = true;
-      };
-    };
-  };
 
   programs.bash = {
     enable = true;
@@ -123,83 +99,10 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      font = {
-        size = 10;
-        normal = {
-          family = "JetBrains Mono Nerd Font";
-        };
-      };
       window = {
-        opacity = 0.9;
         padding = {
           x = 10;
           y = 10;
-        };
-      };
-      colors = {
-        primary = {
-          background = "#16181a";
-          foreground = "#ffffff";
-        };
-        normal = {
-          black = "#16181a";
-          red = "#ff6e5e";
-          green = "#5eff6c";
-          yellow = "#f1ff5e";
-          blue = "#5ea1ff";
-          magenta = "#bd5eff";
-          cyan = "#5ef1ff";
-          white = "#ffffff";
-        };
-        bright = {
-          black = "#3c4048";
-          red = "#ff6e5e";
-          green = "#5eff6c";
-          yellow = "#f1ff5e";
-          blue = "#5ea1ff";
-          magenta = "#bd5eff";
-          cyan = "#5ef1ff";
-          white = "#ffffff";
-        };
-      };
-    };
-  };
-
-  programs.starship = {
-    enable = true;
-    settings = {
-      add_newline = false;
-      character = {
-        success_symbol = "[❯](bold green)";
-        error_symbol = "[ ](bold red)";
-      };
-      cmd_duration = {
-        min_time = 200;
-        show_milliseconds = true;
-      };
-      golang = {
-        symbol = " ";
-      };
-      nodejs = {
-        detect_extensions = [ ];
-      };
-      git_metrics = {
-        disabled = false;
-        format = "(([ $added]($added_style)) ([ $deleted]($deleted_style)))";
-        only_nonzero_diffs = true;
-      };
-      line_break = {
-        disabled = true;
-      };
-      jobs = {
-        disabled = true;
-      };
-      env_var = {
-        UpdatesPending = {
-          variable = "UpdatesPending";
-          format = "[$env_value]($style)";
-          default = "";
-          style = "bold cyan";
         };
       };
     };

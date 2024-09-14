@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./modules/stylix.nix
+    ./waybar/waybar.nix
   ];
 
   programs.zoxide.enable = true;
@@ -10,7 +10,6 @@
   programs.lazygit.enable = true;
   programs.starship.enable = true;
   programs.fuzzel.enable = true;
-  programs.waybar.enable = true;
   services.hyprpaper.enable = true;
 
   nixpkgs.config.allowUnfree = true;
@@ -48,7 +47,6 @@
     swappy
     teams-for-linux
     unzip
-    waybar
     wget
     wl-clipboard
     wlogout

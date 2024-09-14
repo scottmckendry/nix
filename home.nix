@@ -29,6 +29,8 @@
     gnumake
     go
     grim
+    gnome-tweaks
+    dconf-editor
     hypridle
     hyprlock
     hyprpaper
@@ -80,7 +82,7 @@
       cd = "z";
       cdi = "zi";
 
-      rebuild = "sudo nixos-rebuild switch";
+      rebuild = "nh os switch $HOME/git/nix";
     };
   };
 
@@ -98,6 +100,7 @@
     enable = true;
     settings = {
       window = {
+        decorations = "none";
         padding = {
           x = 10;
           y = 10;

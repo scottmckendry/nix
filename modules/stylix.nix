@@ -2,9 +2,13 @@
 {
   stylix = {
     enable = true;
+    polarity = "dark";
     image = ../wallpapers/grass.png;
     base16Scheme = ./cyberdream.yaml;
     opacity.terminal = 0.9;
+    cursor.size = 14;
+    cursor.package = pkgs.vimix-cursors;
+    cursor.name = "Vimix-cursors";
     fonts = {
       serif = {
         package = pkgs.noto-fonts;

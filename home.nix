@@ -46,12 +46,13 @@
     ripgrep
     slurp
     spotify
+    sqlite
     swappy
-    teams-for-linux
     unzip
     wget
     wl-clipboard
     wlogout
+    wezterm
     zig
   ];
 

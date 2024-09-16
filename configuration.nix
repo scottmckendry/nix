@@ -9,6 +9,7 @@
     ./modules/stylix.nix
     ./modules/gaming.nix
     ./modules/gnome.nix
+    ./modules/work.nix
   ];
 
   # bootloader.

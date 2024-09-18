@@ -3,6 +3,7 @@
 {
   imports = [
     ./waybar/waybar.nix
+    ./modules/dconf.nix
   ];
 
   programs.zoxide.enable = true;
@@ -47,7 +48,6 @@
     slurp
     spotify
     sqlite
-    swappy
     unzip
     wget
     wl-clipboard
@@ -55,26 +55,6 @@
     wezterm
     zig
   ];
-
-  xdg.desktopEntries = {
-    discord = {
-      name = "Discord";
-      genericName = "Discord";
-      comment = "All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.";
-      icon = "discord";
-      exec = "discord --enable-features=UseOzonePlatform --ozone-platform=wayland";
-      terminal = false;
-      categories = [
-        "Network"
-        "InstantMessaging"
-      ];
-    };
-  };
-
-  xdg.configFile."swappy/config".text = ''
-    [Default]
-    early_exit=true
-  '';
 
   programs.bash = {
     enable = true;
@@ -106,7 +86,17 @@
           x = 10;
           y = 10;
         };
+        dimensions = {
+          columns = 180;
+          lines = 45;
+        };
       };
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      clock-show-seconds = true;
     };
   };
 

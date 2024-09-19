@@ -28,4 +28,4 @@ git:
     parseEmoji: true
     paging:
         colorArg: always
-        useConfig: true
+        pager: delta --paging=never

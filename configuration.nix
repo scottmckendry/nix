@@ -11,6 +11,12 @@
     ./modules/work.nix
   ];
 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  # cosmic desktop
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
 
@@ -18,17 +24,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  # Enable dynamically link binaries.
-  programs.nix-ld.enable = true;
-
-  # Create user account.
   users.users.scott = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     description = "Scott McKendry";
     extraGroups = [
       "networkmanager"
@@ -36,15 +34,14 @@
     ];
   };
 
+  programs.nix-ld.enable = true;
+  programs.zsh.enable = true;
   programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
-
+  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.05";
 }

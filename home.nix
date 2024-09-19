@@ -48,14 +48,25 @@ in
     zig
   ];
 
-  programs.bash = {
+  programs.zsh = {
     enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+      ];
+    };
     shellAliases = {
       cd = "z";
       cdi = "zi";
       cat = "bat";
-      rebuild = "nh os switch $HOME/git/nix";
+      rebuild = "nh os switch ${nixDir}";
     };
+    initExtra = ''
+      fastfetch --logo ${nixDir}/fastfetch/logos/ascii.txt
+    '';
   };
 
   programs.git = {

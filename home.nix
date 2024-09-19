@@ -1,24 +1,18 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./waybar/waybar.nix
-    ./modules/dconf.nix
-  ];
+  imports = [ ];
 
   programs.zoxide.enable = true;
   programs.gh.enable = true;
   programs.lazygit.enable = true;
   programs.starship.enable = true;
-  programs.fuzzel.enable = true;
-  services.hyprpaper.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     bat
     brave
     cargo
-    cliphist
     discord
     dolphin
     dunst
@@ -29,29 +23,18 @@
     gcc
     gnumake
     go
-    grim
-    gnome-tweaks
-    dconf-editor
-    hypridle
-    hyprlock
-    hyprpaper
     inotify-tools
     killall
     neovim
     nixfmt-rfc-style
     nodejs
-    pamixer
-    pavucontrol
-    playerctl
     powershell
     ripgrep
-    slurp
     spotify
     sqlite
     unzip
     wget
     wl-clipboard
-    wlogout
     wezterm
     zig
   ];
@@ -91,12 +74,6 @@
           lines = 45;
         };
       };
-    };
-  };
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      clock-show-seconds = true;
     };
   };
 

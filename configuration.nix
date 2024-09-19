@@ -8,34 +8,23 @@
     ./modules/nvidia.nix
     ./modules/stylix.nix
     ./modules/gaming.nix
-    ./modules/gnome.nix
     ./modules/work.nix
   ];
+
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
 
   # bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # enable Hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
 
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
+  # Enable dynamically link binaries.
+  programs.nix-ld.enable = true;
 
   # Create user account.
   users.users.scott = {

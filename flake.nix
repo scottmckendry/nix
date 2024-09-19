@@ -4,6 +4,10 @@
     stylix.url = "github:danth/stylix";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -11,6 +15,7 @@
       nixpkgs,
       stylix,
       home-manager,
+      nixos-cosmic,
       ...
     }:
     {
@@ -18,8 +23,13 @@
         system = "x86_64-linux";
         modules = [
           stylix.nixosModules.stylix
-          ./configuration.nix
-          ./hardware-configuration.nix
+          nixos-cosmic.nixosModules.default
+          {
+            nix.settings = {
+              substituters = [ "https://cosmic.cachix.org" ];
+              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            };
+          }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -28,6 +38,8 @@
               imports = [ ./home.nix ];
             };
           }
+          ./configuration.nix
+          ./hardware-configuration.nix
         ];
       };
     };

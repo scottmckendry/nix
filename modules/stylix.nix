@@ -4,7 +4,10 @@
     enable = true;
     polarity = "dark";
     image = ../wallpapers/grass.png;
-    base16Scheme = ./cyberdream.yaml;
+    base16Scheme = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/main/extras/base16/cyberdream.yaml";
+      sha256 = "1bfi479g7v5cz41d2s0lbjlqmfzaah68cj1065zzsqksx3n63znf";
+    };
     opacity.terminal = 0.9;
     cursor.size = 14;
     cursor.package = pkgs.vimix-cursors;

@@ -1,6 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
+let
+  inherit (config.lib.file) mkOutOfStoreSymlink;
+  nixDir = "${config.home.homeDirectory}/git/nix";
+in
 {
+  xdg.configFile."waybar".source = mkOutOfStoreSymlink "${nixDir}/waybar";
+
+  services.dunst.enable = true;
   programs.wofi.enable = true;
+
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -62,12 +70,16 @@
   };
 
   home.packages = with pkgs; [
+    blueman
     cliphist
     grim
+    inotify-tools
     pamixer
+    pavucontrol
     playerctl
     slurp
     swappy
+    waybar
   ];
 
   wayland.windowManager.hyprland = {
@@ -83,12 +95,14 @@
         "hyprlock"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
+        "$HOME/.config/waybar/waybar-hot-reload.sh"
+        "blueman-applet"
       ];
 
       # keybinds
       "$mainMod" = "SUPER";
       bind = [
-        "$mainMod, RETURN, exec, wezterm"
+        "$mainMod, RETURN, exec, alacritty"
         "$mainMod, R, exec, wofi --show drun"
         "$mainMod, Q, killactive"
         "$mainMod_SHIFT, Q, exit"
@@ -118,7 +132,7 @@
 
       # window rules
       windowrule = [
-        "float,.*"
+        # "float,.*"
       ];
 
       misc = {

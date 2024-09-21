@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  programs.fuzzel.enable = true;
+  programs.wofi.enable = true;
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -62,9 +62,10 @@
   };
 
   home.packages = with pkgs; [
-    playerctl
-    pamixer
+    cliphist
     grim
+    pamixer
+    playerctl
     slurp
     swappy
   ];
@@ -80,13 +81,15 @@
       exec-once = [
         "hypridle"
         "hyprlock"
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
       ];
 
       # keybinds
       "$mainMod" = "SUPER";
       bind = [
         "$mainMod, RETURN, exec, wezterm"
-        "$mainMod, R, exec, fuzzel"
+        "$mainMod, R, exec, wofi --show drun"
         "$mainMod, Q, killactive"
         "$mainMod_SHIFT, Q, exit"
         "$mainMod, T, togglefloating"
@@ -102,6 +105,9 @@
 
         # screenshot & pipe to swappy
         "$mainMod_SHIFT, S, exec, grim -g \"$(slurp)\" - | swappy -f -"
+
+        # clipboard
+        "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
       ];
 
       # mousebinds

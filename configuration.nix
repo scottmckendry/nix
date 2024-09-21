@@ -3,11 +3,12 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./modules/gaming.nix
+    ./modules/hyprland.nix
     ./modules/locale.nix
     ./modules/networking.nix
     ./modules/nvidia.nix
     ./modules/stylix.nix
-    ./modules/gaming.nix
     ./modules/work.nix
   ];
 
@@ -15,10 +16,6 @@
     "nix-command"
     "flakes"
   ];
-
-  # cosmic desktop
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
 
   # bootloader.
   boot.loader.systemd-boot.enable = true;

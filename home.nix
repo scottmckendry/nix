@@ -5,7 +5,10 @@ let
   nixDir = "${config.home.homeDirectory}/git/nix";
 in
 {
-  imports = [ ./modules/home/lazygit.nix ];
+  imports = [
+    ./modules/home/lazygit.nix
+    ./modules/home/hyprland.nix
+  ];
 
   # symlinks
   xdg.configFile."bat".source = mkOutOfStoreSymlink "${nixDir}/bat";
@@ -32,7 +35,6 @@ in
     gcc
     gnumake
     go
-    inotify-tools
     killall
     neovim
     nixfmt-rfc-style

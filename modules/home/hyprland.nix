@@ -117,8 +117,26 @@ in
         ", XF86AudioNext, exec, playerctl next"
         ", XF86AudioPrev, exec, playerctl previous"
 
+        # move focus
+        "$mainMod, J, movefocus, d"
+        "$mainMod, K, movefocus, u"
+        "$mainMod, H, movefocus, l"
+        "$mainMod, L, movefocus, r"
+
+        # workspaces
+        "$mainMod, A, workspace, 1"
+        "$mainMod, S, workspace, 2"
+        "$mainMod, D, workspace, 3"
+        "$mainMod, F, workspace, 4"
+        "$mainMod, G, workspace, 5"
+        "$mainMod_SHIFT, A, movetoworkspace, 1"
+        "$mainMod_SHIFT, S, movetoworkspace, 2"
+        "$mainMod_SHIFT, D, movetoworkspace, 3"
+        "$mainMod_SHIFT, F, movetoworkspace, 4"
+        "$mainMod_SHIFT, G, movetoworkspace, 5"
+
         # screenshot & pipe to swappy
-        "$mainMod_SHIFT, S, exec, grim -g \"$(slurp)\" - | swappy -f -"
+        "$mainMod_ALT_SHIFT, S, exec, grim -g \"$(slurp)\" - | swappy -f -"
 
         # clipboard
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"

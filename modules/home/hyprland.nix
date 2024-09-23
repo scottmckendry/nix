@@ -70,7 +70,7 @@ in
   };
 
   home.packages = with pkgs; [
-    blueman
+    blueberry
     cliphist
     grim
     inotify-tools
@@ -96,7 +96,6 @@ in
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "$HOME/.config/waybar/waybar-hot-reload.sh"
-        "blueman-applet"
       ];
 
       # keybinds

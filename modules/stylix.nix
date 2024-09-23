@@ -8,10 +8,10 @@
       url = "https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/main/extras/base16/cyberdream.yaml";
       sha256 = "1bfi479g7v5cz41d2s0lbjlqmfzaah68cj1065zzsqksx3n63znf";
     };
-    opacity.terminal = 0.9;
+    opacity.terminal = 0.75;
     cursor.size = 14;
-    cursor.package = pkgs.vimix-cursors;
-    cursor.name = "Vimix-cursors";
+    cursor.package = pkgs.bibata-cursors;
+    cursor.name = "Bibata-Modern-Classic";
     fonts = {
       serif = {
         package = pkgs.noto-fonts;

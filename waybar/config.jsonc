@@ -1,9 +1,7 @@
 {
-    "layer": "top", // Waybar at top layer
-    "height": 30, // Waybar height (to be removed for auto height)
-    "output": "DP-2", // Only display on main monitor
-    "spacing": 20, // Gaps between modules (4px)
-    // Module order
+    "layer": "top",
+    "output": "DP-2",
+    "spacing": 2,
     "modules-left": [
         "hyprland/workspaces"
     ],
@@ -11,19 +9,34 @@
         "clock"
     ],
     "modules-right": [
-        "network",
-        "pulseaudio",
+        "bluetooth",
         "cpu",
-        "memory",
         "temperature",
+        "memory",
+        "pulseaudio",
         "tray"
     ],
     // Modules configuration
     "hyprland/workspaces": {
-        "all-outputs": true
+        "format": "{icon}",
+        "all-outputs": true,
+        "format-icons": {
+            "active": "",
+            "default": ""
+        }
     },
     "tray": {
         "spacing": 5
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "blueberry"
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -32,40 +45,19 @@
         "interval": 1
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "CPU {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "MEM {}%"
     },
     "temperature": {
         "critical-threshold": 80,
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": [
-            "",
-            "",
-            ""
-        ]
-    },
-    "network": {
-        "interval": 1,
-        "format-ethernet": "{bandwidthDownBits}  {bandwidthUpBits} "
+        "format": "{temperatureC}°C"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format": "{icon} {volume}%",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
             "default": [
                 "",
                 "",

@@ -27,8 +27,6 @@ in
     brave
     cargo
     discord
-    dolphin
-    dunst
     fd
     firefox
     fzf
@@ -36,6 +34,7 @@ in
     gnumake
     go
     killall
+    nautilus
     neovim
     nixfmt-rfc-style
     nodejs

@@ -8,6 +8,7 @@ in
 
   services.dunst.enable = true;
   programs.wofi.enable = true;
+  programs.fuzzel.enable = true;
 
   programs.hyprlock = {
     enable = true;
@@ -71,14 +72,13 @@ in
 
   home.packages = with pkgs; [
     blueberry
+    bemoji
     cliphist
-    grim
+    hyprshot
     inotify-tools
     pamixer
     pavucontrol
     playerctl
-    slurp
-    swappy
     waybar
   ];
 
@@ -102,7 +102,7 @@ in
       "$mainMod" = "SUPER";
       bind = [
         "$mainMod, RETURN, exec, alacritty"
-        "$mainMod, R, exec, wofi --show drun"
+        "$mainMod, R, exec, fuzzel"
         "$mainMod, Q, killactive"
         "$mainMod_SHIFT, Q, exit"
         "$mainMod, T, togglefloating"
@@ -134,11 +134,10 @@ in
         "$mainMod_SHIFT, F, movetoworkspace, 4"
         "$mainMod_SHIFT, G, movetoworkspace, 5"
 
-        # screenshot & pipe to swappy
-        "$mainMod_ALT_SHIFT, S, exec, grim -g \"$(slurp)\" - | swappy -f -"
-
-        # clipboard
-        "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+        # misc
+        "$mainMod_ALT_SHIFT, S, exec, hyprshot -m region" # interactive screenshot
+        "$mainMod, V, exec, cliphist list | fuzzel -d | cliphist decode | wl-copy" # clipboard history
+        "$mainMod, period, exec, BEMOJI_PICKER_CMD='fuzzel -d' bemoji" # emoji picker
       ];
 
       # mousebinds
@@ -173,6 +172,10 @@ in
         gaps_in = 10;
         gaps_out = 20;
         border_size = 2;
+      };
+
+      dwindle = {
+        smart_split = true;
       };
     };
   };

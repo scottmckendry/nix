@@ -12,10 +12,13 @@
     ./modules/work.nix
   ];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    warn-dirty = false;
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   # bootloader.
   boot.loader.systemd-boot.enable = true;

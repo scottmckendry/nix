@@ -63,7 +63,7 @@ in
       cd = "z";
       cdi = "zi";
       cat = "bat";
-      rebuild = "nh os switch ${nixDir}";
+      rebuild = "git add -A -N && nh os switch ${nixDir}";
     };
     initExtra = ''
       fastfetch --logo ${nixDir}/fastfetch/logos/ascii.txt

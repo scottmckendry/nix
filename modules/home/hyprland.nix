@@ -5,10 +5,18 @@ let
 in
 {
   xdg.configFile."waybar".source = mkOutOfStoreSymlink "${nixDir}/waybar";
+  stylix.targets.hyprland.enable = false;
 
-  services.dunst.enable = true;
   programs.wofi.enable = true;
   programs.fuzzel.enable = true;
+  services.dunst.enable = true;
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = [ "${config.stylix.image}" ];
+      wallpaper = [ ",${config.stylix.image}" ];
+    };
+  };
 
   programs.hyprlock = {
     enable = true;
@@ -17,7 +25,7 @@ in
       grace = 0;
       background = {
         monitor = "";
-        path = "$HOME/git/nix/wallpapers/grass.png";
+        path = "${config.stylix.image}";
         blur_passes = 2;
       };
       input-field = {
@@ -93,6 +101,7 @@ in
       exec-once = [
         "hypridle"
         "hyprlock"
+        "hyprpaper"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "$HOME/.config/waybar/waybar-hot-reload.sh"
@@ -157,21 +166,27 @@ in
       };
 
       decoration = {
-        rounding = 5;
+        rounding = 10;
+        shadow_range = 20;
+        shadow_render_power = 2;
+        shadow_offset = "0, 10";
+        "col.shadow" = "rgba(00000030)";
         blur = {
           enabled = true;
           size = 4;
           passes = 3;
+          xray = true;
+          vibrancy = 0.75;
+          vibrancy_darkness = 0;
         };
-        drop_shadow = "yes";
-        shadow_range = 4;
-        shadow_render_power = 3;
       };
 
       general = {
         gaps_in = 10;
         gaps_out = 20;
         border_size = 2;
+        "col.active_border" = "rgba(5ef1ff8a) rgba(bd5eff8a) 135deg";
+        "col.inactive_border" = "rgba(00000040)";
       };
 
       dwindle = {

@@ -15,80 +15,17 @@ let
 in
 
 {
-  imports = [ ./anyrun ];
+  imports = [
+    ./anyrun
+    ./hypridle.nix
+    ./hyprlock.nix
+    ./hyprpaper.nix
+  ];
 
   xdg.configFile."waybar".source = mkOutOfStoreSymlink "${nixDir}/waybar";
   stylix.targets.hyprland.enable = false;
-
   programs.wofi.enable = true;
   services.dunst.enable = true;
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      preload = [ "${config.stylix.image}" ];
-      wallpaper = [ ",${config.stylix.image}" ];
-    };
-  };
-
-  programs.hyprlock = {
-    enable = true;
-    settings = {
-      hide_cursor = true;
-      grace = 0;
-      background = {
-        monitor = "";
-        path = "${config.stylix.image}";
-        blur_passes = 2;
-      };
-      input-field = {
-        monitor = "DP-2";
-        size = "250, 60";
-        outer_color = "rgba(0, 0, 0, 0)";
-        inner_color = "rgba(0, 0, 0, 0.2)";
-        font_color = "rgba(200, 200, 200, 1)";
-      };
-      # clock
-      label = {
-        monitor = "DP-2";
-        text = "cmd[update:1000] echo -n $(date +'%-I:%M %p')";
-        size = "250, 60";
-        color = "rgba(200, 200, 200, 1)";
-        font_size = 45;
-        font_family = "JetBrains Mono";
-        position = "0, 100";
-        halign = "center";
-        valign = "center";
-      };
-    };
-  };
-
-  services.hypridle = {
-    enable = true;
-    settings = {
-      general = {
-        lock_cmd = "pidof hyprlock || hyprlock";
-        after_sleep_cmd = "hyprctl dispatch dpms on";
-      };
-      listener = [
-        # lock after 5 minutes
-        {
-          timeout = 300;
-          on-timeout = "hyprlock";
-        }
-        # turn off monitor/s shortly after locking
-        {
-          timeout = 330;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
-        }
-        # suspend after 20 minutes
-        {
-          timeout = 1200;
-          on-timeout = "systemctl suspend";
-        }
-      ];
-    };
-  };
 
   home.packages = with pkgs; [
     blueberry

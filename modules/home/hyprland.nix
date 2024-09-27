@@ -1,14 +1,26 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  inputs,
+  ...
+}:
+
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
   nixDir = "${config.home.homeDirectory}/git/nix";
+
+  anyrunStdin = "anyrun --show-results-immediately true --plugins ${
+    inputs.anyrun.packages.${pkgs.system}.stdin
+  }/lib/libstdin.so";
 in
+
 {
+  imports = [ ./anyrun ];
+
   xdg.configFile."waybar".source = mkOutOfStoreSymlink "${nixDir}/waybar";
   stylix.targets.hyprland.enable = false;
 
   programs.wofi.enable = true;
-  programs.fuzzel.enable = true;
   services.dunst.enable = true;
   services.hyprpaper = {
     enable = true;
@@ -111,7 +123,7 @@ in
       "$mainMod" = "SUPER";
       bind = [
         "$mainMod, RETURN, exec, alacritty"
-        "$mainMod, R, exec, fuzzel"
+        "$mainMod, R, exec, anyrun"
         "$mainMod, Q, killactive"
         "$mainMod_SHIFT, Q, exit"
         "$mainMod, T, togglefloating"
@@ -145,8 +157,8 @@ in
 
         # misc
         "$mainMod_ALT_SHIFT, S, exec, hyprshot -m region" # interactive screenshot
-        "$mainMod, V, exec, cliphist list | fuzzel -d | cliphist decode | wl-copy" # clipboard history
-        "$mainMod, period, exec, BEMOJI_PICKER_CMD='fuzzel -d' bemoji" # emoji picker
+        "$mainMod, V, exec, cliphist list | ${anyrunStdin} | cliphist decode | wl-copy" # clipboard history
+        "$mainMod, period, exec, BEMOJI_PICKER_CMD='${anyrunStdin}' bemoji" # emoji picker
       ];
 
       # mousebinds
@@ -157,7 +169,13 @@ in
 
       # window rules
       windowrule = [
-        # "float,.*"
+        "float,brave" # float brave file dialogs
+      ];
+
+      # layer rules
+      layerrule = [
+        "blur, waybar"
+        "blur, anyrun"
       ];
 
       misc = {
@@ -175,7 +193,7 @@ in
           enabled = true;
           size = 4;
           passes = 3;
-          xray = true;
+          # xray = true;
           vibrancy = 0.75;
           vibrancy_darkness = 0;
         };

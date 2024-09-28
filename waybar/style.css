@@ -1,31 +1,22 @@
 * {
     font-family: "Ubuntu Nerd Font";
     font-weight: bold;
-    font-size: 13px;
+    font-size: 12px;
 }
+
 window#waybar {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #cccccc;
+    background-color: rgba(16, 22, 33, 0.7);
+    color: #ffffff;
 }
+
 #clock,
 #cpu,
+#bluetooth,
 #memory,
-#disk,
 #temperature,
-#network,
 #pulseaudio,
 #wireplumber,
-#custom-nixlogo,
 #workspaces,
 #tray {
-    padding: 0 5px;
-}
-#window {
-    margin: 0 4px;
-}
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+    padding: 0 0.5em;
 }

@@ -6,7 +6,7 @@
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "clock"
+        "hyprland/window"
     ],
     "modules-right": [
         "bluetooth",
@@ -14,6 +14,8 @@
         "temperature",
         "memory",
         "pulseaudio",
+        "clock",
+        "idle_inhibitor",
         "tray"
     ],
     // Modules configuration
@@ -26,12 +28,13 @@
         }
     },
     "tray": {
-        "spacing": 5
+        "show-passive-items": true,
+        "spacing": 8
     },
     "bluetooth": {
-        "format": " {status}",
-        "format-connected": " {device_alias}",
-        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "format": "  {status}",
+        "format-connected": "  {status}",
+        "format-connected-battery": " {device_battery_percentage}%",
         "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -45,25 +48,29 @@
         "interval": 1
     },
     "cpu": {
-        "format": "CPU {usage}%",
+        "format": "  {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "MEM {}%"
+        "format": "   {}%"
     },
     "temperature": {
-        "critical-threshold": 80,
-        "format": "{temperatureC}°C"
+        "thermal-zone": 1,
+        "format": "  {temperatureC}°C"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "  {volume}%",
+        "on-click": "pavucontrol",
+        "on-scroll-up": "pamixer -i 2",
+        "on-scroll-down": "pamixer -d 2"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "tooltip": true,
         "format-icons": {
-            "default": [
-                "",
-                "",
-                ""
-            ]
+            "activated": "  ",
+            "deactivated": "  "
         },
-        "on-click": "pavucontrol"
+        "on-click-right": "hyprlock"
     }
 }

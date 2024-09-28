@@ -26,7 +26,6 @@ in
     bat
     brave
     cargo
-    discord
     fd
     firefox
     fzf
@@ -41,8 +40,8 @@ in
     powershell
     ripgrep
     spotify
-    sqlite
     unzip
+    vesktop
     wezterm
     wget
     wl-clipboard
@@ -63,7 +62,7 @@ in
       cd = "z";
       cdi = "zi";
       cat = "bat";
-      rebuild = "git add -A -N && nh os switch ${nixDir}";
+      rebuild = "cd ${nixDir} && git add -A -N && nh os switch . && cd -";
     };
     initExtra = ''
       fastfetch --logo ${nixDir}/fastfetch/logos/ascii.txt

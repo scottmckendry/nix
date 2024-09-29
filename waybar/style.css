@@ -17,6 +17,8 @@ window#waybar {
 #pulseaudio,
 #wireplumber,
 #workspaces,
+#idle_inhibitor,
+#custom-hyprshade,
 #tray {
     padding: 0 0.5em;
 }

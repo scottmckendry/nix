@@ -16,6 +16,7 @@
         "pulseaudio",
         "clock",
         "idle_inhibitor",
+        "custom/hyprshade",
         "tray"
     ],
     // Modules configuration
@@ -68,9 +69,14 @@
         "format": "{icon}",
         "tooltip": true,
         "format-icons": {
-            "activated": "  ",
-            "deactivated": "  "
+            "activated": " ",
+            "deactivated": " "
         },
         "on-click-right": "hyprlock"
+    },
+    "custom/hyprshade": {
+        "exec": "if [ -z $(hyprshade current) ]; then echo '󰃠 '; else echo '󰃞 '; fi",
+        "interval": 1,
+        "on-click": "hyprshade toggle blue-light-filter"
     }
 }

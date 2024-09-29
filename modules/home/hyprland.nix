@@ -8,10 +8,6 @@
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
   nixDir = "${config.home.homeDirectory}/git/nix";
-
-  anyrunStdin = "anyrun --show-results-immediately true --plugins ${
-    inputs.anyrun.packages.${pkgs.system}.stdin
-  }/lib/libstdin.so";
 in
 
 {
@@ -31,6 +27,7 @@ in
     blueberry
     bemoji
     cliphist
+    hyprshade
     hyprshot
     inotify-tools
     pamixer
@@ -48,9 +45,7 @@ in
       ];
 
       exec-once = [
-        "hypridle"
         "hyprlock"
-        "hyprpaper"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "$HOME/.config/waybar/waybar-hot-reload.sh"
@@ -58,55 +53,57 @@ in
 
       # keybinds
       "$mainMod" = "SUPER";
-      bind = [
-        "$mainMod, RETURN, exec, alacritty"
-        "$mainMod, R, exec, anyrun"
-        "$mainMod, Q, killactive"
-        "$mainMod_SHIFT, Q, exit"
-        "$mainMod, T, togglefloating"
-        "$mainMod_SHIFT, T, fullscreen"
-        "$mainMod_SHIFT, L, exec, hyprlock"
 
-        # audio/media
-        ", XF86AudioRaiseVolume, exec, pamixer -i 2"
-        ", XF86AudioLowerVolume, exec, pamixer -d 2"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPrev, exec, playerctl previous"
+      bind =
+        let
+          anyrunStdin = "anyrun --show-results-immediately true --plugins ${
+            inputs.anyrun.packages.${pkgs.system}.stdin
+          }/lib/libstdin.so";
+        in
+        [
+          "$mainMod, RETURN, exec, alacritty"
+          "$mainMod, R, exec, anyrun"
+          "$mainMod, Q, killactive"
+          "$mainMod_SHIFT, Q, exit"
+          "$mainMod, T, togglefloating"
+          "$mainMod_SHIFT, T, fullscreen"
+          "$mainMod_SHIFT, L, exec, hyprlock"
 
-        # move focus
-        "$mainMod, J, movefocus, d"
-        "$mainMod, K, movefocus, u"
-        "$mainMod, H, movefocus, l"
-        "$mainMod, L, movefocus, r"
+          # audio/media
+          ", XF86AudioRaiseVolume, exec, pamixer -i 2"
+          ", XF86AudioLowerVolume, exec, pamixer -d 2"
+          ", XF86AudioPlay, exec, playerctl play-pause"
+          ", XF86AudioNext, exec, playerctl next"
+          ", XF86AudioPrev, exec, playerctl previous"
 
-        # workspaces
-        "$mainMod, A, workspace, 1"
-        "$mainMod, S, workspace, 2"
-        "$mainMod, D, workspace, 3"
-        "$mainMod, F, workspace, 4"
-        "$mainMod, G, workspace, 5"
-        "$mainMod_SHIFT, A, movetoworkspace, 1"
-        "$mainMod_SHIFT, S, movetoworkspace, 2"
-        "$mainMod_SHIFT, D, movetoworkspace, 3"
-        "$mainMod_SHIFT, F, movetoworkspace, 4"
-        "$mainMod_SHIFT, G, movetoworkspace, 5"
+          # move focus
+          "$mainMod, J, movefocus, d"
+          "$mainMod, K, movefocus, u"
+          "$mainMod, H, movefocus, l"
+          "$mainMod, L, movefocus, r"
 
-        # misc
-        "$mainMod_ALT_SHIFT, S, exec, hyprshot -m region" # interactive screenshot
-        "$mainMod, V, exec, cliphist list | ${anyrunStdin} | cliphist decode | wl-copy" # clipboard history
-        "$mainMod, period, exec, BEMOJI_PICKER_CMD='${anyrunStdin}' bemoji" # emoji picker
-      ];
+          # workspaces
+          "$mainMod, A, workspace, 1"
+          "$mainMod, S, workspace, 2"
+          "$mainMod, D, workspace, 3"
+          "$mainMod, F, workspace, 4"
+          "$mainMod, G, workspace, 5"
+          "$mainMod_SHIFT, A, movetoworkspace, 1"
+          "$mainMod_SHIFT, S, movetoworkspace, 2"
+          "$mainMod_SHIFT, D, movetoworkspace, 3"
+          "$mainMod_SHIFT, F, movetoworkspace, 4"
+          "$mainMod_SHIFT, G, movetoworkspace, 5"
+
+          # misc
+          "$mainMod_ALT_SHIFT, S, exec, hyprshot -m region" # interactive screenshot
+          "$mainMod, V, exec, cliphist list | ${anyrunStdin} | cliphist decode | wl-copy" # clipboard history
+          "$mainMod, period, exec, BEMOJI_PICKER_CMD='${anyrunStdin}' bemoji" # emoji picker
+        ];
 
       # mousebinds
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
-      ];
-
-      # window rules
-      windowrule = [
-        "float,brave" # float brave file dialogs
       ];
 
       # layer rules
@@ -146,6 +143,7 @@ in
 
       dwindle = {
         smart_split = true;
+        no_gaps_when_only = 1;
       };
     };
   };

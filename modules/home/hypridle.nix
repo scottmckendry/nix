@@ -1,29 +1,40 @@
-{ ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
+let
+  timeout = 300;
+  hyprlockExe = "pidof hyprlock || ${lib.getExe config.programs.hyprlock.package}";
+
+in
 {
   services.hypridle = {
     enable = true;
+    package = inputs.hypridle.packages.${pkgs.system}.hypridle;
+
     settings = {
-      general = {
-        lock_cmd = "pidof hyprlock || hyprlock";
+      general = rec {
+        lock_cmd = hyprlockExe;
+        before_slep_cmd = lock_cmd;
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
       listener = [
-        # lock after 5 minutes
         {
-          timeout = 300;
-          on-timeout = "hyprlock";
-        }
-        # turn off monitor/s shortly after locking
-        {
-          timeout = 330;
+          inherit timeout;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
-        # suspend after 20 minutes
         {
-          timeout = 1200;
-          on-timeout = "systemctl suspend";
+          timeout = timeout + 30;
+          on-timeout = hyprlockExe;
+        }
+        {
+          timeout = timeout + 60;
+          on-timeout = "${pkgs.systemd}/bin/systemctl suspend";
         }
       ];
     };

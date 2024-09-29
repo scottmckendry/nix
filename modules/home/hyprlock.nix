@@ -1,16 +1,27 @@
-{ config, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   programs.hyprlock = {
     enable = true;
+    package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
+
     settings = {
-      hide_cursor = true;
-      grace = 0;
+      general = {
+        hide_cursor = true;
+        grace = 0;
+      };
+
       background = {
         monitor = "";
         path = "${config.stylix.image}";
         blur_passes = 2;
       };
+
       input-field = {
         monitor = "DP-2";
         size = "250, 60";
@@ -18,6 +29,7 @@
         inner_color = "rgba(0, 0, 0, 0.2)";
         font_color = "rgba(200, 200, 200, 1)";
       };
+
       # clock
       label = {
         monitor = "DP-2";

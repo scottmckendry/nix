@@ -13,6 +13,7 @@ in
   services.twingate.enable = true;
   environment.systemPackages = with pkgs; [
     azure-cli
+    beekeeper-studio
     bicep
     dbeaver-bin
     dotnet-combined

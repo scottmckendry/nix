@@ -29,7 +29,7 @@
         };
 
         modules = [
-          ./hosts/wsl
+          ./hosts/helios
           nixos-wsl.nixosModules.default
           stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager

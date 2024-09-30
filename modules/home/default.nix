@@ -1,4 +1,8 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  ...
+}:
 
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
@@ -6,8 +10,8 @@ let
 in
 {
   imports = [
-    ./modules/home/lazygit.nix
-    ./modules/home/hyprland.nix
+    ./lazygit.nix
+    ./hyprland
   ];
 
   # symlinks

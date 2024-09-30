@@ -12,7 +12,7 @@ in
 
 {
   imports = [
-    ./anyrun
+    ../anyrun
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix

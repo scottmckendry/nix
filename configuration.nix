@@ -39,7 +39,7 @@
     useUserPackages = true;
 
     users.scott = {
-      imports = [ ./home.nix ];
+      imports = [ ./modules/home ];
     };
 
     extraSpecialArgs = {

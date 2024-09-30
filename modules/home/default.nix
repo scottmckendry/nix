@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  desktop,
   ...
 }:
 
@@ -9,10 +10,19 @@ let
   nixDir = "${config.home.homeDirectory}/git/nix";
 in
 {
-  imports = [
-    ./lazygit.nix
-    ./hyprland
-  ];
+  imports =
+    [
+      ./lazygit.nix
+    ]
+    ++ (
+      if desktop then
+        [
+          ./hyprland
+          ./desktopapps.nix
+        ]
+      else
+        [ ]
+    );
 
   # symlinks
   xdg.configFile."bat".source = mkOutOfStoreSymlink "${nixDir}/bat";
@@ -28,27 +38,21 @@ in
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     bat
-    brave
     cargo
     fd
-    firefox
     fzf
     gcc
     gnumake
     go
     killall
-    nautilus
     neovim
     nixfmt-rfc-style
     nodejs
     powershell
     ripgrep
-    spotify
     unzip
-    vesktop
     wezterm
     wget
-    wl-clipboard
     zig
   ];
 

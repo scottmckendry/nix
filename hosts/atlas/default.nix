@@ -1,15 +1,22 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  username,
+  name,
+  desktop,
+  ...
+}:
 
 {
   imports = [
+    ../../modules/gaming.nix
+    ../../modules/hyprland.nix
+    ../../modules/locale.nix
+    ../../modules/networking.nix
+    ../../modules/nvidia.nix
+    ../../modules/stylix.nix
+    ../../modules/work.nix
     ./hardware-configuration.nix
-    ./modules/gaming.nix
-    ./modules/hyprland.nix
-    ./modules/locale.nix
-    ./modules/networking.nix
-    ./modules/nvidia.nix
-    ./modules/stylix.nix
-    ./modules/work.nix
   ];
 
   nix.settings = {
@@ -24,10 +31,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  users.users.scott = {
+  users.users.${username} = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    description = "Scott McKendry";
+    description = name;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -38,12 +45,14 @@
     useGlobalPkgs = true;
     useUserPackages = true;
 
-    users.scott = {
-      imports = [ ./modules/home ];
+    users.${username} = {
+      imports = [ ../../modules/home ];
     };
 
     extraSpecialArgs = {
       inherit inputs;
+      inherit username;
+      inherit desktop;
     };
   };
 

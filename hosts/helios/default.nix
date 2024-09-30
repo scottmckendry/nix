@@ -1,6 +1,9 @@
 {
   pkgs,
   inputs,
+  username,
+  name,
+  desktop,
   ...
 }:
 
@@ -12,15 +15,15 @@
   ];
 
   wsl.enable = true;
-  wsl.defaultUser = "scott";
+  wsl.defaultUser = username;
   networking.hostName = "helios";
 
   nixpkgs.config.allowUnfree = true;
 
-  users.users.scott = {
+  users.users.${username} = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    description = "Scott McKendry";
+    description = name;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -31,12 +34,14 @@
     useGlobalPkgs = true;
     useUserPackages = true;
 
-    users.scott = {
+    users.${username} = {
       imports = [ ../../modules/home ];
     };
 
     extraSpecialArgs = {
       inherit inputs;
+      inherit username;
+      inherit desktop;
     };
   };
 

@@ -7,16 +7,22 @@
       nixos-wsl,
       ...
     }@inputs:
+    let
+      username = "scott";
+      name = "Scott McKendry";
+    in
     {
       nixosConfigurations."atlas" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
+          inherit username;
+          inherit name;
+          desktop = true;
         };
 
         modules = [
-          ./configuration.nix
-          ./hardware-configuration.nix
+          ./hosts/atlas
           stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
         ];
@@ -26,6 +32,9 @@
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
+          inherit username;
+          inherit name;
+          desktop = false;
         };
 
         modules = [

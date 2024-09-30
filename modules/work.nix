@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, desktop, ... }:
 
 let
   dotnet-combined = (
@@ -11,15 +11,25 @@ let
 in
 {
   services.twingate.enable = true;
-  environment.systemPackages = with pkgs; [
-    azure-cli
-    beekeeper-studio
-    bicep
-    dbeaver-bin
-    dotnet-combined
-    remmina
-    teams-for-linux
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      azure-cli
+      bicep
+      dotnet-combined
+    ]
+    ++ (
+      if desktop then
+        [
+          # desktop apps
+          beekeeper-studio
+          dbeaver-bin
+          remmina
+          teams-for-linux
+        ]
+      else
+        [ ]
+    );
 
   environment.sessionVariables = {
     DOTNET_ROOT = "${dotnet-combined}";

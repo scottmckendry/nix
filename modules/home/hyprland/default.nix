@@ -34,6 +34,7 @@ in
     pavucontrol
     playerctl
     waybar
+    wl-clipboard
   ];
 
   wayland.windowManager.hyprland = {

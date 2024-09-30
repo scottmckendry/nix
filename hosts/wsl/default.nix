@@ -1,28 +1,21 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
-    ./hardware-configuration.nix
-    ./modules/gaming.nix
-    ./modules/hyprland.nix
-    ./modules/locale.nix
-    ./modules/networking.nix
-    ./modules/nvidia.nix
-    ./modules/stylix.nix
-    ./modules/work.nix
+    ../../modules/stylix.nix
+    ../../modules/work.nix
+    ../../modules/locale.nix
   ];
 
-  nix.settings = {
-    warn-dirty = false;
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-  };
+  wsl.enable = true;
+  wsl.defaultUser = "scott";
+  networking.hostName = "helios";
 
-  # bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  nixpkgs.config.allowUnfree = true;
 
   users.users.scott = {
     isNormalUser = true;
@@ -39,7 +32,7 @@
     useUserPackages = true;
 
     users.scott = {
-      imports = [ ./home.nix ];
+      imports = [ ../../home.nix ];
     };
 
     extraSpecialArgs = {
@@ -55,6 +48,13 @@
     clean.extraArgs = "--keep-since 4d --keep 3";
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nix.settings = {
+    warn-dirty = false;
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
+
   system.stateVersion = "24.05";
 }

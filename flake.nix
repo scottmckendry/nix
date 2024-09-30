@@ -4,6 +4,7 @@
       nixpkgs,
       stylix,
       home-manager,
+      nixos-wsl,
       ...
     }@inputs:
     {
@@ -16,24 +17,22 @@
         modules = [
           ./configuration.nix
           ./hardware-configuration.nix
-
           stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
+        ];
+      };
 
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
+      nixosConfigurations."helios" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+        };
 
-              users.scott = {
-                imports = [ ./home.nix ];
-              };
-
-              extraSpecialArgs = {
-                inherit inputs;
-              };
-            };
-          }
+        modules = [
+          ./hosts/wsl
+          nixos-wsl.nixosModules.default
+          stylix.nixosModules.stylix
+          home-manager.nixosModules.home-manager
         ];
       };
     };
@@ -83,6 +82,10 @@
         nixpkgs.follows = "hyprland/nixpkgs";
         systems.follows = "hyprland/systems";
       };
+    };
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
     };
 
     stylix = {

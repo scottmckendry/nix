@@ -16,6 +16,7 @@
     ../../modules/nvidia.nix
     ../../modules/stylix.nix
     ../../modules/work.nix
+    ../../modules/virtualisation.nix
     ./hardware-configuration.nix
   ];
 

@@ -42,6 +42,7 @@ in
 
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    appimage-run
     cargo
     fd
     fzf
@@ -59,6 +60,10 @@ in
     wget
     zig
   ];
+
+  gtk.enable = true;
+  gtk.iconTheme.package = pkgs.papirus-icon-theme;
+  gtk.iconTheme.name = "Papirus-Dark";
 
   # Do not modify state version
   home.stateVersion = "24.05";

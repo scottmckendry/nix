@@ -21,9 +21,10 @@ in
     ++ (
       if desktop then
         [
-          ./hyprland
-          ./desktopapps.nix
           ./alacritty.nix
+          ./desktopapps.nix
+          ./gtk.nix
+          ./hyprland
         ]
       else
         [ ]
@@ -61,10 +62,5 @@ in
     zig
   ];
 
-  gtk.enable = true;
-  gtk.iconTheme.package = pkgs.papirus-icon-theme;
-  gtk.iconTheme.name = "Papirus-Dark";
-
-  # Do not modify state version
   home.stateVersion = "24.05";
 }

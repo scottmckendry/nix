@@ -21,11 +21,11 @@ in
     ++ (
       if desktop then
         [
-          # desktop apps
           beekeeper-studio
           dbeaver-bin
           remmina
           teams-for-linux
+          keepass
         ]
       else
         [ ]

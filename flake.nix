@@ -18,11 +18,12 @@
           inherit inputs;
           inherit username;
           inherit name;
+          hostname = "atlas";
           desktop = true;
         };
 
         modules = [
-          ./hosts/atlas
+          ./hosts
           stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
         ];
@@ -34,11 +35,12 @@
           inherit inputs;
           inherit username;
           inherit name;
+          hostname = "helios";
           desktop = false;
         };
 
         modules = [
-          ./hosts/helios
+          ./hosts
           nixos-wsl.nixosModules.default
           stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager

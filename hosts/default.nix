@@ -45,6 +45,7 @@
     extraSpecialArgs = {
       inherit inputs;
       inherit username;
+      inherit hostname;
       inherit desktop;
     };
   };

@@ -45,7 +45,6 @@ in
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     appimage-run
-    cargo
     fd
     fzf
     gcc

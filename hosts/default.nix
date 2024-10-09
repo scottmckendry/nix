@@ -12,6 +12,7 @@
   imports = [
     ./${hostname}/default.nix
     ../modules/locale.nix
+    ../modules/rust.nix
     ../modules/stylix.nix
     ../modules/work.nix
   ];

@@ -5,7 +5,7 @@
 }
 
 window#waybar {
-    background-color: rgba(16, 22, 33, 0.7);
+    background-color: rgba(16, 22, 33, 0.5);
     color: #ffffff;
 }
 
@@ -20,5 +20,5 @@ window#waybar {
 #idle_inhibitor,
 #custom-hyprshade,
 #tray {
-    padding: 0 0.5em;
+    padding: 0 0.8em;
 }

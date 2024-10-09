@@ -9,14 +9,14 @@
         "hyprland/window"
     ],
     "modules-right": [
+        "idle_inhibitor",
+        "custom/hyprshade",
         "bluetooth",
         "cpu",
         "temperature",
         "memory",
         "pulseaudio",
         "clock",
-        "idle_inhibitor",
-        "custom/hyprshade",
         "tray"
     ],
     // Modules configuration
@@ -30,7 +30,7 @@
     },
     "tray": {
         "show-passive-items": true,
-        "spacing": 8
+        "spacing": 10
     },
     "bluetooth": {
         "format": "  {status}",

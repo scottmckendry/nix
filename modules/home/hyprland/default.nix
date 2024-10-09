@@ -71,8 +71,6 @@ in
           "$mainMod_SHIFT, L, exec, hyprlock"
 
           # audio/media
-          ", XF86AudioRaiseVolume, exec, pamixer -i 2"
-          ", XF86AudioLowerVolume, exec, pamixer -d 2"
           ", XF86AudioPlay, exec, playerctl play-pause"
           ", XF86AudioNext, exec, playerctl next"
           ", XF86AudioPrev, exec, playerctl previous"
@@ -100,6 +98,12 @@ in
           "$mainMod, V, exec, cliphist list | ${anyrunStdin} | cliphist decode | wl-copy" # clipboard history
           "$mainMod, period, exec, BEMOJI_PICKER_CMD='${anyrunStdin}' bemoji" # emoji picker
         ];
+
+      # repeatable keybinds (when held)
+      binde = [
+        ", XF86AudioRaiseVolume, exec, pamixer -i 2"
+        ", XF86AudioLowerVolume, exec, pamixer -d 2"
+      ];
 
       # mousebinds
       bindm = [
@@ -135,8 +139,8 @@ in
       };
 
       general = {
-        gaps_in = 10;
-        gaps_out = 20;
+        gaps_in = 2;
+        gaps_out = 5;
         border_size = 2;
         "col.active_border" = "rgba(5ef1ff8a) rgba(bd5eff8a) 135deg";
         "col.inactive_border" = "rgba(00000040)";

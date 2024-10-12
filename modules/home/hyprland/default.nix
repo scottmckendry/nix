@@ -45,6 +45,10 @@ in
         "HDMI-A-2,1920x1080@60,-1080x-400,1,transform,3"
       ];
 
+      cursor = {
+        no_hardware_cursors = true;
+      };
+
       exec-once = [
         "hyprlock"
         "wl-paste --type text --watch cliphist store"

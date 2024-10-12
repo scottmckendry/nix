@@ -64,6 +64,7 @@ in
         [
           "$mainMod, RETURN, exec, alacritty"
           "$mainMod, R, exec, anyrun"
+          "$mainMod, E, exec, nautilus"
           "$mainMod, Q, killactive"
           "$mainMod_SHIFT, Q, exit"
           "$mainMod, T, togglefloating"
@@ -115,6 +116,13 @@ in
       layerrule = [
         "blur, waybar"
         "blur, anyrun"
+      ];
+
+      # window rules
+      windowrule = [
+        "float, ^(KeePass2)"
+        "float, (org.gnome.Nautilus)"
+        "opacity 0.75, (org.gnome.Nautilus)"
       ];
 
       misc = {

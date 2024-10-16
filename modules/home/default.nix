@@ -62,5 +62,9 @@ in
     zig
   ];
 
+  home.sessionVariables = {
+    OBSIDIAN_PATH = "${config.home.homeDirectory}/git/obsidian-vault";
+  };
+
   home.stateVersion = "24.05";
 }

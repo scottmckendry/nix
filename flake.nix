@@ -2,6 +2,7 @@
   outputs =
     {
       nixpkgs,
+      nixpkgs-stable,
       stylix,
       home-manager,
       nixos-wsl,
@@ -10,14 +11,17 @@
     let
       username = "scott";
       name = "Scott McKendry";
+      system = "x86_64-linux";
+      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
     in
     {
       nixosConfigurations."atlas" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         specialArgs = {
           inherit inputs;
           inherit username;
           inherit name;
+          inherit pkgs-stable;
           hostname = "atlas";
           desktop = true;
         };
@@ -30,11 +34,12 @@
       };
 
       nixosConfigurations."helios" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         specialArgs = {
           inherit inputs;
           inherit username;
           inherit name;
+          inherit pkgs-stable;
           hostname = "helios";
           desktop = false;
         };
@@ -50,6 +55,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
 
     anyrun = {
       url = "github:anyrun-org/anyrun";

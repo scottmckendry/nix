@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-stable,
   hostname,
   username,
   inputs,
@@ -48,6 +49,7 @@
       inherit username;
       inherit hostname;
       inherit desktop;
+      inherit pkgs-stable;
     };
   };
 

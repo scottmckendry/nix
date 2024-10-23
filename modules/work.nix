@@ -17,6 +17,7 @@ in
       azure-cli
       bicep
       dotnet-combined
+      roslyn-ls
     ]
     ++ (
       if desktop then

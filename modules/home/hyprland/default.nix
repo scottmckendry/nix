@@ -99,7 +99,7 @@ in
           "$mainMod_SHIFT, G, movetoworkspace, 5"
 
           # misc
-          "$mainMod_ALT_SHIFT, S, exec, hyprshot -m region" # interactive screenshot
+          "$mainMod_ALT_SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots"
           "$mainMod, V, exec, cliphist list | ${anyrunStdin} | cliphist decode | wl-copy" # clipboard history
           "$mainMod, period, exec, BEMOJI_PICKER_CMD='${anyrunStdin}' bemoji" # emoji picker
         ];
@@ -127,6 +127,7 @@ in
         "float, ^(KeePass2)"
         "float, (org.gnome.Nautilus)"
         "opacity 0.75, (org.gnome.Nautilus)"
+        "immediate, ^(steam_app_)$"
       ];
 
       misc = {
@@ -151,6 +152,7 @@ in
       };
 
       general = {
+        allow_tearing = true;
         gaps_in = 2;
         gaps_out = 5;
         border_size = 2;

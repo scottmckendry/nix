@@ -10,7 +10,7 @@ let
   );
 in
 {
-  services.twingate.enable = true;
+  services.twingate.enable = desktop;
   environment.systemPackages =
     with pkgs;
     [

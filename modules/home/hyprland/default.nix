@@ -147,7 +147,7 @@ in
           enabled = true;
           size = 4;
           passes = 3;
-          # xray = true;
+          ignore_opacity = true; # blur where opacity is set via windowrule
           vibrancy = 0.75;
           vibrancy_darkness = 0;
         };

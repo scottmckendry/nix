@@ -33,6 +33,7 @@ in
     pamixer
     pavucontrol
     playerctl
+    udiskie
     waybar
     wl-clipboard
   ];
@@ -51,6 +52,7 @@ in
 
       exec-once = [
         "hyprlock"
+        "udiskie"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "$HOME/.config/waybar/waybar-hot-reload.sh"

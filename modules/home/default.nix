@@ -54,6 +54,8 @@ in
     neovim
     nixfmt-rfc-style
     nodejs
+    odin
+    ols
     powershell
     ripgrep
     unzip

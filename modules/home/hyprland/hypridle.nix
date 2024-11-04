@@ -7,7 +7,7 @@
 }:
 
 let
-  timeout = 300;
+  timeout = 600;
   hyprlockExe = "pidof hyprlock || ${lib.getExe config.programs.hyprlock.package}";
 
 in
@@ -24,17 +24,18 @@ in
       };
       listener = [
         {
-          inherit timeout;
+          inherit timeout; # turn off screen/s after 10 minutes
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
         {
-          timeout = timeout + 30;
+          timeout = timeout + 300; # lock after 15 minutes
           on-timeout = hyprlockExe;
         }
         {
-          timeout = timeout + 60;
-          on-timeout = "${pkgs.systemd}/bin/systemctl suspend";
+          # hibernate after 2 hours
+          timeout = timeout * 12;
+          on-timeout = "${pkgs.systemd}/bin/systemctl hibernate";
         }
       ];
     };

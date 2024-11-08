@@ -50,6 +50,7 @@ in
     gcc
     gnumake
     go
+    go-task
     killall
     neovim
     nixfmt-rfc-style

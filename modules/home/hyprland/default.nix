@@ -132,6 +132,18 @@ in
         "immediate, ^(steam_app_)$"
       ];
 
+      # smart gaps (no gaps when only one window)
+      windowrulev2 = [
+        "bordersize 0, floating:0, onworkspace:w[tv1]"
+        "rounding 0, floating:0, onworkspace:w[tv1]"
+        "bordersize 0, floating:0, onworkspace:f[1]"
+        "rounding 0, floating:0, onworkspace:f[1]"
+      ];
+      workspace = [
+        "w[tv1], gapsout:0, gapsin:0"
+        "f[1], gapsout:0, gapsin:0"
+      ];
+
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
@@ -139,10 +151,13 @@ in
 
       decoration = {
         rounding = 10;
-        shadow_range = 20;
-        shadow_render_power = 2;
-        shadow_offset = "0, 10";
-        "col.shadow" = "rgba(00000030)";
+        shadow = {
+          enabled = true;
+          range = 20;
+          render_power = 2;
+          offset = "0, 10";
+          color = "rgba(00000030)";
+        };
         blur = {
           enabled = true;
           size = 4;
@@ -164,7 +179,6 @@ in
 
       dwindle = {
         smart_split = true;
-        no_gaps_when_only = 1;
       };
     };
   };

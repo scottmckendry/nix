@@ -5,7 +5,6 @@
     enable = true;
     settings = {
       window = {
-        decorations = "none";
         padding = {
           x = 10;
           y = 10;

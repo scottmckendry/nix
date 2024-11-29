@@ -25,7 +25,7 @@ in
           ./alacritty.nix
           ./desktopapps.nix
           ./gtk.nix
-          ./hyprland
+          # ./hyprland
         ]
       else
         [ ]
@@ -36,6 +36,7 @@ in
   xdg.configFile."nvim".source = mkOutOfStoreSymlink "${nixDir}/nvim";
   xdg.configFile."starship".source = mkOutOfStoreSymlink "${nixDir}/starship";
 
+  programs.kitty.enable = true;
   programs.eza.enable = true;
   programs.fastfetch.enable = true;
   programs.gh.enable = true;

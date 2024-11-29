@@ -16,6 +16,7 @@ in
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix
+    ./gtk.nix
   ];
 
   xdg.configFile."waybar".source = mkOutOfStoreSymlink "${nixDir}/waybar";

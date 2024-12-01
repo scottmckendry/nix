@@ -36,7 +36,6 @@ in
     playerctl
     udiskie
     waybar
-    wl-clipboard
   ];
 
   wayland.windowManager.hyprland = {

@@ -8,5 +8,6 @@
     nautilus
     spotify
     vesktop
+    wl-clipboard
   ];
 }

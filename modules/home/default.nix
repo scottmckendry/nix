@@ -52,11 +52,13 @@ in
     go
     go-task
     killall
+    mermaid-cli
     neovim
     nixfmt-rfc-style
     nodejs
     odin
     powershell
+    presenterm
     ripgrep
     unzip
     wezterm

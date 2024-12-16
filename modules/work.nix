@@ -6,6 +6,7 @@ let
     combinePackages [
       sdk_9_0
       sdk_8_0
+      sdk_6_0
     ]
   );
 in
@@ -33,6 +34,9 @@ in
         [ ]
     );
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "dotnet-sdk-6.0.428"
+  ];
   environment.sessionVariables = {
     DOTNET_ROOT = "${dotnet-combined}";
   };

@@ -19,16 +19,16 @@ in
       bicep
       dotnet-combined
       roslyn-ls
-      libreoffice
     ]
     ++ (
       if desktop then
         [
           beekeeper-studio
           dbeaver-bin
+          keepass
+          libreoffice
           remmina
           teams-for-linux
-          keepass
         ]
       else
         [ ]

@@ -4,8 +4,9 @@
   stylix.targets.gtk.enable = false;
   home.packages = with pkgs; [
     brave
+    dolphin
     firefox
-    nautilus
+    gimp
     spotify
     vesktop
     wl-clipboard

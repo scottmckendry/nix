@@ -35,6 +35,7 @@ in
   xdg.configFile."fastfetch".source = mkOutOfStoreSymlink "${nixDir}/fastfetch";
   xdg.configFile."nvim".source = mkOutOfStoreSymlink "${nixDir}/nvim";
   xdg.configFile."starship".source = mkOutOfStoreSymlink "${nixDir}/starship";
+  xdg.configFile."wezterm".source = mkOutOfStoreSymlink "${nixDir}/wezterm";
 
   programs.eza.enable = true;
   programs.fastfetch.enable = true;

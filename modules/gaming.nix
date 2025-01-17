@@ -9,7 +9,6 @@
     mangohud
     protonup
     lutris
-    pcsx2
   ];
 
   environment.sessionVariables = {

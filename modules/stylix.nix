@@ -9,9 +9,9 @@
       sha256 = "1bfi479g7v5cz41d2s0lbjlqmfzaah68cj1065zzsqksx3n63znf";
     };
     opacity.terminal = 0.75;
-    cursor.size = 12;
+    cursor.size = 22;
     cursor.package = pkgs.bibata-cursors;
-    cursor.name = "Bibata-Modern-Classic";
+    cursor.name = "Bibata-Modern-Ice";
     fonts = {
       serif = {
         package = pkgs.noto-fonts;

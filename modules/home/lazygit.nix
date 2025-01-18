@@ -10,8 +10,4 @@ in
     lazygit
     delta
   ];
-
-  stylix.targets = {
-    lazygit.enable = false;
-  };
 }

@@ -3,7 +3,6 @@
     {
       nixpkgs,
       nixpkgs-stable,
-      stylix,
       home-manager,
       nixos-wsl,
       ...
@@ -28,7 +27,6 @@
 
         modules = [
           ./hosts
-          stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
         ];
       };
@@ -47,7 +45,6 @@
         modules = [
           ./hosts
           nixos-wsl.nixosModules.default
-          stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
         ];
       };
@@ -113,10 +110,6 @@
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    stylix = {
-      url = "github:danth/stylix";
     };
   };
 }

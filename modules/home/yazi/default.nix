@@ -19,6 +19,5 @@ in
   };
 
   # theme
-  stylix.targets.yazi.enable = false;
   xdg.configFile."yazi/theme.toml".source = mkOutOfStoreSymlink ./theme.toml;
 }

@@ -45,8 +45,4 @@
       color15 = "#ffffff";
     };
   };
-
-  stylix.targets = {
-    kitty.enable = false;
-  };
 }

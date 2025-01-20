@@ -45,12 +45,14 @@ in
 
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    ansible
     appimage-run
     fd
     fzf
     gcc
     gnumake
     go
+    gotestsum
     go-task
     killall
     mermaid-cli
@@ -61,6 +63,7 @@ in
     powershell
     presenterm
     ripgrep
+    terraform
     typescript
     unzip
     wezterm

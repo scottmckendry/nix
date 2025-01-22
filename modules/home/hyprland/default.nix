@@ -12,7 +12,6 @@ in
 
 {
   imports = [
-    ../anyrun
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix

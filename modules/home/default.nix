@@ -23,9 +23,9 @@ in
       if desktop then
         [
           ./alacritty.nix
+          ./anyrun
           ./desktopapps.nix
           ./kitty.nix
-          # ./hyprland
         ]
       else
         [ ]
@@ -54,6 +54,7 @@ in
     go
     gotestsum
     go-task
+    hugo
     killall
     mermaid-cli
     neovim

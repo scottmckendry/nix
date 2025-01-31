@@ -2,7 +2,7 @@
 
 # https://github.com/oxalica/rust-overlay
 let
-  nightlyVersion = "2024-11-11";
+  nightlyVersion = "2025-01-25";
   rust = pkgs.rust-bin.nightly.${nightlyVersion}.default.override {
     extensions = [
       "rust-src"

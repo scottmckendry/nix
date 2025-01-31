@@ -5,6 +5,7 @@
       nixpkgs-stable,
       home-manager,
       nixos-wsl,
+      nur,
       ...
     }@inputs:
     let
@@ -28,6 +29,7 @@
         modules = [
           ./hosts
           home-manager.nixosModules.home-manager
+          nur.modules.nixos.default
         ];
       };
 
@@ -46,6 +48,7 @@
           ./hosts
           nixos-wsl.nixosModules.default
           home-manager.nixosModules.home-manager
+          nur.modules.nixos.default
         ];
       };
     };
@@ -105,6 +108,11 @@
 
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
+    };
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     rust-overlay = {

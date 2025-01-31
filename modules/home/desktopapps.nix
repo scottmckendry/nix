@@ -6,6 +6,7 @@
     dolphin
     firefox
     gimp
+    konversation
     spotify
     vesktop
     wl-clipboard

@@ -6,9 +6,10 @@
   hardware.xpadneo.enable = true;
 
   environment.systemPackages = with pkgs; [
-    mangohud
-    protonup
     lutris
+    mangohud
+    prismlauncher
+    protonup
   ];
 
   environment.sessionVariables = {

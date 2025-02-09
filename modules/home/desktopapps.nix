@@ -3,12 +3,12 @@
 {
   home.packages = with pkgs; [
     brave
+    discord
     dolphin
     firefox
     gimp
     konversation
     spotify
-    vesktop
     wl-clipboard
   ];
 }

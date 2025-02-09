@@ -9,7 +9,6 @@
     };
 
     settings = {
-      hide_window_decorations = "yes";
       adjust_line_height = "115%";
       window_padding_width = 10;
       window_padding_height = 10;
@@ -17,6 +16,12 @@
 
       font_size = 10;
       background_opacity = 0.75;
+
+      tab_bar_style = "powerline";
+      active_tab_foreground = "#16181a";
+      active_tab_background = "#5ef1ff";
+      inactive_tab_foreground = "#16181a";
+      inactive_tab_background = "#bd5eff";
 
       # Cyberdream theme colors
       background = "#16181a";

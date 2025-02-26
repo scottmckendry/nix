@@ -6,7 +6,6 @@ let
     combinePackages [
       sdk_9_0
       sdk_8_0
-      sdk_6_0
     ]
   );
 in
@@ -17,8 +16,8 @@ in
     [
       azure-cli
       bicep
+      azure-functions-core-tools
       dotnet-combined
-      roslyn-ls
     ]
     ++ (
       if desktop then
@@ -34,9 +33,6 @@ in
         [ ]
     );
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "dotnet-sdk-6.0.428"
-  ];
   environment.sessionVariables = {
     DOTNET_ROOT = "${dotnet-combined}";
   };

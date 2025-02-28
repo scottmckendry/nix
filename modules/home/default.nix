@@ -51,8 +51,6 @@ in
     fzf
     gcc
     gnumake
-    go
-    gotestsum
     go-task
     hugo
     killall

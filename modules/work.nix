@@ -15,8 +15,10 @@ in
     with pkgs;
     [
       azure-cli
-      bicep
       azure-functions-core-tools
+      azurite
+      bicep
+      csharpier
       dotnet-combined
     ]
     ++ (

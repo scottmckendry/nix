@@ -56,6 +56,7 @@ in
     killall
     mermaid-cli
     neovim
+    nil
     nixfmt-rfc-style
     nodejs
     odin

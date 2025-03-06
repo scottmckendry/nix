@@ -47,6 +47,7 @@ in
   home.packages = with pkgs; [
     ansible
     appimage-run
+    btop
     fd
     fzf
     gcc

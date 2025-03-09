@@ -2,12 +2,13 @@
 
 {
   home.packages = with pkgs; [
+    bitwarden-desktop
     brave
     discord
-    dolphin
     firefox
     gimp
-    konversation
+    kdePackages.dolphin
+    kdePackages.konversation
     spotify
     wl-clipboard
   ];

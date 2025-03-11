@@ -18,7 +18,7 @@
 
       background = {
         monitor = "";
-        path = "${config.stylix.image}";
+        path = "${config.home.homeDirectory}/Pictures/Wallpapers/mountain.png";
         blur_passes = 2;
       };
 

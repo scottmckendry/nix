@@ -15,13 +15,11 @@ in
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix
-    ./gtk.nix
+    ../gtk.nix
   ];
 
   xdg.configFile."waybar".source = mkOutOfStoreSymlink "${nixDir}/waybar";
-  stylix.targets.hyprland.enable = false;
-  programs.wofi.enable = true;
-  services.dunst.enable = true;
+  services.dunst.enable = true; # TODO: experiment with mako
 
   home.packages = with pkgs; [
     blueberry
@@ -67,9 +65,9 @@ in
           }/lib/libstdin.so";
         in
         [
-          "$mainMod, RETURN, exec, alacritty"
+          "$mainMod, RETURN, exec, kitty"
           "$mainMod, R, exec, anyrun"
-          "$mainMod, E, exec, nautilus"
+          "$mainMod, E, exec, dolphin"
           "$mainMod, Q, killactive"
           "$mainMod_SHIFT, Q, exit"
           "$mainMod, T, togglefloating"
@@ -126,8 +124,6 @@ in
       # window rules
       windowrule = [
         "float, ^(KeePass2)"
-        "float, (org.gnome.Nautilus)"
-        "opacity 0.75, (org.gnome.Nautilus)"
         "immediate, ^(steam_app_)$"
       ];
 

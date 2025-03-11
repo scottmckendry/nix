@@ -22,6 +22,7 @@ in
     ++ (
       if desktop then
         [
+          ./hyprland
           ./alacritty.nix
           ./anyrun
           ./desktopapps.nix

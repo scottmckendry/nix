@@ -46,6 +46,7 @@ in
 
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    age
     ansible
     appimage-run
     btop
@@ -56,6 +57,7 @@ in
     go-task
     hugo
     killall
+    kubectl
     mermaid-cli
     neovim
     nil
@@ -65,6 +67,8 @@ in
     powershell
     presenterm
     ripgrep
+    sops
+    talosctl
     terraform
     typescript
     unzip

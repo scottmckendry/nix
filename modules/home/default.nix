@@ -51,11 +51,13 @@ in
     appimage-run
     btop
     fd
+    fluxcd
     fzf
     gcc
     gnumake
     go-task
     hugo
+    k9s
     killall
     kubectl
     mermaid-cli

@@ -34,6 +34,7 @@ in
 
   # symlinks
   xdg.configFile."fastfetch".source = mkOutOfStoreSymlink "${nixDir}/fastfetch";
+  xdg.configFile."k9s".source = mkOutOfStoreSymlink "${nixDir}/k9s";
   xdg.configFile."nvim".source = mkOutOfStoreSymlink "${nixDir}/nvim";
   xdg.configFile."starship".source = mkOutOfStoreSymlink "${nixDir}/starship";
   xdg.configFile."wezterm".source = mkOutOfStoreSymlink "${nixDir}/wezterm";
@@ -68,6 +69,7 @@ in
     odin
     powershell
     presenterm
+    restic
     ripgrep
     sops
     talosctl

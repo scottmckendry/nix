@@ -20,6 +20,9 @@ in
       cat = "bat";
       rebuild = "cd ${nixDir} && git add -A -N && nh os switch . && cd -";
     };
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
     initExtra = ''
       fastfetch --logo ${nixDir}/fastfetch/logos/ascii.txt
     '';

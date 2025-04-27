@@ -22,9 +22,9 @@ in
     ++ (
       if desktop then
         [
+          # ./anyrun
           # ./hyprland
           ./alacritty.nix
-          ./anyrun
           ./desktopapps.nix
           ./kitty.nix
         ]

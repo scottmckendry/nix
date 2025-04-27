@@ -24,7 +24,6 @@ in
     ++ (
       if desktop then
         [
-          beekeeper-studio
           dbeaver-bin
           keepass
           libreoffice

@@ -23,7 +23,7 @@ in
     sessionVariables = {
       EDITOR = "nvim";
     };
-    initExtra = ''
+    initContent = ''
       fastfetch --logo ${nixDir}/fastfetch/logos/ascii.txt
     '';
   };

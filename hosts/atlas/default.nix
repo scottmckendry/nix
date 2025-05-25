@@ -8,6 +8,7 @@
     ../../modules/networking.nix
     ../../modules/nvidia.nix
     ../../modules/virtualisation.nix
+    ../../modules/zenbrowser.nix
     ./hardware-configuration.nix
   ];
 

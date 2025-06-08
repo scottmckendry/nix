@@ -10,9 +10,5 @@
   environment.sessionVariables = {
     GOPATH = "$HOME/go";
     GOBIN = "$HOME/go/bin";
-    PATH = [
-      "$HOME/go/bin"
-      "$PATH"
-    ];
   };
 }

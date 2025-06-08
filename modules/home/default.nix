@@ -67,6 +67,7 @@ in
     nixfmt-rfc-style
     nodejs
     odin
+    openssl
     powershell
     presenterm
     restic

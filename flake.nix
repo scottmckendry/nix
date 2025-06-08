@@ -48,7 +48,6 @@
           ./hosts
           nixos-wsl.nixosModules.default
           home-manager.nixosModules.home-manager
-          nur.modules.nixos.default
         ];
       };
     };

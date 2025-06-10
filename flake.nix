@@ -114,6 +114,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    pat = {
+      url = "github:scottmckendry/pat";
+    };
+
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";

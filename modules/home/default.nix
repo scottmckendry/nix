@@ -15,6 +15,7 @@ in
       ./bat.nix
       ./git.nix
       ./lazygit.nix
+      ./pat.nix
       ./wslopen.nix
       ./yazi
       ./zsh.nix

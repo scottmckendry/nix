@@ -13,6 +13,7 @@ in
   imports =
     [
       ./bat.nix
+      ./eza.nix
       ./git.nix
       ./lazygit.nix
       ./pat.nix
@@ -40,7 +41,6 @@ in
   xdg.configFile."starship".source = mkOutOfStoreSymlink "${nixDir}/starship";
   xdg.configFile."wezterm".source = mkOutOfStoreSymlink "${nixDir}/wezterm";
 
-  programs.eza.enable = true;
   programs.fastfetch.enable = true;
   programs.gh.enable = true;
   programs.starship.enable = true;

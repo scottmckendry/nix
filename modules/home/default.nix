@@ -17,6 +17,7 @@ in
       ./git.nix
       ./lazygit.nix
       ./self-maintained.nix
+      ./templui.nix
       ./wslopen.nix
       ./yazi
       ./zsh.nix

@@ -16,7 +16,7 @@ in
       ./eza.nix
       ./git.nix
       ./lazygit.nix
-      ./pat.nix
+      ./self-maintained.nix
       ./wslopen.nix
       ./yazi
       ./zsh.nix
@@ -74,6 +74,8 @@ in
     restic
     ripgrep
     sops
+    sqlc
+    tailwindcss_4
     talosctl
     terraform
     typescript

@@ -61,6 +61,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    cl-parse = {
+      url = "github:scottmckendry/cl-parse";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -116,6 +120,10 @@
 
     pat = {
       url = "github:scottmckendry/pat";
+    };
+
+    pokemon-go-colorscripts = {
+      url = "github:scottmckendry/pokemon-go-colorscripts";
     };
 
     rust-overlay = {

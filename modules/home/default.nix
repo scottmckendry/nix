@@ -50,6 +50,7 @@ in
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     age
+    air
     ansible
     appimage-run
     btop

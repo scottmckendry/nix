@@ -77,6 +77,7 @@ in
     ripgrep
     sops
     sqlc
+    sqlite
     tailwindcss_4
     talosctl
     terraform

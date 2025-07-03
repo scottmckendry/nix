@@ -16,6 +16,7 @@ in
       ./eza.nix
       ./git.nix
       ./lazygit.nix
+      ./opencode.nix
       ./self-maintained.nix
       ./templui.nix
       ./wslopen.nix

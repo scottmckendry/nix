@@ -2,11 +2,11 @@
 let
   opencode = pkgs.stdenv.mkDerivation rec {
     pname = "opencode";
-    version = "0.1.181";
+    version = "0.1.194";
 
     src = pkgs.fetchzip {
       url = "https://github.com/sst/opencode/releases/download/v${version}/opencode-linux-x64.zip";
-      hash = "sha256-eLGdOFUSePqPX39QEzkJthUUcGNuN/M9uLw2v2RwR64=";
+      hash = "sha256-Z0rMPmm8prlpdJsy5iqBO5BF5VnJ9oUX4+zbT7D1XT8=";
     };
 
     phases = [

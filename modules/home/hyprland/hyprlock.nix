@@ -23,7 +23,7 @@
       };
 
       input-field = {
-        monitor = "DP-2";
+        monitor = "DP-1";
         size = "250, 60";
         outer_color = "rgba(0, 0, 0, 0)";
         inner_color = "rgba(0, 0, 0, 0.2)";
@@ -32,7 +32,7 @@
 
       # clock
       label = {
-        monitor = "DP-2";
+        monitor = "DP-1";
         text = "cmd[update:1000] echo -n $(date +'%-I:%M %p')";
         size = "250, 60";
         color = "rgba(200, 200, 200, 1)";

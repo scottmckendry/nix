@@ -1,24 +1,43 @@
 * {
-    font-family: "Ubuntu Nerd Font";
-    font-weight: bold;
-    font-size: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
 }
 
 window#waybar {
-    background-color: rgba(16, 22, 33, 0.5);
-    color: #ffffff;
+  background-color: rgba(16, 22, 33, 0.5);
+  color: #eee;
 }
 
+#workspaces,
+#window,
 #clock,
 #cpu,
 #bluetooth,
 #memory,
 #temperature,
 #pulseaudio,
-#wireplumber,
 #workspaces,
 #idle_inhibitor,
 #custom-hyprshade,
 #tray {
-    padding: 0 0.8em;
+  padding: 5px 10px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+#workspaces button {
+  background: transparent;
+  border-radius: 6px;
+  margin: 0 2px;
+  padding: 0 8px;
+  color: #fff;
+}
+#workspaces button.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+#workspaces button:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border: none;
 }

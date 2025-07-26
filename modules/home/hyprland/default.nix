@@ -39,8 +39,8 @@ in
     enable = true;
     settings = {
       monitor = [
-        "DP-2,3440x1440@144,0x0,1"
-        "HDMI-A-2,1920x1080@60,-1080x-400,1,transform,3"
+        "DP-1,3440x1440@144,0x0,1"
+        "HDMI-A-1,1920x1080@60,-1080x-400,1,transform,3"
       ];
 
       cursor = {
@@ -121,11 +121,11 @@ in
         "blur, anyrun"
       ];
 
-      # window rules
-      windowrule = [
-        "float, ^(KeePass2)"
-        "immediate, ^(steam_app_)$"
-      ];
+      # # window rules
+      # windowrule = [
+      #   "float, ^(KeePass2)"
+      #   "immediate, ^(steam_app_)$"
+      # ];
 
       # smart gaps (no gaps when only one window)
       windowrulev2 = [
@@ -165,8 +165,8 @@ in
 
       general = {
         allow_tearing = true;
-        gaps_in = 2;
-        gaps_out = 5;
+        gaps_in = 50;
+        gaps_out = 100;
         border_size = 2;
         "col.active_border" = "rgba(5ef1ff8a) rgba(bd5eff8a) 135deg";
         "col.inactive_border" = "rgba(00000040)";

@@ -1,6 +1,6 @@
 {
     "layer": "top",
-    "output": "DP-2",
+    "output": "DP-1",
     "spacing": 2,
     "modules-left": [
         "hyprland/workspaces"
@@ -21,12 +21,7 @@
     ],
     // Modules configuration
     "hyprland/workspaces": {
-        "format": "{icon}",
-        "all-outputs": true,
-        "format-icons": {
-            "active": "",
-            "default": ""
-        }
+        "all-outputs": true
     },
     "tray": {
         "show-passive-items": true,

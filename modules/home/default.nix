@@ -10,30 +10,29 @@ let
   nixDir = "${config.home.homeDirectory}/git/nix";
 in
 {
-  imports =
-    [
-      ./bat.nix
-      ./eza.nix
-      ./git.nix
-      ./lazygit.nix
-      ./opencode.nix
-      ./self-maintained.nix
-      ./wslopen.nix
-      ./yazi
-      ./zsh.nix
-    ]
-    ++ (
-      if desktop then
-        [
-          # ./anyrun
-          # ./hyprland
-          ./alacritty.nix
-          ./desktopapps.nix
-          ./kitty.nix
-        ]
-      else
-        [ ]
-    );
+  imports = [
+    ./bat.nix
+    ./eza.nix
+    ./git.nix
+    ./lazygit.nix
+    ./opencode.nix
+    ./self-maintained.nix
+    ./wslopen.nix
+    ./yazi
+    ./zsh.nix
+  ]
+  ++ (
+    if desktop then
+      [
+        ./anyrun
+        ./hyprland
+        ./alacritty.nix
+        ./desktopapps.nix
+        ./kitty.nix
+      ]
+    else
+      [ ]
+  );
 
   # symlinks
   xdg.configFile."fastfetch".source = mkOutOfStoreSymlink "${nixDir}/fastfetch";

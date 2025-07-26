@@ -18,6 +18,7 @@ in
     ./hyprscrolling.nix
     ./smartgaps.nix
     ../gtk.nix
+    ../qt.nix
   ];
 
   home.sessionVariables = {
@@ -41,6 +42,7 @@ in
     playerctl
     udiskie
     waybar
+    inter
   ];
 
   wayland.windowManager.hyprland = {
@@ -75,7 +77,7 @@ in
         [
           "$mainMod, RETURN, exec, kitty"
           "$mainMod, R, exec, anyrun"
-          "$mainMod, E, exec, dolphin"
+          "$mainMod, E, exec, nautilus"
           "$mainMod, Q, killactive"
           "$mainMod_SHIFT, Q, exit"
           "$mainMod, T, togglefloating"

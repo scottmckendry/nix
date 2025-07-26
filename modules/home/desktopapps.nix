@@ -7,8 +7,7 @@
     discord
     firefox
     gimp
-    kdePackages.dolphin
-    kdePackages.konversation
+    nautilus
     spotify
     wl-clipboard
   ];

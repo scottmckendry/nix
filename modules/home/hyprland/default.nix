@@ -15,15 +15,23 @@ in
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix
+    ./hyprscrolling.nix
+    ./smartgaps.nix
     ../gtk.nix
   ];
+
+  home.sessionVariables = {
+    XCURSOR_THEME = "Bibata-Modern-Classic";
+    XCURSOR_SIZE = "24";
+  };
 
   xdg.configFile."waybar".source = mkOutOfStoreSymlink "${nixDir}/waybar";
   services.dunst.enable = true; # TODO: experiment with mako
 
   home.packages = with pkgs; [
-    blueberry
     bemoji
+    bibata-cursors
+    blueberry
     cliphist
     hyprshade
     hyprshot
@@ -121,24 +129,6 @@ in
         "blur, anyrun"
       ];
 
-      # # window rules
-      # windowrule = [
-      #   "float, ^(KeePass2)"
-      #   "immediate, ^(steam_app_)$"
-      # ];
-
-      # smart gaps (no gaps when only one window)
-      windowrulev2 = [
-        "bordersize 0, floating:0, onworkspace:w[tv1]"
-        "rounding 0, floating:0, onworkspace:w[tv1]"
-        "bordersize 0, floating:0, onworkspace:f[1]"
-        "rounding 0, floating:0, onworkspace:f[1]"
-      ];
-      workspace = [
-        "w[tv1], gapsout:0, gapsin:0"
-        "f[1], gapsout:0, gapsin:0"
-      ];
-
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
@@ -165,8 +155,8 @@ in
 
       general = {
         allow_tearing = true;
-        gaps_in = 50;
-        gaps_out = 100;
+        gaps_in = 30;
+        gaps_out = 60;
         border_size = 2;
         "col.active_border" = "rgba(5ef1ff8a) rgba(bd5eff8a) 135deg";
         "col.inactive_border" = "rgba(00000040)";

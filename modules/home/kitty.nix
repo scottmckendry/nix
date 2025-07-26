@@ -9,6 +9,7 @@
     };
 
     settings = {
+      hide_window_decorations = true;
       adjust_line_height = "115%";
       window_padding_width = 10;
       window_padding_height = 10;

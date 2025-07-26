@@ -3,8 +3,7 @@
 {
   imports = [
     ../../modules/gaming.nix
-    # ../../modules/hyprland.nix
-    ../../modules/plasma.nix
+    ../../modules/niri.nix
     ../../modules/networking.nix
     ../../modules/nvidia.nix
     ../../modules/virtualisation.nix

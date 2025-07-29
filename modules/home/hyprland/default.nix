@@ -131,6 +131,9 @@ in
         "blur, anyrun"
       ];
 
+      # window rules
+      windowrule = [ "float,title:^(Select what to share)$" ];
+
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;

@@ -48,7 +48,7 @@ input {
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
-    // warp-mouse-to-focus
+    warp-mouse-to-focus
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
@@ -113,7 +113,7 @@ output "HDMI-A-1" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 100
+    gaps 60
 
     background-color "transparent"
 
@@ -121,9 +121,9 @@ layout {
     // - "never", default behavior, focusing an off-screen column will keep at the left
     //   or right edge of the screen.
     // - "always", the focused column will always be centered.
-    // - "on-overflow", focusing a column will center it if it doesn't fit
+    // - "on-overflow", focusing a column will center it if it doesn't fitalways
     //   together with the previously focused column.
-    center-focused-column "never"
+    center-focused-column "on-overflow"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -160,7 +160,7 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-        // off
+        off
 
         // How many logical pixels the ring extends out from the windows.
         width 3
@@ -171,7 +171,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#5ef1ff"
+        // active-color "#5ef1ff"
 
         // Color of the ring on inactive monitors.
         inactive-color "#7b8496"
@@ -183,7 +183,7 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        // active-gradient from="#80c8ff" to="#bbddff" angle=45
+        active-gradient from="#5ef1ff" to="#bd5eff" angle=45
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
@@ -267,6 +267,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 spawn-at-startup "swaybg -i ~/Pictures/Wallpapers/grass.png --mode fill"
+spawn-at-startup "swaylock"
 
 // xwayland support - see https://github.com/YaLTeR/niri/wiki/Xwayland
 spawn-at-startup "xwayland-satellite"

@@ -605,3 +605,9 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
+
+// debug options
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Debug-Options
+debug {
+    wait-for-frame-completion-in-pipewire
+}

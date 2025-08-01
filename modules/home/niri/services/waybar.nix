@@ -1,0 +1,21 @@
+{ pkgs, config, ... }:
+{
+  systemd.user.services.waybar = {
+    Unit = {
+      Description = "Waybar status bar for Wayland";
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session-pre.target" ];
+    };
+
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.bash}/bin/bash ${config.xdg.configHome}/waybar/waybar-hot-reload.sh";
+      Restart = "on-failure";
+      RestartSec = 1;
+    };
+
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
+}

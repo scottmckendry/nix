@@ -3,7 +3,7 @@
     "output": "DP-1",
     "spacing": 2,
     "modules-left": [
-        "hyprland/workspaces"
+        "niri/workspaces"
     ],
     "modules-center": [
         "hyprland/window"
@@ -66,12 +66,6 @@
         "format-icons": {
             "activated": " ",
             "deactivated": " "
-        },
-        "on-click-right": "hyprlock"
-    },
-    "custom/hyprshade": {
-        "exec": "if [ -z $(hyprshade current) ]; then echo '󰃠 '; else echo '󰃞 '; fi",
-        "interval": 1,
-        "on-click": "hyprshade toggle blue-light-filter"
+        }
     }
 }

@@ -11,6 +11,7 @@ in
 {
   imports = [
     ./services
+    ./swaylock.nix
   ];
 
   home.packages = with pkgs; [
@@ -18,14 +19,11 @@ in
     cliphist
     inotify-tools
     playerctl
-    swaybg
     waybar
-    wl-clipboard
   ];
 
   xdg.configFile."niri/config.kdl".source =
     mkOutOfStoreSymlink "${nixDir}/modules/home/niri/config.kdl";
-
   xdg.configFile."waybar".source = mkOutOfStoreSymlink "${nixDir}/waybar";
   services.dunst.enable = true; # TODO: experiment with mako
 }

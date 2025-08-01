@@ -25,7 +25,7 @@ in
     if desktop then
       [
         ./anyrun
-        ./niri.nix
+        ./niri
         ./alacritty.nix
         ./desktopapps.nix
         ./kitty.nix

@@ -9,6 +9,10 @@ let
   nixDir = "${config.home.homeDirectory}/git/nix";
 in
 {
+  imports = [
+    ./services
+  ];
+
   home.packages = with pkgs; [
     blueberry
     inotify-tools
@@ -16,7 +20,7 @@ in
     waybar
   ];
 
-  xdg.configFile."niri".source = mkOutOfStoreSymlink "${nixDir}/niri";
-  xdg.configFile."quickshell".source = mkOutOfStoreSymlink "${nixDir}/quickshell";
+  xdg.configFile."niri/config.kdl".source =
+    mkOutOfStoreSymlink "${nixDir}/modules/home/niri/config.kdl";
   services.dunst.enable = true; # TODO: experiment with mako
 }

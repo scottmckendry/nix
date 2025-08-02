@@ -17,7 +17,7 @@ let
     "${pkgs.swayidle}/bin/swayidle -w"
     + " timeout ${toString timeouts.lockScreen} '${commands.lock}'"
     + " timeout ${toString timeouts.turnOffMonitors} '${commands.screenOff}'"
-    + " timeout ${toString timeouts.suspend} '${commands.suspend}'"
+    # + " timeout ${toString timeouts.suspend} '${commands.suspend}'"
     + " before-sleep '${commands.lock}'";
 in
 

@@ -24,11 +24,12 @@ in
   ++ (
     if desktop then
       [
-        ./anyrun
-        ./niri
         ./alacritty.nix
         ./desktopapps.nix
+        ./gtk.nix
         ./kitty.nix
+        ./niri
+        ./walker.nix
       ]
     else
       [ ]

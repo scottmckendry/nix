@@ -7,6 +7,7 @@
     discord
     firefox
     gimp
+    pavucontrol
     nautilus
     spotify
     wl-clipboard

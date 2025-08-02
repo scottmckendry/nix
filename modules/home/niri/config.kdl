@@ -79,6 +79,11 @@ layout {
     }
 }
 
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 16 
+}
+
 // =========================================
 //      STARTUP & MISC SETTINGS
 // =========================================

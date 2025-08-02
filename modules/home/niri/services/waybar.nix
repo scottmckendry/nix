@@ -1,5 +1,11 @@
 { pkgs, config, ... }:
+let
+  inherit (config.lib.file) mkOutOfStoreSymlink;
+  nixDir = "${config.home.homeDirectory}/git/nix";
+in
 {
+  xdg.configFile."waybar".source = mkOutOfStoreSymlink "${nixDir}/modules/home/waybar";
+
   systemd.user.services.waybar = {
     Unit = {
       Description = "Waybar status bar for Wayland";

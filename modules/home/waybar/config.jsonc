@@ -3,10 +3,10 @@
     "output": "DP-1",
     "spacing": 2,
     "modules-left": [
-        "hyprland/workspaces"
+        "niri/workspaces"
     ],
     "modules-center": [
-        "hyprland/window"
+        "niri/window"
     ],
     "modules-right": [
         "idle_inhibitor",
@@ -20,9 +20,6 @@
         "tray"
     ],
     // Modules configuration
-    "hyprland/workspaces": {
-        "all-outputs": true
-    },
     "tray": {
         "show-passive-items": true,
         "spacing": 10
@@ -66,12 +63,6 @@
         "format-icons": {
             "activated": " ",
             "deactivated": " "
-        },
-        "on-click-right": "hyprlock"
-    },
-    "custom/hyprshade": {
-        "exec": "if [ -z $(hyprshade current) ]; then echo '󰃠 '; else echo '󰃞 '; fi",
-        "interval": 1,
-        "on-click": "hyprshade toggle blue-light-filter"
+        }
     }
 }

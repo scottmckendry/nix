@@ -9,13 +9,14 @@
     };
 
     settings = {
+      hide_window_decorations = true;
       adjust_line_height = "115%";
       window_padding_width = 10;
       window_padding_height = 10;
       cursor_trail = 3;
 
       font_size = 10;
-      background_opacity = 0.75;
+      background_opacity = 0.90;
 
       tab_bar_style = "powerline";
       active_tab_foreground = "#16181a";

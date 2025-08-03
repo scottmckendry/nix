@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     inputs.walker.homeManagerModules.default
@@ -16,12 +16,19 @@
     };
   };
 
-  # HACK: out-of-store symlinks don't work, and neither do in-store ones. This is a workaround
-  # to fix the "fork/exec ... permission denied" error when trying to run walker plugins.
+  home.packages = with pkgs; [
+    libqalculate
+    lua
+  ];
+
+  # Create stubs for custom plugins.
   home.activation.walkerPlugins = ''
     rm -rf ~/.config/walker/plugins
     mkdir -p ~/.config/walker/plugins
-    cp -r ${./plugins}/* ~/.config/walker/plugins/ 
+    for plugin in ~/git/nix/modules/home/walker/plugins/*.lua; do
+      name=$(basename "$plugin")
+      echo "return dofile(\"$plugin\")" > ~/.config/walker/plugins/"$name"
+    done
     chmod -R 755 ~/.config/walker/plugins
   '';
 }

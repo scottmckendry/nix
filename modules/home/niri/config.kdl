@@ -137,6 +137,7 @@ binds {
 
     // --- Applications / Utility ---
     Mod+RETURN       { spawn "kitty"; }
+    Mod+Shift+B      { spawn "zen"; }
     Mod+R            { spawn "walker"; }
     Mod+Alt+L        { spawn "swaylock"; }
     Mod+E            { spawn "nautilus"; }

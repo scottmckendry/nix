@@ -29,7 +29,7 @@ in
         ./gtk.nix
         ./kitty.nix
         ./niri
-        ./walker.nix
+        ./walker
       ]
     else
       [ ]

@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  wpPath = "/home/scott/Pictures/Wallpapers/ship.jpg";
+  wpPath = "/tmp/current_wallpaper";
 in
 {
   systemd.user.services.swaybg = {

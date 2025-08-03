@@ -7,9 +7,7 @@
       ignore-empty-password = true;
       show-failed-attempts = true;
 
-      # TODO: multiple references to the current wallpaper in different nix files
-      # consider how this can be more dynamic, or use a launcher script to pick wallpapers and map them a cache path
-      image = "/home/scott/Pictures/Wallpapers/ship.jpg";
+      image = "/tmp/current_wallpaper";
       scaling = "fill";
       color = "16181aff";
 

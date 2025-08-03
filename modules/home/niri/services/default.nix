@@ -1,9 +1,9 @@
 { ... }:
 {
   imports = [
-    ./swaybg.nix
     ./clipboard.nix
-    ./waybar.nix
+    ./swaybg.nix
     ./swayidle.nix
+    ./waybar.nix
   ];
 }

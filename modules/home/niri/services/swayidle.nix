@@ -4,11 +4,11 @@ let
   timeouts = {
     lockScreen = 300; # 5 minutes
     turnOffMonitors = 600; # 10 minutes
-    suspend = 1800; # 30 minutes
+    suspend = 7200; # 2 hours
   };
 
   commands = {
-    lock = "swaylock";
+    lock = "pgrep -x hyprlock > /dev/null || hyprlock &";
     screenOff = "niri msg action power-off-monitors";
     suspend = "systemctl suspend";
   };
@@ -17,7 +17,7 @@ let
     "${pkgs.swayidle}/bin/swayidle -w"
     + " timeout ${toString timeouts.lockScreen} '${commands.lock}'"
     + " timeout ${toString timeouts.turnOffMonitors} '${commands.screenOff}'"
-    # + " timeout ${toString timeouts.suspend} '${commands.suspend}'"
+    + " timeout ${toString timeouts.suspend} '${commands.suspend}'"
     + " before-sleep '${commands.lock}'";
 in
 

@@ -7,8 +7,9 @@
     discord
     firefox
     gimp
-    pavucontrol
+    libnotify
     nautilus
+    pavucontrol
     spotify
     wl-clipboard
   ];

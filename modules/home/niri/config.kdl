@@ -89,6 +89,7 @@ cursor {
 // =========================================
 
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "~/scripts/hyprlock.sh"
 screenshot-path  "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
 
@@ -110,7 +111,7 @@ window-rule {
 
 // --- Floating windows: always floating ---
 window-rule {
-    match app-id=r#"(?i)(nautilus|blueberry|pavucontrol)"#
+    match app-id=r#"(?i)(nautilus|blueberry|pavucontrol|keepass)"#
     open-floating true
 }
 
@@ -139,7 +140,7 @@ binds {
     Mod+RETURN       { spawn "kitty"; }
     Mod+Shift+B      { spawn "zen"; }
     Mod+R            { spawn "walker"; }
-    Mod+Alt+L        { spawn "swaylock"; }
+    Mod+Alt+L        { spawn "hyprlock";}
     Mod+E            { spawn "nautilus"; }
     Mod+V            { spawn "walker" "-m" "clipboard"; }
     Mod+Shift+Period { spawn "walker" "-m" "emojis"; }

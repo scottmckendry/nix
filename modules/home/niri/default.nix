@@ -11,7 +11,7 @@ in
 {
   imports = [
     ./services
-    ./swaylock.nix
+    ./hyprlock.nix
     ./mako.nix
   ];
 

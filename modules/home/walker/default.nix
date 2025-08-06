@@ -1,4 +1,13 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}:
+let
+  inherit (config.lib.file) mkOutOfStoreSymlink;
+  nixDir = "${config.home.homeDirectory}/git/nix";
+in
 {
   imports = [
     inputs.walker.homeManagerModules.default
@@ -13,6 +22,7 @@
       ui.fullscreen = true;
       websearch.prefix = "?";
       switcher.prefix = "/";
+      theme = "cyberdream";
     };
   };
 
@@ -20,6 +30,8 @@
     libqalculate
     lua
   ];
+
+  xdg.configFile."walker/themes".source = mkOutOfStoreSymlink "${nixDir}/modules/home/walker/themes";
 
   # Create stubs for custom plugins.
   home.activation.walkerPlugins = ''

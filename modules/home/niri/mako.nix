@@ -30,8 +30,8 @@
       on-touch = "dismiss";
 
       # colours:
-      background-color = "#16181acc";
-      border-color = "#5ef1ffcc";
+      background-color = "#16181a";
+      border-color = "#5ef1ff";
       progress-color = "over #bd5eff";
     };
   };

@@ -1,5 +1,5 @@
 * {
-  font-family: "Inter", sans-serif;
+  font-family: "JetBrains Mono Nerd Font";
   font-size: 12px;
 }
 
@@ -18,26 +18,14 @@ window#waybar {
 #pulseaudio,
 #workspaces,
 #idle_inhibitor,
-#custom-hyprshade,
 #tray {
-  padding: 5px 10px;
+  padding: 0px 7px;
   background: transparent;
   border: none;
   box-shadow: none;
 }
 
-#workspaces button {
-  background: transparent;
-  border-radius: 6px;
-  margin: 0 2px;
-  padding: 0 8px;
-  color: #fff;
-}
-#workspaces button.active {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-}
-#workspaces button:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border: none;
+#tray {
+  padding-left: 3px;
+  margin-right: 5px;
 }

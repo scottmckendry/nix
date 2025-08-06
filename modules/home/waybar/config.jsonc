@@ -6,28 +6,39 @@
         "niri/workspaces"
     ],
     "modules-center": [
-        "niri/window"
+        "custom/day",
+        "custom/separator",
+        "clock"
     ],
     "modules-right": [
         "idle_inhibitor",
         "custom/hyprshade",
         "bluetooth",
         "cpu",
-        "temperature",
-        "memory",
         "pulseaudio",
-        "clock",
         "tray"
     ],
     // Modules configuration
     "tray": {
         "show-passive-items": true,
-        "spacing": 10
+        "spacing": 12,
+        "icon-size": 12
+    },
+    "niri/workspaces": {
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "active": "󱓻"
+        }
     },
     "bluetooth": {
-        "format": "  {status}",
-        "format-connected": "  {status}",
-        "format-connected-battery": " {device_battery_percentage}%",
+        "format": "",
         "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -37,32 +48,30 @@
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}",
-        "format": "{:%I:%M:%S %p}",
+        "format": "{:%A %d  |  %I:%M:%S %p}",
         "interval": 1
     },
     "cpu": {
-        "format": "  {usage}%",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "   {}%"
-    },
-    "temperature": {
-        "thermal-zone": 1,
-        "format": "  {temperatureC}°C"
+        "format": " ",
+        "tooltip": "{usage}%",
+        "on-click": "kitty -e btop"
     },
     "pulseaudio": {
-        "format": "  {volume}%",
+        "format": " ",
+        "tooltip": true,
+        "tooltip-format": "{desc} {volume}%",
         "on-click": "pavucontrol",
-        "on-scroll-up": "pamixer -i 2",
-        "on-scroll-down": "pamixer -d 2"
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"
     },
     "idle_inhibitor": {
         "format": "{icon}",
         "tooltip": true,
+        "tooltip-format-activated": "Idle inhibitor is active",
+        "tooltip-format-deactivated": "Idle inhibitor is inactive",
         "format-icons": {
-            "activated": " ",
-            "deactivated": " "
+            "activated": " ",
+            "deactivated": " "
         }
     }
 }

@@ -23,6 +23,7 @@ in
       websearch.prefix = "?";
       switcher.prefix = "/";
       theme = "cyberdream";
+      terminal = "kitty";
     };
   };
 

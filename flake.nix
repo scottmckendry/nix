@@ -93,8 +93,7 @@
     };
 
     sunsetr = {
-      url = "github:scottmckendry/sunsetr";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:scottmckendry/sunsetr-flake";
     };
 
     walker = {

@@ -123,7 +123,7 @@ window-rule {
 
 // --- Floating windows: always floating ---
 window-rule {
-    match app-id=r#"(?i)(nautilus|blueberry|pavucontrol|keepass)"#
+    match app-id=r#"(?i)(nautilus|blueberry|pavucontrol|keepass|nm-connection-editor)"#
     open-floating true
 }
 

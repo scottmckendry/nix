@@ -20,10 +20,17 @@ in
     brightnessctl
     cliphist
     inotify-tools
+    networkmanagerapplet
     playerctl
     waybar
   ];
 
   xdg.configFile."niri/config.kdl".source =
     mkOutOfStoreSymlink "${nixDir}/modules/home/niri/config.kdl";
+
+  # Mask nm-applet autostart to prevent tray icon
+  xdg.configFile."autostart/nm-applet.desktop".text = ''
+    [Desktop Entry]
+    Hidden=true
+  '';
 }

@@ -16,6 +16,7 @@
     "modules-right": [
         "idle_inhibitor",
         "bluetooth",
+        "network",
         "battery",
         "cpu",
         "pulseaudio",
@@ -88,6 +89,25 @@
             "critical": 10
         }
     },
+    "network": {
+        "format-icons": [
+            "󰤯",
+            "󰤟",
+            "󰤢",
+            "󰤥",
+            "󰤨"
+        ],
+        "format": "{icon}",
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰀂",
+        "format-disconnected": "󰖪",
+        "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+        "interval": 3,
+        "nospacing": 1,
+        "on-click": "nm-connection-editor"
+    },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}",
@@ -95,7 +115,7 @@
         "interval": 1
     },
     "cpu": {
-        "format": " ",
+        "format": "",
         "tooltip": "{usage}%",
         "on-click": "kitty -e btop"
     },

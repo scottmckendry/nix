@@ -29,7 +29,23 @@
         modules = [
           ./hosts
           home-manager.nixosModules.home-manager
-          nur.modules.nixos.default
+        ];
+      };
+
+      nixosConfigurations."eris" = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+          inherit username;
+          inherit name;
+          inherit pkgs-stable;
+          hostname = "eris";
+          desktop = true;
+        };
+
+        modules = [
+          ./hosts
+          home-manager.nixosModules.home-manager
         ];
       };
 

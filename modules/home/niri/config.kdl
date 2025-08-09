@@ -104,6 +104,9 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "~/scripts/hyprlock.sh"
 screenshot-path  "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
+hotkey-overlay {
+    skip-at-startup
+}
 
 // =========================================
 //            WINDOW/LAYER RULES
@@ -193,6 +196,9 @@ binds {
     Mod+Shift+Ctrl+J { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+K { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
+
+    Mod+Alt+J { move-column-to-workspace-down; }
+    Mod+Alt+K { move-column-to-workspace-up; }
 
     Mod+W                    { toggle-column-tabbed-display; }
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }

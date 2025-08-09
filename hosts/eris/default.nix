@@ -1,12 +1,10 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   imports = [
-    ../../modules/gaming.nix
     ../../modules/networking.nix
     ../../modules/niri.nix
     ../../modules/nvidia.nix
-    ../../modules/virtualisation.nix
     ../../modules/zenbrowser.nix
     ./hardware-configuration.nix
     ./secure-boot.nix
@@ -29,6 +27,22 @@
     ];
   };
 
+  # hybrid graphics - see https://nixos.wiki/wiki/Nvidia
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
+
+  hardware.nvidia.prime = {
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    };
+
+    intelBusId = "PCI:00:02:0";
+    nvidiaBusId = "PCI:243:00:0";
+  };
+
   # see https://wayland.freedesktop.org/libinput/doc/latest/touchpad-pressure-debugging.html
   environment.etc."libinput/local-overrides.quirks".text = ''
     [Touchpad Sensitivity Overrides]
@@ -38,11 +52,4 @@
     AttrPressureRange=5:3
     AttrPalmPressureThreshold=500
   '';
-
-  swapDevices = [
-    {
-      device = "/swapfile";
-      size = 16 * 1024;
-    }
-  ];
 }

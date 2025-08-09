@@ -18,7 +18,7 @@ in
       ExecStart = "${pkgs.bash}/bin/bash ${config.xdg.configHome}/waybar/waybar-hot-reload.sh";
       Restart = "on-failure";
       RestartSec = 1;
-      ExecStartPre = "${pkgs.coreutils}/bin/sleep 1";
+      ExecStartPre = "${pkgs.coreutils}/bin/sleep 2";
     };
 
     Install = {

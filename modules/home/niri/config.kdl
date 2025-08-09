@@ -111,7 +111,7 @@ prefer-no-csd
 
 // --- Rounded corners for all windows ---
 window-rule {
-    geometry-corner-radius 7
+    geometry-corner-radius 15
     clip-to-geometry true
 }
 

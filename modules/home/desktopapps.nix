@@ -7,6 +7,7 @@
     discord
     firefox
     gimp
+    google-fonts
     libnotify
     nautilus
     pavucontrol

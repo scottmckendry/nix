@@ -3,12 +3,13 @@
 {
   imports = [
     ../../modules/gaming.nix
-    ../../modules/niri.nix
     ../../modules/networking.nix
+    ../../modules/niri.nix
     ../../modules/nvidia.nix
     ../../modules/virtualisation.nix
     ../../modules/zenbrowser.nix
     ./hardware-configuration.nix
+    ./secure-boot.nix
   ];
 
   boot = {

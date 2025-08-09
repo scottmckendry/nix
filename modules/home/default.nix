@@ -41,6 +41,7 @@ in
   xdg.configFile."nvim".source = mkOutOfStoreSymlink "${nixDir}/nvim";
   xdg.configFile."starship".source = mkOutOfStoreSymlink "${nixDir}/starship";
   xdg.configFile."wezterm".source = mkOutOfStoreSymlink "${nixDir}/wezterm";
+  home.file."scripts".source = mkOutOfStoreSymlink "${nixDir}/scripts";
 
   programs.fastfetch.enable = true;
   programs.gh.enable = true;

@@ -4,11 +4,6 @@ let
   output = if hostname == "atlas" then "DP-1" else "eDP-1";
 in
 {
-  home.file."scripts/hyprlock.sh" = {
-    source = ./hyprlock.sh;
-    executable = true;
-  };
-
   programs.hyprlock = {
     enable = true;
     settings = {

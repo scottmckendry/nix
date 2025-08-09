@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 # Login wrapper for hyprlock. Since calling hyprlock directly on startup seems to fail consistently.
 # ¯\_(ツ)_/¯
 

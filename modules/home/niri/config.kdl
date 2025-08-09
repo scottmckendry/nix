@@ -10,21 +10,33 @@ input {
     }
     warp-mouse-to-focus
     focus-follows-mouse max-scroll-amount="0%"
+
+    touchpad {
+        tap
+        natural-scroll
+        click-method "clickfinger"
+    }
 }
 
 // =========================================
 //         OUTPUTS & MONITORS
 // =========================================
 
-// --- Main Ultrawide ---
-output "DP-2" {
+// --- Eris ---
+output "eDP-1" {
+    mode      "2400x1600@120"
+    scale     1.2
+    variable-refresh-rate
+}
+
+// --- Atlas ---
+output "DP-1" {
     mode      "3440x1440@144"
     scale     1
     transform "normal"
     position  x=0 y=0
 }
 
-// --- Portrait 16:9 ---
 output "HDMI-A-1" {
     mode      "1920x1080@60"
     scale     1
@@ -155,6 +167,8 @@ binds {
     XF86AudioPlay        allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86AudioNext        allow-when-locked=true { spawn "playerctl" "next"; }
     XF86AudioPrev        allow-when-locked=true { spawn "playerctl" "previous"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     // --- Window/Workspace/Layout ---
     Mod+O repeat=false { toggle-overview; }

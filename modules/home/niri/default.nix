@@ -17,6 +17,7 @@ in
 
   home.packages = with pkgs; [
     blueberry
+    brightnessctl
     cliphist
     inotify-tools
     playerctl

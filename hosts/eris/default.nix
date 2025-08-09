@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -28,6 +28,16 @@
       "rd.systemd.show_status=auto"
     ];
   };
+
+  # see https://wayland.freedesktop.org/libinput/doc/latest/touchpad-pressure-debugging.html
+  environment.etc."libinput/local-overrides.quirks".text = ''
+    [Touchpad Sensitivity Overrides]
+    MatchVendor=0x045E
+    MatchProduct=0x09AF
+    MatchUdevType=touchpad
+    AttrPressureRange=5:3
+    AttrPalmPressureThreshold=500
+  '';
 
   swapDevices = [
     {

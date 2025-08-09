@@ -1,4 +1,8 @@
-{ ... }:
+{ hostname, ... }:
+
+let
+  output = if hostname == "atlas" then "DP-1" else "eDP-1";
+in
 {
   home.file."scripts/hyprlock.sh" = {
     source = ./hyprlock.sh;
@@ -21,14 +25,14 @@
       };
 
       background = {
-        monitor = "";
+        monitor = output;
         path = "/tmp/current_wallpaper";
         blur_passes = 2;
         blur_size = 4;
       };
 
       input-field = {
-        monitor = "DP-1";
+        monitor = output;
         size = "250, 60";
         outer_color = "rgba(0, 0, 0, 0)";
         inner_color = "rgba(0, 0, 0, 0.2)";
@@ -37,7 +41,7 @@
 
       # clock
       label = {
-        monitor = "DP-1";
+        monitor = output;
         text = "cmd[update:1000] echo -n $(date +'%-I:%M %p')";
         size = "250, 60";
         color = "rgba(200, 200, 200, 1)";

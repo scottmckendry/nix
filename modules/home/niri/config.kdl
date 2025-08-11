@@ -8,7 +8,6 @@ input {
             layout "us"
         }
     }
-    warp-mouse-to-focus
     focus-follows-mouse max-scroll-amount="0%"
 
     touchpad {
@@ -50,7 +49,7 @@ output "HDMI-A-1" {
 
 layout {
     // --- Window Gaps & Background ---
-    gaps                  60
+    gaps                  40
     background-color      "transparent"
     center-focused-column "on-overflow"
 
@@ -163,15 +162,15 @@ binds {
     Mod+Shift+S      { screenshot; }
 
     // --- Media Keys ---
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    XF86AudioPlay        allow-when-locked=true { spawn "playerctl" "play-pause"; }
-    XF86AudioNext        allow-when-locked=true { spawn "playerctl" "next"; }
-    XF86AudioPrev        allow-when-locked=true { spawn "playerctl" "previous"; }
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
+    XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
+    XF86AudioMute         allow-when-locked=true { spawn "~/scripts/volume-osd.sh" "--mute"; }
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn "~/scripts/volume-osd.sh" "--inc"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn "~/scripts/volume-osd.sh" "--dec"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "~/scripts/brightness-osd.sh" "--inc"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "~/scripts/brightness-osd.sh" "--dec"; }
 
     // --- Window/Workspace/Layout ---
     Mod+O repeat=false { toggle-overview; }

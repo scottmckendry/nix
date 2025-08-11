@@ -3,6 +3,17 @@
 # Login wrapper for hyprlock. Since calling hyprlock directly on startup seems to fail consistently.
 # ¯\_(ツ)_/¯
 
+show_usage() {
+    echo "Usage: $0 [-h] [hyprlock args...]"
+    echo "  -h    Show this help message"
+    echo "This is a wrapper for hyprlock that logs output and notifies on failure."
+}
+
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    show_usage
+    exit 0
+fi
+
 LOGFILE="$HOME/.cache/hyprlock.log"
 mkdir -p "$(dirname "$LOGFILE")"
 
@@ -17,10 +28,6 @@ if [ $STATUS -ne 0 ]; then
     notify-send "Hyprlock failed :(" "Exit code: $STATUS. See $LOGFILE"
 fi
 
-# HACK: automatically close the focussed window right after unlocking
-# This window happens to be the Gnome Keyring unlock dialog which
-# is (after unlocking with hyprlock) redundant. For this reason, this
-# script should only be run at login, not for normal locking/idle.
 niri msg action close-window
 
 exit $STATUS

@@ -2,6 +2,17 @@
 
 # Send notification when battery reches critical level. Run as a service that executes every 30 seconds.
 
+show_usage() {
+    echo "Usage: $0 [-h]"
+    echo "  -h    Show this help message"
+    echo "This script sends a notification when battery is critically low."
+}
+
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    show_usage
+    exit 0
+fi
+
 BATTERY_THRESHOLD=5
 NOTIFICATION_FLAG="/tmp/battery_notified"
 

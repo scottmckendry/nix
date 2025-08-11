@@ -7,6 +7,7 @@
     ../../modules/nvidia.nix
     ../../modules/zenbrowser.nix
     ./hardware-configuration.nix
+    ./power-management.nix
     ./secure-boot.nix
   ];
 

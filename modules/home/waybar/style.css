@@ -18,10 +18,11 @@ window#waybar {
 #memory,
 #temperature,
 #pulseaudio,
+#power-profiles-daemon,
 #workspaces,
 #idle_inhibitor,
 #tray {
-  padding: 0px 7px;
+  padding: 0px 10px;
   background: transparent;
   border: none;
   box-shadow: none;

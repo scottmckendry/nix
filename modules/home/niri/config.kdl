@@ -138,7 +138,7 @@ window-rule {
 
 // --- Wallpaper stays in place when switching workspaces ---
 layer-rule {
-    match namespace=r#"(?i)^wallpaper$"#
+    match namespace=r#"(?i)^swww-daemon$"#
     place-within-backdrop true
 }
 

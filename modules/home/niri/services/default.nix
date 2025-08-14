@@ -4,8 +4,8 @@
     ./battery-monitor.nix
     ./clipboard.nix
     ./sunsetr.nix
-    ./swaybg.nix
     ./swayidle.nix
+    ./swww.nix
     ./waybar.nix
   ];
 }

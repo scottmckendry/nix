@@ -62,6 +62,7 @@ in
     gnumake
     go-task
     hugo
+    jq
     k9s
     killall
     kubectl

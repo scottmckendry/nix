@@ -158,7 +158,7 @@ binds {
     Mod+E            { spawn "nautilus"; }
     Mod+V            { spawn "walker" "-m" "clipboard"; }
     Mod+Shift+Period { spawn "walker" "-m" "emojis"; }
-    Mod+Shift+W      { spawn "walker" "-m" "window"; }
+    Mod+Shift+W      { spawn "~/scripts/window-switcher.sh"; }
     Mod+Shift+S      { screenshot; }
 
     // --- Media Keys ---

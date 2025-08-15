@@ -20,7 +20,6 @@ in
       };
 
       background = {
-        monitor = output;
         path = "/tmp/current_wallpaper";
         blur_passes = 2;
         blur_size = 4;

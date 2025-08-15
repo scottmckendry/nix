@@ -1,18 +1,11 @@
-{
-  pkgs,
-  config,
-  ...
-}:
+{ pkgs, ... }:
 
-let
-  inherit (config.lib.file) mkOutOfStoreSymlink;
-  nixDir = "${config.home.homeDirectory}/git/nix";
-in
 {
   imports = [
-    ./services
+    ./config
     ./hyprlock.nix
     ./mako.nix
+    ./services
   ];
 
   home.packages = with pkgs; [
@@ -25,8 +18,19 @@ in
     waybar
   ];
 
-  xdg.configFile."niri/config.kdl".source =
-    mkOutOfStoreSymlink "${nixDir}/modules/home/niri/config.kdl";
+  programs.niri.settings = {
+    spawn-at-startup = [
+      { command = [ "xwayland-satellite" ]; }
+      { command = [ "~/scripts/hyprlock.sh" ]; }
+    ];
+    screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
+    prefer-no-csd = true;
+    hotkey-overlay.skip-at-startup = true;
+
+    debug = {
+      wait-for-frame-completion-in-pipewire = [ ];
+    };
+  };
 
   # Mask nm-applet autostart to prevent tray icon
   xdg.configFile."autostart/nm-applet.desktop".text = ''

@@ -1,11 +1,12 @@
 {
   outputs =
     {
+      home-manager,
       lanzaboote,
+      niri,
+      nixos-wsl,
       nixpkgs,
       nixpkgs-stable,
-      home-manager,
-      nixos-wsl,
       ...
     }@inputs:
     let
@@ -29,6 +30,7 @@
         modules = [
           ./hosts
           home-manager.nixosModules.home-manager
+          niri.nixosModules.niri
         ];
       };
 
@@ -47,6 +49,7 @@
           ./hosts
           home-manager.nixosModules.home-manager
           lanzaboote.nixosModules.lanzaboote
+          niri.nixosModules.niri
         ];
       };
 
@@ -84,6 +87,11 @@
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

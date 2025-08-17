@@ -8,7 +8,6 @@ window#waybar {
   color: #eee;
 }
 
-#workspaces,
 #window,
 #clock,
 #network,
@@ -31,4 +30,8 @@ window#waybar {
 #tray {
   padding-left: 3px;
   margin-right: 5px;
+}
+
+#workspaces button {
+  padding: 5px 5px;
 }

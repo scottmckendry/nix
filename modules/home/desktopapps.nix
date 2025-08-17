@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
     bitwarden-desktop
     brave
-    discord
     firefox
     gimp
     google-fonts
@@ -12,6 +11,7 @@
     nautilus
     pavucontrol
     spotify
+    vesktop
     wl-clipboard
   ];
 }

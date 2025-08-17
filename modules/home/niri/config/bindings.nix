@@ -13,6 +13,7 @@
       "Mod+Shift+Period".action = spawn "walker" "-m" "emojis";
       "Mod+Shift+W".action = spawn "~/scripts/window-switcher.sh";
       "Mod+Shift+S".action = screenshot;
+      "Mod+Shift+Escape".action = spawn "kitty" "-e" "btop";
 
       # Media Keys
       "XF86AudioMicMute" = { allow-when-locked = true; action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; };

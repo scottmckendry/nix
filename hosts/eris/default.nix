@@ -4,8 +4,8 @@
   imports = [
     ../../modules/networking.nix
     ../../modules/niri.nix
-    ../../modules/nvidia.nix
     ../../modules/zenbrowser.nix
+    ./disable-dgpu.nix # OR ./hybrid-graphics.nix
     ./hardware-configuration.nix
     ./power-management.nix
     ./secure-boot.nix
@@ -26,22 +26,6 @@
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"
     ];
-  };
-
-  # hybrid graphics - see https://nixos.wiki/wiki/Nvidia
-  services.xserver.videoDrivers = [
-    "modesetting"
-    "nvidia"
-  ];
-
-  hardware.nvidia.prime = {
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
-    };
-
-    intelBusId = "PCI:00:02:0";
-    nvidiaBusId = "PCI:243:00:0";
   };
 
   # see https://wayland.freedesktop.org/libinput/doc/latest/touchpad-pressure-debugging.html

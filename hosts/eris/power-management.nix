@@ -15,7 +15,9 @@
   powerManagement.enable = true;
 
   services.power-profiles-daemon.enable = true;
-  services.logind.lidSwitch = "hibernate";
-  services.logind.powerKey = "hibernate";
+
+  systemd.sleep.extraConfig = "HibernateDelaySec=30m";
+  services.logind.lidSwitch = "suspend-then-hibernate";
+  services.logind.powerKey = "suspend-then-hibernate";
   services.logind.powerKeyLongPress = "poweroff";
 }

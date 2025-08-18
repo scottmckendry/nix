@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
   programs.niri = {
@@ -12,22 +12,23 @@
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.upower.enable = true;
-
-  security.pam.services.greetd.enableGnomeKeyring = true;
   security.pam.services.hyprlock.enableGnomeKeyring = true;
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    DISPLAY = ":0";
+  services.displayManager = {
+    gdm = {
+      enable = true;
+    };
+    autoLogin.enable = true;
+    autoLogin.user = username;
   };
 
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.niri}/bin/niri-session";
-        user = "scott";
-      };
-    };
-  };
+  environment.etc."xdg/wayland-sessions/niri.desktop".text = ''
+    [Desktop Entry]
+    Name=Niri
+    Comment=Start Niri session
+    Exec=${pkgs.niri}/bin/niri-session
+    Type=Application
+    DesktopNames=Niri
+  '';
+
 }

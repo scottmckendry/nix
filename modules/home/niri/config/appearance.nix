@@ -6,6 +6,7 @@
       gaps = 40;
       background-color = "transparent";
       center-focused-column = "on-overflow";
+      always-center-single-column = true;
 
       default-column-width = {
         proportion = 0.5;

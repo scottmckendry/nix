@@ -1,23 +1,12 @@
-{
-  pkgs,
-  inputs,
-  config,
-  ...
-}:
+{ pkgs, config, ... }:
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
   nixDir = "${config.home.homeDirectory}/git/nix";
 in
 {
-  imports = [
-    inputs.walker.homeManagerModules.default
-  ];
-
-  programs.walker = {
+  services.walker = {
     enable = true;
-    runAsService = true;
-
-    config = {
+    settings = {
       search.placeholder = "Search...";
       ui.fullscreen = true;
       websearch.prefix = "?";
@@ -29,7 +18,6 @@ in
 
   home.packages = with pkgs; [
     libqalculate
-    lua
   ];
 
   xdg.configFile."walker/themes".source = mkOutOfStoreSymlink "${nixDir}/modules/home/walker/themes";

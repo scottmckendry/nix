@@ -116,11 +116,6 @@
       url = "github:scottmckendry/sunsetr-flake";
     };
 
-    walker = {
-      url = "github:abenz1267/walker/0.13.26";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     zen-browser = {
       url = "github:scottmckendry/zen-browser-flake";
     };

@@ -8,5 +8,6 @@
     ./swww.nix
     ./walker.nix
     ./waybar.nix
+    ./xwayland-satellite.nix
   ];
 }

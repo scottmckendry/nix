@@ -20,7 +20,6 @@
 
   programs.niri.settings = {
     spawn-at-startup = [
-      { command = [ "xwayland-satellite" ]; }
       { command = [ "~/scripts/hyprlock.sh" ]; }
     ];
     environment = {

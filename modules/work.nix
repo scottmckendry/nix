@@ -18,7 +18,6 @@ in
       azure-functions-core-tools
       azurite
       bicep
-      csharpier
       dotnet-combined
     ]
     ++ (

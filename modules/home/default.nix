@@ -16,6 +16,7 @@ in
     ./git.nix
     ./lazygit.nix
     ./opencode.nix
+    ./posting.nix
     ./self-maintained.nix
     ./wslopen.nix
     ./yazi

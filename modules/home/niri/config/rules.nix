@@ -33,7 +33,7 @@
 
       # Secondary monitor apps: maximized by default
       {
-        matches = [ { app-id = ''(?i)^(spotify|teams-for-linux|discord)$''; } ];
+        matches = [ { app-id = ''(?i)^(spotify|teams-for-linux|discord|vesktop)$''; } ];
         open-on-output = "HDMI-A-1";
         open-maximized = true;
       }

@@ -10,6 +10,7 @@
 
   gtk = {
     enable = true;
+    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
 
     font = {
       name = "Inter";
@@ -17,7 +18,17 @@
       size = 9;
     };
 
-    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
 
     iconTheme = {
       name = "Colloid-Dark";
@@ -27,6 +38,12 @@
     theme = {
       name = "Colloid-Dark";
       package = pkgs.colloid-gtk-theme;
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
     };
   };
 

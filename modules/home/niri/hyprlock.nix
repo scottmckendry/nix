@@ -12,13 +12,6 @@ in
         ignore_empty_input = true;
       };
 
-      animations = {
-        animation = [
-          "fadeIn, 0, 0, linear"
-          "fadeOut, 0, 0, linear"
-        ];
-      };
-
       background = {
         path = "/tmp/current_wallpaper";
         blur_passes = 2;

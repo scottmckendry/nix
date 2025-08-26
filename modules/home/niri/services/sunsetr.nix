@@ -1,7 +1,4 @@
-{ pkgs, inputs, ... }:
-let
-  sunsetr = inputs.sunsetr.packages.${pkgs.system}.default;
-in
+{ pkgs, ... }:
 {
   systemd.user.services.sunsetr = {
     Unit = {
@@ -12,7 +9,7 @@ in
 
     Service = {
       Type = "simple";
-      ExecStart = "${sunsetr}/bin/sunsetr";
+      ExecStart = "${pkgs.sunsetr}/bin/sunsetr";
       Restart = "on-failure";
       RestartSec = 1;
     };
@@ -23,7 +20,7 @@ in
   };
 
   home.packages = [
-    sunsetr
+    pkgs.sunsetr
   ];
 
   # see https://github.com/psi4j/sunsetr?tab=readme-ov-file#%EF%B8%8F-configuration

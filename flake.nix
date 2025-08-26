@@ -112,10 +112,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sunsetr = {
-      url = "github:scottmckendry/sunsetr-flake";
-    };
-
     zen-browser = {
       url = "github:scottmckendry/zen-browser-flake";
     };

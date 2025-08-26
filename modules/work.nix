@@ -25,6 +25,7 @@ in
         [
           dbeaver-bin
           keepass
+          keepassxc
           libreoffice
           remmina
           teams-for-linux

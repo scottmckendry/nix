@@ -6,6 +6,7 @@
     ../../modules/niri.nix
     ../../modules/zenbrowser.nix
     ./disable-dgpu.nix # OR ./hybrid-graphics.nix
+    ./displaylink.nix
     ./hardware-configuration.nix
     ./power-management.nix
     ./secure-boot.nix

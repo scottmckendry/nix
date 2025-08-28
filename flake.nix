@@ -112,11 +112,6 @@
       url = "github:scottmckendry/pokemon-go-colorscripts";
     };
 
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     zen-browser = {
       url = "github:scottmckendry/zen-browser-flake";
     };

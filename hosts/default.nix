@@ -15,7 +15,6 @@
     ../modules/docker.nix
     ../modules/go.nix
     ../modules/locale.nix
-    ../modules/rust.nix
     ../modules/work.nix
   ];
 

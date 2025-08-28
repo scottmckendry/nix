@@ -56,6 +56,7 @@ in
     ansible
     appimage-run
     btop
+    cargo
     fd
     fluxcd
     fzf
@@ -78,6 +79,7 @@ in
     presenterm
     restic
     ripgrep
+    rustc
     sops
     sqlc
     sqlite

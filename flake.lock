@@ -455,7 +455,6 @@
         "nixpkgs-stable": "nixpkgs-stable_2",
         "pat": "pat",
         "pokemon-go-colorscripts": "pokemon-go-colorscripts",
-        "rust-overlay": "rust-overlay_3",
         "zen-browser": "zen-browser"
       }
     },
@@ -493,26 +492,6 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "rev": "75fb000638e6d0f57cb1e8b7a4550cbdd8c76f1d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "rust-overlay_3": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1756175826,
-        "narHash": "sha256-cQNnntKWve+vnqo6pGGXl4NFT4dgnMKXl4+bpwLELvU=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "d137b47bde8a6783b961db81254013b454eab46a",
         "type": "github"
       },
       "original": {

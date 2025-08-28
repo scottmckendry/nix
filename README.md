@@ -1,12 +1,22 @@
 # ❄️ NixOS Configuration
 
-NixOS flake for all my linux-based systems.
+Multi-host modular NixOS configuration. Powered by [Nix Flakes](https://nixos.wiki/wiki/Flakes).
 
-![screenshot](https://github.com/user-attachments/assets/b7fac6dd-b079-4af3-9edc-bcf2c2dd3f0a)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6d8b4bca-4c6f-4117-b81b-2b73fb332ec3" />
+
+## ⚙️ Info
+
+- _DE/Compositor_: niri
+- _Shell_: zsh
+- _Editor_: neovim
+- _Terminal_: kitty
+
+The rest doesn't really matter.
 
 ## 🖥️ Hosts
 
-| Hostname | Description                                      |
-| -------- | ------------------------------------------------ |
-| `atlas`  | My main workstation. Currently running Hyprland. |
-| `helios` | Windows Laptop. Running NixOS via WSL2.          |
+| Hostname | Description                                  |
+| -------- | -------------------------------------------- |
+| `atlas`  | Main workstation.                            |
+| `helios` | Windows Laptop. Running NixOS via WSL2.      |
+| `eris`   | Same laptop, but native NixOS via dual boot. |

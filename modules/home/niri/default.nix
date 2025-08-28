@@ -28,10 +28,6 @@
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
     prefer-no-csd = true;
     hotkey-overlay.skip-at-startup = true;
-
-    debug = {
-      wait-for-frame-completion-in-pipewire = [ ];
-    };
   };
 
   # Mask nm-applet autostart to prevent tray icon

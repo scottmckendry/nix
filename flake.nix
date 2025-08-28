@@ -95,6 +95,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri-override = {
+      url = "github:scottmckendry/niri/primary-render-fallback";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
     };

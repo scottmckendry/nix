@@ -1,7 +1,15 @@
-{ pkgs, username, ... }:
-
+{
+  pkgs,
+  username,
+  inputs,
+  ...
+}:
+let
+  niri-package = inputs.niri-override.packages.${pkgs.system}.niri;
+in
 {
   programs.niri = {
+    package = niri-package;
     enable = true;
   };
 
@@ -22,7 +30,7 @@
     [Desktop Entry]
     Name=Niri
     Comment=Start Niri session
-    Exec=${pkgs.niri}/bin/niri-session
+    Exec=${niri-package}/bin/niri-session
     Type=Application
     DesktopNames=Niri
   '';

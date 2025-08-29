@@ -27,8 +27,8 @@
           mode = { width = 2400; height = 1600; refresh = 120.00; };
           position = { x = 920; y = 1080; };
         };
-        "DP-1" = {
-          name = "DP-1";
+        "DVI-I-1" = {
+          name = "DVI-I-1";
           mode = { width = 1920; height = 1080; refresh = 60.00; };
           position = { x = 0; y = 0; };
         };

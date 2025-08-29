@@ -13,6 +13,7 @@ in
     enable = true;
   };
 
+  environment.systemPackages = [ pkgs.xwayland-satellite ];
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.upower.enable = true;
@@ -25,13 +26,4 @@ in
     autoLogin.enable = true;
     autoLogin.user = username;
   };
-
-  environment.etc."xdg/wayland-sessions/niri.desktop".text = ''
-    [Desktop Entry]
-    Name=Niri
-    Comment=Start Niri session
-    Exec=${niri-package}/bin/niri-session
-    Type=Application
-    DesktopNames=Niri
-  '';
 }

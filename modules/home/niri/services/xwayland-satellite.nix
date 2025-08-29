@@ -1,4 +1,7 @@
 { pkgs, ... }:
+
+# TODO: once xwayland-satellite is v0.7.0 or later, remove this service
+# use use the built-in niri integration instead, supported since v25.08
 {
   home.sessionVariables = {
     DISPLAY = ":0";

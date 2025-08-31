@@ -7,7 +7,7 @@
       "Mod+RETURN".action = spawn "kitty";
       "Mod+Shift+B".action = spawn "zen";
       "Mod+R".action = spawn "walker";
-      "Mod+Alt+L".action = spawn "hyprlock";
+      "Mod+Alt+L".action = spawn "~/scripts/lock-and-off.sh";
       "Mod+E".action = spawn "nautilus";
       "Mod+V".action = spawn "walker" "-m" "clipboard";
       "Mod+Shift+Period".action = spawn "walker" "-m" "emojis";

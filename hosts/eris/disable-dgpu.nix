@@ -3,7 +3,7 @@
 {
   # Nvidia causes all sorts of problems, so if I can disable it, I will.
 
-  # The main issue with this particually hardware, is that deep sleep is not supported.
+  # The main issue with this particular hardware, is that deep sleep is not supported.
   # Therefore, to get anywhere near decent battery life while sleeping, hibernation is required.
 
   # systemd's hibernation works fine, but it's also slow to resume. suspend works too, but drains the battery too quickly.

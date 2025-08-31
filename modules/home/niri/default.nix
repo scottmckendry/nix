@@ -13,7 +13,7 @@
     brightnessctl
     cliphist
     inotify-tools
-    networkmanagerapplet
+    nmgui
     playerctl
     waybar
   ];
@@ -26,10 +26,4 @@
     prefer-no-csd = true;
     hotkey-overlay.skip-at-startup = true;
   };
-
-  # Mask nm-applet autostart to prevent tray icon
-  xdg.configFile."autostart/nm-applet.desktop".text = ''
-    [Desktop Entry]
-    Hidden=true
-  '';
 }

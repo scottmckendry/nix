@@ -27,7 +27,7 @@
 
       # Floating windows: always floating
       {
-        matches = [ { app-id = ''(?i)(nautilus|blueberry|pavucontrol|keepass|nm-connection-editor)''; } ];
+        matches = [ { app-id = ''(?i)(nautilus|blueberry|pavucontrol|keepass|network\.manager)''; } ];
         open-floating = true;
       }
 

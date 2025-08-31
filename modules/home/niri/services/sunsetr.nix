@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
+let
+  package = inputs.sunsetr.packages.${pkgs.system}.sunsetr;
+in
 {
   systemd.user.services.sunsetr = {
     Unit = {
@@ -9,7 +12,7 @@
 
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.sunsetr}/bin/sunsetr";
+      ExecStart = "${package}/bin/sunsetr";
       Restart = "on-failure";
       RestartSec = 1;
     };
@@ -19,9 +22,7 @@
     };
   };
 
-  home.packages = [
-    pkgs.sunsetr
-  ];
+  home.packages = [ package ];
 
   # see https://github.com/psi4j/sunsetr?tab=readme-ov-file#%EF%B8%8F-configuration
   xdg.configFile."sunsetr/sunsetr.toml".text = ''

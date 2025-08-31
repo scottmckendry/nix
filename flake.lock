@@ -367,6 +367,22 @@
     },
     "nixpkgs_6": {
       "locked": {
+        "lastModified": 1756536218,
+        "narHash": "sha256-ynQxPVN2FIPheUgTFhv01gYLbaiSOS7NgWJPm9LF9D0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a918bb3594dd243c2f8534b3be01b3cb4ed35fd1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_7": {
+      "locked": {
         "lastModified": 1735563628,
         "narHash": "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=",
         "owner": "nixos",
@@ -455,6 +471,7 @@
         "nixpkgs-stable": "nixpkgs-stable_2",
         "pat": "pat",
         "pokemon-go-colorscripts": "pokemon-go-colorscripts",
+        "sunsetr": "sunsetr",
         "zen-browser": "zen-browser"
       }
     },
@@ -500,6 +517,47 @@
         "type": "github"
       }
     },
+    "rust-overlay_3": {
+      "inputs": {
+        "nixpkgs": [
+          "sunsetr",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1756607787,
+        "narHash": "sha256-ciwAdgtlAN1PCaidWK6RuWsTBL8DVuyDCGM+X3ein5Q=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "f46d294b87ebb9f7124f1ce13aa2a5f5acc0f3eb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "sunsetr": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_6",
+        "rust-overlay": "rust-overlay_3"
+      },
+      "locked": {
+        "lastModified": 1756611254,
+        "narHash": "sha256-/35Y74OrIHWYH7BdWfpm1rNpklSyavLZFplg2ElDY5g=",
+        "owner": "scottmckendry",
+        "repo": "sunsetr",
+        "rev": "76b0187cd00203ee0fadb9f89b5ff1e83bb90a91",
+        "type": "github"
+      },
+      "original": {
+        "owner": "scottmckendry",
+        "ref": "nix-support",
+        "repo": "sunsetr",
+        "type": "github"
+      }
+    },
     "xwayland-satellite-stable": {
       "flake": false,
       "locked": {
@@ -535,7 +593,7 @@
     },
     "zen-browser": {
       "inputs": {
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_7"
       },
       "locked": {
         "lastModified": 1754872526,

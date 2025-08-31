@@ -25,7 +25,6 @@ in
   ++ (
     if desktop then
       [
-        ./alacritty.nix
         ./desktopapps.nix
         ./gtk.nix
         ./kitty.nix

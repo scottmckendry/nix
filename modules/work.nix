@@ -1,4 +1,9 @@
-{ pkgs, desktop, ... }:
+{
+  pkgs,
+  pkgs-stable,
+  desktop,
+  ...
+}:
 
 let
   dotnet-combined = (
@@ -14,7 +19,7 @@ in
   environment.systemPackages =
     with pkgs;
     [
-      azure-cli
+      pkgs-stable.azure-cli
       azure-functions-core-tools
       azurite
       bicep

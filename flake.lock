@@ -544,16 +544,15 @@
         "rust-overlay": "rust-overlay_3"
       },
       "locked": {
-        "lastModified": 1756611254,
+        "lastModified": 1756685438,
         "narHash": "sha256-/35Y74OrIHWYH7BdWfpm1rNpklSyavLZFplg2ElDY5g=",
-        "owner": "scottmckendry",
+        "owner": "psi4j",
         "repo": "sunsetr",
-        "rev": "76b0187cd00203ee0fadb9f89b5ff1e83bb90a91",
+        "rev": "7a633246b6cf97685e129f77243dd91518055b56",
         "type": "github"
       },
       "original": {
-        "owner": "scottmckendry",
-        "ref": "nix-support",
+        "owner": "psi4j",
         "repo": "sunsetr",
         "type": "github"
       }

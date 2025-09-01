@@ -112,9 +112,8 @@
       url = "github:scottmckendry/pokemon-go-colorscripts";
     };
 
-    # TODO: switch to upstream when merged :)
     sunsetr = {
-      url = "github:scottmckendry/sunsetr/nix-support";
+      url = "github:psi4j/sunsetr";
     };
 
     zen-browser = {

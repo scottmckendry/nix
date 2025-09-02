@@ -74,7 +74,7 @@
 
   inputs = {
     nixpkgs.url = "github:dramforever/nixpkgs/evdi-flags-fix";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     cl-parse = {
       url = "github:scottmckendry/cl-parse";

@@ -73,7 +73,7 @@
     };
 
   inputs = {
-    nixpkgs.url = "github:dramforever/nixpkgs/evdi-flags-fix";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     cl-parse = {

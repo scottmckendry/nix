@@ -1,8 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
+let
+  inherit (config.lib.file) mkOutOfStoreSymlink;
+  nixDir = "${config.home.homeDirectory}/git/nix";
+in
 {
   imports = [
-    ./config
     ./hyprlock.nix
     ./mako.nix
     ./services
@@ -18,12 +21,6 @@
     waybar
   ];
 
-  programs.niri.settings = {
-    spawn-at-startup = [
-      { command = [ "~/scripts/hyprlock.sh" ]; }
-    ];
-    screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
-    prefer-no-csd = true;
-    hotkey-overlay.skip-at-startup = true;
-  };
+  xdg.configFile."niri/config.kdl".source =
+    mkOutOfStoreSymlink "${nixDir}/modules/home/niri/config.kdl";
 }

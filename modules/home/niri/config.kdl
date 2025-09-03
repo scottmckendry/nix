@@ -1,0 +1,239 @@
+// https://yalter.github.io/niri/
+
+// █▀ ▀█▀ ▄▀█ █▀█ ▀█▀ █░█ █▀█
+// ▄█ ░█░ █▀█ █▀▄ ░█░ █▄█ █▀▀
+
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "~/scripts/hyprlock.sh"
+screenshot-path  "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+hotkey-overlay {
+    skip-at-startup
+}
+
+// ▄▀█ █▀█ █▀█ █▀▀ ▄▀█ █▀█ ▄▀█ █▄░█ █▀▀ █▀▀
+// █▀█ █▀▀ █▀▀ ██▄ █▀█ █▀▄ █▀█ █░▀█ █▄▄ ██▄
+
+prefer-no-csd
+
+layout {
+    // --- Window Gaps & Background ---
+    gaps                  40
+    background-color      "transparent"
+    center-focused-column "on-overflow"
+
+    // --- Column Widths ---
+    default-column-width { proportion 0.5; }
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    // --- Tab Indicator ---
+    tab-indicator {
+        active-color   "#5ef1ff90"
+        inactive-color "#7b849690"
+        width          8
+        gap            8
+        length         total-proportion=0.33
+    }
+
+    // --- Insert Hint ---
+    insert-hint {
+        gradient from="#5ef1ff70" to="#bd5eff70" angle=45
+    }
+
+    // --- DISABLED: Focus Ring ---
+    focus-ring {
+        off 
+    }
+
+    // --- Window Shadow ---
+    shadow {
+        on
+        softness 30
+        spread   5
+        offset   x=0 y=5
+        color    "#0007"
+    }
+}
+
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 16 
+}
+
+// █▀█ █░█ █░░ █▀▀ █▀
+// █▀▄ █▄█ █▄▄ ██▄ ▄█
+
+// --- Rounded corners for all windows ---
+window-rule {
+    geometry-corner-radius 15
+    clip-to-geometry true
+}
+
+// --- Zen PiP: always floating ---
+window-rule {
+    match app-id=r#"(?i)^zen$"# title=r#"^Picture-in-Picture$"#
+    open-floating true
+}
+
+// --- Floating windows: always floating ---
+window-rule {
+    match app-id=r#"(?i)(nautilus|blueberry|pavucontrol|keepass|nm-connection-editor)"#
+    open-floating true
+}
+
+// --- Secondary monitor apps: maximized by default ---
+window-rule {
+    match app-id=r#"(?i)^(spotify|teams-for-linux|discord|vesktop)$"#
+    open-on-output "HDMI-A-1"
+    open-maximized true
+}
+
+// --- Wallpaper stays in place when switching workspaces ---
+layer-rule {
+    match namespace=r#"(?i)^swww-daemon$"#
+    place-within-backdrop true
+}
+
+// █▄▀ █▀▀ █▄█ █▀▄▀█ ▄▀█ █▀█
+// █░█ ██▄ ░█░ █░▀░█ █▀█ █▀▀
+
+binds {
+    // --- Hotkey Overlay ---
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // --- Applications / Utility ---
+    Mod+RETURN       { spawn "kitty"; }
+    Mod+Shift+B      { spawn "zen"; }
+    Mod+R            { spawn "walker"; }
+    Mod+Alt+L        { spawn "~/scripts/lock-and-off.sh";}
+    Mod+E            { spawn "nautilus"; }
+    Mod+V            { spawn "walker" "-m" "clipboard"; }
+    Mod+Shift+Period { spawn "walker" "-m" "emojis"; }
+    Mod+Shift+W      { spawn "~/scripts/window-switcher.sh"; }
+    Mod+Shift+S      { screenshot; }
+    Mod+Shift+Escape { spawn "kitty" "-e" "btop"; }
+
+    // --- Media Keys ---
+    XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
+    XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
+    XF86AudioMute         allow-when-locked=true { spawn "~/scripts/volume-osd.sh" "--mute"; }
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn "~/scripts/volume-osd.sh" "--inc"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn "~/scripts/volume-osd.sh" "--dec"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "~/scripts/brightness-osd.sh" "--inc"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "~/scripts/brightness-osd.sh" "--dec"; }
+
+    // --- Window/Workspace/Layout ---
+    Mod+O repeat=false { toggle-overview; }
+    Mod+Q { close-window; }
+
+    Mod+H { focus-column-left; }
+    Mod+J { focus-window-down; }
+    Mod+K { focus-window-up; }
+    Mod+L { focus-column-right; }
+
+    Mod+Ctrl+H { move-column-left; }
+    Mod+Ctrl+J { move-window-down; }
+    Mod+Ctrl+K { move-window-up; }
+    Mod+Ctrl+L { move-column-right; }
+
+    Mod+Shift+H { focus-monitor-left; }
+    Mod+Shift+J { focus-monitor-down; }
+    Mod+Shift+K { focus-monitor-up; }
+    Mod+Shift+L { focus-monitor-right; }
+
+    Mod+Shift+Ctrl+H { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+J { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+K { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
+
+    Mod+Alt+J { move-column-to-workspace-down; }
+    Mod+Alt+K { move-column-to-workspace-up; }
+
+    Mod+W                    { toggle-column-tabbed-display; }
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    Mod+Comma   { consume-or-expel-window-left; }
+    Mod+Period  { consume-or-expel-window-right; }
+
+    Mod+Shift+R { switch-preset-column-width; }
+    Mod+Ctrl+R  { reset-window-height; }
+
+    Mod+F       { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+Ctrl+F  { expand-column-to-available-width; }
+    Mod+Shift+V { toggle-window-floating; }
+
+    Mod+C       { center-column; }
+    Mod+Ctrl+C  { center-visible-columns; }
+
+    Mod+Minus       { set-column-width "-10%"; }
+    Mod+Equal       { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // --- System Actions ---
+    Mod+Shift+P { power-off-monitors; }
+    Mod+Shift+Q { quit; }
+}
+
+// █ █▄░█ █▀█ █░█ ▀█▀
+// █ █░▀█ █▀▀ █▄█ ░█░
+
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+    }
+    focus-follows-mouse max-scroll-amount="0%"
+
+    touchpad {
+        tap
+        natural-scroll
+        click-method "clickfinger"
+    }
+}
+
+// █▀█ █░█ ▀█▀ █▀█ █░█ ▀█▀
+// █▄█ █▄█ ░█░ █▀▀ █▄█ ░█░
+
+// --- Atlas ---
+output "DP-1" {
+    mode      "3440x1440@144"
+    scale     1
+    transform "normal"
+    position  x=0 y=0
+}
+
+output "HDMI-A-1" {
+    mode      "1920x1080@60"
+    scale     1
+    transform "270" // rotated
+    position  x=-1080 y=-400
+}
+
+// --- Eris ---
+output "eDP-1" {
+    mode      "2400x1600@120"
+    scale     1.2
+    variable-refresh-rate
+    position  x=920 y=1080
+}
+
+output "DVI-I-1" {
+    mode     "1920x1080@60"
+    position x=0 y=0
+}
+
+output "DP-5" {
+    mode     "1920x1080@60"
+    position x=1920 y=0
+}

@@ -9,4 +9,6 @@
     ./walker.nix
     ./waybar.nix
   ];
+
+  services.udiskie.enable = true;
 }

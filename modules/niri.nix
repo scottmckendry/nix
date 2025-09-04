@@ -17,6 +17,7 @@ in
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.upower.enable = true;
+  services.udisks2.enable = true;
   security.pam.services.hyprlock.enableGnomeKeyring = true;
 
   services.displayManager = {

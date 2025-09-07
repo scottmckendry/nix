@@ -14,61 +14,52 @@
       name = "Scott McKendry";
       system = "x86_64-linux";
       pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+      mkHost =
+        {
+          hostname,
+          desktop,
+          extraModules,
+        }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs;
+            inherit username;
+            inherit name;
+            inherit pkgs-stable;
+            inherit hostname;
+            inherit desktop;
+          };
+
+          modules = [
+            ./hosts
+            home-manager.nixosModules.home-manager
+          ]
+          ++ extraModules;
+        };
     in
     {
-      nixosConfigurations."atlas" = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit name;
-          inherit pkgs-stable;
+      nixosConfigurations = {
+        "atlas" = mkHost {
           hostname = "atlas";
           desktop = true;
+          extraModules = [ niri.nixosModules.niri ];
         };
 
-        modules = [
-          ./hosts
-          home-manager.nixosModules.home-manager
-          niri.nixosModules.niri
-        ];
-      };
-
-      nixosConfigurations."eris" = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit name;
-          inherit pkgs-stable;
+        "eris" = mkHost {
           hostname = "eris";
           desktop = true;
+          extraModules = [
+            lanzaboote.nixosModules.lanzaboote
+            niri.nixosModules.niri
+          ];
         };
 
-        modules = [
-          ./hosts
-          home-manager.nixosModules.home-manager
-          lanzaboote.nixosModules.lanzaboote
-          niri.nixosModules.niri
-        ];
-      };
-
-      nixosConfigurations."helios" = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit name;
-          inherit pkgs-stable;
+        "helios" = mkHost {
           hostname = "helios";
           desktop = false;
+          extraModules = [ nixos-wsl.nixosModules.default ];
         };
-
-        modules = [
-          ./hosts
-          nixos-wsl.nixosModules.default
-          home-manager.nixosModules.home-manager
-        ];
       };
     };
 

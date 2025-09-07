@@ -43,14 +43,16 @@ layout {
         gradient from="#5ef1ff70" to="#bd5eff70" angle=45
     }
 
-    // --- DISABLED: Focus Ring ---
+    // --- Focus Ring ---
     focus-ring {
-        off 
+        width 2
+        active-gradient from="#5ef1ff" to="#bd5eff" angle=45 in="oklch increasing hue"
+        inactive-gradient from="#7b8496" to="#3c4048" angle=135
     }
 
     // --- Window Shadow ---
     shadow {
-        on
+        // on
         softness 30
         spread   5
         offset   x=0 y=5
@@ -70,6 +72,11 @@ cursor {
 window-rule {
     geometry-corner-radius 15
     clip-to-geometry true
+}
+
+// --- Remove border background from transparent windows ---
+window-rule {
+    draw-border-with-background false
 }
 
 // --- Zen PiP: always floating ---

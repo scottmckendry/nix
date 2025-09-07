@@ -19,12 +19,15 @@ in
   services.upower.enable = true;
   services.udisks2.enable = true;
   security.pam.services.hyprlock.enableGnomeKeyring = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
-  services.displayManager = {
-    gdm = {
-      enable = true;
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.niri}/bin/niri-session";
+        user = username;
+      };
     };
-    autoLogin.enable = true;
-    autoLogin.user = username;
   };
 }

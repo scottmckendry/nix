@@ -76,6 +76,7 @@ in
     openssl
     powershell
     presenterm
+    python3
     restic
     ripgrep
     rustc

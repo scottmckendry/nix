@@ -19,12 +19,10 @@ in
       cdi = "zi";
       cat = "bat";
       rebuild = "cd ${nixDir} && git add -A -N && nh os switch . && cd -";
+      ff = "fastfetch --logo ${nixDir}/fastfetch/logos/ascii.txt";
     };
     sessionVariables = {
       EDITOR = "nvim";
     };
-    initContent = ''
-      fastfetch --logo ${nixDir}/fastfetch/logos/ascii.txt
-    '';
   };
 }

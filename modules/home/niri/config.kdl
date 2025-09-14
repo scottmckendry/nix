@@ -165,7 +165,7 @@ binds {
     Mod+Shift+R { switch-preset-column-width; }
     Mod+Ctrl+R  { reset-window-height; }
 
-    Mod+F       { maximize-column; }
+    Mod+F       { maximize-window-to-edges; }
     Mod+Shift+F { fullscreen-window; }
     Mod+Ctrl+F  { expand-column-to-available-width; }
     Mod+Shift+V { toggle-window-floating; }

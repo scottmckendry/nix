@@ -201,6 +201,9 @@ input {
     }
 }
 
+// Disable top-left hot corner (toggles overview by default)
+gestures { hot-corners { off; }; }
+
 // █▀█ █░█ ▀█▀ █▀█ █░█ ▀█▀
 // █▄█ █▄█ ░█░ █▀▀ █▄█ ░█░
 

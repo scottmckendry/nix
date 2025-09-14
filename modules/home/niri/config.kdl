@@ -165,10 +165,11 @@ binds {
     Mod+Shift+R { switch-preset-column-width; }
     Mod+Ctrl+R  { reset-window-height; }
 
-    Mod+F       { maximize-window-to-edges; }
-    Mod+Shift+F { fullscreen-window; }
-    Mod+Ctrl+F  { expand-column-to-available-width; }
-    Mod+Shift+V { toggle-window-floating; }
+    Mod+F            { maximize-column; }
+    Mod+Shift+F      { maximize-window-to-edges; }
+    Mod+Shift+Ctrl+F { fullscreen-window; }
+    Mod+Ctrl+F       { expand-column-to-available-width; }
+    Mod+Shift+V      { toggle-window-floating; }
 
     Mod+C       { center-column; }
     Mod+Ctrl+C  { center-visible-columns; }

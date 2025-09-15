@@ -104,16 +104,17 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // --- Applications / Utility ---
+    Mod+Shift+S      { screenshot; }
     Mod+RETURN       { spawn "kitty"; }
     Mod+Shift+B      { spawn "zen"; }
-    Mod+R            { spawn "walker"; }
-    Mod+Alt+L        { spawn "~/scripts/lock-and-off.sh";}
     Mod+E            { spawn "nautilus"; }
-    Mod+V            { spawn "walker" "-m" "clipboard"; }
-    Mod+Shift+Period { spawn "walker" "-m" "emojis"; }
-    Mod+Shift+W      { spawn "~/scripts/window-switcher.sh"; }
-    Mod+Shift+S      { screenshot; }
-    Mod+Shift+Escape { spawn "kitty" "-e" "btop"; }
+    Mod+R            { spawn "walker"; }
+    Mod+V            { spawn-sh "walker -m clipboard"; }
+    Mod+Period       { spawn-sh "walker -m emojis"; }
+    Mod+Comma        { spawn-sh "walker -m symbols"; }
+    Mod+Shift+W      { spawn-sh "~/scripts/window-switcher.sh"; }
+    Mod+Alt+L        { spawn-sh "~/scripts/lock-and-off.sh";}
+    Mod+Shift+Escape { spawn-sh "kitty -e btop"; }
 
     // --- Media Keys ---
     XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
@@ -159,8 +160,6 @@ binds {
     Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
     Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
-    Mod+Comma   { consume-or-expel-window-left; }
-    Mod+Period  { consume-or-expel-window-right; }
 
     Mod+Shift+R { switch-preset-column-width; }
     Mod+Ctrl+R  { reset-window-height; }

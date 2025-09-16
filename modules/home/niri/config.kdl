@@ -201,8 +201,10 @@ input {
     }
 }
 
-// Disable top-left hot corner (toggles overview by default)
-gestures { hot-corners { off; }; }
+gestures {
+    hot-corners { off; }
+    dnd-edge-view-scroll { trigger-width 100; max-speed 3000; }
+}
 
 // █▀█ █░█ ▀█▀ █▀█ █░█ ▀█▀
 // █▄█ █▄█ ░█░ █▀▀ █▄█ ░█░

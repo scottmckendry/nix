@@ -80,6 +80,7 @@ in
     restic
     ripgrep
     rustc
+    rustfmt
     sops
     sqlc
     sqlite

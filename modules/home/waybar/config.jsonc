@@ -17,6 +17,7 @@
         "idle_inhibitor",
         "bluetooth",
         "network",
+        "custom/wireguard",
         "battery",
         "power-profiles-daemon",
         "cpu",
@@ -108,6 +109,14 @@
         "interval": 3,
         "nospacing": 1,
         "on-click": "nmgui"
+    },
+    "custom/wireguard": {
+        "exec-if": "~/scripts/wireguard.sh exists",
+        "exec": "~/scripts/wireguard.sh",
+        "interval": 5,
+        "return-type": "json",
+        "on-click": "~/scripts/wireguard.sh toggle",
+        "tooltip": true
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",

@@ -8,19 +8,20 @@ window#waybar {
   color: #eee;
 }
 
-#window,
-#clock,
-#network,
-#cpu,
 #battery,
 #bluetooth,
-#memory,
-#temperature,
-#pulseaudio,
-#power-profiles-daemon,
-#workspaces,
+#clock,
+#cpu,
+#custom-wireguard,
 #idle_inhibitor,
-#tray {
+#memory,
+#network,
+#power-profiles-daemon,
+#pulseaudio,
+#temperature,
+#tray,
+#window,
+#workspaces {
   padding: 0px 10px;
   background: transparent;
   border: none;

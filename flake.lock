@@ -186,16 +186,16 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1758217795,
-        "narHash": "sha256-9Qao+dsKSzNKwtgwzngmwR+maRK3TDAYTc0UnvHIZ6Q=",
+        "lastModified": 1758851151,
+        "narHash": "sha256-VXlVJuDPp8eqqsf3cWzxWL3W+ZhnLDjcgA4/qSRfi4Q=",
         "owner": "scottmckendry",
         "repo": "niri",
-        "rev": "85104c4c7c517f1540931dace1868a9939823d65",
+        "rev": "5d1bdf47e0aa368907d583306eec145ed40d42a1",
         "type": "github"
       },
       "original": {
         "owner": "scottmckendry",
-        "ref": "true-maximise-prerelease-testing",
+        "ref": "bunch-of-unmerged-patches",
         "repo": "niri",
         "type": "github"
       }

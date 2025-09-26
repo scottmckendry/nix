@@ -87,7 +87,7 @@
     };
 
     niri-override = {
-      url = "github:scottmckendry/niri/true-maximise-prerelease-testing";
+      url = "github:scottmckendry/niri/bunch-of-unmerged-patches";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

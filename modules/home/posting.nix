@@ -24,6 +24,6 @@
     warning = "#ffbd5e";
 
     author = "Scott McKendry";
-    homepage = "https://gitub.com/scottmckendry/cyberdream.nvim";
+    homepage = "https://github.com/scottmckendry/cyberdream.nvim";
   };
 }

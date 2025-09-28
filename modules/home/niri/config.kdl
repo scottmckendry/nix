@@ -68,15 +68,11 @@ window-rule {
     draw-border-with-background false
 }
 
-// --- Zen PiP: always floating ---
-window-rule {
-    match app-id=r#"(?i)^zen$"# title=r#"^Picture-in-Picture$"#
-    open-floating true
-}
-
 // --- Floating windows: always floating ---
 window-rule {
-    match app-id=r#"(?i)(nautilus|blueberry|pavucontrol|keepass|nm-connection-editor)"#
+    match app-id=r#"(?i)^zen$"# title=r#"^Picture-in-Picture$"# // PiP windows (Zen Browser)
+    match app-id=r#"(?i)^org.remmina.Remmina$"# title=r#"^Remmina Remote Desktop Client$"# // Remmina (main window only)
+    match app-id=r#"(?i)(nautilus|blueberry|pavucontrol|keepass|nm-connection-editor)"# // always floating apps regardless of window title
     open-floating true
 }
 

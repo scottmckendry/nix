@@ -4,7 +4,7 @@
   programs.git = {
     enable = true;
     userName = "Scott McKendry";
-    userEmail = "39483124+scottmckendry@users.noreply.github.com";
+    userEmail = "me@scottmckendry.tech";
     aliases = {
       co = "checkout";
       hist = ''log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'';

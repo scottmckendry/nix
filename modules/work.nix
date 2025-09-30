@@ -6,6 +6,7 @@
 }:
 
 let
+  teams-for-linux = pkgs.callPackage ../pkgs/teams-for-linux.nix { };
   dotnet-combined = (
     with pkgs.dotnetCorePackages;
     combinePackages [

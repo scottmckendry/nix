@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   desktop,
   ...
 }:
@@ -8,6 +9,7 @@
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
   nixDir = "${config.home.homeDirectory}/git/nix";
+  neovim = inputs.neovim-nightly.packages.${pkgs.system}.default;
 in
 {
   imports = [

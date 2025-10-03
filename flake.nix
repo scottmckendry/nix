@@ -92,7 +92,7 @@
     };
 
     niri-override = {
-      url = "github:scottmckendry/niri/bunch-of-unmerged-patches";
+      url = "github:scottmckendry/niri/render-fallback-and-true-maximize";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

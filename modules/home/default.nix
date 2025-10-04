@@ -73,6 +73,7 @@ in
     neovim
     nil
     nixfmt-rfc-style
+    nixpkgs-review
     nodejs
     odin
     openssl

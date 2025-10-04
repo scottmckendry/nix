@@ -8,7 +8,7 @@ let
   };
 
   commands = {
-    lock = "pgrep -x hyprlock > /dev/null || hyprlock &";
+    lock = "pgrep -x hyprlock > /dev/null || hyprlock --grace 5 &";
     screenOff = "niri msg action power-off-monitors";
     suspend = "systemctl suspend";
   };

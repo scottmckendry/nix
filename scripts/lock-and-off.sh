@@ -19,4 +19,4 @@ nohup setsid bash -c "
 " >/dev/null 2>&1 &
 
 # Start hyprlock in the foreground.
-exec hyprlock
+exec hyprlock --grace 5

@@ -105,7 +105,6 @@ binds {
     Mod+V            { spawn-sh "walker -m clipboard"; }
     Mod+Period       { spawn-sh "walker -m emojis"; }
     Mod+Comma        { spawn-sh "walker -m symbols"; }
-    Mod+Shift+W      { spawn-sh "~/scripts/window-switcher.sh"; }
     Mod+Alt+L        { spawn-sh "~/scripts/lock-and-off.sh";}
     Mod+Shift+Escape { spawn-sh "kitty -e btop"; }
 

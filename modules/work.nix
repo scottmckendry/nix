@@ -6,7 +6,6 @@
 }:
 
 let
-  teams-for-linux = pkgs.callPackage ../pkgs/teams-for-linux.nix { };
   dotnet-combined = (
     with pkgs.dotnetCorePackages;
     combinePackages [
@@ -32,7 +31,7 @@ in
           dbeaver-bin
           keepass
           keepassxc
-          libreoffice
+          pkgs-stable.libreoffice
           remmina
           teams-for-linux
         ]

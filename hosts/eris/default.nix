@@ -27,6 +27,11 @@
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"
     ];
+
+    plymouth = {
+      enable = true;
+      theme = "fade-in";
+    };
   };
 
   # see https://wayland.freedesktop.org/libinput/doc/latest/touchpad-pressure-debugging.html

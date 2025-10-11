@@ -1,0 +1,38 @@
+* {
+  all: unset;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #fff;
+}
+
+window {
+  background: #16181a;
+  border-radius: 12px;
+  border: 5px solid #5ef1ff;
+  padding: 16px;
+}
+
+list.plugin {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+label.match.description {
+  font-size: 10px;
+}
+
+label.plugin.info {
+  font-size: 14px;
+}
+
+.plugin:first-child {
+  margin-top: 8px;
+}
+
+.match {
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.match:selected {
+  background: #3c4048;
+}

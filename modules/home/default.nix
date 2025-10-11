@@ -27,11 +27,11 @@ in
   ++ (
     if desktop then
       [
+        ./anyrun
         ./desktopapps.nix
         ./gtk.nix
         ./kitty.nix
         ./niri
-        ./walker
       ]
     else
       [ ]

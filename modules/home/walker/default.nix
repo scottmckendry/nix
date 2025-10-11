@@ -1,24 +1,42 @@
-{ pkgs, config, ... }:
+{ inputs, config, ... }:
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
   nixDir = "${config.home.homeDirectory}/git/nix";
 in
 {
-  services.walker = {
+  imports = [ inputs.walker.homeManagerModules.default ];
+
+  programs.walker = {
     enable = true;
-    settings = {
-      search.placeholder = "Search...";
-      ui.fullscreen = true;
-      websearch.prefix = "?";
-      switcher.prefix = "/";
+    runAsService = true;
+
+    config = {
+      force_keyboard_focus = true;
+      close_when_open = true;
+      selection_wrap = true;
+      click_to_close = true;
       theme = "cyberdream";
-      terminal = "kitty";
+
+      placeholders.default = {
+        input = "Search...";
+        list = "No Results";
+      };
+
+      keybinds = {
+        quick_activate = [ ];
+      };
     };
   };
 
-  home.packages = with pkgs; [
-    libqalculate
-  ];
+  xdg.configFile."elephant/websearch.toml".text = ''
+    engines_as_actions = true
 
-  xdg.configFile."walker/themes".source = mkOutOfStoreSymlink "${nixDir}/modules/home/walker/themes";
+    [[entries]]
+    default = true
+    name = "DuckDuckGo"
+    url = "https://www.duckduckgo.com/?q=%TERM%"
+  '';
+
+  xdg.configFile."walker/themes/cyberdream".source =
+    mkOutOfStoreSymlink "${nixDir}/modules/home/walker/theme";
 }

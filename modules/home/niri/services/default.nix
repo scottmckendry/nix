@@ -8,7 +8,6 @@
     ./swayidle.nix
     ./swww.nix
     ./udiskie.nix
-    ./walker.nix
     ./waybar.nix
   ];
 }

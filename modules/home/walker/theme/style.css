@@ -1,0 +1,125 @@
+@define-color selected-text #5ef1ff;
+@define-color text #ffffff;
+@define-color base #16181a;
+@define-color border #5ef1ff;
+@define-color foreground #ffffff;
+@define-color background #16181a;
+
+* {
+  all: unset;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: @text;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.normal-icons {
+  -gtk-icon-size: 14px;
+}
+
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
+.box-wrapper {
+  background: alpha(@base, 0.95);
+  padding: 20px;
+  border: 4px solid @border;
+  border-radius: 12px;
+}
+
+.preview-box {
+}
+
+.box {
+}
+
+.search-container {
+  background: @base;
+  padding: 10px;
+}
+
+.input placeholder {
+  opacity: 0.5;
+}
+
+.input {
+}
+
+.input:focus,
+.input:active {
+  box-shadow: none;
+  outline: none;
+}
+
+.content-container {
+}
+
+.placeholder {
+}
+
+.scroll {
+}
+
+.list {
+}
+
+child,
+child > * {
+}
+
+child:hover .item-box {
+}
+
+child:selected .item-box {
+  border-radius: 8px;
+  background: @selected-background;
+}
+
+child:selected .item-box * {
+  color: @selected-text;
+}
+
+.item-box {
+  padding-left: 14px;
+}
+
+.item-text-box {
+  all: unset;
+  padding: 14px 0;
+}
+
+.item-text {
+}
+
+.item-subtext {
+  font-size: 0px;
+  min-height: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.item-image {
+  margin-right: 14px;
+  -gtk-icon-transform: scale(0.9);
+}
+
+.current {
+  font-style: italic;
+}
+
+.keybind-hints {
+  background: @background;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.preview {
+  background: @background;
+}

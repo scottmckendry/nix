@@ -72,7 +72,7 @@ window-rule {
 window-rule {
     match app-id=r#"(?i)^zen$"# title=r#"^Picture-in-Picture$"# // PiP windows (Zen Browser)
     match app-id=r#"(?i)^org.remmina.Remmina$"# title=r#"^Remmina Remote Desktop Client$"# // Remmina (main window only)
-    match app-id=r#"(?i)(nautilus|blueberry|pavucontrol|keepass|nm-connection-editor)"# // always floating apps regardless of window title
+    match app-id=r#"(?i)(nautilus|blueberry|pavucontrol|keepass|nm-connection-editor|waypaper)"# // always floating apps regardless of window title
     open-floating true
 }
 
@@ -103,8 +103,7 @@ binds {
     Mod+E            { spawn "nautilus"; }
     Mod+R            { spawn "walker"; }
     Mod+V            { spawn-sh "walker -m clipboard"; }
-    Mod+Period       { spawn-sh "walker -m emojis"; }
-    Mod+Comma        { spawn-sh "walker -m symbols"; }
+    Mod+Period       { spawn-sh "walker -m symbols"; }
     Mod+Alt+L        { spawn-sh "~/scripts/lock-and-off.sh";}
     Mod+Shift+Escape { spawn-sh "kitty -e btop"; }
 

@@ -112,11 +112,11 @@ binds {
     XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
     XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
-    XF86AudioMute         allow-when-locked=true { spawn "~/scripts/volume-osd.sh" "--mute"; }
-    XF86AudioRaiseVolume  allow-when-locked=true { spawn "~/scripts/volume-osd.sh" "--inc"; }
-    XF86AudioLowerVolume  allow-when-locked=true { spawn "~/scripts/volume-osd.sh" "--dec"; }
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "~/scripts/brightness-osd.sh" "--inc"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "~/scripts/brightness-osd.sh" "--dec"; }
+    XF86AudioMute         allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise" "--max-volume" "120"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower" "--max-volume" "120"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
 
     // --- Window/Workspace/Layout ---
     Mod+O repeat=false { toggle-overview; }

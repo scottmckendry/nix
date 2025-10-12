@@ -18,6 +18,7 @@ in
     inotify-tools
     nmgui
     playerctl
+    swayosd
     waybar
   ];
 

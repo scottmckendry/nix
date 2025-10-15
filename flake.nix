@@ -96,7 +96,7 @@
     };
 
     niri-override = {
-      url = "github:scottmckendry/niri/render-fallback-and-true-maximize";
+      url = "github:scottmckendry/niri/primary-render-fallback";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -8,15 +8,24 @@
     };
 
     settings = {
-      hide_window_decorations = true;
+      # Text
+      font_size = 10;
       adjust_line_height = "115%";
-      window_padding_width = 10;
-      window_padding_height = 10;
       cursor_trail = 3;
 
-      font_size = 10;
+      # Window appearance
+      window_border_width = 0;
+      hide_window_decorations = true;
+      window_padding_width = 10;
+      window_padding_height = 10;
       background_opacity = 0.90;
 
+      # Window behavior
+      enabled_layouts = "horizontal";
+      focus_follows_mouse = true;
+      confirm_os_window_close = 0;
+
+      # Tab bar
       tab_bar_style = "powerline";
       active_tab_foreground = "#16181a";
       active_tab_background = "#5ef1ff";

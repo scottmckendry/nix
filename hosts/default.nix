@@ -11,11 +11,12 @@
 
 {
   imports = [
-    ./${hostname}/default.nix
     ../modules/docker.nix
+    ../modules/fonts.nix
     ../modules/go.nix
     ../modules/locale.nix
     ../modules/work.nix
+    ./${hostname}/default.nix
   ];
 
   nix.settings = {

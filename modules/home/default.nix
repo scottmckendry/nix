@@ -58,11 +58,13 @@ in
     ansible
     appimage-run
     btop
+    calibre
     cargo
     fd
     fluxcd
     fzf
     gcc
+    ghostscript
     gnumake
     go-task
     hugo
@@ -90,6 +92,7 @@ in
     sqlite
     tailwindcss_4
     talosctl
+    tdf
     terraform
     typescript
     unzip

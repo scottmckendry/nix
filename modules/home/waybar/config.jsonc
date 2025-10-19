@@ -127,7 +127,7 @@
     "cpu": {
         "format": "",
         "tooltip": "{usage}%",
-        "on-click": "kitty -e btop"
+        "on-click": "foot -a btop-float btop"
     },
     "power-profiles-daemon": {
         "format": "{icon}",

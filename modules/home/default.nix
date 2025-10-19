@@ -30,6 +30,7 @@ in
         ./desktopapps.nix
         ./gtk.nix
         ./kitty.nix
+        ./foot.nix
         ./niri
         ./walker
       ]

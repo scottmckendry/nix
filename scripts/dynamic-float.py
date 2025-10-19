@@ -77,7 +77,6 @@ class Rule:
 
 
 RULES: List[Rule] = [
-    Rule([Match(title="btop", app_id="kitty")]),
     Rule([Match(title="Bitwarden", app_id="zen")]),
 ]
 

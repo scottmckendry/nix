@@ -73,6 +73,7 @@ window-rule {
     match app-id=r#"(?i)^zen$"# title=r#"^Picture-in-Picture$"# // PiP windows (Zen Browser)
     match app-id=r#"(?i)^org.remmina.Remmina$"# title=r#"^Remmina Remote Desktop Client$"# // Remmina (main window only)
     match app-id=r#"(?i)(nautilus|blueberry|pavucontrol|keepass|nm-connection-editor|waypaper|com.network.manager)"# // always floating apps regardless of window title
+    match app-id=r#"(?i)^btop-float$"#
     open-floating true
 }
 
@@ -105,7 +106,7 @@ binds {
     Mod+V            { spawn-sh "walker -m clipboard"; }
     Mod+Period       { spawn-sh "walker -m symbols"; }
     Mod+Alt+L        { spawn-sh "~/scripts/lock-and-off.sh";}
-    Mod+Shift+Escape { spawn-sh "kitty -e btop"; }
+    Mod+Shift+Escape { spawn-sh "foot -a btop-float btop"; }
 
     // --- Media Keys ---
     XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }

@@ -100,7 +100,7 @@ binds {
     // --- Applications / Utility ---
     Mod+Shift+S      { screenshot; }
     Mod+RETURN       { spawn "kitty"; }
-    Mod+Shift+B      { spawn "zen"; }
+    Mod+B            { spawn "zen"; }
     Mod+E            { spawn "nautilus"; }
     Mod+R            { spawn "walker"; }
     Mod+V            { spawn-sh "walker -m clipboard"; }
@@ -110,7 +110,8 @@ binds {
 
     // --- Media Keys ---
     XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioPlay         allow-when-locked=true { spawn "swayosd-client" "--playerctl" "play-pause"; }
+    // Caps_Lock             { spawn "swayosd-client" "--caps-lock"; }
     XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
     XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
     XF86AudioMute         allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }

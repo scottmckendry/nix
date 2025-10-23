@@ -16,7 +16,6 @@ in
     ./bat.nix
     ./eza.nix
     ./git.nix
-    ./lazygit.nix
     ./opencode.nix
     ./posting.nix
     ./self-maintained.nix

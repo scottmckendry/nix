@@ -6,7 +6,7 @@
     ../../modules/niri.nix
     ../../modules/networking.nix
     ../../modules/nvidia.nix
-    ../../modules/virtualisation.nix
+    # ../../modules/virtualisation.nix
     ../../modules/zenbrowser.nix
     ./hardware-configuration.nix
   ];

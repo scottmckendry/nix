@@ -16,6 +16,7 @@ in
       selection_wrap = true;
       click_to_close = true;
       theme = "cyberdream";
+      providers.previews = [ "files" ];
 
       placeholders.default = {
         input = "Search...";

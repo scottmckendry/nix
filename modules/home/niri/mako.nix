@@ -6,7 +6,7 @@
       max-history = 20;
       sort = "-time";
       border-radius = 10;
-      border-size = 5;
+      border-size = 2;
       font = "Inter 10";
       height = 120;
       margin = 10;

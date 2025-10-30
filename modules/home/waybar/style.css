@@ -12,6 +12,8 @@ window#waybar {
 #bluetooth,
 #clock,
 #cpu,
+#custom-date,
+#custom-utc,
 #custom-wireguard,
 #idle_inhibitor,
 #memory,

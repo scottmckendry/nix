@@ -9,9 +9,11 @@
         "niri/workspaces"
     ],
     "modules-center": [
-        "custom/day",
+        "custom/date",
         "custom/separator",
-        "clock"
+        "clock",
+        "custom/separator",
+        "custom/utc"
     ],
     "modules-right": [
         "idle_inhibitor",
@@ -121,8 +123,22 @@
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}",
-        "format": "{:%A %d  |  %I:%M:%S %p}",
+        "format": "{:%I:%M:%S %p}",
         "interval": 1
+    },
+    "custom/date": {
+        "exec": "date +'%a %d'",
+        "interval": 30,
+        "format": "{}"
+    },
+    "custom/utc": {
+        "exec": "date -u +'%H'",
+        "interval": 30,
+        "format": "UTC {}"
+    },
+    "custom/separator": {
+        "exec": "echo '|'",
+        "format": "{}"
     },
     "cpu": {
         "format": "",

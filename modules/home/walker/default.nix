@@ -16,8 +16,7 @@ in
       selection_wrap = true;
       click_to_close = true;
       theme = "cyberdream";
-      providers.previews = [ "files" ];
-
+      providers.ignore_preview = [ "clipboard" ];
       placeholders.default = {
         input = "Search...";
         list = "No Results";

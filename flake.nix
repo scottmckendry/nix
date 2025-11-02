@@ -71,10 +71,6 @@
       url = "github:scottmckendry/cl-parse";
     };
 
-    elephant = {
-      url = "github:abenz1267/elephant";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -116,9 +112,8 @@
       url = "github:psi4j/sunsetr";
     };
 
-    walker = {
-      url = "github:abenz1267/walker";
-      inputs.elephant.follows = "elephant";
+    vicinae = {
+      url = "github:vicinaehq/vicinae";
     };
 
     zen-browser = {

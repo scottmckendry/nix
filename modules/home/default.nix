@@ -31,7 +31,7 @@ in
         ./kitty.nix
         ./foot.nix
         ./niri
-        ./walker
+        ./vicinae.nix
       ]
     else
       [ ]

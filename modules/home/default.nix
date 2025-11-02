@@ -10,6 +10,7 @@ let
   inherit (config.lib.file) mkOutOfStoreSymlink;
   nixDir = "${config.home.homeDirectory}/git/nix";
   neovim = inputs.neovim-nightly.packages.${pkgs.system}.default;
+  cl-parse = inputs.cl-parse.packages.${pkgs.system}.default;
 in
 {
   imports = [
@@ -18,7 +19,6 @@ in
     ./git.nix
     ./opencode.nix
     ./posting.nix
-    ./self-maintained.nix
     ./wslopen.nix
     ./yazi
     ./zsh.nix
@@ -60,6 +60,7 @@ in
     btop
     calibre
     cargo
+    cl-parse
     fd
     fluxcd
     fzf

@@ -100,14 +100,6 @@
       url = "github:nix-community/NixOS-WSL/main";
     };
 
-    pat = {
-      url = "github:scottmckendry/pat";
-    };
-
-    pokemon-go-colorscripts = {
-      url = "github:scottmckendry/pokemon-go-colorscripts";
-    };
-
     sunsetr = {
       url = "github:psi4j/sunsetr";
     };

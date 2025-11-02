@@ -12,8 +12,7 @@
     let
       username = "scott";
       name = "Scott McKendry";
-      system = "x86_64-linux";
-      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+      pkgs-stable = nixpkgs-stable.legacyPackages.${"x86_64-linux"};
       mkHost =
         {
           hostname,
@@ -21,7 +20,6 @@
           extraModules,
         }:
         nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = {
             inherit inputs;
             inherit username;

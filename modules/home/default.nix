@@ -9,8 +9,8 @@
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
   nixDir = "${config.home.homeDirectory}/git/nix";
-  neovim = inputs.neovim-nightly.packages.${pkgs.system}.default;
-  cl-parse = inputs.cl-parse.packages.${pkgs.system}.default;
+  neovim = inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  cl-parse = inputs.cl-parse.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
   imports = [

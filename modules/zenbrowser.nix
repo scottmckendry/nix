@@ -2,6 +2,6 @@
 
 {
   environment.systemPackages = [
-    inputs.zen-browser.packages.${pkgs.system}.generic
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.generic
   ];
 }

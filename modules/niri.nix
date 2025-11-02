@@ -5,7 +5,7 @@
   ...
 }:
 let
-  niri-package = inputs.niri-override.packages.${pkgs.system}.niri;
+  niri-package = inputs.niri-override.packages.${pkgs.stdenv.hostPlatform.system}.niri;
 in
 {
   programs.niri = {

@@ -100,10 +100,6 @@
       url = "github:nix-community/NixOS-WSL/main";
     };
 
-    sunsetr = {
-      url = "github:psi4j/sunsetr";
-    };
-
     vicinae = {
       url = "github:vicinaehq/vicinae";
     };

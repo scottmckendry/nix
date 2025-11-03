@@ -346,6 +346,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-opencode": {
+      "locked": {
+        "lastModified": 1762004973,
+        "narHash": "sha256-JegJvf31MX3QOIHQE7ztNa8XbuC09W+SU7bJKr9+huw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "21623b7ce795ea8496a8a69f166fc8863957418c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "21623b7ce795ea8496a8a69f166fc8863957418c",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1761999846,
@@ -478,6 +494,7 @@
         "niri-override": "niri-override",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_3",
+        "nixpkgs-opencode": "nixpkgs-opencode",
         "nixpkgs-stable": "nixpkgs-stable_2",
         "vicinae": "vicinae",
         "zen-browser": "zen-browser"

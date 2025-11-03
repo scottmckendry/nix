@@ -9,7 +9,7 @@
     lutris
     mangohud
     prismlauncher
-    protonup
+    protonup-ng
   ];
 
   environment.sessionVariables = {

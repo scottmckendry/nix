@@ -20,6 +20,7 @@
         "bluetooth",
         "network",
         "custom/wireguard",
+        "custom/nightlight",
         "battery",
         "power-profiles-daemon",
         "cpu",
@@ -111,6 +112,13 @@
         "interval": 3,
         "nospacing": 1,
         "on-click": "nmgui"
+    },
+    "custom/nightlight": {
+        "exec": "~/scripts/nightlight.sh",
+        "interval": 30,
+        "return-type": "json",
+        "on-click": "~/scripts/nightlight.sh toggle",
+        "tooltip": true
     },
     "custom/wireguard": {
         "exec-if": "~/scripts/wireguard.sh exists",

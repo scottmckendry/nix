@@ -8,5 +8,6 @@
     ./swww.nix
     ./udiskie.nix
     ./waybar.nix
+    ./wlsunset.nix
   ];
 }

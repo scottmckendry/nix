@@ -64,7 +64,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs-opencode.url = "github:NixOS/nixpkgs/21623b7ce795ea8496a8a69f166fc8863957418c";
 
     cl-parse = {
       url = "github:scottmckendry/cl-parse";

@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     bitwarden-desktop
-    brave
     gimp
     libnotify
     nautilus

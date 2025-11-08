@@ -33,6 +33,7 @@ in
         ./foot.nix
         ./niri
         ./vicinae.nix
+        ./webapps.nix
       ]
     else
       [ ]

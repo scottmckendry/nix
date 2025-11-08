@@ -70,7 +70,7 @@ window-rule {
 
 // --- Floating windows: always floating ---
 window-rule {
-    match app-id=r#"(?i)^zen$"# title=r#"^Picture-in-Picture$"# // PiP windows (Zen Browser)
+    match title=r#"(?i)^picture-in-picture$"# // PiP windows
     match app-id=r#"(?i)^org.remmina.Remmina$"# title=r#"^Remmina Remote Desktop Client$"# // Remmina (main window only)
     match app-id=r#"(?i)(nautilus|blueberry|pavucontrol|keepass|nm-connection-editor|waypaper|com.network.manager)"# // always floating apps regardless of window title
     match app-id=r#"(?i)^btop-float$"#
@@ -105,13 +105,12 @@ binds {
     Mod+R            { spawn-sh "vicinae toggle"; }
     Mod+V            { spawn-sh "vicinae vicinae://extensions/vicinae/clipboard/history"; }
     Mod+Period       { spawn-sh "vicinae vicinae://extensions/vicinae/vicinae/search-emojis"; }
-    Mod+Alt+L        { spawn-sh "~/scripts/lock-and-off.sh";}
+    Mod+Alt+L        { spawn-sh "~/scripts/lock-and-off.sh"; }
     Mod+Shift+Escape { spawn-sh "foot -a btop-float btop"; }
 
     // --- Media Keys ---
     XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
     XF86AudioPlay         allow-when-locked=true { spawn "swayosd-client" "--playerctl" "play-pause"; }
-    // Caps_Lock             { spawn "swayosd-client" "--caps-lock"; }
     XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
     XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
     XF86AudioMute         allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }

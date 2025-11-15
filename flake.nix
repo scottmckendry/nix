@@ -90,7 +90,7 @@
     };
 
     niri-override = {
-      url = "github:scottmckendry/niri/primary-render-fallback";
+      url = "github:scottmckendry/niri/prf-and-mru";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -22,6 +22,5 @@ in
     waybar
   ];
 
-  xdg.configFile."niri/config.kdl".source =
-    mkOutOfStoreSymlink "${nixDir}/modules/home/niri/config.kdl";
+  xdg.configFile."niri".source = mkOutOfStoreSymlink "${nixDir}/modules/home/niri/config";
 }

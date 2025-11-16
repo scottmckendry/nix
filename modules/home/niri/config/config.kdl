@@ -1,0 +1,10 @@
+// https://yalter.github.io/niri/
+include "appearance.kdl"
+include "input.kdl"
+include "keybinds.kdl"
+include "output.kdl"
+include "windowrules.kdl"
+
+spawn-at-startup "~/scripts/niri-startup-hyprlock.sh"
+screenshot-path  "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+hotkey-overlay { skip-at-startup; }

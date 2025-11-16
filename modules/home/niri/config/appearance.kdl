@@ -1,0 +1,42 @@
+prefer-no-csd
+layout {
+    // --- Window Gaps & Background ---
+    gaps                  40
+    background-color      "transparent"
+    center-focused-column "on-overflow"
+
+    // --- Column Widths ---
+    default-column-width { proportion 0.5; }
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    // --- Tab Indicator ---
+    tab-indicator {
+        active-color   "#5ef1ff90"
+        inactive-color "#7b849690"
+        width          8
+        gap            8
+        length         total-proportion=0.33
+    }
+
+    // --- Insert Hint ---
+    insert-hint {
+        gradient from="#5ef1ff70" to="#bd5eff70" angle=45
+    }
+
+    // --- Borders ---
+    focus-ring { off; } // disable the default focus ring in favour of borders
+    border {
+        width 2
+        active-gradient from="#5ef1ff" to="#bd5eff" angle=45 in="oklch increasing hue"
+        inactive-gradient from="#7b8496" to="#3c4048" angle=135
+    }
+}
+
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 16 
+}

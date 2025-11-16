@@ -1,0 +1,32 @@
+// --- Rounded corners for all windows ---
+window-rule {
+    geometry-corner-radius 6
+    clip-to-geometry true
+}
+
+// --- Remove border background from transparent windows ---
+window-rule {
+    draw-border-with-background false
+}
+
+// --- Floating windows: always floating ---
+window-rule {
+    match title=r#"(?i)^picture-in-picture$"# // PiP windows
+    match app-id=r#"(?i)^org.remmina.Remmina$"# title=r#"^Remmina Remote Desktop Client$"# // Remmina (main window only)
+    match app-id=r#"(?i)(nautilus|blueberry|pavucontrol|keepass|nm-connection-editor|waypaper|com.network.manager)"# // always floating apps regardless of window title
+    match app-id=r#"(?i)^btop-float$"#
+    open-floating true
+}
+
+// --- Secondary monitor apps: maximized by default ---
+window-rule {
+    match app-id=r#"(?i)^(spotify|teams-for-linux|discord|vesktop)$"#
+    open-on-output "HDMI-A-1"
+    open-maximized true
+}
+
+// --- Wallpaper stays in place when switching workspaces ---
+layer-rule {
+    match namespace=r#"(?i)^swww-daemon$"#
+    place-within-backdrop true
+}

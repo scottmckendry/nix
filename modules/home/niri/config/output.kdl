@@ -1,0 +1,38 @@
+// --- Atlas ---
+output "DP-1" {
+    mode      "3440x1440@144"
+    scale     1
+    transform "normal"
+    position  x=0 y=0
+}
+
+output "HDMI-A-1" {
+    mode      "1920x1080@60"
+    scale     1
+    transform "270" // rotated
+    position  x=-1080 y=-400
+}
+
+// --- Eris ---
+output "eDP-1" {
+    mode      "2400x1600@120"
+    scale     1.2
+    variable-refresh-rate
+    position  x=920 y=1080
+}
+
+output "DVI-I-1" {
+    mode     "1920x1080@60"
+    position x=0 y=0
+}
+
+output "DP-5" {
+    mode     "1920x1080@60"
+    position x=1920 y=0
+}
+
+// HACK: same as DP-5 - displaylink seems to use these interchangeably
+output "DP-6" {
+    mode     "1920x1080@60"
+    position x=1920 y=0
+}

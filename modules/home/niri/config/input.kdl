@@ -1,0 +1,14 @@
+input {
+    keyboard { xkb { layout "us"; }; }
+    focus-follows-mouse max-scroll-amount="0%"
+    touchpad {
+        tap
+        natural-scroll
+        click-method "clickfinger"
+    }
+}
+
+gestures {
+    hot-corners { off; }
+    dnd-edge-view-scroll { trigger-width 100; max-speed 3000; }
+}

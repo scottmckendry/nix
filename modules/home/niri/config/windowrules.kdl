@@ -15,6 +15,7 @@ window-rule {
     match app-id=r#"(?i)^org.remmina.Remmina$"# title=r#"^Remmina Remote Desktop Client$"# // Remmina (main window only)
     match app-id=r#"(?i)(nautilus|blueberry|pavucontrol|keepass|nm-connection-editor|waypaper|com.network.manager)"# // always floating apps regardless of window title
     match app-id=r#"(?i)^btop-float$"#
+    match app-id=r#"(?i)^yazi-float$"#
     open-floating true
 }
 

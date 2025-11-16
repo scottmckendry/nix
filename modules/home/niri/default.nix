@@ -9,6 +9,7 @@ in
     ./hyprlock.nix
     ./mako.nix
     ./services
+    ./termfilechooser.nix
   ];
 
   home.packages = with pkgs; [

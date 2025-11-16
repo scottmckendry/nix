@@ -6,7 +6,7 @@ binds {
     Mod+Shift+S      { screenshot; }
     Mod+RETURN       { spawn "kitty"; }
     Mod+B            { spawn "zen"; }
-    Mod+E            { spawn "nautilus"; }
+    Mod+E            { spawn-sh "foot -a yazi-float yazi"; }
     Mod+R            { spawn-sh "vicinae toggle"; }
     Mod+V            { spawn-sh "vicinae vicinae://extensions/vicinae/clipboard/history"; }
     Mod+Period       { spawn-sh "vicinae vicinae://extensions/vicinae/vicinae/search-emojis"; }

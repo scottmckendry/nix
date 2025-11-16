@@ -6,6 +6,7 @@
       main = {
         font = "JetBrainsMono Nerd Font:size=10";
         pad = "10x10";
+        initial-window-size-chars = "140x40";
       };
       cursor.color = "16181a ffffff";
       colors = {

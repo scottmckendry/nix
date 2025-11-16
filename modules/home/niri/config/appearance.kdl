@@ -30,6 +30,7 @@ layout {
     // --- Borders ---
     focus-ring { off; } // disable the default focus ring in favour of borders
     border {
+        on
         width 2
         active-gradient from="#5ef1ff" to="#bd5eff" angle=45 in="oklch increasing hue"
         inactive-gradient from="#7b8496" to="#3c4048" angle=135
@@ -39,4 +40,16 @@ layout {
 cursor {
     xcursor-theme "Bibata-Modern-Classic"
     xcursor-size 16 
+}
+
+recent-windows {
+    highlight {
+        padding 16
+        corner-radius 6
+        active-color  "#bd5eff90"
+        urgent-color "#ff6eb890"
+    }
+    previews {
+        max-height 125
+    }
 }

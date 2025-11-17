@@ -32,7 +32,6 @@ in
         ./kitty.nix
         ./foot.nix
         ./niri
-        ./vicinae.nix
         ./webapps.nix
       ]
     else

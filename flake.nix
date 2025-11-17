@@ -98,10 +98,6 @@
       url = "github:nix-community/NixOS-WSL/main";
     };
 
-    vicinae = {
-      url = "github:vicinaehq/vicinae";
-    };
-
     zen-browser = {
       url = "github:scottmckendry/zen-browser-flake";
     };

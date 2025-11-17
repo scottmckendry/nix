@@ -90,7 +90,7 @@
     };
 
     niri-override = {
-      url = "github:scottmckendry/niri/prf-and-mru";
+      url = "github:scottmckendry/niri/prf-and-stl";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

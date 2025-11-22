@@ -4,6 +4,15 @@ output "DP-1" {
     scale     1
     transform "normal"
     position  x=0 y=0
+    layout {
+        default-column-width { proportion 0.7; }
+        preset-column-widths {
+            proportion 0.5
+            proportion 0.7
+            proportion 1.0
+        }
+    }
+    hot-corners { bottom-right; }
 }
 
 output "HDMI-A-1" {
@@ -11,6 +20,9 @@ output "HDMI-A-1" {
     scale     1
     transform "270" // rotated
     position  x=-1080 y=-400
+    layout {
+        default-column-width { proportion 1.0; }
+    }
 }
 
 // --- Eris ---

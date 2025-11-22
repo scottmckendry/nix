@@ -26,6 +26,15 @@ window-rule {
     open-maximized true
 }
 
+// Indicate screencasted windows with red colors.
+window-rule {
+    match is-window-cast-target=true
+    border {
+        active-gradient from="#ff6e5e" to="#ffbd5e" angle=45
+        inactive-gradient from="#ffbd5e90" to="#ff5ea090" angle=135
+    }
+}
+
 // --- Wallpaper stays in place when switching workspaces ---
 layer-rule {
     match namespace=r#"(?i)^swww-daemon$"#

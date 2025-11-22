@@ -16,6 +16,7 @@ binds {
     // --- System Actions ---
     Mod+Shift+P { power-off-monitors; }
     Mod+Shift+Q { quit; }
+    Mod+Shift+D { set-dynamic-cast-window; }
 
     // --- Media Keys ---
     XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }

@@ -1,7 +1,8 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   imports = [
+    inputs.lanzaboote.nixosModules.lanzaboote
     ../../modules/networking.nix
     ../../modules/niri.nix
     ../../modules/zenbrowser.nix

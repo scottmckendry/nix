@@ -5,15 +5,16 @@
   ...
 }:
 let
-  niri-package = inputs.niri-override.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+  niri = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
 in
 {
   programs.niri = {
-    package = niri-package;
+    package = niri;
     enable = true;
   };
-
+  imports = [ inputs.niri-flake.nixosModules.niri ];
   environment.systemPackages = [ pkgs.xwayland-satellite ];
+
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.upower.enable = true;

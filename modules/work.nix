@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-stable,
   desktop,
   ...
 }:
@@ -19,7 +18,7 @@ in
   environment.systemPackages =
     with pkgs;
     [
-      pkgs-stable.azure-cli
+      azure-cli
       azure-functions-core-tools
       azurite
       bicep
@@ -31,7 +30,7 @@ in
           dbeaver-bin
           keepass
           keepassxc
-          pkgs-stable.libreoffice
+          libreoffice
           remmina
           teams-for-linux
         ]

@@ -8,8 +8,8 @@
         pad = "10x10";
         initial-window-size-chars = "140x40";
       };
-      cursor.color = "16181a ffffff";
       colors = {
+        cursor = "16181a ffffff";
         background = "16181a";
         foreground = "ffffff";
         regular0 = "16181a";

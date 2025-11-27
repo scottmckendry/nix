@@ -12,6 +12,7 @@ binds {
     Mod+Period       { spawn-sh "vicinae vicinae://extensions/vicinae/vicinae/search-emojis"; }
     Mod+Alt+L        { spawn-sh "~/scripts/lock-and-off.sh"; }
     Mod+Shift+Escape { spawn-sh "foot -a btop-float btop"; }
+    Mod+Shift+O      { spawn-sh "grim -g \"$(slurp)\" - | tesseract stdin stdout | wl-copy"; }
 
     // --- System Actions ---
     Mod+Shift+P { power-off-monitors; }

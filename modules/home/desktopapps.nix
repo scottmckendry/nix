@@ -9,6 +9,5 @@
     pavucontrol
     spotify
     vesktop
-    wl-clipboard
   ];
 }

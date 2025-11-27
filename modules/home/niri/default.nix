@@ -16,11 +16,15 @@ in
     blueberry
     brightnessctl
     cliphist
+    grim
     inotify-tools
     nmgui
     playerctl
+    slurp
     swayosd
+    tesseract
     waybar
+    wl-clipboard
   ];
 
   xdg.configFile."niri".source = mkOutOfStoreSymlink "${nixDir}/modules/home/niri/config";

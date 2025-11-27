@@ -46,6 +46,17 @@ in
           }
           + "/extensions/swww-switcher";
       })
+      (config.lib.vicinae.mkExtension {
+        name = "nix";
+        src =
+          pkgs.fetchFromGitHub {
+            owner = "vicinaehq";
+            repo = "extensions";
+            rev = "ec7334e9bb636f4771580238bd3569b58dbce879";
+            sha256 = "sha256-C2b6upygLE6xUP/cTSKZfVjMXOXOOqpP5Xmgb9r2dhA=";
+          }
+          + "/extensions/nix";
+      })
     ];
   };
 

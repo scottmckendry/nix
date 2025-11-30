@@ -86,8 +86,8 @@
             ]
         },
         "format-full": "󰂅",
-        "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
-        "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+        "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}% ({time})",
+        "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}% ({time})",
         "interval": 5,
         "states": {
             "warning": 20,

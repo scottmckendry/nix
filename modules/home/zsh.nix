@@ -25,4 +25,9 @@ in
       EDITOR = "nvim";
     };
   };
+
+  programs.pay-respects = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }

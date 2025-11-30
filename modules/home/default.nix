@@ -76,6 +76,7 @@ in
     mermaid-cli
     neovim
     nil
+    nix-index
     nixfmt-rfc-style
     nixpkgs-review
     nodejs

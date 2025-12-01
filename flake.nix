@@ -73,7 +73,7 @@
     };
 
     niri = {
-      url = "github:YaLTeR/niri";
+      url = "github:scottmckendry/niri/super-drag-scroll";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

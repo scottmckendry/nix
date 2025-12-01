@@ -1,6 +1,7 @@
 input {
     keyboard { xkb { layout "us"; }; }
     focus-follows-mouse max-scroll-amount="0%"
+    mouse { super-drag-scroll; }
     touchpad {
         tap
         natural-scroll

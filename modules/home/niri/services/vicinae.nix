@@ -61,12 +61,8 @@ in
   };
 
   home.activation.vicinaeDbConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    db="${config.home.homeDirectory}/.local/share/vicinae/vicinae.db"
-    if [ ! -f "$db" ]; then
-      echo "vicinae: database not found at $db; skipping custom SQL."
-      exit 0
-    fi
-
+    db=${config.home.homeDirectory}/.local/share/vicinae/vicinae.db
+    test $db || return 0
     echo "vicinae: applying custom SQL..."
 
     ${pkgs.sqlite}/bin/sqlite3 "$db" <<'EOF'

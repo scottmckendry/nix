@@ -2,10 +2,11 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }:
 let
-  swwwSwitcherPreferenceValues = builtins.toJSON {
+  awwwSwitcherPreferenceValues = builtins.toJSON {
     colorGenTool = "none";
     gridRows = "4";
     postProduction = "no";
@@ -29,32 +30,14 @@ in
       font.normal = "JetBrainsMono Nerd Font";
       window.opacity = 1;
     };
-    # TODO: Could be simplified with a flake input:
-    # https://github.com/vicinaehq/vicinae/issues/598
     extensions = [
       (config.lib.vicinae.mkExtension {
-        # TODO: update to awww when binary is up-to-date in nixpkgs
-        # also update service swww.nix -> awww.nix
-        name = "swww-switcher";
-        src =
-          pkgs.fetchFromGitHub {
-            owner = "vicinaehq";
-            repo = "extensions";
-            rev = "df6ab123e4bee27efea8afc8a4ee88ecb1df39a3";
-            sha256 = "sha256-8DDfVrYSZU9m4SIb0+My+iqJz/rjNc+wVpe7j6rVmJ8=";
-          }
-          + "/extensions/swww-switcher";
+        name = "awww-switcher";
+        src = "${inputs.vicinae-extensions}/extensions/awww-switcher";
       })
       (config.lib.vicinae.mkExtension {
         name = "nix";
-        src =
-          pkgs.fetchFromGitHub {
-            owner = "vicinaehq";
-            repo = "extensions";
-            rev = "ec7334e9bb636f4771580238bd3569b58dbce879";
-            sha256 = "sha256-C2b6upygLE6xUP/cTSKZfVjMXOXOOqpP5Xmgb9r2dhA=";
-          }
-          + "/extensions/nix";
+        src = "${inputs.vicinae-extensions}/extensions/nix";
       })
     ];
   };
@@ -65,10 +48,10 @@ in
     echo "vicinae: applying custom SQL..."
 
     ${pkgs.sqlite}/bin/sqlite3 "$db" <<'EOF'
-      -- Insert or replace swww-switcher extension settings
+      -- Insert or replace awww-switcher extension settings
       INSERT INTO root_provider (id, preference_values, enabled) VALUES (
-        'extension.swww-switcher', 
-        '${swwwSwitcherPreferenceValues}',
+        'extension.awww-switcher', 
+        '${awwwSwitcherPreferenceValues}',
         1
       ) 
       ON CONFLICT(id) DO UPDATE SET 

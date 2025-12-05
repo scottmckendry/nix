@@ -5,22 +5,21 @@
   ...
 }:
 let
-  swwwSwitcherPreferenceValues =
-    let
-      literalPostCommand = "ln -sf " + "$" + "{wallpaper} /tmp/current_wallpaper";
-    in
-    builtins.toJSON {
-      colorGenTool = "none";
-      gridRows = "4";
-      postProduction = "no";
-      postCommand = literalPostCommand;
-      showImageDetails = true;
-      toggleVicinaeSetting = false;
-      transitionDuration = "3";
-      transitionStep = "90";
-      transitionType = "fade";
-      wallpaperPath = "${config.home.homeDirectory}/Pictures/Wallpapers/";
-    };
+  swwwSwitcherPreferenceValues = builtins.toJSON {
+    colorGenTool = "none";
+    gridRows = "4";
+    postProduction = "no";
+    postCommand = "ln -sf $" + "{wallpaper} /tmp/current_wallpaper";
+    showImageDetails = true;
+    toggleVicinaeSetting = false;
+    transitionDuration = "3";
+    transitionStep = "90";
+    transitionType = "fade";
+    wallpaperPath = "${config.home.homeDirectory}/Pictures/Wallpapers/";
+  };
+  clipboardHistoryPreferenceValues = builtins.toJSON {
+    defaultAction = "copy";
+  };
 in
 {
   programs.vicinae = {
@@ -73,6 +72,17 @@ in
         1
       ) 
       ON CONFLICT(id) DO UPDATE SET 
+      preference_values = excluded.preference_values,
+      enabled = excluded.enabled;
+
+      -- Insert or replace clipboard-history extension settings
+      INSERT INTO root_provider_item (id, provider_id, preference_values, enabled) VALUES(
+        'extension.clipboard.history',
+        'extension.clipboard',
+        '${clipboardHistoryPreferenceValues}',
+        1
+      )
+      ON CONFLICT(id) DO UPDATE SET
       preference_values = excluded.preference_values,
       enabled = excluded.enabled;
     EOF

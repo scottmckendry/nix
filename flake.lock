@@ -65,27 +65,6 @@
         "type": "github"
       }
     },
-    "flake-parts": {
-      "inputs": {
-        "nixpkgs-lib": [
-          "neovim-nightly",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1765835352,
-        "narHash": "sha256-XswHlK/Qtjasvhd1nOa1e8MgZ8GS//jBoTqWtrS1Giw=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "a34fae9c08a15ad73f295041fec82323541400a9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "gitignore": {
       "inputs": {
         "nixpkgs": [
@@ -148,44 +127,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "lanzaboote",
-        "type": "github"
-      }
-    },
-    "neovim-nightly": {
-      "inputs": {
-        "flake-parts": "flake-parts",
-        "neovim-src": "neovim-src",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1766102654,
-        "narHash": "sha256-F2g1gDd88D5KI6j2YIfXn0Vcug+wNqcwFyKWQ/CnPUY=",
-        "owner": "nix-community",
-        "repo": "neovim-nightly-overlay",
-        "rev": "f5c873a02a0607bf5847d85af629dbb86dd75f4e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "neovim-nightly-overlay",
-        "type": "github"
-      }
-    },
-    "neovim-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1766102038,
-        "narHash": "sha256-17Rz4usR1sLsj0IhMU+GuVViwqRmgDOHGyaOAhLfJis=",
-        "owner": "neovim",
-        "repo": "neovim",
-        "rev": "04357f2eff750ca7cb32f19d43bf7dd64249a0f9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "neovim",
-        "repo": "neovim",
         "type": "github"
       }
     },
@@ -366,7 +307,6 @@
         "cl-parse": "cl-parse",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
-        "neovim-nightly": "neovim-nightly",
         "niri": "niri",
         "niri-flake": "niri-flake",
         "nixos-wsl": "nixos-wsl",

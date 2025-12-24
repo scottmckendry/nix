@@ -97,6 +97,7 @@ in
     tdf
     terraform
     typescript
+    typst
     unzip
     wezterm
     wget

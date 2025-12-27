@@ -8,10 +8,19 @@ let
   dotnet-combined = (
     with pkgs.dotnetCorePackages;
     combinePackages [
+      sdk_10_0
       sdk_9_0
       sdk_8_0
     ]
   );
+
+  easydotnet = pkgs.buildDotnetGlobalTool {
+    pname = "dotnet-easydotnet";
+    nugetName = "EasyDotnet";
+    version = "2.3.53";
+    nugetHash = "sha256-wYvgJLPvyiPqXbyJtcgYeXTYn8m6ryZrt+MQXop3pgg=";
+    dotnet-sdk = pkgs.dotnetCorePackages.sdk_8_0;
+  };
 in
 {
   services.twingate.enable = desktop;
@@ -23,6 +32,7 @@ in
       azurite
       bicep
       dotnet-combined
+      easydotnet
     ]
     ++ (
       if desktop then

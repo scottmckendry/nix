@@ -51,6 +51,6 @@ recent-windows {
         urgent-color "#ff6eb890"
     }
     previews {
-        max-height 125
+        max-height 250
     }
 }

@@ -7,6 +7,42 @@
 {
   programs.vicinae = {
     enable = true;
+    settings = {
+      pop_to_root_on_close = true;
+      font = {
+        normal = {
+          family = "JetBrains Mono Nerd Font";
+          size = 10;
+        };
+      };
+      launcher_window = {
+        opacity = 1.0;
+      };
+      theme = {
+        dark = {
+          name = "cyberdream";
+        };
+      };
+      providers = {
+        "@sovereign/awww-switcher" = {
+          preferences = {
+            postCommand = "ln -sf \${wallpaper} /tmp/current_wallpaper";
+            transitionFPS = "144";
+            transitionType = "fade";
+            wallpaperPath = "${config.home.homeDirectory}/Pictures/Wallpapers/";
+          };
+        };
+        clipboard = {
+          entrypoints = {
+            history = {
+              preferences = {
+                defaultAction = "copy";
+              };
+            };
+          };
+        };
+      };
+    };
     themes.cyberdream = {
       meta = {
         name = "Cyberdream";
@@ -101,44 +137,6 @@
         src = "${inputs.vicinae-extensions}/extensions/nix";
       })
     ];
-  };
-
-  # TODO: Move back to programs.vicinae.settings when home manager adopts support for v0.17+
-  xdg.configFile."vicinae/settings.json".text = builtins.toJSON {
-    pop_to_root_on_close = true;
-    font = {
-      normal = {
-        family = "JetBrains Mono Nerd Font";
-        size = 10;
-      };
-    };
-    launcher_window = {
-      opacity = 1.0;
-    };
-    theme = {
-      dark = {
-        name = "cyberdream";
-      };
-    };
-    providers = {
-      "@sovereign/awww-switcher" = {
-        preferences = {
-          postCommand = "ln -sf \${wallpaper} /tmp/current_wallpaper";
-          transitionFPS = "144";
-          transitionType = "fade";
-          wallpaperPath = "${config.home.homeDirectory}/Pictures/Wallpapers/";
-        };
-      };
-      clipboard = {
-        entrypoints = {
-          history = {
-            preferences = {
-              defaultAction = "copy";
-            };
-          };
-        };
-      };
-    };
   };
 
   systemd.user.services.vicinae = {

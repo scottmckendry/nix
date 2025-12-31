@@ -46,9 +46,11 @@ in
   home.file."scripts".source = mkOutOfStoreSymlink "${nixDir}/scripts";
 
   programs.fastfetch.enable = true;
-  programs.gh.enable = true;
   programs.starship.enable = true;
   programs.zoxide.enable = true;
+
+  programs.gh.enable = true;
+  programs.gh.extensions = [ pkgs.gh-markdown-preview ];
 
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [

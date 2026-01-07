@@ -5,6 +5,8 @@ layout {
     background-color      "transparent"
     center-focused-column "on-overflow"
     always-center-single-column
+    empty-workspace-above-first
+    default-column-display "tabbed"
 
     // --- Column Widths ---
     default-column-width { proportion 0.5; }
@@ -16,6 +18,7 @@ layout {
 
     // --- Tab Indicator ---
     tab-indicator {
+        hide-when-single-tab
         active-color   "#5ef1ff90"
         inactive-color "#7b849690"
         width          8

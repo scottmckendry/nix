@@ -4,9 +4,9 @@
         "DP-1",
         "eDP-1"
     ],
-    "spacing": 2,
     "modules-left": [
-        "niri/workspaces"
+        "niri/workspaces",
+        "niri/window"
     ],
     "modules-center": [
         "custom/date",
@@ -16,18 +16,45 @@
         "custom/utc"
     ],
     "modules-right": [
-        "idle_inhibitor",
-        "bluetooth",
-        "network",
-        "custom/wireguard",
-        "custom/nightlight",
-        "battery",
-        "power-profiles-daemon",
-        "cpu",
-        "pulseaudio",
-        "tray"
+        "group/toggles",
+        "group/system",
+        "group/connectivity"
     ],
-    // Modules configuration
+    // Groups
+    "group/connectivity": {
+        "orientation": "inherit",
+        "modules": [
+            "pulseaudio",
+            "network",
+            "bluetooth",
+            "custom/power"
+        ]
+    },
+    "group/system": {
+        "orientation": "inherit",
+        "modules": [
+            "cpu",
+            "memory",
+            "battery"
+        ]
+    },
+    "group/toggles": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "toggles-drawer",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/toggles-icon",
+            "tray",
+            "idle_inhibitor",
+            "custom/nightlight",
+            "custom/wireguard",
+            "power-profiles-daemon"
+        ]
+    },
+    // Modules config
     "tray": {
         "show-passive-items": true,
         "spacing": 15,
@@ -35,19 +62,17 @@
     },
     "niri/workspaces": {
         "on-click": "activate",
-        "format": "{icon}",
-        "format-icons": {
-            "default": "",
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "active": "󱓻"
-        }
+        "format": "{name}",
+        "all-outputs": true
+    },
+    "niri/window": {
+        "format": "{title}",
+        "icon": true,
+        "icon-size": 14,
+        "max-length": 48
     },
     "bluetooth": {
-        "format": "",
+        "format": " ",
         "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -55,10 +80,10 @@
         "on-click": "blueberry"
     },
     "battery": {
-        "format": "{capacity}% {icon}",
-        "format-discharging": "{icon}",
-        "format-charging": "{icon}",
-        "format-plugged": "",
+        "format": "{icon} {capacity}%",
+        "format-discharging": "{icon} {capacity}%",
+        "format-charging": "{icon} {capacity}%",
+        "format-plugged": " {capacity}%",
         "format-icons": {
             "charging": [
                 "󰢜",
@@ -85,7 +110,7 @@
                 "󰁹"
             ]
         },
-        "format-full": "󰂅",
+        "format-full": "󰂅 {capacity}%",
         "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}% ({time})",
         "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}% ({time})",
         "tooltip-format-full": "{power:>1.0f}W (Fully charged)",
@@ -113,6 +138,10 @@
         "interval": 3,
         "nospacing": 1,
         "on-click": "nmgui"
+    },
+    "custom/toggles-icon": {
+        "format": "",
+        "tooltip": false
     },
     "custom/nightlight": {
         "exec": "~/scripts/nightlight.sh",
@@ -149,9 +178,21 @@
         "exec": "echo '|'",
         "format": "{}"
     },
+    "custom/power": {
+        "format": "⏻ ",
+        "tooltip-format": "Show power menu",
+        "on-click": "~/scripts/power-menu.sh"
+    },
     "cpu": {
-        "format": "",
+        "format": "  {usage}%",
         "tooltip": "{usage}%",
+        "interval": 2,
+        "on-click": "foot -a btop-float btop"
+    },
+    "memory": {
+        "format": "  {percentage}%",
+        "tooltip-format": "{used:0.1f}G / {total:0.1f}G used",
+        "interval": 2,
         "on-click": "foot -a btop-float btop"
     },
     "power-profiles-daemon": {
@@ -166,7 +207,7 @@
         }
     },
     "pulseaudio": {
-        "format": " ",
+        "format": "",
         "tooltip": true,
         "tooltip-format": "{desc} {volume}%",
         "on-click": "pavucontrol",

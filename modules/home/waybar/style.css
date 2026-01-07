@@ -4,7 +4,7 @@
 }
 
 window#waybar {
-  background-color: rgba(22, 24, 26, 0.9);
+  background-color: #16181a;
   color: #eee;
 }
 
@@ -16,6 +16,7 @@ window#waybar {
 #custom-utc,
 #custom-wireguard,
 #custom-nightlight,
+#custom-toggles-icon,
 #idle_inhibitor,
 #memory,
 #network,
@@ -32,11 +33,55 @@ window#waybar {
 }
 
 #tray {
-  padding-left: 3px;
-  margin-right: 5px;
+  padding: 5px;
+  margin: 0px;
+}
+
+#custom-toggles-icon {
+  padding: 0px 7px;
+}
+
+.modules-right > widget > box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2px 4px;
+  margin: 6px 4px;
+}
+
+.modules-right > widget:last-child > box {
+  margin: 6px 10px 6px 4px;
+}
+
+#window {
+  padding: 0px;
+  margin: 0px;
 }
 
 #workspaces button {
-  padding: 5px 5px;
-  color: #eee;
+  padding: 0px;
+  margin: 10px 3px;
+  min-width: 18px;
+  min-height: 0px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+#workspaces button.active {
+  min-width: 32px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#workspaces button.visible {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+#workspaces button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#workspaces button:last-child {
+  margin-right: 0px;
+  padding-right: 0px;
 }

@@ -5,8 +5,10 @@
     bitwarden-desktop
     gimp
     libnotify
+    mangohud
     nautilus
     pavucontrol
+    prismlauncher
     spotify
     vesktop
   ];

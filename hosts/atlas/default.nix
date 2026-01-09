@@ -1,37 +1,15 @@
 { ... }:
-
 {
-  imports = [
-    ../../modules/gaming.nix
-    ../../modules/niri.nix
-    ../../modules/networking.nix
-    ../../modules/nvidia.nix
-    # ../../modules/virtualisation.nix
-    ../../modules/zenbrowser.nix
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
-  boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-
-    # enable "silent boot"
-    consoleLogLevel = 3;
-    loader.timeout = 0;
-    initrd.verbose = false;
-    kernelParams = [
-      "quiet"
-      "splash"
-      "boot.shell_on_fail"
-      "udev.log_priority=3"
-      "rd.systemd.show_status=auto"
-    ];
-
-    plymouth = {
-      enable = true;
-      theme = "spinner";
-    };
-  };
+  custom.boot.silent.enable = true;
+  custom.boot.silent.theme = "spinner";
+  custom.desktop.gaming.enable = true;
+  custom.desktop.niri.enable = true;
+  custom.desktop.nvidia.enable = true;
+  custom.services.docker.enable = true;
+  custom.services.go.enable = true;
+  custom.services.work.enable = true;
 
   swapDevices = [
     {

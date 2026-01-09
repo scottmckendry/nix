@@ -8,16 +8,16 @@
     }@inputs:
     let
       username = "scott";
-      name = "Scott McKendry";
       mkHost =
         { hostname, desktop }:
         nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
-            inherit username;
-            inherit name;
-            inherit hostname;
-            inherit desktop;
+            inherit
+              inputs
+              username
+              hostname
+              desktop
+              ;
           };
 
           modules = [

@@ -63,7 +63,7 @@
     "niri/workspaces": {
         "on-click": "activate",
         "format": "{name}",
-        "all-outputs": true
+        "all-outputs": false
     },
     "niri/window": {
         "format": "{title}",

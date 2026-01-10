@@ -16,8 +16,11 @@ in
     ./bat.nix
     ./eza.nix
     ./git.nix
+    ./k9s.nix
+    ./lazygit.nix
     ./opencode.nix
     ./posting.nix
+    ./starship.nix
     ./wslopen.nix
     ./yazi
     ./zsh.nix
@@ -38,15 +41,10 @@ in
   );
 
   # symlinks
-  xdg.configFile."fastfetch".source = mkOutOfStoreSymlink "${nixDir}/fastfetch";
-  xdg.configFile."k9s".source = mkOutOfStoreSymlink "${nixDir}/k9s";
   xdg.configFile."nvim".source = mkOutOfStoreSymlink "${nixDir}/nvim";
-  xdg.configFile."starship".source = mkOutOfStoreSymlink "${nixDir}/starship";
-  xdg.configFile."wezterm".source = mkOutOfStoreSymlink "${nixDir}/wezterm";
   home.file."scripts".source = mkOutOfStoreSymlink "${nixDir}/scripts";
 
   programs.fastfetch.enable = true;
-  programs.starship.enable = true;
   programs.zoxide.enable = true;
 
   programs.gh.enable = true;

@@ -1,15 +1,21 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
-let
-  inherit (config.lib.file) mkOutOfStoreSymlink;
-  nixDir = "${config.home.homeDirectory}/git/nix";
-in
 {
-  home.packages = with pkgs; [ bat ];
-  xdg.configFile."bat".source = mkOutOfStoreSymlink "${nixDir}/bat";
-
-  home.activation.batSetup = config.lib.dag.entryBefore [ "writeBoundary" ] ''
-    ${pkgs.bat}/bin/bat cache --clear
-    ${pkgs.bat}/bin/bat cache --build
-  '';
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "cyberdream";
+    };
+    themes = {
+      cyberdream = {
+        src = pkgs.fetchFromGitHub {
+          owner = "scottmckendry";
+          repo = "cyberdream.nvim";
+          rev = "main";
+          sha256 = "sha256-iU4HgEzjcZ/UE+aapTGWRcilaLmUy/QQnuIaTFT63Zg=";
+        };
+        file = "extras/textmate/cyberdream.tmTheme";
+      };
+    };
+  };
 }

@@ -22,7 +22,7 @@ in
     ./posting.nix
     ./starship.nix
     ./wslopen.nix
-    ./yazi
+    ./yazi.nix
     ./zsh.nix
   ]
   ++ (

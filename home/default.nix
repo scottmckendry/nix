@@ -76,7 +76,7 @@ in
     neovim
     nil
     nix-index
-    nixfmt-rfc-style
+    nixfmt
     nixpkgs-review
     nodejs
     odin

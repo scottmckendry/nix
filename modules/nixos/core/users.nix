@@ -21,7 +21,7 @@
     useUserPackages = true;
 
     users.${username} = {
-      imports = [ ../../home ];
+      imports = [ ../../../home ];
     };
 
     extraSpecialArgs = {

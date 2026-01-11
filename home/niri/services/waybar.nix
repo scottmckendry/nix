@@ -4,7 +4,7 @@ let
   nixDir = "${config.home.homeDirectory}/git/nix";
 in
 {
-  xdg.configFile."waybar".source = mkOutOfStoreSymlink "${nixDir}/modules/home/waybar";
+  xdg.configFile."waybar".source = mkOutOfStoreSymlink "${nixDir}/home/waybar";
 
   systemd.user.services.waybar = {
     Unit = {

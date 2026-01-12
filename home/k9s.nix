@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-
+{ cyberdream, ... }:
 {
   programs.k9s = {
     enable = true;
@@ -69,12 +68,7 @@
       np = "networkpolicies";
     };
     skins = {
-      cyberdream = (pkgs.fetchFromGitHub {
-        owner = "scottmckendry";
-        repo = "cyberdream.nvim";
-        rev = "main";
-        sha256 = "sha256-iU4HgEzjcZ/UE+aapTGWRcilaLmUy/QQnuIaTFT63Zg=";
-      }) + "/extras/k9s/cyberdream.yml";
+      cyberdream = "${cyberdream}/extras/k9s/cyberdream.yml";
     };
   };
 }

@@ -10,8 +10,16 @@ let
   inherit (config.lib.file) mkOutOfStoreSymlink;
   nixDir = "${config.home.homeDirectory}/git/nix";
   cl-parse = inputs.cl-parse.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  cyberdream = pkgs.fetchFromGitHub {
+    owner = "scottmckendry";
+    repo = "cyberdream.nvim";
+    rev = "main";
+    sha256 = "sha256-iU4HgEzjcZ/UE+aapTGWRcilaLmUy/QQnuIaTFT63Zg=";
+  };
 in
 {
+  _module.args = { inherit cyberdream; };
+
   imports = [
     ./bat.nix
     ./eza.nix

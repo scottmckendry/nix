@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-
+{ cyberdream, ... }:
 {
   programs.bat = {
     enable = true;
@@ -8,12 +7,7 @@
     };
     themes = {
       cyberdream = {
-        src = pkgs.fetchFromGitHub {
-          owner = "scottmckendry";
-          repo = "cyberdream.nvim";
-          rev = "main";
-          sha256 = "sha256-iU4HgEzjcZ/UE+aapTGWRcilaLmUy/QQnuIaTFT63Zg=";
-        };
+        src = cyberdream;
         file = "extras/textmate/cyberdream.tmTheme";
       };
     };

@@ -1,5 +1,4 @@
-{ pkgs, config, ... }:
-
+{ config, cyberdream, ... }:
 {
   programs.yazi = {
     enable = true;
@@ -16,12 +15,5 @@
   };
 
   # theme
-  xdg.configFile."yazi/theme.toml".source =
-    (pkgs.fetchFromGitHub {
-      owner = "scottmckendry";
-      repo = "cyberdream.nvim";
-      rev = "main";
-      sha256 = "sha256-iU4HgEzjcZ/UE+aapTGWRcilaLmUy/QQnuIaTFT63Zg=";
-    })
-    + "/extras/yazi/cyberdream.toml";
+  xdg.configFile."yazi/theme.toml".source = "${cyberdream}/extras/yazi/cyberdream.toml";
 }

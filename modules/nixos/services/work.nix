@@ -20,8 +20,8 @@ let
   easydotnet = pkgs.buildDotnetGlobalTool {
     pname = "dotnet-easydotnet";
     nugetName = "EasyDotnet";
-    version = "2.3.53";
-    nugetHash = "sha256-wYvgJLPvyiPqXbyJtcgYeXTYn8m6ryZrt+MQXop3pgg=";
+    version = "2.3.58";
+    nugetHash = "sha256-pjGlLNdKDVRqZX6tpHroIXgHQgS8nCUgjRMp9li0BvA=";
     dotnet-sdk = pkgs.dotnetCorePackages.sdk_8_0;
   };
 in

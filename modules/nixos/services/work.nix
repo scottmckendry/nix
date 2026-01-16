@@ -8,14 +8,20 @@
 let
   cfg = config.custom.services.work;
 
-  dotnet-combined = (
+  dotnet-combined =
     with pkgs.dotnetCorePackages;
     combinePackages [
       sdk_10_0
       sdk_9_0
       sdk_8_0
-    ]
-  );
+    ];
+
+  azureFunctionsPatched = pkgs.writeShellScriptBin "func" ''
+    export DOTNET_ROOT="${dotnet-combined}/share/dotnet"
+    export DOTNET_ROOT_X64="$DOTNET_ROOT"
+    export DOTNET_MULTILEVEL_LOOKUP=0
+    exec "${pkgs.azure-functions-core-tools}/bin/func" "$@"
+  '';
 
   easydotnet = pkgs.buildDotnetGlobalTool {
     pname = "dotnet-easydotnet";
@@ -43,7 +49,7 @@ in
       with pkgs;
       [
         azure-cli
-        azure-functions-core-tools
+        azureFunctionsPatched
         azurite
         bicep
         dotnet-combined
@@ -64,7 +70,9 @@ in
       );
 
     environment.sessionVariables = {
-      DOTNET_ROOT = "${dotnet-combined}";
+      DOTNET_ROOT = "${dotnet-combined}/share/dotnet";
+      DOTNET_ROOT_X64 = "${dotnet-combined}/share/dotnet";
+      DOTNET_MULTILEVEL_LOOKUP = "0";
     };
 
     systemd.services.azurite = lib.mkIf cfg.enableAzurite {

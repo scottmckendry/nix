@@ -1,4 +1,4 @@
-{ cyberdream, ... }:
+{ inputs, ... }:
 {
   programs.opencode = {
     enable = true;
@@ -8,5 +8,5 @@
     };
   };
   xdg.configFile."opencode/themes/cyberdream.json".source =
-    "${cyberdream}/extras/opencode/cyberdream.json";
+    "${inputs.cyberdream}/extras/opencode/cyberdream.json";
 }

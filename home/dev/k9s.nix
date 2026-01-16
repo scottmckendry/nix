@@ -1,4 +1,4 @@
-{ cyberdream, ... }:
+{ inputs, ... }:
 {
   programs.k9s = {
     enable = true;
@@ -68,7 +68,7 @@
       np = "networkpolicies";
     };
     skins = {
-      cyberdream = "${cyberdream}/extras/k9s/cyberdream.yml";
+      cyberdream = "${inputs.cyberdream}/extras/k9s/cyberdream.yml";
     };
   };
 }

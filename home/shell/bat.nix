@@ -1,4 +1,4 @@
-{ cyberdream, ... }:
+{ inputs, ... }:
 {
   programs.bat = {
     enable = true;
@@ -7,7 +7,7 @@
     };
     themes = {
       cyberdream = {
-        src = cyberdream;
+        src = inputs.cyberdream;
         file = "extras/textmate/cyberdream.tmTheme";
       };
     };

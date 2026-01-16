@@ -1,4 +1,4 @@
-{ config, cyberdream, ... }:
+{ config, inputs, ... }:
 {
   programs.yazi = {
     enable = true;
@@ -15,5 +15,5 @@
   };
 
   # theme
-  xdg.configFile."yazi/theme.toml".source = "${cyberdream}/extras/yazi/cyberdream.toml";
+  xdg.configFile."yazi/theme.toml".source = "${inputs.cyberdream}/extras/yazi/cyberdream.toml";
 }

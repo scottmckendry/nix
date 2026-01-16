@@ -52,6 +52,10 @@
       url = "github:scottmckendry/cl-parse";
     };
 
+    cyberdream = {
+      url = "github:scottmckendry/cyberdream.nvim/flake";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -1,4 +1,4 @@
-{ cyberdream, ... }:
+{ inputs, ... }:
 {
   programs.kitty = {
     enable = true;
@@ -27,7 +27,7 @@
     };
 
     extraConfig = ''
-      include ${cyberdream}/extras/kitty/cyberdream.conf
+      include ${inputs.cyberdream}/extras/kitty/cyberdream.conf
     '';
   };
 }

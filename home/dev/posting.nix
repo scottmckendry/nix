@@ -2,7 +2,7 @@
   pkgs,
   lib,
   config,
-  cyberdream,
+  inputs,
   ...
 }:
 {
@@ -14,5 +14,5 @@
   };
 
   xdg.configFile."posting/themes/cyberdream.yaml".source =
-    "${cyberdream}/extras/posting/cyberdream.yaml";
+    "${inputs.cyberdream}/extras/posting/cyberdream.yaml";
 }

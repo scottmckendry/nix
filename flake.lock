@@ -33,6 +33,22 @@
         "type": "github"
       }
     },
+    "cyberdream": {
+      "locked": {
+        "lastModified": 1768588634,
+        "narHash": "sha256-yeRUEAk/risYY2K6LxGXcEHvIyM33Wz/yiIsgoFLSiM=",
+        "owner": "scottmckendry",
+        "repo": "cyberdream.nvim",
+        "rev": "3546233d78f38b9c898a64505a3581c3d77126fe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "scottmckendry",
+        "ref": "flake",
+        "repo": "cyberdream.nvim",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {

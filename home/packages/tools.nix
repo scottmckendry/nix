@@ -1,0 +1,27 @@
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    age
+    appimage-run
+    btop
+    calibre
+    fd
+    fzf
+    ghostscript
+    hugo
+    jq
+    killall
+    nix-index
+    nixpkgs-review
+    openssl
+    powershell
+    restic
+    ripgrep
+    sops
+    tailwindcss_4
+    tdf
+    typst
+    unzip
+    wget
+  ];
+}

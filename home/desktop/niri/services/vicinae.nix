@@ -133,8 +133,16 @@
         src = "${inputs.vicinae-extensions}/extensions/awww-switcher";
       })
       (config.lib.vicinae.mkExtension {
+        name = "html-symbol-finder";
+        src = "${inputs.vicinae-extensions}/extensions/html-symbol-finder";
+      })
+      (config.lib.vicinae.mkExtension {
         name = "nix";
         src = "${inputs.vicinae-extensions}/extensions/nix";
+      })
+      (config.lib.vicinae.mkExtension {
+        name = "spongebob-text-transformer";
+        src = "${inputs.vicinae-extensions}/extensions/spongebob-text-transformer";
       })
     ];
   };

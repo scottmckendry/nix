@@ -27,5 +27,5 @@ in
     wl-clipboard
   ];
 
-  xdg.configFile."niri".source = mkOutOfStoreSymlink "${nixDir}/home/niri/config";
+  xdg.configFile."niri".source = mkOutOfStoreSymlink "${nixDir}/home/desktop/niri/config";
 }

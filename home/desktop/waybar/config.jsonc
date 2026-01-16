@@ -33,6 +33,7 @@
     "group/system": {
         "orientation": "inherit",
         "modules": [
+            "temperature",
             "cpu",
             "memory",
             "battery"
@@ -83,7 +84,7 @@
         "format": "{icon} {capacity}%",
         "format-discharging": "{icon} {capacity}%",
         "format-charging": "{icon} {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format-plugged": "{icon} {capacity}%",
         "format-icons": {
             "charging": [
                 "󰢜",
@@ -182,6 +183,10 @@
         "format": "⏻ ",
         "tooltip-format": "Show power menu",
         "on-click": "~/scripts/power-menu.sh"
+    },
+    "temperature": {
+        "format": "  {temperatureC}°C",
+        "thermal-zone": 0
     },
     "cpu": {
         "format": "  {usage}%",

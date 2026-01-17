@@ -7,8 +7,8 @@
     };
     themes = {
       cyberdream = {
-        src = inputs.cyberdream;
-        file = "extras/textmate/cyberdream.tmTheme";
+        src = inputs.cyberdream.extras.textmate;
+        file = "cyberdream.tmTheme";
       };
     };
   };

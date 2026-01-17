@@ -8,5 +8,5 @@
     };
   };
   xdg.configFile."opencode/themes/cyberdream.json".source =
-    "${inputs.cyberdream}/extras/opencode/cyberdream.json";
+    "${inputs.cyberdream.extras.opencode}/cyberdream.json";
 }

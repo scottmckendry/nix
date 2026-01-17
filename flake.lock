@@ -35,16 +35,15 @@
     },
     "cyberdream": {
       "locked": {
-        "lastModified": 1768588634,
-        "narHash": "sha256-yeRUEAk/risYY2K6LxGXcEHvIyM33Wz/yiIsgoFLSiM=",
+        "lastModified": 1768675256,
+        "narHash": "sha256-59WQrlThC/g6Ie7QQvssx+/tEyTVgBvYcaD+Qp+SElg=",
         "owner": "scottmckendry",
         "repo": "cyberdream.nvim",
-        "rev": "3546233d78f38b9c898a64505a3581c3d77126fe",
+        "rev": "f79f8c3880de7fcfa9a46ee99c53cbdc760d7420",
         "type": "github"
       },
       "original": {
         "owner": "scottmckendry",
-        "ref": "flake",
         "repo": "cyberdream.nvim",
         "type": "github"
       }

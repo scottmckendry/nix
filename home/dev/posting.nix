@@ -14,5 +14,5 @@
   };
 
   xdg.configFile."posting/themes/cyberdream.yaml".source =
-    "${inputs.cyberdream}/extras/posting/cyberdream.yaml";
+    "${inputs.cyberdream.extras.posting}/cyberdream.yaml";
 }

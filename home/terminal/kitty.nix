@@ -27,7 +27,7 @@
     };
 
     extraConfig = ''
-      include ${inputs.cyberdream}/extras/kitty/cyberdream.conf
+      include ${inputs.cyberdream.extras.kitty}/cyberdream.conf
     '';
   };
 }

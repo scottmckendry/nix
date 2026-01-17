@@ -53,7 +53,7 @@
     };
 
     cyberdream = {
-      url = "github:scottmckendry/cyberdream.nvim/flake";
+      url = "github:scottmckendry/cyberdream.nvim";
     };
 
     home-manager = {

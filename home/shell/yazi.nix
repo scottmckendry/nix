@@ -15,5 +15,5 @@
   };
 
   # theme
-  xdg.configFile."yazi/theme.toml".source = "${inputs.cyberdream}/extras/yazi/cyberdream.toml";
+  xdg.configFile."yazi/theme.toml".source = "${inputs.cyberdream.extras.yazi}/cyberdream.toml";
 }

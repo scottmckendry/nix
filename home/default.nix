@@ -1,22 +1,27 @@
 {
-  pkgs,
   config,
-  inputs,
-  desktop,
+  desktop ? false,
   ...
 }:
 
 {
   imports = [
     ./dev
-    ./desktop
-    ./packages
     ./shared
     ./shell
-  ];
+    ./packages
+  ]
+  ++ (
+    if desktop then
+      [
+        ./desktop
+      ]
+    else
+      [ ]
+  );
 
   programs.fastfetch.enable = true;
-
+  programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
 
   home.sessionVariables = {
@@ -24,4 +29,6 @@
   };
 
   home.stateVersion = "24.05";
+  home.username = "scott";
+  home.homeDirectory = "/home/scott";
 }

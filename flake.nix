@@ -25,6 +25,16 @@
             home-manager.nixosModules.home-manager
           ];
         };
+      homeConfiguration = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+
+        extraSpecialArgs = {
+          inherit inputs username;
+          desktop = false;
+        };
+
+        modules = [ ./home ];
+      };
     in
     {
       nixosConfigurations = {
@@ -42,6 +52,10 @@
           hostname = "helios";
           desktop = false;
         };
+      };
+
+      homeConfigurations = {
+        "default" = homeConfiguration;
       };
     };
 

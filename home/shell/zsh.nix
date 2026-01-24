@@ -2,6 +2,15 @@
 
 let
   nixDir = "${config.home.homeDirectory}/git/nix";
+  rebuildCmd = ''
+    builtin cd ${nixDir} && git add -A -N
+    if [ -f /etc/NIXOS ]; then
+      nh os switch .
+    else
+      nh home switch .
+    fi
+    builtin cd -
+  '';
 in
 {
   programs.zsh = {
@@ -18,7 +27,8 @@ in
       cd = "z";
       cdi = "zi";
       cat = "bat";
-      rebuild = "cd ${nixDir} && git add -A -N && nh os switch . && cd -";
+      rebuild = rebuildCmd;
+      s = "kitten ssh";
       ff = "fastfetch --logo ${nixDir}/fastfetch/logos/ascii.txt";
     };
     sessionVariables = {

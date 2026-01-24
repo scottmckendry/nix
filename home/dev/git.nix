@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -24,4 +24,10 @@
       syntax-theme = "cyberdream";
     };
   };
+  home.file.".ssh/authorized_keys".text = builtins.readFile (
+    pkgs.fetchurl {
+      url = "https://github.com/scottmckendry.keys";
+      sha256 = "EF8jlfRIzg+pEqPkCq9HYB/niYksYUYfCoHxaxs6C/U=";
+    }
+  );
 }

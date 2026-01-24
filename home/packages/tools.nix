@@ -11,6 +11,7 @@
     hugo
     jq
     killall
+    nh
     nix-index
     nixpkgs-review
     openssl

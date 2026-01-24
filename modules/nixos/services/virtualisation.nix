@@ -21,7 +21,7 @@ in
 
     environment.systemPackages = with pkgs; [
       spice-gtk
-      win-virtio
+      virtio-win
       win-spice
     ];
 

@@ -14,6 +14,7 @@
   custom.desktop.niri.enable = true;
   custom.services.docker.enable = true;
   custom.services.go.enable = true;
+  custom.services.virtualisation.enable = true;
   custom.services.work.enable = true;
 
   # Touchpad sensitivity overrides

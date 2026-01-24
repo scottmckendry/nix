@@ -1,0 +1,97 @@
+---
+- name: Deploy Nix and Home Manager to Ubuntu Server
+  hosts: all
+  become: false
+  tasks:
+    - name: Install dependencies
+      become: true
+      ansible.builtin.apt:
+        name:
+          - curl
+          - git
+          - xz-utils
+        state: present
+        update_cache: true
+
+    - name: Check if Nix is already installed
+      ansible.builtin.stat:
+        path: /nix/var/nix/profiles/default
+      register: nix_installed
+
+    - name: Download Nix installer
+      ansible.builtin.get_url:
+        url: https://nixos.org/nix/install
+        dest: /tmp/install-nix.sh
+        mode: "0755"
+      when: not nix_installed.stat.exists
+
+    - name: Install Nix (multi-user)
+      ansible.builtin.shell: |
+        sh /tmp/install-nix.sh --daemon --yes
+      args:
+        creates: /nix/var/nix/profiles/default
+      become: true
+      when: not nix_installed.stat.exists
+
+    - name: Source Nix profile
+      ansible.builtin.lineinfile:
+        path: "{{ ansible_facts['user_dir'] }}/.bashrc"
+        line: ". /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
+        create: true
+        state: present
+
+    - name: Enable experimental features in nix.conf
+      become: true
+      ansible.builtin.lineinfile:
+        path: /etc/nix/nix.conf
+        line: "experimental-features = nix-command flakes"
+        create: true
+        state: present
+      notify: Restart nix-daemon
+
+    - name: Flush handlers to restart nix-daemon
+      ansible.builtin.meta: flush_handlers
+
+    - name: Wait for nix-daemon to be ready
+      ansible.builtin.wait_for:
+        timeout: 5
+      when: not nix_installed.stat.exists
+
+    - name: Check if nix repository exists
+      ansible.builtin.stat:
+        path: "{{ ansible_facts['user_dir'] }}/git/nix"
+      register: nix_repo
+
+    - name: Create git directory
+      ansible.builtin.file:
+        path: "{{ ansible_facts['user_dir'] }}/git"
+        state: directory
+        mode: "0755"
+      when: not nix_repo.stat.exists
+
+    - name: Clone nix configuration repository
+      ansible.builtin.git:
+        repo: "{{ nix_repo_url }}"
+        dest: "{{ ansible_facts['user_dir'] }}/git/nix"
+        update: true
+
+    - name: Build and activate home-manager configuration
+      ansible.builtin.shell: |
+        . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+        nix run home-manager/master -- switch --flake {{ ansible_facts['user_dir'] }}/git/nix#default -b backup
+      args:
+        executable: /bin/bash
+      register: home_manager_result
+      changed_when: "'Starting Home Manager activation' in home_manager_result.stderr"
+
+    - name: Display home-manager activation output
+      ansible.builtin.debug:
+        var: home_manager_result.stderr_lines
+
+  handlers:
+    - name: Restart nix-daemon
+      become: true
+      ansible.builtin.systemd:
+        name: nix-daemon
+        state: restarted
+        enabled: true

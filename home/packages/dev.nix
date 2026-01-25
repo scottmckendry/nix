@@ -19,6 +19,7 @@
     sqlc
     sqlite
     typescript
+    uv
     zig
   ];
 }

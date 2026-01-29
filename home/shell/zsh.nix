@@ -5,9 +5,9 @@ let
   rebuildCmd = ''
     builtin cd ${nixDir} && git add -A -N
     if [ -f /etc/NIXOS ]; then
-      nh os switch .
+      sudo nixos-rebuild switch --flake .
     else
-      nh home switch .
+      nix run home-manager/master -- switch --flake .#default -b backup
     fi
     builtin cd -
   '';

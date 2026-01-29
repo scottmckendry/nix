@@ -5,7 +5,7 @@ set -euo pipefail
 # Usage: ./bootstrap-ubuntu.sh [git-repo-url]
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-NIX_REPO_URL="${1:-https://github.com/yourusername/nix.git}"
+NIX_REPO_URL="${1:-https://github.com/scottmckendry/nix.git}"
 NIX_CONFIG_DIR="${HOME}/git/nix"
 
 echo "==> Starting Nix and Home Manager setup..."

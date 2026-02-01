@@ -9,6 +9,7 @@ in
     fluxcd
     k9s
     kubectl
+    kubectl-cnpg
     talosctl
     terraform
   ];

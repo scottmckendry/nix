@@ -19,6 +19,16 @@ window-rule {
     open-floating true
 }
 
+// --- Kitty blurred background ---
+window-rule {
+    match app-id=r#"(?i)^kitty$"#
+    background-effect {
+        blur {
+            on
+        }
+    }
+}
+
 // --- Secondary monitor apps: maximized by default ---
 window-rule {
     match app-id=r#"(?i)^(spotify|teams-for-linux|discord|vesktop)$"#

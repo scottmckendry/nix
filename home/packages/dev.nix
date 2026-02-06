@@ -6,6 +6,7 @@
     gcc
     gnumake
     go-task
+    just
     mermaid-cli
     neovim
     nil

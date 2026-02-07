@@ -24,5 +24,6 @@
     typst
     unzip
     wget
+    yq-go
   ];
 }

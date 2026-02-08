@@ -21,7 +21,7 @@
   systemd.sleep.extraConfig = "HibernateDelaySec=30m";
   services.logind.settings.Login = {
     HandleLidSwitch = "suspend-then-hibernate";
-    HandlePowerKey = "suspend-then-hibernate";
+    HandlePowerKey = "ignore";
     HandlePowerKeyLongPress = "poweroff";
   };
 }

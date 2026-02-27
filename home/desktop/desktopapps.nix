@@ -5,14 +5,16 @@ in
 {
   home.packages = with pkgs; [
     bitwarden-desktop
+    discord
     gimp
     libnotify
     mangohud
     nautilus
+    obs-studio
     pavucontrol
     prismlauncher
     spotify
-    vesktop
+    vlc
     zen-browser
   ];
 }

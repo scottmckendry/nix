@@ -23,9 +23,7 @@ window-rule {
 window-rule {
     match app-id=r#"(?i)^kitty$"#
     background-effect {
-        blur {
-            on
-        }
+        blur true
     }
 }
 
@@ -55,12 +53,7 @@ layer-rule {
 layer-rule {
     match namespace="vicinae"
     geometry-corner-radius 10 // match vicinae's default csd rounding
-    shadow {
-        on
-        softness 40
-        spread 5
-        offset x=0 y=5
-        draw-behind-window true
-        color "#00000080"
+    background-effect {
+        blur true
     }
 }

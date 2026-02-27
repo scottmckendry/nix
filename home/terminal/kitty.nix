@@ -17,7 +17,7 @@
       hide_window_decorations = true;
       window_padding_width = 10;
       window_padding_height = 10;
-      background_opacity = 0.75;
+      background_opacity = 0.875;
       tab_bar_style = "powerline";
 
       # Window behavior

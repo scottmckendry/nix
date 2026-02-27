@@ -16,7 +16,7 @@
         };
       };
       launcher_window = {
-        opacity = 1.0;
+        opacity = 0.875;
       };
       theme = {
         dark = {

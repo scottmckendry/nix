@@ -28,7 +28,7 @@
     OBSIDIAN_PATH = "${config.home.homeDirectory}/git/obsidian-vault";
   };
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "26.05";
   home.username = "scott";
   home.homeDirectory = "/home/scott";
 }

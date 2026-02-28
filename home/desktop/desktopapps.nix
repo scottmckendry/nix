@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 let
-  zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.generic;
+  zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
   home.packages = with pkgs; [

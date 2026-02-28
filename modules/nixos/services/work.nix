@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -7,6 +8,8 @@
 }:
 let
   cfg = config.custom.services.work;
+  azure-cli-stable =
+    inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.azure-cli;
 
   dotnet-combined =
     with pkgs.dotnetCorePackages;
@@ -48,7 +51,7 @@ in
     environment.systemPackages =
       with pkgs;
       [
-        (azure-cli.withExtensions [ azure-cli.extensions.ssh ])
+        (azure-cli-stable.withExtensions [ azure-cli-stable.extensions.ssh ])
         azureFunctionsPatched
         azurite
         bicep

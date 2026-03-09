@@ -2,7 +2,7 @@
 {
   imports = [
     inputs.lanzaboote.nixosModules.lanzaboote
-    ./disable-dgpu.nix # OR ./hybrid-graphics.nix
+    ./hybrid-graphics.nix
     ./displaylink.nix
     ./hardware-configuration.nix
     ./power-management.nix
@@ -14,7 +14,7 @@
   custom.desktop.niri.enable = true;
   custom.services.docker.enable = true;
   custom.services.go.enable = true;
-  custom.services.virtualisation.enable = true;
+  # custom.services.virtualisation.enable = true;
   custom.services.work.enable = true;
 
   # Touchpad sensitivity overrides

@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     air
+    bun
     cargo
     gcc
     gnumake

@@ -1,16 +1,7 @@
 { ... }:
 
 {
-  imports = [
-    ../../modules/nvidia.nix
-  ];
-
-  # hybrid graphics - see https://nixos.wiki/wiki/Nvidia
-  services.xserver.videoDrivers = [
-    "modesetting"
-    "nvidia"
-  ];
-
+  custom.desktop.nvidia.enable = true;
   hardware.nvidia.prime = {
     offload = {
       enable = true;

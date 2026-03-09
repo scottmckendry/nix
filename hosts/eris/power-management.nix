@@ -18,7 +18,7 @@
 
   services.power-profiles-daemon.enable = true;
 
-  systemd.sleep.extraConfig = "HibernateDelaySec=30m";
+  systemd.sleep.settings.Sleep.HibernateDelaySec = "30m";
   services.logind.settings.Login = {
     HandleLidSwitch = "suspend-then-hibernate";
     HandlePowerKey = "ignore";

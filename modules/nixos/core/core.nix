@@ -7,6 +7,14 @@
       "nix-command"
       "flakes"
     ];
+    substituters = [
+      "https://cache.nixos.org"
+      "https://scottmckendry.cachix.org"
+    ];
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "scottmckendry.cachix.org-1:jB2i6xNpH0TiZfTe2p3VfIejB3nUT8bf7PYsn9uOV3I="
+    ];
   };
 
   # Fonts

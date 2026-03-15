@@ -87,7 +87,7 @@
     };
 
     niri = {
-      url = "github:scottmckendry/niri/blur";
+      url = "github:niri-wm/niri";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

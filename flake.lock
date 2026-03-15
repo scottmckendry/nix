@@ -148,6 +148,7 @@
     "niri": {
       "inputs": {
         "nixpkgs": [
+          "nix-cache",
           "nixpkgs"
         ],
         "rust-overlay": "rust-overlay_2"
@@ -221,6 +222,25 @@
       "original": {
         "owner": "YaLTeR",
         "repo": "niri",
+        "type": "github"
+      }
+    },
+    "nix-cache": {
+      "inputs": {
+        "niri": "niri",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1773600195,
+        "narHash": "sha256-QyFZwgAVB9tFg20dBLgnQlv0tF80HejrvWyo8B67tlU=",
+        "owner": "scottmckendry",
+        "repo": "nix-cache",
+        "rev": "cf5c6362c5e6bc39eb934a1ba8e2719757d55f44",
+        "type": "github"
+      },
+      "original": {
+        "owner": "scottmckendry",
+        "repo": "nix-cache",
         "type": "github"
       }
     },
@@ -310,6 +330,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1773389992,
+        "narHash": "sha256-wvfdLLWJ2I9oEpDd9PfMA8osfIZicoQ5MT1jIwNs9Tk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c06b4ae3d6599a672a6210b7021d699c351eebda",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pre-commit": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -339,10 +375,10 @@
         "cyberdream": "cyberdream",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
-        "niri": "niri",
         "niri-flake": "niri-flake",
+        "nix-cache": "nix-cache",
         "nixos-wsl": "nixos-wsl",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nixpkgs-stable": "nixpkgs-stable_2",
         "vicinae-extensions": "vicinae-extensions",
         "zen-browser": "zen-browser"
@@ -372,6 +408,7 @@
     "rust-overlay_2": {
       "inputs": {
         "nixpkgs": [
+          "nix-cache",
           "niri",
           "nixpkgs"
         ]

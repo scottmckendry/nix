@@ -2,6 +2,7 @@
   outputs =
     {
       home-manager,
+      nix-cache,
       nixos-wsl,
       nixpkgs,
       ...
@@ -86,9 +87,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri = {
-      url = "github:niri-wm/niri";
-      inputs.nixpkgs.follows = "nixpkgs";
+    nix-cache = {
+      url = "github:scottmckendry/nix-cache";
     };
 
     nixos-wsl = {

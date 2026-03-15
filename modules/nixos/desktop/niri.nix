@@ -8,7 +8,7 @@
 }:
 let
   cfg = config.custom.desktop.niri;
-  niri = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+  niri = inputs.nix-cache.packages.${pkgs.stdenv.hostPlatform.system}.niri;
 in
 {
   imports = [ inputs.niri-flake.nixosModules.niri ];

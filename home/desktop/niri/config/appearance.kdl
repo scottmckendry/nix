@@ -46,13 +46,6 @@ cursor {
     xcursor-size 16 
 }
 
-blur {
-    passes 3
-    offset 10
-    noise 0.05
-    saturation 1.25
-}
-
 recent-windows {
     highlight {
         padding 16
@@ -63,4 +56,8 @@ recent-windows {
     previews {
         max-height 250
     }
+}
+
+overview {
+    backdrop-color "#16181a"
 }

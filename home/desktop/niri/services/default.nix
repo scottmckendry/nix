@@ -5,7 +5,7 @@
     ./dynamic-float.nix
     ./swayidle.nix
     ./swayosd.nix
-    ./swww.nix
+    # ./swww.nix
     ./udiskie.nix
     ./vicinae.nix
     ./waybar.nix

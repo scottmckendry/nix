@@ -19,14 +19,6 @@ window-rule {
     open-floating true
 }
 
-// --- Kitty blurred background ---
-window-rule {
-    match app-id=r#"(?i)^kitty$"#
-    background-effect {
-        blur true
-    }
-}
-
 // --- Secondary monitor apps: maximized by default ---
 window-rule {
     match app-id=r#"(?i)^(spotify|teams-for-linux|discord|vesktop)$"#
@@ -47,13 +39,4 @@ window-rule {
 layer-rule {
     match namespace=r#"(?i)^swww-daemon$"#
     place-within-backdrop true
-}
-
-// --- Subtle drop shadow for vicinae launcher windows ---
-layer-rule {
-    match namespace="vicinae"
-    geometry-corner-radius 10 // match vicinae's default csd rounding
-    background-effect {
-        blur true
-    }
 }

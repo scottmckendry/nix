@@ -13,9 +13,7 @@ in
       };
 
       background = {
-        path = "/tmp/current_wallpaper";
-        blur_passes = 2;
-        blur_size = 4;
+        color = "#16181a";
       };
 
       input-field = {

@@ -1,11 +1,10 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   custom.desktop.nvidia.enable = true;
   hardware.nvidia = {
-    package = pkgs.linuxPackages.nvidiaPackages.beta;
     powerManagement.finegrained = true;
-    powerManagement.kernelSuspendNotifier = true;
+
     prime = {
       offload = {
         enable = true;

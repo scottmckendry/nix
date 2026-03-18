@@ -2,11 +2,12 @@ prefer-no-csd
 layout {
     // --- Window Gaps & Background ---
     gaps                  40
+    struts                { top -24; }
     background-color      "transparent"
     center-focused-column "on-overflow"
+    default-column-display "tabbed"
     always-center-single-column
     empty-workspace-above-first
-    default-column-display "tabbed"
 
     // --- Column Widths ---
     default-column-width { proportion 0.5; }

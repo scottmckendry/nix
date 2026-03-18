@@ -9,11 +9,7 @@
         "niri/window"
     ],
     "modules-center": [
-        "custom/date",
-        "custom/separator",
-        "clock",
-        "custom/separator",
-        "custom/utc"
+        "group/datetime"
     ],
     "modules-right": [
         "group/toggles",
@@ -21,6 +17,16 @@
         "group/connectivity"
     ],
     // Groups
+    "group/datetime": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/date",
+            "custom/separator",
+            "clock",
+            "custom/separator",
+            "custom/utc"
+        ]
+    },
     "group/connectivity": {
         "orientation": "inherit",
         "modules": [

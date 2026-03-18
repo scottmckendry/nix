@@ -1,13 +1,15 @@
+/* Global Styles */
 * {
   font-family: "JetBrains Mono Nerd Font";
   font-size: 12px;
 }
 
 window#waybar {
-  background-color: rgba(22, 24, 26, 1);
-  color: #eee;
+  background-color: transparent;
+  color: #ffffff;
 }
 
+/* Module Defaults */
 #battery,
 #bluetooth,
 #clock,
@@ -32,6 +34,7 @@ window#waybar {
   box-shadow: none;
 }
 
+/* Module Overrides */
 #tray {
   padding: 5px;
   margin: 0px;
@@ -41,44 +44,96 @@ window#waybar {
   padding: 0px 7px;
 }
 
-.modules-right > widget > box {
-  background-color: rgba(255, 255, 255, 0.125);
-  border-radius: 12px;
-  padding: 2px 4px;
-  margin: 6px 4px;
-}
-
-.modules-right > widget:last-child > box {
-  margin: 6px 10px 6px 4px;
-}
-
 #window {
   padding: 0px;
   margin: 0px;
 }
 
+/* Center Modules - Date/Time Group */
+.modules-center > widget:first-child > box {
+  background-color: #244347;
+  color: #5ef1ff;
+  border-radius: 12px;
+  padding: 4px 12px;
+  margin: 6px 4px;
+}
+
+/* Right Modules - Groups */
+.modules-right > widget > box {
+  border-radius: 12px;
+  padding: 2px 4px;
+  margin: 6px 4px;
+}
+
+.modules-right > widget:first-child > box {
+  background-color: #244347;
+  color: #5ef1ff;
+}
+
+.modules-right > widget:nth-child(2) > box {
+  background-color: #24462a;
+  color: #5eff6c;
+}
+
+.modules-right > widget:last-child > box {
+  background-color: #443827;
+  color: #ffbd5e;
+  margin: 6px 10px 6px 4px;
+}
+
+/* Workspaces */
 #workspaces button {
   padding: 0px;
   margin: 10px 3px;
   min-width: 18px;
   min-height: 0px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(123, 132, 150, 0.6);
   border-radius: 10px;
   color: transparent;
   transition: all 0.2s ease-in-out;
 }
 
-#workspaces button.active {
+#workspaces button:nth-child(1).active {
   min-width: 32px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(94, 161, 255, 0.85);
+}
+
+#workspaces button:nth-child(2).active {
+  min-width: 32px;
+  background-color: rgba(94, 241, 255, 0.85);
+}
+
+#workspaces button:nth-child(3).active {
+  min-width: 32px;
+  background-color: rgba(255, 189, 94, 0.85);
+}
+
+#workspaces button:nth-child(4).active {
+  min-width: 32px;
+  background-color: rgba(189, 94, 255, 0.85);
+}
+
+#workspaces button:nth-child(5).active {
+  min-width: 32px;
+  background-color: rgba(255, 94, 160, 0.85);
+}
+
+#workspaces button:nth-child(6).active {
+  min-width: 32px;
+  background-color: rgba(94, 255, 108, 0.85);
+}
+
+#workspaces button:nth-child(n + 7).active {
+  min-width: 32px;
+  background-color: rgba(241, 255, 94, 0.85);
 }
 
 #workspaces button.visible {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(125, 125, 135, 0.8);
 }
 
 #workspaces button:hover {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(125, 125, 135, 0.8);
 }
 
 #workspaces button:last-child {

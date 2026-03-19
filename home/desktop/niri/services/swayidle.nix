@@ -4,7 +4,7 @@ let
   timeouts = {
     lockScreen = 300; # 5 minutes
     turnOffMonitors = 600; # 10 minutes
-    suspend = 7200; # 2 hours
+    suspend = 1200; # 20 minutes
   };
 
   commands = {

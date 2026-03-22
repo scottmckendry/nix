@@ -22,9 +22,6 @@ in
 
     environment.sessionVariables = {
       SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt";
-      GIO_EXTRA_MODULES = lib.mkForce [
-        "${pkgs.glib-networking}/lib/gio/modules"
-      ];
     };
   };
 }

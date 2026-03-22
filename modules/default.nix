@@ -5,10 +5,12 @@
     ./nixos/core/core.nix
     ./nixos/core/users.nix
     ./nixos/desktop/gaming.nix
+    ./nixos/desktop/gnome.nix
     ./nixos/desktop/niri.nix
     ./nixos/desktop/nvidia.nix
     ./nixos/services/docker.nix
     ./nixos/services/go.nix
+    ./nixos/services/intune.nix
     ./nixos/services/networking.nix
     ./nixos/services/virtualisation.nix
     ./nixos/services/work.nix

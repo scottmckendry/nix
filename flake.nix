@@ -24,6 +24,7 @@
           modules = [
             ./hosts
             home-manager.nixosModules.home-manager
+            { nixpkgs.overlays = import ./overlays; }
           ];
         };
       homeConfiguration = home-manager.lib.homeManagerConfiguration {

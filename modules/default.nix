@@ -1,9 +1,11 @@
 { ... }:
 {
   imports = [
+    ./nixos/boot/secure-boot.nix
     ./nixos/boot/silent-boot.nix
     ./nixos/core/core.nix
     ./nixos/core/users.nix
+    ./nixos/desktop/displaylink.nix
     ./nixos/desktop/gaming.nix
     ./nixos/desktop/gnome.nix
     ./nixos/desktop/niri.nix

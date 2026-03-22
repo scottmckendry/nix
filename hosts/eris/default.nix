@@ -1,16 +1,15 @@
-{ inputs, ... }:
+{ ... }:
 {
   imports = [
-    inputs.lanzaboote.nixosModules.lanzaboote
     ./hybrid-graphics.nix
-    ./displaylink.nix
     ./hardware-configuration.nix
     ./power-management.nix
-    ./secure-boot.nix
   ];
 
+  custom.boot.secure-boot.enable = true;
   custom.boot.silent.enable = true;
   custom.boot.silent.theme = "fade-in";
+  custom.desktop.displaylink.enable = true;
   custom.desktop.niri.enable = true;
   custom.services.docker.enable = true;
   custom.services.go.enable = true;

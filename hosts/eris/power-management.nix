@@ -10,15 +10,19 @@
   ];
 
   # Enable resume from swapfile for hibernation
-  boot.kernelParams = [ "resume_offset=36454400" ];
-  boot.resumeDevice = "/dev/disk/by-uuid/1307e52a-da90-4c68-9a88-1180e1bcdd0f";
+  boot.kernelParams = [ "resume_offset=14282244" ];
+  boot.resumeDevice = "/dev/mapper/luks-0074ecff-31d1-498a-9571-b38b8b85a1fd";
   powerManagement.enable = true;
   powerManagement.powertop.enable = true;
   environment.systemPackages = [ pkgs.powertop ];
 
   services.power-profiles-daemon.enable = true;
 
-  systemd.sleep.settings.Sleep.HibernateDelaySec = "30m";
+  systemd.sleep.settings.Sleep = {
+    AllowHibernation = "yes";
+    HibernateMode = "platform shutdown";
+    HibernateDelaySec = "30m";
+  };
   services.logind.settings.Login = {
     HandleLidSwitch = "suspend-then-hibernate";
     HandlePowerKey = "ignore";

@@ -3,6 +3,7 @@
   imports = [
     ./nixos/boot/secure-boot.nix
     ./nixos/boot/silent-boot.nix
+    ./nixos/boot/tpm2-luks.nix
     ./nixos/core/core.nix
     ./nixos/core/users.nix
     ./nixos/desktop/displaylink.nix

@@ -24,7 +24,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # see https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md
+    # see https://github.com/nix-community/lanzaboote/blob/master/docs
     environment.systemPackages = with pkgs; [
       sbctl
     ];

@@ -12,7 +12,6 @@ in
     nautilus
     obs-studio
     pavucontrol
-    prismlauncher
     spotify
     vlc
     zen-browser

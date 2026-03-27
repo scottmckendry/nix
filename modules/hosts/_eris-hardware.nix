@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  modulesPath,
-  ...
-}:
-
+{ modulesPath, ... }:
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -30,10 +24,6 @@
   boot.initrd.luks.devices."luks-0074ecff-31d1-498a-9571-b38b8b85a1fd".device =
     "/dev/disk/by-uuid/0074ecff-31d1-498a-9571-b38b8b85a1fd";
 
-  # TPM2 LUKS unlocking
-  custom.boot.tpm2-luks.enable = true;
-  custom.boot.tpm2-luks.devices = [ "luks-0074ecff-31d1-498a-9571-b38b8b85a1fd" ];
-
   fileSystems."/home" = {
     device = "/dev/mapper/luks-0074ecff-31d1-498a-9571-b38b8b85a1fd";
     fsType = "btrfs";
@@ -50,7 +40,4 @@
   };
 
   swapDevices = [ ];
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

@@ -49,11 +49,6 @@
           hostname = "eris";
           desktop = true;
         };
-
-        "helios" = mkHost {
-          hostname = "helios";
-          desktop = false;
-        };
       };
 
       homeConfigurations = {

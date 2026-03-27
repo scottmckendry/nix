@@ -15,8 +15,7 @@ The rest doesn't really matter.
 
 ## 🖥️ Hosts
 
-| Hostname | Description                                  |
-| -------- | -------------------------------------------- |
-| `atlas`  | Main workstation.                            |
-| `helios` | Windows Laptop. Running NixOS via WSL2.      |
-| `eris`   | Same laptop, but native NixOS via dual boot. |
+| Hostname | Description       |
+| -------- | ----------------- |
+| `atlas`  | Main workstation. |
+| `eris`   | Laptop            |

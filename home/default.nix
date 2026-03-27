@@ -1,24 +1,11 @@
-{
-  config,
-  desktop ? false,
-  ...
-}:
-
+{ config, ... }:
 {
   imports = [
     ./dev
     ./shared
     ./shell
     ./packages
-  ]
-  ++ (
-    if desktop then
-      [
-        ./desktop
-      ]
-    else
-      [ ]
-  );
+  ];
 
   programs.fastfetch.enable = true;
   programs.home-manager.enable = true;

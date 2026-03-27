@@ -1,21 +1,21 @@
 { ... }:
 {
   imports = [
-    ./nixos/boot/secure-boot.nix
-    ./nixos/boot/silent-boot.nix
-    ./nixos/boot/tpm2-luks.nix
-    ./nixos/core/core.nix
-    ./nixos/core/users.nix
-    ./nixos/desktop/displaylink.nix
-    ./nixos/desktop/gaming.nix
-    ./nixos/desktop/gnome.nix
-    ./nixos/desktop/niri.nix
-    ./nixos/desktop/nvidia.nix
-    ./nixos/services/docker.nix
-    ./nixos/services/go.nix
-    ./nixos/services/intune.nix
-    ./nixos/services/networking.nix
-    ./nixos/services/virtualisation.nix
-    ./nixos/services/work.nix
+    ./boot/secure-boot.nix
+    ./boot/silent-boot.nix
+    ./boot/tpm2-luks.nix
+    ./core/core.nix
+    ./core/users.nix
+    ./desktop/displaylink.nix
+    ./desktop/gaming.nix
+    ./desktop/gnome.nix
+    ./desktop/niri.nix
+    ./desktop/nvidia.nix
+    ./services/docker.nix
+    ./services/go.nix
+    ./services/intune.nix
+    ./services/networking.nix
+    ./services/virtualisation.nix
+    ./services/work.nix
   ];
 }

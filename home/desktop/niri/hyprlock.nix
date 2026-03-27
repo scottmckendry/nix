@@ -1,8 +1,5 @@
-{ hostname, ... }:
+{ ... }:
 
-let
-  output = if hostname == "atlas" then "DP-1" else "eDP-1";
-in
 {
   programs.hyprlock = {
     enable = true;
@@ -17,7 +14,6 @@ in
       };
 
       input-field = {
-        monitor = output;
         size = "250, 60";
         outer_color = "rgba(0, 0, 0, 0)";
         inner_color = "rgba(0, 0, 0, 0.2)";
@@ -26,7 +22,6 @@ in
 
       # clock
       label = {
-        monitor = output;
         text = "cmd[update:1000] echo -n $(date +'%-I:%M %p')";
         size = "250, 60";
         color = "rgba(200, 200, 200, 1)";

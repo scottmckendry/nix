@@ -2,7 +2,6 @@
 {
   imports = [
     ./battery-monitor.nix
-    ./dynamic-float.nix
     ./swayidle.nix
     ./swayosd.nix
     # ./swww.nix

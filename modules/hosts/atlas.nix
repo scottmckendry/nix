@@ -10,7 +10,7 @@
       nvidia
       gaming
       docker
-      go
+      packages
       work
       work-desktop
       swap

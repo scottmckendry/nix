@@ -16,6 +16,7 @@
             ExecStart = "${pkgs.vicinae}/bin/vicinae server";
             Restart = "on-failure";
             RestartSec = 1;
+            Environment = "PATH=/run/current-system/sw/bin:%h/.nix-profile/bin:${pkgs.vicinae}/bin";
           };
         };
       };

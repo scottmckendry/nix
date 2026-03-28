@@ -1,0 +1,92 @@
+{ inputs, ... }:
+{
+  den.aspects.packages = {
+    nixos =
+      { pkgs, ... }:
+      let
+        cl-parse = inputs.cl-parse.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      in
+      {
+        environment.systemPackages = with pkgs; [
+          age
+          air
+          ansible
+          appimage-run
+          bitwarden-desktop
+          blueman
+          brightnessctl
+          btop
+          bun
+          calibre
+          cargo
+          cl-parse
+          cliphist
+          discord
+          fd
+          fluxcd
+          fzf
+          gcc
+          ghostscript
+          gimp
+          gnumake
+          go
+          go-task
+          gopls
+          gotestsum
+          grim
+          hugo
+          inotify-tools
+          jq
+          just
+          killall
+          kubectl
+          kubectl-cnpg
+          libnotify
+          mangohud
+          mermaid-cli
+          nautilus
+          neovim
+          nh
+          nil
+          nix-index
+          nixfmt
+          nixpkgs-review
+          nmgui
+          nodejs
+          obs-studio
+          odin
+          openssl
+          pavucontrol
+          playerctl
+          powershell
+          presenterm
+          python3
+          restic
+          ripgrep
+          rustc
+          rustfmt
+          slurp
+          sops
+          spotify
+          sqlc
+          sqlite
+          tailwindcss_4
+          talosctl
+          tdf
+          terraform
+          tesseract
+          typescript
+          typst
+          unzip
+          uv
+          vlc
+          wget
+          wl-clipboard
+          yq-go
+          zen-browser
+          zig
+        ];
+      };
+  };
+}

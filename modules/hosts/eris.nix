@@ -12,7 +12,7 @@
       nvidia
       displaylink
       docker
-      go
+      packages
       intune
       work
       work-desktop

@@ -4,7 +4,6 @@
     ./dev
     ./shared
     ./shell
-    ./packages
   ];
 
   programs.fastfetch.enable = true;

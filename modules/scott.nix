@@ -12,6 +12,12 @@
             "networkmanager"
             "wheel"
           ];
+          openssh.authorizedKeys.keyFiles = [
+            (pkgs.fetchurl {
+              url = "https://github.com/scottmckendry.keys";
+              sha256 = "EF8jlfRIzg+pEqPkCq9HYB/niYksYUYfCoHxaxs6C/U=";
+            })
+          ];
         };
       };
 

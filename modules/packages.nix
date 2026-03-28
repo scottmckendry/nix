@@ -22,8 +22,14 @@
           cargo
           cl-parse
           cliphist
+          delta
           discord
+          fastfetch
           fd
+          foot
+          gh
+          gh-markdown-preview
+          git
           fluxcd
           fzf
           gcc
@@ -39,7 +45,10 @@
           inotify-tools
           jq
           just
+          k9s
           killall
+          kitty
+          lazygit
           kubectl
           kubectl-cnpg
           libnotify
@@ -56,10 +65,12 @@
           nodejs
           obs-studio
           odin
+          opencode
           openssl
           pavucontrol
           playerctl
           powershell
+          posting
           presenterm
           python3
           restic

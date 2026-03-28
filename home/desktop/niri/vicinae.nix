@@ -1,5 +1,4 @@
 {
-  pkgs,
   config,
   inputs,
   ...
@@ -64,22 +63,5 @@
         src = "${inputs.vicinae-extensions}/extensions/spongebob-text-transformer";
       })
     ];
-  };
-
-  systemd.user.services.vicinae = {
-    Unit = {
-      Description = "Vicinae Server";
-      PartOf = [ "graphical-session.target" ];
-      After = [ "graphical-session-pre.target" ];
-    };
-    Service = {
-      Type = "simple";
-      ExecStart = "${pkgs.vicinae}/bin/vicinae server";
-      Restart = "on-failure";
-      RestartSec = 1;
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
   };
 }

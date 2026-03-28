@@ -8,8 +8,8 @@ in
   imports = [
     ./hyprlock.nix
     ./mako.nix
-    ./services
     ./termfilechooser.nix
+    ./vicinae.nix
   ];
 
   home.packages = with pkgs; [
@@ -21,11 +21,10 @@ in
     nmgui
     playerctl
     slurp
-    swayosd
     tesseract
-    waybar
     wl-clipboard
   ];
 
   xdg.configFile."niri".source = mkOutOfStoreSymlink "${nixDir}/home/desktop/niri/config";
+  xdg.configFile."waybar".source = mkOutOfStoreSymlink "${nixDir}/home/desktop/waybar";
 }

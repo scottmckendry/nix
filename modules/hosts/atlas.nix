@@ -6,6 +6,7 @@
       networking
       silent-boot
       niri
+      niri-session
       nvidia
       gaming
       docker

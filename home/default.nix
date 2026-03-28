@@ -1,12 +1,11 @@
 { config, ... }:
 {
   imports = [
-    ./dev
+    ./config.nix
     ./shared
     ./shell
   ];
 
-  programs.fastfetch.enable = true;
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
 

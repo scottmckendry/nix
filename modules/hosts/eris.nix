@@ -8,6 +8,7 @@
       secure-boot
       tpm2-luks
       niri
+      niri-session
       nvidia
       displaylink
       docker

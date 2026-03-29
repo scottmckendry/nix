@@ -1,0 +1,28 @@
+{
+  "font": {
+    "normal": {
+      "family": "JetBrains Mono Nerd Font",
+      "size": 10
+    }
+  },
+  "launcher_window": {
+    "opacity": 1.0
+  },
+  "pop_to_root_on_close": true,
+  "providers": {
+    "clipboard": {
+      "entrypoints": {
+        "history": {
+          "preferences": {
+            "defaultAction": "copy"
+          }
+        }
+      }
+    }
+  },
+  "theme": {
+    "dark": {
+      "name": "cyberdream"
+    }
+  }
+}

@@ -2,7 +2,6 @@
 {
   imports = [
     ./config.nix
-    ./shared
     ./shell
   ];
 

@@ -3,25 +3,30 @@
   den.aspects.atlas = {
     includes = with den.aspects; [
       core
+      docker
+      gaming
       networking
-      silent-boot
       niri
       niri-session
       nvidia
-      gaming
-      docker
       packages
+      silent-boot
+      swap
       work
       work-desktop
-      swap
+      zsh
     ];
 
     provides.to-users =
       { host, ... }:
+      let
+        monitor = host.output or "";
+        hyprlock = builtins.readFile ../../home/.config/hypr/hyprlock.conf;
+      in
       {
-        homeManager.imports = [ ../../home/desktop ];
-        homeManager.programs.hyprlock.settings.input-field.monitor = host.output or "";
-        homeManager.programs.hyprlock.settings.label.monitor = host.output or "";
+        homeManager.xdg.configFile."hypr/hyprlock.conf".text =
+          builtins.replaceStrings [ "MONITOR" ] [ monitor ]
+            hyprlock;
       };
 
     nixos =

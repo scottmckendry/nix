@@ -1,0 +1,27 @@
+add_newline = true
+format = "$all $fill $cmd_duration\n$character"
+
+[character]
+error_symbol = "[❯](red)"
+success_symbol = "[❯](green)"
+
+[cmd_duration]
+format = "[$duration](bright-black)"
+min_time = 10
+show_milliseconds = true
+
+[fill]
+symbol = " "
+
+[git_metrics]
+added_style = "green"
+deleted_style = "red"
+disabled = false
+format = "(([ $added ]($added_style))([ $deleted ]($deleted_style)))"
+only_nonzero_diffs = true
+
+[golang]
+symbol = " "
+
+[line_break]
+disabled = true

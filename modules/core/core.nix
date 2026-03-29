@@ -49,7 +49,19 @@
         };
 
         programs.nix-ld.enable = true;
-        programs.zsh.enable = true;
+        programs.dconf = {
+          enable = true;
+          profiles.user.databases = [
+            {
+              settings."org/gnome/desktop/interface" = {
+                color-scheme = "prefer-dark";
+                font-name = "Inter 9";
+                document-font-name = "Inter 9";
+                monospace-font-name = "JetBrainsMono Nerd Font 10";
+              };
+            }
+          ];
+        };
         programs.nh = {
           enable = true;
           clean.enable = true;

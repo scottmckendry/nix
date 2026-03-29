@@ -3,29 +3,34 @@
   den.aspects.eris = {
     includes = with den.aspects; [
       core
+      displaylink
+      docker
+      hibernate
+      intune
       networking
-      silent-boot
-      secure-boot
-      tpm2-luks
       niri
       niri-session
       nvidia
-      displaylink
-      docker
       packages
-      intune
+      secure-boot
+      silent-boot
+      swap
+      tpm2-luks
       work
       work-desktop
-      swap
-      hibernate
+      zsh
     ];
 
     provides.to-users =
       { host, ... }:
+      let
+        monitor = host.output or "";
+        hyprlock = builtins.readFile ../../home/.config/hypr/hyprlock.conf;
+      in
       {
-        homeManager.imports = [ ../../home/desktop ];
-        homeManager.programs.hyprlock.settings.input-field.monitor = host.output or "";
-        homeManager.programs.hyprlock.settings.label.monitor = host.output or "";
+        homeManager.xdg.configFile."hypr/hyprlock.conf".text =
+          builtins.replaceStrings [ "MONITOR" ] [ monitor ]
+            hyprlock;
       };
 
     nixos =

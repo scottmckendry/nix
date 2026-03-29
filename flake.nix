@@ -25,8 +25,8 @@
       url = "github:hercules-ci/flake-parts";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    hjem = {
+      url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

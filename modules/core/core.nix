@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 {
   den.aspects.core = {
     nixos =
@@ -71,8 +71,6 @@
         nixpkgs.config.allowUnfree = true;
         nixpkgs.overlays = import ../../overlays;
         system.stateVersion = "26.05";
-
-        home-manager.extraSpecialArgs = { inherit inputs; };
       };
   };
 }

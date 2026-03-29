@@ -3,9 +3,6 @@
   den.aspects.niri-session = {
     nixos =
       { pkgs, ... }:
-      let
-        scriptPath = "/home/scott/scripts/battery-monitor.sh";
-      in
       {
         systemd.user.services."battery-monitor" = {
           description = "Battery monitor notification script";
@@ -13,7 +10,7 @@
           after = [ "graphical-session-pre.target" ];
           serviceConfig = {
             Type = "oneshot";
-            ExecStart = "${pkgs.bash}/bin/bash ${scriptPath}";
+            ExecStart = "${pkgs.bash}/bin/bash %h/scripts/battery-monitor.sh";
           };
         };
 

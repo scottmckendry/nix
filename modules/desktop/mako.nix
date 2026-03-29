@@ -1,4 +1,4 @@
-{ ... }:
+{ utils, ... }:
 {
   den.aspects.niri-session = {
     nixos =
@@ -6,16 +6,13 @@
       {
         environment.systemPackages = [ pkgs.mako ];
 
-        systemd.user.services.mako = {
+        systemd.user.services.mako = utils.mkWaylandService {
           description = "Lightweight Wayland notification daemon";
-          partOf = [ "graphical-session.target" ];
-          after = [ "graphical-session.target" ];
-          wantedBy = [ "graphical-session.target" ];
-          serviceConfig = {
-            Type = "dbus";
+          execStart = "${pkgs.mako}/bin/mako";
+          type = "dbus";
+          extraServiceConfig = {
             BusName = "org.freedesktop.Notifications";
-            ExecCondition = "/bin/sh -c '[ -n \"$WAYLAND_DISPLAY\" ]'";
-            ExecStart = "${pkgs.mako}/bin/mako";
+            ExecCondition = "${pkgs.bash}/bin/sh -c '[ -n \"$WAYLAND_DISPLAY\" ]'";
             ExecReload = "${pkgs.mako}/bin/makoctl reload";
           };
         };

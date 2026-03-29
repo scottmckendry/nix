@@ -6,6 +6,7 @@
         { host, ... }:
         {
           nixos.networking.hostName = host.hostName;
+          nixos.environment.sessionVariables.HOSTNAME = host.hostName;
         }
       )
     ];

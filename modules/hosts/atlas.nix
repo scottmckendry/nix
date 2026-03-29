@@ -17,18 +17,6 @@
       zsh
     ];
 
-    provides.to-users =
-      { host, ... }:
-      let
-        monitor = host.output or "";
-        hyprlock = builtins.readFile ../../home/.config/hypr/hyprlock.conf;
-      in
-      {
-        homeManager.xdg.configFile."hypr/hyprlock.conf".text =
-          builtins.replaceStrings [ "MONITOR" ] [ monitor ]
-            hyprlock;
-      };
-
     nixos =
       { ... }:
       {

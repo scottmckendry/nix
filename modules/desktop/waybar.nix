@@ -1,4 +1,4 @@
-{ ... }:
+{ utils, ... }:
 {
   den.aspects.niri-session = {
     nixos =
@@ -6,16 +6,10 @@
       {
         environment.systemPackages = [ pkgs.waybar ];
 
-        systemd.user.services.waybar = {
+        systemd.user.services.waybar = utils.mkWaylandService {
           description = "Waybar status bar for Wayland";
-          partOf = [ "graphical-session.target" ];
-          after = [ "graphical-session-pre.target" ];
-          wantedBy = [ "graphical-session.target" ];
-          serviceConfig = {
-            Type = "simple";
-            ExecStart = "${pkgs.waybar}/bin/waybar";
-            Restart = "on-failure";
-            RestartSec = 1;
+          execStart = "${pkgs.waybar}/bin/waybar";
+          extraServiceConfig = {
             ExecStartPre = "${pkgs.coreutils}/bin/sleep 2";
           };
         };

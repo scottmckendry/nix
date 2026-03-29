@@ -1,4 +1,4 @@
-{ ... }:
+{ utils, ... }:
 {
   den.aspects.niri-session = {
     nixos =
@@ -24,17 +24,9 @@
           + " before-sleep '${commands.lock}'";
       in
       {
-        systemd.user.services.swayidle = {
+        systemd.user.services.swayidle = utils.mkWaylandService {
           description = "Idle/screen lock daemon for Wayland";
-          partOf = [ "graphical-session.target" ];
-          after = [ "graphical-session-pre.target" ];
-          wantedBy = [ "graphical-session.target" ];
-          serviceConfig = {
-            Type = "simple";
-            ExecStart = swayidleCommand;
-            Restart = "on-failure";
-            RestartSec = 1;
-          };
+          execStart = swayidleCommand;
         };
       };
   };

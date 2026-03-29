@@ -10,6 +10,7 @@
       {
         environment.systemPackages = with pkgs; [
           age
+          bibata-cursors
           air
           ansible
           appimage-run

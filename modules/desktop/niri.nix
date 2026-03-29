@@ -27,6 +27,31 @@
             user = "scott";
           };
         };
+
+        xdg.portal = {
+          enable = true;
+          xdgOpenUsePortal = true;
+          extraPortals = with pkgs; [
+            xdg-desktop-portal-termfilechooser
+            xdg-desktop-portal-gnome
+            xdg-desktop-portal-gtk
+          ];
+          config = {
+            common.default = [
+              "termfilechooser"
+              "gnome"
+              "gtk"
+            ];
+            niri = {
+              default = [
+                "termfilechooser"
+                "gnome"
+                "gtk"
+              ];
+              "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+            };
+          };
+        };
       };
   };
 }

@@ -13,6 +13,7 @@
           air
           ansible
           appimage-run
+          bat
           bitwarden-desktop
           blueman
           brightnessctl
@@ -22,11 +23,15 @@
           cargo
           cl-parse
           cliphist
+          colloid-gtk-theme
+          colloid-icon-theme
           delta
           discord
+          eza
           fastfetch
           fd
           foot
+          hyprlock
           gh
           gh-markdown-preview
           git
@@ -52,6 +57,7 @@
           kubectl
           kubectl-cnpg
           libnotify
+          mako
           mangohud
           mermaid-cli
           nautilus
@@ -82,6 +88,7 @@
           spotify
           sqlc
           sqlite
+          starship
           tailwindcss_4
           talosctl
           tdf
@@ -94,9 +101,11 @@
           vlc
           wget
           wl-clipboard
+          yazi
           yq-go
           zen-browser
           zig
+          zoxide
         ];
       };
   };

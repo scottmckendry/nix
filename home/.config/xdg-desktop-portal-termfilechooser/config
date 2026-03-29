@@ -1,0 +1,3 @@
+[filechooser]
+cmd=yazi-wrapper.sh
+env=TERMCMD=foot -a yazi-float

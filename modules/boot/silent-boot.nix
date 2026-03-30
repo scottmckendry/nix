@@ -1,15 +1,6 @@
 { ... }:
 {
   den.aspects.silent-boot = {
-    includes = [
-      (
-        { host, ... }:
-        {
-          nixos.boot.plymouth.theme = host.plymouthTheme or "spinner";
-        }
-      )
-    ];
-
     nixos =
       { ... }:
       {
@@ -27,6 +18,7 @@
             "rd.systemd.show_status=auto"
           ];
           plymouth.enable = true;
+          plymouth.theme = "spinner";
         };
       };
   };

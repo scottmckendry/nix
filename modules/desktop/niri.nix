@@ -52,6 +52,10 @@
             };
           };
         };
+
+        systemd.user.services.xdg-desktop-portal.environment = {
+          NIX_XDG_DESKTOP_PORTAL_DIR = "/run/current-system/sw/share/xdg-desktop-portal/portals";
+        };
       };
   };
 }

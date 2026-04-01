@@ -1,14 +1,14 @@
 actions=1
-anchor=top-right
+anchor=bottom-right
 background-color=#16181a
 border-color=#5ef1ff
 border-radius=10
 border-size=2
 default-timeout=5000
-font=Inter 10
+font=Inter 9
 height=120
 history=1
-icon-location=left
+icon-location=right
 icons=1
 layer=top
 margin=10

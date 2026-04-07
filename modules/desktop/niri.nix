@@ -30,7 +30,6 @@
 
         xdg.portal = {
           enable = true;
-          xdgOpenUsePortal = true;
           extraPortals = with pkgs; [
             xdg-desktop-portal-termfilechooser
             xdg-desktop-portal-gnome
@@ -48,13 +47,8 @@
                 "gnome"
                 "gtk"
               ];
-              "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
             };
           };
-        };
-
-        systemd.user.services.xdg-desktop-portal.environment = {
-          NIX_XDG_DESKTOP_PORTAL_DIR = "/run/current-system/sw/share/xdg-desktop-portal/portals";
         };
       };
   };

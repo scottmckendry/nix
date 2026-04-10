@@ -9,6 +9,7 @@
       in
       {
         environment.systemPackages = with pkgs; [
+          adwaita-icon-theme
           age
           bibata-cursors
           air

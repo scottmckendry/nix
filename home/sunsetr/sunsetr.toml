@@ -1,0 +1,18 @@
+backend = "auto"
+transition_mode = "geo"
+
+smoothing = true
+startup_duration = 0.5
+shutdown_duration = 0.5
+adaptive_interval = 1
+
+night_temp = 3300
+day_temp = 6500
+night_gamma = 90
+day_gamma = 100
+update_interval = 60
+transition_duration = 45
+
+latitude = -36.992820
+longitude = 174.879860
+sunset = "19:00:00"

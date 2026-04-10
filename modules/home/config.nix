@@ -41,6 +41,7 @@ in
           ".config/niri".source = mkSym "${nixDir}/home/niri";
           ".config/nvim".source = mkSym "${nixDir}/nvim";
           "scripts".source = mkSym "${nixDir}/scripts";
+          ".config/sunsetr".source = mkSym "${nixDir}/home/sunsetr";
           ".config/waybar".source = mkSym "${nixDir}/home/waybar";
 
           # cyberdream themes

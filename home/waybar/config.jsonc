@@ -151,8 +151,8 @@
         "tooltip": false
     },
     "custom/nightlight": {
-        "exec": "~/scripts/nightlight.sh",
-        "interval": 30,
+        "exec": "~/scripts/nightlight.sh watch",
+        "restart-interval": 5,
         "return-type": "json",
         "on-click": "~/scripts/nightlight.sh toggle",
         "tooltip": true

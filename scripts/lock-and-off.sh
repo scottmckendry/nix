@@ -5,7 +5,7 @@
 set -euo pipefail
 
 INITIAL_DELAY="${1:-5}"   # seconds before first power-off
-CHECK_INTERVAL="${2:-10}" # seconds between checks while locked
+CHECK_INTERVAL="${2:-30}" # seconds between checks while locked
 
 # Background watchdog: while hyprlock runs, keep powering off monitors.
 nohup setsid bash -c "
@@ -19,4 +19,4 @@ nohup setsid bash -c "
 " >/dev/null 2>&1 &
 
 # Start hyprlock in the foreground.
-exec hyprlock --grace 5
+exec hyprlock --grace 10

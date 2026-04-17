@@ -62,3 +62,10 @@ recent-windows {
 overview {
     backdrop-color "#16181a"
 }
+
+blur {
+    passes 3
+    offset 10
+    noise 0.05
+    saturation 1.25
+}

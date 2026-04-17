@@ -37,6 +37,27 @@ window-rule {
 
 // --- Wallpaper stays in place when switching workspaces ---
 layer-rule {
-    match namespace=r#"(?i)^swww-daemon$"#
+    match namespace="awww-daemon"
     place-within-backdrop true
+}
+
+// Blur effects
+window-rule {
+    match app-id=r#"(?i)^kitty$"#
+    background-effect {
+        blur true
+    }
+}
+layer-rule {
+    match namespace="vicinae"
+    geometry-corner-radius 10 // match vicinae's default csd rounding
+    background-effect {
+        blur true
+    }
+}
+layer-rule {
+    match namespace="waybar"
+    background-effect {
+        blur true
+    }
 }

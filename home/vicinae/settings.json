@@ -6,10 +6,18 @@
     }
   },
   "launcher_window": {
-    "opacity": 1.0
+    "opacity": 0.85
   },
   "pop_to_root_on_close": true,
   "providers": {
+    "@sovereign/awww-switcher": {
+      "preferences": {
+        "postCommand": "ln -sf ${wallpaper} /tmp/current_wallpaper",
+        "transitionFPS": "144",
+        "transitionType": "fade",
+        "wallpaperPath": "~/Pictures/Wallpapers/"
+      }
+    },
     "clipboard": {
       "entrypoints": {
         "history": {

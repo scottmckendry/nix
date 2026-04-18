@@ -32,6 +32,7 @@
             };
           };
           packages = with pkgs; [
+            geist-font
             inter
             nerd-fonts.jetbrains-mono
             noto-fonts

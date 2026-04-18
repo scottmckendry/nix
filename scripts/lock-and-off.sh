@@ -4,8 +4,8 @@
 
 set -euo pipefail
 
-INITIAL_DELAY="${1:-5}"   # seconds before first power-off
-CHECK_INTERVAL="${2:-30}" # seconds between checks while locked
+INITIAL_DELAY="${1:-30}"  # seconds before first power-off
+CHECK_INTERVAL="${2:-60}" # seconds between checks while locked
 
 # Background watchdog: while hyprlock runs, keep powering off monitors.
 nohup setsid bash -c "

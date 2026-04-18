@@ -11,11 +11,11 @@
         environment.systemPackages = with pkgs; [
           adwaita-icon-theme
           age
-          bibata-cursors
           air
           ansible
           appimage-run
           bat
+          bibata-cursors
           bitwarden-desktop
           blueman
           brightnessctl
@@ -32,16 +32,15 @@
           eza
           fastfetch
           fd
-          foot
-          hyprlock
-          gh
-          gh-markdown-preview
-          git
           fluxcd
+          foot
           fzf
           gcc
+          gh
+          gh-markdown-preview
           ghostscript
           gimp
+          git
           gnumake
           go
           go-task
@@ -49,16 +48,18 @@
           gotestsum
           grim
           hugo
+          hyprlock
           inotify-tools
           jq
           just
           k9s
           killall
           kitty
-          lazygit
           kubectl
           kubectl-cnpg
+          lazygit
           libnotify
+          libsecret
           mako
           mangohud
           mermaid-cli
@@ -77,8 +78,8 @@
           openssl
           pavucontrol
           playerctl
-          powershell
           posting
+          powershell
           presenterm
           python3
           restic

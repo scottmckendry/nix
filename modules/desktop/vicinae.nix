@@ -4,7 +4,10 @@
     nixos =
       { pkgs, ... }:
       {
-        environment.systemPackages = [ pkgs.vicinae ];
+        environment.systemPackages = [
+          pkgs.vicinae
+          pkgs.uwsm
+        ];
         systemd.user.services.vicinae = utils.mkWaylandService {
           description = "Vicinae Server";
           execStart = "${pkgs.vicinae}/bin/vicinae server";

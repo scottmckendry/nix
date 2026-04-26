@@ -19,6 +19,9 @@
           tela-icon-theme
         ];
 
+        environment.sessionVariables.GTK_USE_PORTAL = "1";
+        environment.sessionVariables.XCURSOR_SIZE = "16";
+
         programs.dconf.profiles.user.databases = [
           {
             settings."org/gnome/desktop/interface" = {

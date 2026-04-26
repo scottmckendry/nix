@@ -5,8 +5,6 @@
       { pkgs, ... }:
       {
         environment.systemPackages = [ pkgs.nautilus ];
-        environment.sessionVariables.XDG_SESSION_CLASS = "user";
-
         services.gvfs.enable = true;
         services.gnome.localsearch.enable = true;
         services.gnome.tinysparql.enable = true;

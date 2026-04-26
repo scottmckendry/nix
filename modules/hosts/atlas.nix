@@ -5,6 +5,7 @@
       core
       docker
       gaming
+      gtk
       networking
       niri
       niri-session

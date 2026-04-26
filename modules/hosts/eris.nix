@@ -5,6 +5,7 @@
       core
       displaylink
       docker
+      gtk
       hibernate
       intune
       networking

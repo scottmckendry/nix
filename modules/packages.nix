@@ -9,13 +9,11 @@
       in
       {
         environment.systemPackages = with pkgs; [
-          adwaita-icon-theme
           age
           air
           ansible
           appimage-run
           bat
-          bibata-cursors
           bitwarden-desktop
           blueman
           brightnessctl
@@ -25,8 +23,6 @@
           cargo
           cl-parse
           cliphist
-          colloid-gtk-theme
-          colloid-icon-theme
           delta
           discord
           eza
@@ -63,7 +59,6 @@
           mako
           mangohud
           mermaid-cli
-          nautilus
           neovim
           nh
           nil

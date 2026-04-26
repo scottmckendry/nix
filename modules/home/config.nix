@@ -15,9 +15,6 @@ in
           ".config/bat/config".source = ../../home/bat/config;
           ".config/foot/foot.ini".source = ../../home/foot/foot.ini;
           ".config/git/config".source = ../../home/git/config;
-          ".config/gtk-2.0/gtkrc".source = ../../home/gtk-2.0/gtkrc;
-          ".config/gtk-3.0/settings.ini".source = ../../home/gtk-3.0/settings.ini;
-          ".config/gtk-4.0/settings.ini".source = ../../home/gtk-4.0/settings.ini;
           ".config/k9s/aliases.yaml".source = ../../home/k9s/aliases.yaml;
           ".config/k9s/config.yaml".source = ../../home/k9s/config.yaml;
           ".config/kitty/kitty.conf".source = ../../home/kitty/kitty.conf;
@@ -32,10 +29,6 @@ in
           ".config/starship.toml".source = ../../home/starship.toml;
           ".config/vicinae/settings.json".source = ../../home/vicinae/settings.json;
           ".config/yazi/yazi.toml".source = ../../home/yazi/yazi.toml;
-          ".icons/default/index.theme".source = ../../home/icons/default/index.theme;
-          ".local/share/icons/default/index.theme".source = ../../home/icons/default/index.theme;
-          ".config/xdg-desktop-portal-termfilechooser/config".source =
-            ../../home/xdg-desktop-portal-termfilechooser/config;
 
           # symlinks
           ".config/hypr".source = mkSym "${nixDir}/home/hypr";

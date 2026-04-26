@@ -10,7 +10,6 @@
         hardware.xpadneo.enable = true;
 
         environment.systemPackages = with pkgs; [
-          lutris
           mangohud
           prismlauncher
           protonup-ng

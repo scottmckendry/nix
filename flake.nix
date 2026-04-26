@@ -5,10 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
 
-    cl-parse = {
-      url = "github:scottmckendry/cl-parse";
-    };
-
     cyberdream = {
       url = "github:scottmckendry/cyberdream.nvim";
     };
@@ -39,18 +35,13 @@
       url = "github:scottmckendry/nix-cache";
     };
 
-    nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     vicinae-extensions = {
       url = "github:vicinaehq/extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {
-      url = "github:scottmckendry/zen-browser-flake";
+      url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

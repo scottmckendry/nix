@@ -4,7 +4,6 @@
     nixos =
       { pkgs, ... }:
       let
-        cl-parse = inputs.cl-parse.packages.${pkgs.stdenv.hostPlatform.system}.default;
         zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
       in
       {
@@ -21,7 +20,6 @@
           bun
           calibre
           cargo
-          cl-parse
           cliphist
           delta
           discord

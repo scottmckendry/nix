@@ -2,8 +2,13 @@
 {
   den.aspects.niri-session = {
     nixos =
-      { pkgs, ... }:
       {
+        pkgs,
+        config,
+        lib,
+        ...
+      }:
+      lib.mkIf config.programs.niri.enable {
         systemd.user.services."battery-monitor" = {
           description = "Battery monitor notification script";
           partOf = [ "graphical-session.target" ];

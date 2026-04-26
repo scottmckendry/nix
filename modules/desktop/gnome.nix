@@ -2,12 +2,16 @@
 {
   den.aspects.gnome = {
     nixos =
-      { ... }:
+      { lib, ... }:
       {
-        services.xserver = {
-          enable = true;
-          displayManager.gdm.enable = true;
-          desktopManager.gnome.enable = true;
+        specialisation.gnome.configuration = {
+          programs.niri.enable = lib.mkForce false;
+          services.greetd.enable = lib.mkForce false;
+
+          services = {
+            displayManager.gdm.enable = true;
+            desktopManager.gnome.enable = true;
+          };
         };
       };
   };

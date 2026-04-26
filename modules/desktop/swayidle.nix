@@ -2,7 +2,12 @@
 {
   den.aspects.niri-session = {
     nixos =
-      { pkgs, ... }:
+      {
+        pkgs,
+        config,
+        lib,
+        ...
+      }:
       let
         timeouts = {
           lockScreen = 300; # 5 minutes
@@ -23,7 +28,7 @@
           + " timeout ${toString timeouts.suspend} '${commands.suspend}'"
           + " before-sleep '${commands.lock}'";
       in
-      {
+      lib.mkIf config.programs.niri.enable {
         systemd.user.services.swayidle = utils.mkWaylandService {
           description = "Idle/screen lock daemon for Wayland";
           execStart = swayidleCommand;

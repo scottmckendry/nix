@@ -4,7 +4,11 @@
     nixos =
       { pkgs, ... }:
       {
-        environment.systemPackages = [ pkgs.nautilus ];
+        environment.systemPackages = [
+          pkgs.nautilus
+          pkgs.sushi
+        ];
+        services.dbus.packages = [ pkgs.sushi ];
         services.gvfs.enable = true;
         services.gnome.localsearch.enable = true;
         services.gnome.tinysparql.enable = true;

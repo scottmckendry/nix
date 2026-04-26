@@ -19,6 +19,7 @@
           tela-icon-theme
         ];
 
+        environment.sessionVariables.GTK_THEME = "Nightfox-Dark-Carbonfox";
         environment.sessionVariables.GTK_USE_PORTAL = "1";
         environment.sessionVariables.XCURSOR_SIZE = "16";
 

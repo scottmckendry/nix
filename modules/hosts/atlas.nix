@@ -5,6 +5,7 @@
       core
       docker
       gaming
+      gnome
       gtk
       networking
       niri

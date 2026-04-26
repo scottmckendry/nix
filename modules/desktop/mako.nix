@@ -2,8 +2,13 @@
 {
   den.aspects.niri-session = {
     nixos =
-      { pkgs, ... }:
       {
+        pkgs,
+        config,
+        lib,
+        ...
+      }:
+      lib.mkIf config.programs.niri.enable {
         environment.systemPackages = [ pkgs.mako ];
 
         systemd.user.services.mako = utils.mkWaylandService {

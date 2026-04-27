@@ -16,10 +16,7 @@
       packages
       secure-boot
       silent-boot
-      swap
-      tpm2-luks
       work
-      work-desktop
       zsh
     ];
 

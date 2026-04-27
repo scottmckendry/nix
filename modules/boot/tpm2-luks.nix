@@ -1,6 +1,6 @@
 { ... }:
 {
-  den.aspects.tpm2-luks = {
+  den.aspects.secure-boot = {
     includes = [
       (
         { host, lib, ... }:

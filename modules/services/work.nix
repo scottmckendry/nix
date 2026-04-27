@@ -31,13 +31,21 @@
         };
       in
       {
+        services.twingate.enable = true;
+
         environment.systemPackages = with pkgs; [
           (azure-cli-stable.withExtensions [ azure-cli-stable.extensions.ssh ])
           azureFunctionsPatched
           azurite
           bicep
+          dbeaver-bin
           dotnet-combined
           easydotnet
+          keepass
+          keepassxc
+          libreoffice
+          remmina
+          teams-for-linux
         ];
 
         environment.sessionVariables = {
@@ -68,23 +76,6 @@
         };
 
         users.groups.azurite = { };
-      };
-  };
-
-  den.aspects.work-desktop = {
-    nixos =
-      { pkgs, ... }:
-      {
-        services.twingate.enable = true;
-
-        environment.systemPackages = with pkgs; [
-          dbeaver-bin
-          keepass
-          keepassxc
-          libreoffice
-          remmina
-          teams-for-linux
-        ];
       };
   };
 }

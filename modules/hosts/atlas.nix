@@ -13,9 +13,7 @@
       nvidia
       packages
       silent-boot
-      swap
       work
-      work-desktop
       zsh
     ];
 

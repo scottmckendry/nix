@@ -48,7 +48,6 @@
           just
           k9s
           killall
-          kitty
           kubectl
           kubectl-cnpg
           lazygit

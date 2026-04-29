@@ -1,16 +1,11 @@
-{ inputs, ... }:
+{ ... }:
 {
   den.aspects.niri = {
     nixos =
       { pkgs, ... }:
       {
-        programs.niri = {
-          package = inputs.nix-cache.packages.${pkgs.stdenv.hostPlatform.system}.niri;
-          enable = true;
-        };
-
+        programs.niri.enable = true;
         environment.systemPackages = [ pkgs.xwayland-satellite ];
-
         services.upower.enable = true;
         services.udisks2.enable = true;
         security.pam.services.hyprlock.enableGnomeKeyring = true;

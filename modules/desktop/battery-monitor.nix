@@ -16,6 +16,7 @@
           serviceConfig = {
             Type = "oneshot";
             ExecStart = "${pkgs.bash}/bin/bash %h/scripts/battery-monitor.sh";
+            Environment = "PATH=/run/current-system/sw/bin:%h/.nix-profile/bin";
           };
         };
 

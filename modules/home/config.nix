@@ -27,6 +27,7 @@ in
           ".config/opencode/tui.json".source = ../../home/opencode/tui.json;
           ".config/posting/config.yaml".source = ../../home/posting/config.yaml;
           ".config/starship.toml".source = ../../home/starship.toml;
+          ".config/user-dirs.dirs".source = ../../home/user-dirs.dirs;
           ".config/vicinae/settings.json".source = ../../home/vicinae/settings.json;
           ".config/yazi/yazi.toml".source = ../../home/yazi/yazi.toml;
 

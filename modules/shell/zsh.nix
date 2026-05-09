@@ -36,10 +36,17 @@
         programs.pay-respects.enable = true;
 
         environment.sessionVariables = {
+          BUN_INSTALL = "$HOME/.local/share/bun";
+          DOCKER_CONFIG = "$HOME/.config/docker";
           EDITOR = "nvim";
+          GOPATH = "$HOME/.local/share/go";
+          KUBECONFIG = "$HOME/.config/kube/config";
+          NPM_CONFIG_CACHE = "$HOME/.cache/npm";
+          NUGET_PACKAGES = "$HOME/.local/share/nuget";
           OBSIDIAN_PATH = "$HOME/git/obsidian-vault";
           QT_QPA_PLATFORMTHEME = "gtk3";
           QT_QPA_PLATFORMTHEME_QT5 = "gtk3";
+          TALOSCONFIG = "$HOME/.config/talos/config";
         };
       };
   };

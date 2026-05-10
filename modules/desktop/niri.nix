@@ -8,8 +8,6 @@
         environment.systemPackages = [ pkgs.xwayland-satellite ];
         services.upower.enable = true;
         services.udisks2.enable = true;
-        security.pam.services.hyprlock.enableGnomeKeyring = true;
-        security.pam.services.greetd.enableGnomeKeyring = true;
 
         services.greetd = {
           enable = true;

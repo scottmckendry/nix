@@ -24,7 +24,7 @@
             lla = "eza -la";
             ls = "eza";
             lt = "eza --tree";
-            rebuild = "builtin cd $HOME/git/nix && git add -A -N && nh os switch . && builtin cd -";
+            rebuild = "~/scripts/rebuild.sh";
             s = "kitten ssh";
           };
           interactiveShellInit = ''

@@ -26,8 +26,8 @@
             enable = true;
             defaultFonts = {
               monospace = [ "JetBrainsMono Nerd Font" ];
-              serif = [ "Inter" ];
-              sansSerif = [ "Inter" ];
+              serif = [ "Inter" "Noto Serif CJK SC" ];
+              sansSerif = [ "Inter" "Noto Sans CJK SC" ];
               emoji = [ "Noto Color Emoji" ];
             };
           };
@@ -36,6 +36,8 @@
             inter
             nerd-fonts.jetbrains-mono
             noto-fonts
+            noto-fonts-cjk-sans
+            noto-fonts-cjk-serif
             noto-fonts-color-emoji
           ];
         };

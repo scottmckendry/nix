@@ -16,6 +16,7 @@
         };
 
         security.pam = {
+          u2f.settings.cue = true;
           u2f.settings.authfile = config.sops.secrets.u2f_keys.path;
           services = {
             login.u2fAuth = true;

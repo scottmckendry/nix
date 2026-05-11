@@ -17,6 +17,7 @@
 
         commands = {
           lock = "pgrep -x hyprlock > /dev/null || hyprlock --grace 5 &";
+          lockImmediate = "pgrep -x hyprlock > /dev/null || hyprlock &";
           screenOff = "niri msg action power-off-monitors";
           suspend = "systemctl suspend";
         };
@@ -26,8 +27,8 @@
           + " timeout ${toString timeouts.lockScreen} '${commands.lock}'"
           + " timeout ${toString timeouts.turnOffMonitors} '${commands.screenOff}'"
           + " timeout ${toString timeouts.suspend} '${commands.suspend}'"
-          + " before-sleep '${commands.lock}'"
-          + " lock '${commands.lock}'";
+          + " before-sleep '${commands.lockImmediate}'"
+          + " lock '${commands.lockImmediate}'";
       in
       lib.mkIf config.programs.niri.enable {
         systemd.user.services.swayidle = utils.mkWaylandService {

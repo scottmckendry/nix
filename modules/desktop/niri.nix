@@ -9,11 +9,26 @@
         services.upower.enable = true;
         services.udisks2.enable = true;
 
+        programs.uwsm = {
+          enable = true;
+          waylandCompositors.niri = {
+            prettyName = "Niri";
+            comment = "Niri compositor managed by UWSM";
+            binPath = "/run/current-system/sw/bin/niri-session";
+          };
+        };
+
         services.greetd = {
           enable = true;
-          settings.default_session = {
-            command = "${pkgs.niri}/bin/niri-session";
-            user = "scott";
+          settings = {
+            default_session = {
+              command = "${pkgs.tuigreet}/bin/tuigreet --time --remember";
+              user = "greeter";
+            };
+            initial_session = {
+              command = "${pkgs.uwsm}/bin/uwsm start -- niri-uwsm.desktop";
+              user = "scott";
+            };
           };
         };
       };

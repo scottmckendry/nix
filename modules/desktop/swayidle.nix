@@ -26,7 +26,8 @@
           + " timeout ${toString timeouts.lockScreen} '${commands.lock}'"
           + " timeout ${toString timeouts.turnOffMonitors} '${commands.screenOff}'"
           + " timeout ${toString timeouts.suspend} '${commands.suspend}'"
-          + " before-sleep '${commands.lock}'";
+          + " before-sleep '${commands.lock}'"
+          + " lock '${commands.lock}'";
       in
       lib.mkIf config.programs.niri.enable {
         systemd.user.services.swayidle = utils.mkWaylandService {

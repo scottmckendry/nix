@@ -2,7 +2,7 @@
 {
   den.aspects.core = {
     nixos =
-      { config, ... }:
+      { config, pkgs, ... }:
       {
         imports = [ inputs.sops-nix.nixosModules.sops ];
 
@@ -24,8 +24,17 @@
             hyprlock.u2fAuth = true;
             hyprlock.enableGnomeKeyring = true;
             greetd.enableGnomeKeyring = true;
+            tuigreet.enableGnomeKeyring = true;
           };
         };
+
+        services.udev.extraRules = ''
+          ACTION=="remove", \
+          ENV{ID_BUS}=="usb", \
+          ENV{ID_VENDOR_ID}=="311f", \
+          ENV{ID_MODEL_ID}=="a7f9", \
+          RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
+        '';
       };
   };
 }

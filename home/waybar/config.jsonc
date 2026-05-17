@@ -30,6 +30,7 @@
     "group/connectivity": {
         "orientation": "inherit",
         "modules": [
+            "custom/auto-update",
             "pulseaudio",
             "network",
             "bluetooth",
@@ -189,6 +190,13 @@
         "format": "⏻ ",
         "tooltip-format": "Show power menu",
         "on-click": "~/scripts/power-menu.sh"
+    },
+    "custom/auto-update": {
+        "exec": "~/scripts/auto-update.sh",
+        "interval": 60,
+        "return-type": "json",
+        "on-click": "~/scripts/auto-update.sh merge",
+        "tooltip": true
     },
     "temperature": {
         "format": "  {temperatureC}°C",

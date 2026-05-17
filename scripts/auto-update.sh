@@ -4,9 +4,16 @@
 #   auto-update.sh           # outputs one JSON status line for Waybar
 #   auto-update.sh merge     # merges the ready PR then rebuilds via kitty socket
 
-ICON_READY="󰚰"
+ICON_READY="󰳡"
 ICON_BUILDING="󰔟"
 ICON_NONE=""
+
+is_main_behind() {
+    local local_sha remote_sha
+    local_sha=$(git -C "$HOME/git/nix" rev-parse HEAD 2>/dev/null) || return 1
+    remote_sha=$(gh api repos/scottmckendry/nix/git/ref/heads/main --jq '.object.sha' 2>/dev/null) || return 1
+    [ "$local_sha" != "$remote_sha" ]
+}
 
 get_pr() {
     gh pr list \
@@ -28,7 +35,12 @@ output_json() {
     pr=$(get_pr)
 
     if [ "$pr" = "null" ] || [ -z "$pr" ]; then
-        printf '{"text":" ","tooltip":"No pending flake updates","alt":"none","class":"none"}\n'
+        if is_main_behind; then
+            printf '{"text":"%s","tooltip":"Main branch is behind remote\\nRun nixos-rebuild to sync","alt":"behind","class":"behind"}\n' \
+                "$ICON_READY"
+        else
+            printf '{"text":" ","tooltip":"No pending flake updates","alt":"none","class":"none"}\n'
+        fi
         return
     fi
 

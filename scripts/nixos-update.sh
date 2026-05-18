@@ -4,11 +4,13 @@
 
 PR_NUMBER="$1"
 
-echo "==> Merging PR #$PR_NUMBER..."
-gh pr merge "$PR_NUMBER" \
-    --repo scottmckendry/nix \
-    --rebase \
-    --delete-branch
+if [ -n "$PR_NUMBER" ]; then
+    echo "==> Merging PR #$PR_NUMBER..."
+    gh pr merge "$PR_NUMBER" \
+        --repo scottmckendry/nix \
+        --rebase \
+        --delete-branch
+fi
 
 echo "==> Pulling latest..."
 cd "$HOME/git/nix"

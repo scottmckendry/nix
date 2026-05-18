@@ -5,7 +5,6 @@
 #   auto-update.sh merge     # merges the ready PR then rebuilds via kitty socket
 
 ICON_READY="󰳡"
-ICON_BUILDING="󰔟"
 ICON_NONE=""
 
 is_main_behind() {
@@ -52,8 +51,8 @@ output_json() {
         printf '{"text":"%s","tooltip":"#%s: %s\\nClick to merge and rebuild","alt":"ready","class":"ready"}\n' \
             "$ICON_READY" "$number" "$title"
     else
-        printf '{"text":"%s","tooltip":"#%s: %s\\nBuild in progress...","alt":"building","class":"building"}\n' \
-            "$ICON_BUILDING" "$number" "$title"
+        printf '{"text":" ","tooltip":"#%s: %s\\nBuild in progress...","alt":"none","class":"none"}\n' \
+            "$number" "$title"
     fi
 }
 
@@ -62,6 +61,13 @@ merge_and_rebuild() {
     pr=$(get_pr)
 
     if [ "$pr" = "null" ] || [ -z "$pr" ]; then
+        if is_main_behind; then
+            if kitten @ --to unix:/tmp/kitty-socket launch --type=tab \
+                zsh -c "$HOME/scripts/nixos-update.sh; exec zsh" 2>/dev/null; then
+                exit 0
+            fi
+            kitty zsh -c "$HOME/scripts/nixos-update.sh; exec zsh"
+        fi
         exit 0
     fi
 

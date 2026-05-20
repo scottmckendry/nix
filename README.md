@@ -2,7 +2,7 @@
 
 Multi-host modular NixOS configuration. Powered by [Nix Flakes](https://nixos.wiki/wiki/Flakes).
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6d8b4bca-4c6f-4117-b81b-2b73fb332ec3" />
+<img width="1918" height="1079" alt="image" src="https://github.com/user-attachments/assets/f6340728-1f22-4484-b1a4-0d117eeaa2dc" />
 
 ## ⚙️ Info
 

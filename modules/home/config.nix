@@ -22,7 +22,7 @@ in
           ".config/mako/config".source = ../../home/mako/config;
           ".config/mimeapps.list".source = ../../home/mimeapps.list;
           ".local/share/applications/mimeapps.list".source = ../../home/mimeapps.list;
-          ".config/opencode/AGENTS.md".source = ../../home/opencode/AGENTS.md;
+          ".config/opencode/agent.txt".source = ../../home/opencode/agent.txt;
           ".config/opencode/opencode.json".source = ../../home/opencode/opencode.json;
           ".config/opencode/tui.json".source = ../../home/opencode/tui.json;
           ".config/posting/config.yaml".source = ../../home/posting/config.yaml;

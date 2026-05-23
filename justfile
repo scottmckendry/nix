@@ -17,3 +17,7 @@ decrypt:
 # Encrypt all secrets from tmpfs workspace back to repo
 encrypt:
     ./scripts/sops.sh encrypt
+
+# Clear tmpfs workspace and remove symlinks from secrets/
+clean:
+    ./scripts/sops.sh clean

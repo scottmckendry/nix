@@ -1,21 +1,20 @@
 # Secrets
 
-Managed with [sops](https://github.com/getsops/sops) + [age](https://github.com/FiloSottile/age).
+Managed with [sops](https://github.com/getsops/sops) + [age](https://github.com/FiloSottile/age) via [sops-nix](https://github.com/Mic92/sops-nix).
 
-Encrypted files: `*.secret.sops.yaml`  
-Decrypted workspace: `$XDG_RUNTIME_DIR/sops-workspace/nix/` (tmpfs, cleared on reboot)
+Encrypted secrets live in `secrets.sops.yaml`. Keys use suffix conventions: `_txt` → `.txt`, `_md` → `.md`, `_yaml` → `.yaml`.
 
-## Workflow
+Decrypted files are written to `$XDG_RUNTIME_DIR/sops-workspace/nix/` (tmpfs, cleared on reboot) and symlinked into `secrets/`.
 
 ```bash
-# Decrypt all secrets into workspace (required before editing)
-just decrypt
+just decrypt   # decrypt → tmpfs, symlink into secrets/
+just encrypt   # read symlinks, re-encrypt → secrets/secrets.sops.yaml
+```
 
-# Edit decrypted file
-$EDITOR $XDG_RUNTIME_DIR/sops-workspace/nix/secrets/u2f.secret.yaml
+Age key must be stored in GNOME keyring:
 
-# Re-encrypt back to repo
-just encrypt
+```bash
+secret-tool store --label="age secret key" app sops type age-key
 ```
 
 ## Adding a new host's U2F key
@@ -24,20 +23,7 @@ just encrypt
    ```bash
    pamu2fcfg -u scott -n
    ```
-2. Decrypt secrets: `just decrypt`
-3. Edit `u2f.secret.yaml` — append the new handle to the existing `u2f_keys` line with `:` separator:
-   ```yaml
-   u2f_keys: scott:<handle1>:<handle2>
-   ```
-4. Re-encrypt: `just encrypt`
-5. Rebuild on affected hosts: `just rebuild`
-
-## Age key
-
-Must be present at `/var/lib/sops-nix/key.txt` (used by sops-nix on activation), owned `root:root` with mode `0600`.
-
-For manual encrypt/decrypt operations (`just decrypt`/`just encrypt`), the key must also be stored in GNOME keyring:
-
-```bash
-secret-tool store --label="age secret key" app sops type age-key
-```
+2. `just decrypt`
+3. Edit `$XDG_RUNTIME_DIR/sops-workspace/nix/u2f_keys_txt.txt` — append the new handle with `:` separator
+4. `just encrypt`
+5. `just rebuild` on affected hosts

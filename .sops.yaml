@@ -2,7 +2,7 @@ keys:
   - &scott age1ht2mpnqakafawr4akvukz2ketzdlwuwkhdzwsy8hl7rwfkhkh90qp36und
 
 creation_rules:
-  - path_regex: .*\.secret(\.sops)?\.yaml$
+  - path_regex: .*\.sops\.yaml$
     key_groups:
       - age:
           - *scott

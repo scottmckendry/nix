@@ -1,23 +1,12 @@
-{ inputs, ... }:
+{ ... }:
 {
   den.aspects.core = {
     nixos =
       { config, pkgs, ... }:
       {
-        imports = [ inputs.sops-nix.nixosModules.sops ];
-
-        sops = {
-          defaultSopsFile = ../../secrets/u2f.secret.sops.yaml;
-          age.keyFile = "/var/lib/sops-nix/key.txt";
-          secrets.u2f_keys = {
-            owner = config.users.users.scott.name;
-            path = "/home/scott/.config/Yubico/u2f_keys";
-          };
-        };
-
         security.pam = {
           u2f.settings.cue = true;
-          u2f.settings.authfile = config.sops.secrets.u2f_keys.path;
+          u2f.settings.authfile = config.sops.secrets.u2f_keys_txt.path;
           services = {
             login.u2fAuth = true;
             sudo.u2fAuth = true;

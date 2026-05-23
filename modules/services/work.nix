@@ -34,7 +34,10 @@
         services.twingate.enable = true;
 
         environment.systemPackages = with pkgs; [
-          (azure-cli-stable.withExtensions [ azure-cli-stable.extensions.ssh ])
+          (azure-cli-stable.withExtensions [
+            azure-cli-stable.extensions.azure-devops
+            azure-cli-stable.extensions.ssh
+          ])
           azureFunctionsPatched
           azurite
           bicep

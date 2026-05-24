@@ -65,6 +65,8 @@
           nmgui
           nodejs
           obs-studio
+          obsidian
+          obsidian-livesync-cli
           odin
           opencode
           openssl

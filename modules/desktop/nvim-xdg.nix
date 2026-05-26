@@ -6,24 +6,37 @@
       let
         nvim-xdg = pkgs.writeShellApplication {
           name = "nvim-xdg";
-          runtimeInputs = [ pkgs.kitty ];
+          runtimeInputs = [ kitty-wrapped ];
           text = ''
             # Try to open a new tab in an existing kitty window via remote control socket.
             # Falls back to launching a new kitty window if no socket is available.
-            if kitty @ --to unix:/tmp/kitty-socket launch --type=tab --cwd=current nvim "$@" 2>/dev/null; then
+            if kitty @ --to "unix:/tmp/kitty-socket" launch --type=tab --cwd=current nvim "$@" 2>/dev/null; then
               exit 0
             fi
-            kitty --listen-on unix:/tmp/kitty-socket -e nvim "$@"
+
+            exec kitty -e nvim "$@"
           '';
         };
 
-        kitty-wrapped = pkgs.symlinkJoin {
+        kitty-wrapped = pkgs.writeShellApplication {
           name = "kitty";
-          paths = [ pkgs.kitty ];
-          buildInputs = [ pkgs.makeWrapper ];
-          postBuild = ''
-            wrapProgram $out/bin/kitty \
-              --add-flags "--listen-on unix:/tmp/kitty-socket"
+          runtimeInputs = [ pkgs.kitty ];
+          text = ''
+            SOCKET="/tmp/kitty-socket"
+
+            if [ "''${1:-}" = "@" ]; then
+              exec ${pkgs.kitty}/bin/kitty "$@"
+            fi
+
+            if ${pkgs.kitty}/bin/kitty @ --to "unix:$SOCKET" ls >/dev/null 2>&1; then
+              exec ${pkgs.kitty}/bin/kitty --single-instance "$@"
+            fi
+
+            if [ -S "$SOCKET" ]; then
+              rm -f "$SOCKET"
+            fi
+
+            exec ${pkgs.kitty}/bin/kitty --single-instance --listen-on "unix:$SOCKET" "$@"
           '';
         };
 

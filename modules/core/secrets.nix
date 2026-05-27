@@ -23,14 +23,9 @@
           };
           secrets.obsidian_livesync_settings = {
             owner = config.users.users.scott.name;
-            path = "/home/scott/git/obsidian/.livesync/settings.json";
+            path = "/home/scott/Documents/obsidian/.livesync/settings.json";
           };
         };
-
-        systemd.tmpfiles.rules = [
-          "d /home/scott/git/obsidian 0755 scott users -"
-          "d /home/scott/git/obsidian/.livesync 0755 scott users -"
-        ];
       };
   };
 }

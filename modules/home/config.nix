@@ -38,7 +38,8 @@ in
           "scripts".source = mkSym "${nixDir}/scripts";
           ".config/sunsetr".source = mkSym "${nixDir}/home/sunsetr";
           ".config/waybar".source = mkSym "${nixDir}/home/waybar";
-          ".config/opencode/skills/azure-devops-boards".source = mkSym "/run/secrets/opencode/skills/azure-devops-boards";
+          ".config/opencode/skills/azure-devops-boards".source =
+            mkSym "/run/secrets/opencode/skills/azure-devops-boards";
 
           # cyberdream themes
           ".config/bat/themes/cyberdream.tmTheme".source = "${thm.textmate}/cyberdream.tmTheme";

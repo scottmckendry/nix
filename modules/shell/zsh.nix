@@ -43,7 +43,7 @@
           KUBECONFIG = "$HOME/.config/kube/config";
           NPM_CONFIG_CACHE = "$HOME/.cache/npm";
           NUGET_PACKAGES = "$HOME/.local/share/nuget";
-          OBSIDIAN_PATH = "$HOME/git/obsidian";
+          OBSIDIAN_PATH = "$HOME/Documents/obsidian";
           QT_QPA_PLATFORMTHEME = "gtk3";
           QT_QPA_PLATFORMTHEME_QT5 = "gtk3";
           TALOSCONFIG = "$HOME/.config/talos/config";

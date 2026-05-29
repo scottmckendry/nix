@@ -6,11 +6,19 @@
       let
         nvim-xdg = pkgs.writeShellApplication {
           name = "nvim-xdg";
-          runtimeInputs = [ kitty-wrapped ];
+          runtimeInputs = [
+            kitty-wrapped
+            pkgs.jq
+          ];
           text = ''
             # Try to open a new tab in an existing kitty window via remote control socket.
             # Falls back to launching a new kitty window if no socket is available.
             if kitty @ --to "unix:/tmp/kitty-socket" launch --type=tab --cwd=current nvim "$@" 2>/dev/null; then
+              # Focus window in niri
+              if [ -S "$NIRI_SOCKET" ] 2>/dev/null; then
+                win_id=$(niri msg -j windows 2>/dev/null | jq -r '[.[] | select(.app_id == "kitty") | .id] | first // empty')
+                [ -n "$win_id" ] && niri msg action focus-window --id "$win_id" 2>/dev/null || true
+              fi
               exit 0
             fi
 

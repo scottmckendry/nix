@@ -17,11 +17,11 @@
     },
     "cyberdream": {
       "locked": {
-        "lastModified": 1777398070,
-        "narHash": "sha256-s31nTDVBAj7kKbcQEQ7BHEibJzk5573OKOMLCClkHZ8=",
+        "lastModified": 1780041775,
+        "narHash": "sha256-gTohoc2uWEdeu7g3KpcmCPyEE0ttu2XTHGiEedD3qqM=",
         "owner": "scottmckendry",
         "repo": "cyberdream.nvim",
-        "rev": "d1866f5b606896ca530be00bafbd12a3e6bb6efd",
+        "rev": "4fbdeb7376faed87ead7c7c805c02092ca7bac01",
         "type": "github"
       },
       "original": {

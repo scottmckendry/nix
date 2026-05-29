@@ -13,7 +13,6 @@ in
       {
         files = {
           ".config/bat/config".source = ../../home/bat/config;
-          ".config/foot/foot.ini".source = ../../home/foot/foot.ini;
           ".config/git/config".source = ../../home/git/config;
           ".config/k9s/aliases.yaml".source = ../../home/k9s/aliases.yaml;
           ".config/k9s/config.yaml".source = ../../home/k9s/config.yaml;
@@ -43,7 +42,6 @@ in
 
           # cyberdream themes
           ".config/bat/themes/cyberdream.tmTheme".source = "${thm.textmate}/cyberdream.tmTheme";
-          ".config/foot/theme.ini".source = "${thm.foot}/cyberdream.ini";
           ".config/k9s/skins/cyberdream.yaml".source = "${thm.k9s}/cyberdream.yml";
           ".config/kitty/theme.conf".source = "${thm.kitty}/cyberdream.conf";
           ".config/opencode/themes/cyberdream.json".source = "${thm.opencode}/cyberdream.json";

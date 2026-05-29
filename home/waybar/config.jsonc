@@ -206,13 +206,13 @@
         "format": "  {usage}%",
         "tooltip": "{usage}%",
         "interval": 2,
-        "on-click": "foot -a btop-float btop"
+        "on-click": "btop-kitty"
     },
     "memory": {
         "format": "  {percentage}%",
         "tooltip-format": "{used:0.1f}G / {total:0.1f}G used",
         "interval": 2,
-        "on-click": "foot -a btop-float btop"
+        "on-click": "btop-kitty"
     },
     "power-profiles-daemon": {
         "format": "{icon}",

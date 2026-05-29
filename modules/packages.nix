@@ -17,6 +17,7 @@
           blueman
           brightnessctl
           btop
+          btop-kitty
           bun
           calibre
           cargo
@@ -27,7 +28,6 @@
           fastfetch
           fd
           fluxcd
-          foot
           fzf
           gcc
           gh

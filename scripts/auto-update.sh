@@ -62,11 +62,11 @@ merge_and_rebuild() {
 
     if [ "$pr" = "null" ] || [ -z "$pr" ]; then
         if is_main_behind; then
-            if kitten @ --to unix:/tmp/kitty-socket launch --type=tab \
+            if kitty @ --to "unix:/tmp/kitty-socket" launch --type=tab \
                 zsh -c "$HOME/scripts/nixos-update.sh; exec zsh" 2>/dev/null; then
                 exit 0
             fi
-            kitty zsh -c "$HOME/scripts/nixos-update.sh; exec zsh"
+            exec kitty -e zsh -c "$HOME/scripts/nixos-update.sh; exec zsh"
         fi
         exit 0
     fi
@@ -78,11 +78,11 @@ merge_and_rebuild() {
     local number
     number=$(printf '%s' "$pr" | jq -r '.number')
 
-    if kitten @ --to unix:/tmp/kitty-socket launch --type=tab \
+    if kitty @ --to "unix:/tmp/kitty-socket" launch --type=tab \
         zsh -c "$HOME/scripts/nixos-update.sh $number; exec zsh" 2>/dev/null; then
         exit 0
     fi
-    kitty zsh -c "$HOME/scripts/nixos-update.sh $number; exec zsh"
+    exec kitty -e zsh -c "$HOME/scripts/nixos-update.sh $number; exec zsh"
 }
 
 case "$1" in

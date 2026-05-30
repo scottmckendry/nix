@@ -47,6 +47,7 @@
           jq
           just
           k9s
+          kitty-wrapped
           killall
           kubectl
           kubectl-cnpg
@@ -64,6 +65,7 @@
           nixpkgs-review
           nmgui
           nodejs
+          nvim-xdg
           obs-studio
           obsidian
           obsidian-livesync-cli

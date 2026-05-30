@@ -14,21 +14,6 @@
             sdk_9_0
             sdk_8_0
           ];
-
-        azureFunctionsPatched = pkgs.writeShellScriptBin "func" ''
-          export DOTNET_ROOT="${dotnet-combined}/share/dotnet"
-          export DOTNET_ROOT_X64="$DOTNET_ROOT"
-          export DOTNET_MULTILEVEL_LOOKUP=0
-          exec "${pkgs.azure-functions-core-tools}/bin/func" "$@"
-        '';
-
-        easydotnet = pkgs.buildDotnetGlobalTool {
-          pname = "dotnet-easydotnet";
-          nugetName = "EasyDotnet";
-          version = "2.3.58";
-          nugetHash = "sha256-pjGlLNdKDVRqZX6tpHroIXgHQgS8nCUgjRMp9li0BvA=";
-          dotnet-sdk = pkgs.dotnetCorePackages.sdk_8_0;
-        };
       in
       {
         services.twingate.enable = true;
@@ -38,7 +23,7 @@
             azure-cli-stable.extensions.azure-devops
             azure-cli-stable.extensions.ssh
           ])
-          azureFunctionsPatched
+          azure-functions-core-tools
           azurite
           bicep
           dbeaver-bin

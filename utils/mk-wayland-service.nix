@@ -19,7 +19,7 @@
     ExecStart = execStart;
     Restart = "on-failure";
     RestartSec = 1;
-    Environment = "PATH=/run/current-system/sw/bin:%h/.nix-profile/bin";
+    Environment = "PATH=/run/wrappers/bin:/run/current-system/sw/bin:%h/.nix-profile/bin";
   }
   // extraServiceConfig;
 }

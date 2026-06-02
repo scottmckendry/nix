@@ -67,7 +67,6 @@
           nodejs
           nvim-xdg
           obs-studio
-          obsidian
           obsidian-livesync-cli
           odin
           opencode

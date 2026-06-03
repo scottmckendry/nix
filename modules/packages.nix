@@ -13,7 +13,6 @@
           ansible
           appimage-run
           bat
-          bitwarden-desktop
           blueman
           brightnessctl
           btop
@@ -39,7 +38,6 @@
           go
           go-task
           gopls
-          gotestsum
           grim
           hugo
           hyprlock
@@ -55,14 +53,12 @@
           libnotify
           libsecret
           mako
-          mangohud
           mermaid-cli
           neovim
           nh
           nil
           nix-index
           nixfmt
-          nixpkgs-review
           nmgui
           nodejs
           nvim-xdg

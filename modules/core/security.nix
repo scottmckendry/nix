@@ -18,11 +18,20 @@
           };
         };
 
+        # autolock device on u2f key removal
         services.udev.extraRules = ''
+          # trustkey
           ACTION=="remove", \
           ENV{ID_BUS}=="usb", \
           ENV{ID_VENDOR_ID}=="311f", \
           ENV{ID_MODEL_ID}=="a7f9", \
+          RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
+
+          # yubikey
+          ACTION=="remove", \
+          ENV{ID_BUS}=="usb", \
+          ENV{ID_VENDOR_ID}=="1050", \
+          ENV{ID_MODEL_ID}=="0407", \
           RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
         '';
       };

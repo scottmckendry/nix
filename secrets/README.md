@@ -21,7 +21,7 @@ secret-tool store --label="age secret key" app sops type age-key
 
 1. On the new host, generate a key handle:
    ```bash
-   pamu2fcfg -u scott -n
+   pamu2fcfg -u scott -n # part of the pam_uf2 package
    ```
 2. `just decrypt`
 3. Edit `$XDG_RUNTIME_DIR/sops-workspace/nix/u2f_keys_txt.txt` — append the new handle with `:` separator

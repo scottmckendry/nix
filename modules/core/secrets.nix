@@ -21,10 +21,6 @@
             owner = config.users.users.scott.name;
             path = "/run/secrets/opencode/skills/azure-devops-boards/SKILL.md";
           };
-          secrets.obsidian_livesync_settings = {
-            owner = config.users.users.scott.name;
-            path = "/home/scott/Documents/obsidian/.livesync/settings.json";
-          };
         };
       };
   };

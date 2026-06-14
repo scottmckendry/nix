@@ -63,7 +63,8 @@
           nodejs
           nvim-xdg
           obs-studio
-           odin
+          obsidian
+          odin
           opencode
           openssl
           pavucontrol

@@ -1,8 +1,6 @@
-{ den, ... }:
+{ ... }:
 {
   den.aspects.zsh = {
-    includes = [ (den.provides.user-shell "zsh") ];
-
     nixos =
       { ... }:
       {

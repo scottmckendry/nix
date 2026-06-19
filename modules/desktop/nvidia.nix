@@ -9,7 +9,7 @@
         hardware.nvidia = {
           open = true;
           powerManagement.enable = true;
-          package = pkgs.linuxPackages_latest.nvidiaPackages.beta;
+          package = pkgs.linuxPackages_latest.nvidiaPackages.latest;
           powerManagement.kernelSuspendNotifier = true;
         };
       };

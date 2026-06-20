@@ -11,8 +11,8 @@
             login.u2fAuth = true;
             sudo.u2fAuth = true;
             su.u2fAuth = true;
-            hyprlock.u2fAuth = true;
-            hyprlock.enableGnomeKeyring = true;
+            quickshell.u2fAuth = true;
+            quickshell.enableGnomeKeyring = true;
             greetd.enableGnomeKeyring = true;
             tuigreet.enableGnomeKeyring = true;
           };

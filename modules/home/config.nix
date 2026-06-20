@@ -28,16 +28,16 @@ in
           ".config/posting/config.yaml".source = ../../home/posting/config.yaml;
           ".config/starship.toml".source = ../../home/starship.toml;
           ".config/user-dirs.dirs".source = ../../home/user-dirs.dirs;
-          ".config/vicinae/settings.json".source = ../../home/vicinae/settings.json;
           ".config/yazi/yazi.toml".source = ../../home/yazi/yazi.toml;
 
           # symlinks
-          ".config/hypr".source = mkSym "${nixDir}/home/hypr";
           ".config/niri".source = mkSym "${nixDir}/home/niri";
           ".config/nvim".source = mkSym "${nixDir}/nvim";
           "scripts".source = mkSym "${nixDir}/scripts";
+          ".config/quickshell".source = mkSym "${nixDir}/home/quickshell";
           ".config/sunsetr".source = mkSym "${nixDir}/home/sunsetr";
           ".config/waybar".source = mkSym "${nixDir}/home/waybar";
+          ".config/vicinae".source = mkSym "${nixDir}/home/vicinae";
           ".config/opencode/skills/azure-devops-boards".source =
             mkSym "/run/secrets/opencode/skills/azure-devops-boards";
 

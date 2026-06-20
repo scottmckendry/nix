@@ -1,14 +1,20 @@
 {
+  "$schema": "https://vicinae.com/schemas/config.json",
+  "pop_to_root_on_close": true,
   "font": {
     "normal": {
       "family": "JetBrains Mono Nerd Font",
       "size": 10
     }
   },
+  "theme": {
+    "dark": {
+      "name": "cyberdream"
+    }
+  },
   "launcher_window": {
     "opacity": 0.85
   },
-  "pop_to_root_on_close": true,
   "providers": {
     "@sovereign/awww-switcher": {
       "preferences": {
@@ -26,11 +32,12 @@
           }
         }
       }
-    }
-  },
-  "theme": {
-    "dark": {
-      "name": "cyberdream"
+    },
+    "scripts": {
+      "preferences": {
+        "customDirs": ["/home/scott/.config/vicinae/scripts"]
+      }
     }
   }
 }
+

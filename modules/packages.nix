@@ -40,7 +40,6 @@
           gopls
           grim
           hugo
-          hyprlock
           inotify-tools
           jq
           just
@@ -73,6 +72,8 @@
           powershell
           presenterm
           python3
+          qt6.qtdeclarative
+          quickshell
           restic
           ripgrep
           rustc

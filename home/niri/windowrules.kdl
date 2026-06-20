@@ -51,11 +51,20 @@ layer-rule {
     geometry-corner-radius 10 // match vicinae's default csd rounding
     background-effect {
         blur true
+        xray false
     }
 }
 layer-rule {
     match namespace="waybar"
     background-effect {
         blur true
+    }
+}
+layer-rule {
+    match namespace="quickshell"
+    geometry-corner-radius 20
+    background-effect {
+        blur true
+        xray false
     }
 }

@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 {
   den.aspects.niri = {
     nixos =
@@ -18,16 +18,21 @@
           };
         };
 
+        environment.etc."greetd/start.sh".text = ''
+          #!/usr/bin/env bash
+          set -e
+          ${pkgs.kbd}/bin/setvtrgb ${inputs.cyberdream.extras.setvtrgb}/cyberdream.conf
+          ${pkgs.tuigreet}/bin/tuigreet --remember --asterisks \
+            --theme 'border=lightblack;text=white;prompt=cyan;action=lightblack;container=black;input=white;title=magenta;'
+        '';
+        environment.etc."greetd/start.sh".mode = "0755";
+
         services.greetd = {
           enable = true;
           settings = {
             default_session = {
-              command = "${pkgs.tuigreet}/bin/tuigreet --time --remember";
+              command = "/etc/greetd/start.sh";
               user = "greeter";
-            };
-            initial_session = {
-              command = "${pkgs.uwsm}/bin/uwsm start -- niri-uwsm.desktop";
-              user = "scott";
             };
           };
         };

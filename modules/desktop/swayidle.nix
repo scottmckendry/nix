@@ -16,8 +16,8 @@
         };
 
         commands = {
-          lock = "pgrep -x hyprlock > /dev/null || hyprlock --grace 5 &";
-          lockImmediate = "pgrep -x hyprlock > /dev/null || hyprlock &";
+          lock = "qs ipc call lockscreen lock";
+          lockImmediate = "qs ipc call lockscreen lock";
           screenOff = "niri msg action power-off-monitors";
           suspend = "systemctl suspend";
         };

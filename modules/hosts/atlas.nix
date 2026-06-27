@@ -6,7 +6,6 @@
       docker
       gaming
       gnome
-      gtk
       networking
       niri
       niri-session

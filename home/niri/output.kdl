@@ -4,6 +4,7 @@ output "DP-1" {
     scale     1
     transform "normal"
     position  x=0 y=0
+    focus-at-startup
     layout {
         default-column-width { proportion 0.7; }
         preset-column-widths {

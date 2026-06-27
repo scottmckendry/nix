@@ -8,12 +8,13 @@
       in
       {
         environment.systemPackages = with pkgs; [
+          adwaita-icon-theme
           age
           air
           ansible
           appimage-run
           bat
-          blueman
+          bibata-cursors
           brightnessctl
           btop
           btop-kitty
@@ -21,6 +22,7 @@
           calibre
           cargo
           cliphist
+          cups-pk-helper
           delta
           discord
           eza
@@ -44,21 +46,19 @@
           jq
           just
           k9s
-          kitty-wrapped
           killall
+          kitty-wrapped
           kubectl
           kubectl-cnpg
           lazygit
           libnotify
           libsecret
-          mako
           mermaid-cli
           neovim
           nh
           nil
           nix-index
           nixfmt
-          nmgui
           nodejs
           nvim-xdg
           obs-studio
@@ -66,14 +66,11 @@
           odin
           opencode
           openssl
-          pavucontrol
           playerctl
           posting
           powershell
           presenterm
           python3
-          qt6.qtdeclarative
-          quickshell
           restic
           ripgrep
           rustc
@@ -87,6 +84,7 @@
           tailwindcss_4
           talosctl
           tdf
+          tela-icon-theme
           tesseract
           tree
           typescript

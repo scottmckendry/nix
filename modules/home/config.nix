@@ -19,7 +19,6 @@ in
           ".config/k9s/config.yaml".source = ../../home/k9s/config.yaml;
           ".config/kitty/kitty.conf".source = ../../home/kitty/kitty.conf;
           ".config/lazygit/config.yml".source = ../../home/lazygit/config.yml;
-          ".config/mako/config".source = ../../home/mako/config;
           ".config/mimeapps.list".source = ../../home/mimeapps.list;
           ".local/share/applications/mimeapps.list".source = ../../home/mimeapps.list;
           ".config/opencode/agent.txt".source = ../../home/opencode/agent.txt;
@@ -31,13 +30,11 @@ in
           ".config/yazi/yazi.toml".source = ../../home/yazi/yazi.toml;
 
           # symlinks
+          ".config/DankMaterialShell".source = mkSym "${nixDir}/home/dms";
+          ".config/DankMaterialShell/plugins/nixUpdates".source = mkSym "${nixDir}/home/dms/nixUpdates";
           ".config/niri".source = mkSym "${nixDir}/home/niri";
           ".config/nvim".source = mkSym "${nixDir}/nvim";
           "scripts".source = mkSym "${nixDir}/scripts";
-          ".config/quickshell".source = mkSym "${nixDir}/home/quickshell";
-          ".config/sunsetr".source = mkSym "${nixDir}/home/sunsetr";
-          ".config/waybar".source = mkSym "${nixDir}/home/waybar";
-          ".config/vicinae".source = mkSym "${nixDir}/home/vicinae";
           ".config/opencode/skills/azure-devops-boards".source =
             mkSym "/run/secrets/opencode/skills/azure-devops-boards";
 
@@ -49,7 +46,6 @@ in
           ".config/opencode/themes/cyberdream.json".source = "${thm.opencode}/cyberdream.json";
           ".config/posting/themes/cyberdream.yaml".source = "${thm.posting}/cyberdream.yaml";
           ".config/yazi/theme.toml".source = "${thm.yazi}/cyberdream.toml";
-          ".local/share/vicinae/themes/cyberdream.toml".source = "${thm.vicinae}/cyberdream.toml";
         };
       };
   };

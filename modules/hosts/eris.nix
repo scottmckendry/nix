@@ -6,7 +6,6 @@
       displaylink
       docker
       gnome
-      gtk
       hibernate
       intune
       networking

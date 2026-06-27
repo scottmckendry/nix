@@ -1,6 +1,6 @@
 { ... }:
 {
-  den.aspects.nautilus = {
+  den.aspects.niri-session = {
     nixos =
       { pkgs, ... }:
       {

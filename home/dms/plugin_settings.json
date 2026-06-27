@@ -1,0 +1,23 @@
+{
+  "calculator": {
+    "enabled": true,
+    "trigger": "",
+    "noTrigger": true
+  },
+  "dankBatteryAlerts": {
+    "enabled": true,
+    "criticalThreshold": 5,
+    "warningThreshold": 10
+  },
+  "dockerManager": {
+    "enabled": true,
+    "groupByCompose": true
+  },
+  "emojiLauncher": {
+    "enabled": true,
+    "recentEmojis": "™,󰞅"
+  },
+  "nixUpdates": {
+    "enabled": true
+  }
+}

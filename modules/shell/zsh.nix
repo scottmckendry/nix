@@ -42,9 +42,6 @@
           NPM_CONFIG_CACHE = "$HOME/.cache/npm";
           NUGET_PACKAGES = "$HOME/.local/share/nuget";
           OBSIDIAN_PATH = "$HOME/Documents/obsidian";
-          QML_IMPORT_PATH = "${pkgs.qt6.qtdeclarative}/lib/qt-6/qml:${pkgs.quickshell}/lib/qt-6/qml";
-          QT_QPA_PLATFORMTHEME = "gtk3";
-          QT_QPA_PLATFORMTHEME_QT5 = "gtk3";
           TALOSCONFIG = "$HOME/.config/talos/config";
         };
       };

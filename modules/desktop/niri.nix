@@ -1,13 +1,40 @@
-{ inputs, ... }:
+{ lib, ... }:
 {
   den.aspects.niri = {
     nixos =
       { pkgs, ... }:
       {
-        programs.niri.enable = true;
+        programs.niri.enable = lib.mkForce true;
         environment.systemPackages = [ pkgs.xwayland-satellite ];
         services.upower.enable = true;
         services.udisks2.enable = true;
+        programs.dms-shell.enable = true;
+
+        services.displayManager.dms-greeter = {
+          enable = true;
+          compositor.name = "niri";
+          configHome = "/home/scott";
+          compositor.customConfig = ''
+            output "DP-1" {
+                mode      "3440x1440@144"
+                scale     1
+                transform "normal"
+                position  x=0 y=0
+                focus-at-startup
+            }
+            output "eDP-1" {
+                mode      "2400x1600@120"
+                scale     1.2
+                variable-refresh-rate
+                position  x=920 y=1080
+            }
+            output "HDMI-A-1" { off; }
+            output "DVI-I-1" { off; }
+            output "DP-5" { off; }
+            output "DP-6" { off; }
+            hotkey-overlay { skip-at-startup; }
+          '';
+        };
 
         programs.uwsm = {
           enable = true;
@@ -15,25 +42,6 @@
             prettyName = "Niri";
             comment = "Niri compositor managed by UWSM";
             binPath = "/run/current-system/sw/bin/niri-session";
-          };
-        };
-
-        environment.etc."greetd/start.sh".text = ''
-          #!/usr/bin/env bash
-          set -e
-          ${pkgs.kbd}/bin/setvtrgb ${inputs.cyberdream.extras.setvtrgb}/cyberdream.conf
-          ${pkgs.tuigreet}/bin/tuigreet --remember --asterisks \
-            --theme 'border=lightblack;text=white;prompt=cyan;action=lightblack;container=black;input=white;title=magenta;'
-        '';
-        environment.etc."greetd/start.sh".mode = "0755";
-
-        services.greetd = {
-          enable = true;
-          settings = {
-            default_session = {
-              command = "/etc/greetd/start.sh";
-              user = "greeter";
-            };
           };
         };
       };

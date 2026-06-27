@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # Merges the pending flake update PR and rebuilds the system.
-# Intended to be launched in a kitty tab via auto-update.sh.
 
 PR_NUMBER="$1"
 

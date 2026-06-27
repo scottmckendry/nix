@@ -1,0 +1,11 @@
+{
+  "id": "nixUpdates",
+  "name": "Nix Updates",
+  "description": "dms bar widget for managing Nix flake update PRs and system rebuilds",
+  "version": "0.1.0",
+  "author": "scottmckendry",
+  "icon": "system_update",
+  "type": "widget",
+  "component": "./NixUpdateWidget.qml",
+  "permissions": ["process"]
+}

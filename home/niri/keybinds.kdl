@@ -7,28 +7,29 @@ binds {
     Mod+RETURN       { spawn "kitty"; }
     Mod+B            { spawn "zen"; }
     Mod+E            { spawn "nautilus"; }
-    Mod+R            { spawn-sh "vicinae vicinae://toggle"; }
-    Mod+V            { spawn-sh "vicinae vicinae://launch/clipboard/history"; }
-    Mod+Period       { spawn-sh "vicinae vicinae://launch/core/search-emojis"; }
-    Mod+Alt+L        { spawn-sh "qs ipc call lockscreen lock"; }
+    Mod+R            { spawn-sh "dms ipc call spotlight toggle"; }
+    Mod+V            { spawn-sh "dms ipc call clipboard toggle"; }
+    Mod+Period       { spawn-sh "dms ipc call spotlight toggleQuery ':e'"; }
+    Mod+Alt+L        { spawn-sh "dms ipc call lock lock"; }
+    Mod+Shift+C      { spawn-sh "dms color pick -a"; }
     Mod+Shift+Escape { spawn "btop-kitty"; }
     Mod+Shift+O      { spawn-sh "grim -g \"$(slurp)\" - | tesseract stdin stdout | wl-copy"; }
 
     // --- System Actions ---
     Mod+Shift+P { power-off-monitors; }
-    Mod+Shift+Q { spawn-sh "qs ipc call powermenu toggle"; }
+    Mod+Shift+Q { spawn-sh "dms ipc call powermenu toggle"; }
     Mod+Shift+D { set-dynamic-cast-window; }
 
     // --- Media Keys ---
-    XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
-    XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
-    XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
-    XF86AudioMute         allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
-    XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "5%+"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+    XF86AudioMicMute      allow-when-locked=true { spawn-sh "dms ipc call audio micmute"; }
+    XF86AudioPlay         allow-when-locked=true { spawn-sh "dms ipc call mpris playPause"; }
+    XF86AudioNext         allow-when-locked=true { spawn-sh "dms ipc call mpris next"; }
+    XF86AudioPrev         allow-when-locked=true { spawn-sh "dms ipc call mpris previous"; }
+    XF86AudioMute         allow-when-locked=true { spawn-sh "dms ipc call audio mute"; }
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "dms ipc call audio increment 5"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "dms ipc call audio decrement 5"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "dms ipc call brightness increment 5 ''"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "dms ipc call brightness decrement 5 ''"; }
 
     // --- Window/Workspace/Layout ---
     Mod+O repeat=false { toggle-overview; }

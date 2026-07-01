@@ -9,16 +9,24 @@ import qs.Modules.Plugins
 PluginComponent {
     id: root
 
-    // Settings
     readonly property string nixRepoPath: "/home/scott/git/nix"
     readonly property string updateScriptPath: "/home/scott/scripts/nixos-update.sh"
     readonly property int checkInterval: 30
 
-    // State
     property string state: "idle" // idle, behind, building, ready
-    property int prNumber: 0
-    property string prTitle: ""
-    property string prUrl: ""
+    property var currentPr: null // { number, title, url }
+
+    // Derived icon properties (avoid duplicating in both pills)
+    readonly property string stateIcon: ({
+        "building": "progress_activity",
+        "ready": "update",
+        "behind": "update"
+    })[state] || "check_circle"
+
+    readonly property color stateColor: ({
+        "ready": Theme.primary,
+        "behind": Theme.warning
+    })[state] || Theme.surfaceVariantText
 
     // --- Processes ---
 
@@ -48,15 +56,11 @@ PluginComponent {
                     var prs = JSON.parse(line);
                     if (Array.isArray(prs) && prs.length > 0) {
                         var pr = prs[0];
-                        root.prNumber = pr.number || 0;
-                        root.prTitle = pr.title || "";
-                        root.prUrl = pr.url || "";
                         var labels = (pr.labels || []).map(function(l) { return l.name || ""; });
+                        root.currentPr = { number: pr.number, title: pr.title, url: pr.url };
                         root.state = labels.indexOf("cachix-ready") >= 0 ? "ready" : "building";
                     } else {
-                        root.prNumber = 0;
-                        root.prTitle = "";
-                        root.prUrl = "";
+                        root.currentPr = null;
                         checkBehind.running = true;
                     }
                 } catch (e) {
@@ -70,44 +74,28 @@ PluginComponent {
         }
     }
 
+    // Single-process behind check: compare local vs remote HEAD
     Process {
         id: checkBehind
-        command: ["git", "-C", nixRepoPath, "rev-parse", "HEAD"]
-        property string localSha: ""
-        stdout: SplitParser {
-            onRead: line => { if (line.trim()) checkBehind.localSha = line.trim(); }
-        }
+        command: ["sh", "-c",
+            "LOCAL=$(git -C " + nixRepoPath + " rev-parse HEAD 2>/dev/null) && "
+            + "REMOTE=$(gh api repos/scottmckendry/nix/git/ref/heads/main --jq .object.sha 2>/dev/null) && "
+            + "[ \"$LOCAL\" != \"$REMOTE\" ]"]
         onExited: exitCode => {
-            if (exitCode === 0) remoteShaCheck.running = true;
-            else root.state = "idle";
-        }
-    }
-
-    Process {
-        id: remoteShaCheck
-        command: ["gh", "api", "repos/scottmckendry/nix/git/ref/heads/main", "--jq", ".object.sha"]
-        property string remoteSha: ""
-        stdout: SplitParser {
-            onRead: line => { if (line.trim()) remoteShaCheck.remoteSha = line.trim(); }
-        }
-        onExited: exitCode => {
-            if (exitCode === 0 && checkBehind.localSha !== remoteSha)
-                root.state = "behind";
-            else
-                root.state = "idle";
+            root.state = exitCode === 0 ? "behind" : "idle";
         }
     }
 
     Process {
         id: mergeProcess
-        command: ["gh", "pr", "merge", root.prNumber.toString(),
+        command: ["gh", "pr", "merge", root.currentPr ? root.currentPr.number.toString() : "0",
             "--repo", "scottmckendry/nix", "--rebase", "--delete-branch"]
         onExited: exitCode => {
             if (exitCode === 0) {
-                ToastService.showInfo("Nix Updates", "PR #" + root.prNumber + " merged. Starting rebuild...");
+                ToastService.showInfo("Nix Updates", "PR #" + root.currentPr.number + " merged. Starting rebuild...");
                 rebuildProcess.running = true;
             } else {
-                ToastService.showError("Nix Updates", "Failed to merge PR #" + root.prNumber);
+                ToastService.showError("Nix Updates", "Failed to merge PR");
             }
         }
     }
@@ -116,10 +104,8 @@ PluginComponent {
         id: rebuildProcess
         command: ["sh", "-c",
             "kitty @ --to unix:/tmp/kitty-socket launch --type=tab zsh -c '"
-            + updateScriptPath
-            + "; exec zsh' 2>/dev/null || kitty -e zsh -c '"
-            + updateScriptPath
-            + "; exec zsh'"]
+            + updateScriptPath + "; exec zsh' 2>/dev/null || kitty -e zsh -c '"
+            + updateScriptPath + "; exec zsh'"]
         onExited: exitCode => {
             if (exitCode !== 0)
                 ToastService.showError("Nix Updates", "Failed to launch rebuild terminal");
@@ -133,35 +119,21 @@ PluginComponent {
         if (root.state === "ready") {
             mergeProcess.running = true;
         } else if (root.state === "behind") {
-            root.prNumber = 0;
             rebuildProcess.running = true;
         }
     }
 
     function doOpenInGitHub() {
-        if (root.prUrl)
-            Qt.openUrlExternally(root.prUrl);
-        else
-            Qt.openUrlExternally("https://github.com/scottmckendry/nix");
+        Qt.openUrlExternally(root.currentPr ? root.currentPr.url : "https://github.com/scottmckendry/nix");
     }
 
     // --- Bar pills ---
 
     horizontalBarPill: Component {
         DankIcon {
-            name: {
-                if (root.state === "building") return "sync";
-                if (root.state === "ready") return "cloud_download";
-                if (root.state === "behind") return "cloud_download";
-                return "check_circle";
-            }
+            name: root.stateIcon
             size: root.iconSize
-            color: {
-                if (root.state === "ready") return Theme.primary;
-                if (root.state === "behind") return Theme.warning;
-                if (root.state === "building") return Theme.surfaceVariantText;
-                return Theme.surfaceVariantText;
-            }
+            color: root.stateColor
             anchors.verticalCenter: parent.verticalCenter
 
             NumberAnimation on rotation {
@@ -173,19 +145,9 @@ PluginComponent {
 
     verticalBarPill: Component {
         DankIcon {
-            name: {
-                if (root.state === "building") return "sync";
-                if (root.state === "ready") return "system_update";
-                if (root.state === "behind") return "cloud_download";
-                return "check_circle";
-            }
+            name: root.stateIcon
             size: root.iconSize
-            color: {
-                if (root.state === "ready") return Theme.primary;
-                if (root.state === "behind") return Theme.warning;
-                if (root.state === "building") return Theme.surfaceVariantText;
-                return Theme.surfaceVariantText;
-            }
+            color: root.stateColor
             anchors.horizontalCenter: parent.horizontalCenter
 
             NumberAnimation on rotation {
@@ -203,9 +165,9 @@ PluginComponent {
             headerText: "Nix Updates"
             detailsText: {
                 if (root.state === "ready")
-                    return "PR #" + root.prNumber + " ready to merge";
+                    return "PR #" + root.currentPr.number + " ready to merge";
                 if (root.state === "building")
-                    return "PR #" + root.prNumber + " building...";
+                    return "PR #" + root.currentPr.number + " building...";
                 if (root.state === "behind")
                     return "Main branch is behind remote";
                 return "No pending updates";
@@ -216,16 +178,16 @@ PluginComponent {
                 width: parent.width
                 spacing: Theme.spacingM
 
-                // PR info card (when a PR exists)
+                // PR info card
                 StyledRect {
                     width: parent.width
-                    height: prInfoColumn.implicitHeight + Theme.spacingM * 2
+                    height: prCol.implicitHeight + Theme.spacingM * 2
                     radius: Theme.cornerRadius
                     color: Theme.surfaceContainerHigh
-                    visible: root.prNumber > 0
+                    visible: root.currentPr !== null
 
                     Column {
-                        id: prInfoColumn
+                        id: prCol
                         anchors.fill: parent
                         anchors.margins: Theme.spacingM
                         spacing: Theme.spacingS
@@ -239,7 +201,7 @@ PluginComponent {
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                             StyledText {
-                                text: "PR #" + root.prNumber
+                                text: "PR #" + root.currentPr.number
                                 font.pixelSize: Theme.fontSizeMedium
                                 font.weight: Font.Bold
                                 color: Theme.surfaceText
@@ -253,7 +215,7 @@ PluginComponent {
                             }
                         }
                         StyledText {
-                            text: root.prTitle
+                            text: root.currentPr.title
                             font.pixelSize: Theme.fontSizeSmall
                             color: Theme.surfaceVariantText
                             wrapMode: Text.WordWrap
@@ -262,22 +224,21 @@ PluginComponent {
                     }
                 }
 
-                // Status card (idle / behind, no PR)
+                // Status card (no PR)
                 StyledRect {
                     width: parent.width
                     height: statusRow.implicitHeight + Theme.spacingM * 2
                     radius: Theme.cornerRadius
                     color: Theme.surfaceContainerHigh
-                    visible: root.prNumber === 0
+                    visible: root.currentPr === null
 
                     Row {
                         id: statusRow
                         anchors.fill: parent
                         anchors.margins: Theme.spacingM
                         spacing: Theme.spacingS
-
                         DankIcon {
-                            name: root.state === "behind" ? "cloud_download" : "check_circle"
+                            name: root.state === "behind" ? "update" : "check_circle"
                             size: Theme.iconSize
                             color: root.state === "behind" ? Theme.warning : Theme.primary
                             anchors.verticalCenter: parent.verticalCenter
@@ -295,40 +256,28 @@ PluginComponent {
                     }
                 }
 
-                // Action buttons (side by side)
+                // Action buttons
                 Row {
                     id: buttonRow
                     width: parent.width
                     spacing: Theme.spacingS
-                    property real buttonWidth: (width - spacing) / 2
+                    property real bw: (width - spacing) / 2
 
                     DankButton {
-                        width: buttonRow.buttonWidth
-                        text: root.state === "ready"
-                            ? "Rebase & Build"
-                            : root.state === "behind"
-                                ? "Rebuild Now"
-                                : "Up to Date"
-                        iconName: root.state === "ready"
-                            ? "merge_type"
-                            : root.state === "behind"
-                                ? "build"
-                                : "check"
+                        width: buttonRow.bw
+                        text: root.state === "ready" ? "Rebase & Build"
+                            : root.state === "behind" ? "Rebuild Now" : "Up to Date"
+                        iconName: root.state === "ready" ? "merge_type"
+                            : root.state === "behind" ? "build" : "check"
                         enabled: root.state === "ready" || root.state === "behind"
-                        onClicked: {
-                            root.doMergeAndApply();
-                            popout.closePopout();
-                        }
+                        onClicked: { root.doMergeAndApply(); popout.closePopout(); }
                     }
 
                     DankButton {
-                        width: buttonRow.buttonWidth
-                        text: root.prNumber > 0 ? "Open PR" : "Open Repo"
+                        width: buttonRow.bw
+                        text: root.currentPr ? "Open PR" : "Open Repo"
                         iconName: "open_in_new"
-                        onClicked: {
-                            root.doOpenInGitHub();
-                            popout.closePopout();
-                        }
+                        onClicked: { root.doOpenInGitHub(); popout.closePopout(); }
                     }
                 }
             }

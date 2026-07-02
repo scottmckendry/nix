@@ -207,7 +207,7 @@
   "useAutoLocation": false,
   "weatherEnabled": true,
   "networkPreference": "auto",
-  "iconTheme": "Tela",
+  "iconTheme": "Tela-black-dark",
   "cursorSettings": {
     "theme": "Bibata-Modern-Classic",
     "size": 16,

@@ -31,13 +31,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vicinae-extensions = {
-      url = "github:vicinaehq/extensions";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

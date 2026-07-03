@@ -39,6 +39,14 @@ layer-rule {
     place-within-backdrop true
 }
 
+layer-rule {
+    match namespace="dms:bar"
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
 // Blur effects
 window-rule {
     match app-id=r#"(?i)^kitty$"#

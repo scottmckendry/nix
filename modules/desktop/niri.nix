@@ -1,16 +1,22 @@
-{ lib, ... }:
+{ inputs, lib, ... }:
 {
   den.aspects.niri = {
     nixos =
       { pkgs, ... }:
       {
+        imports = [
+          inputs.dms.nixosModules.dank-material-shell
+          inputs.dms.nixosModules.greeter
+        ];
+
         programs.niri.enable = lib.mkForce true;
         environment.systemPackages = [ pkgs.xwayland-satellite ];
         services.upower.enable = true;
         services.udisks2.enable = true;
-        programs.dms-shell.enable = true;
+        services.greetd.settings.default_session.user = "scott";
 
-        services.displayManager.dms-greeter = {
+        programs.dank-material-shell.enable = true;
+        programs.dank-material-shell.greeter = {
           enable = true;
           compositor.name = "niri";
           configHome = "/home/scott";

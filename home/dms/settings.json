@@ -377,7 +377,7 @@
   "batteryNotifyLow": false,
   "batteryNotificationType": 0,
   "batteryAutoPowerSaver": false,
-  "lockBeforeSuspend": false,
+  "lockBeforeSuspend": true,
   "loginctlLockIntegration": true,
   "fadeToLockEnabled": true,
   "fadeToLockGracePeriod": 5,

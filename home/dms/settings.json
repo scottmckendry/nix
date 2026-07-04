@@ -575,7 +575,14 @@
   "displayProfileAutoSelect": false,
   "displayShowDisconnected": false,
   "displaySnapToEdge": true,
-  "connectedFrameBarStyleBackups": {},
+  "connectedFrameBarStyleBackups": {
+    "default": {
+      "shadowIntensity": 0,
+      "squareCorners": true,
+      "gothCornersEnabled": false,
+      "borderEnabled": false
+    }
+  },
   "barConfigs": [
     {
       "id": "default",
@@ -662,9 +669,9 @@
       "spacing": 0,
       "innerPadding": -4,
       "bottomGap": 0,
-      "transparency": 0.75,
-      "widgetTransparency": 0.5,
-      "squareCorners": true,
+      "transparency": 1,
+      "widgetTransparency": 1,
+      "squareCorners": false,
       "noBackground": true,
       "maximizeWidgetIcons": false,
       "maximizeWidgetText": false,
@@ -794,24 +801,22 @@
     }
   },
   "launcherPluginOrder": [],
-  "frameEnabled": false,
-  "frameThickness": 16,
-  "frameRounding": 23,
+  "frameEnabled": true,
+  "frameThickness": 8,
+  "frameRounding": 16,
   "frameColor": "",
   "frameOpacity": 1,
-  "frameScreenPreferences": [
-    "all"
-  ],
-  "frameBarSize": 40,
-  "frameShowOnOverview": false,
+  "frameScreenPreferences": ["all"],
+  "frameBarSize": 30,
+  "frameShowOnOverview": true,
   "frameBlurEnabled": true,
-  "frameCloseGaps": true,
-  "frameLauncherEmergeSide": "bottom",
-  "frameLauncherArcExtender": false,
-  "frameLauncherEdgeHover": false,
+  "frameCloseGaps": false,
+  "frameLauncherEmergeSide": "top",
+  "frameLauncherArcExtender": true,
+  "frameLauncherEdgeHover": true,
   "frameMode": "connected",
   "barInsetPaddingShared": -1,
   "barInsetPaddingSyncAll": false,
-  "frameBarInsetPadding": -1,
+  "frameBarInsetPadding": 10,
   "configVersion": 11
 }

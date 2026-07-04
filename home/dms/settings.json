@@ -545,7 +545,28 @@
   "updaterIncludeFlatpak": true,
   "updaterAllowAUR": true,
   "displayNameMode": "system",
-  "screenPreferences": {},
+  "screenPreferences": {
+    "osd": [
+      {
+        "name": "eDP-1",
+        "model": "LQ144P1JX01"
+      },
+      {
+        "name": "DP-1",
+        "model": "G34WQC"
+      }
+    ],
+    "notifications": [
+      {
+        "name": "eDP-1",
+        "model": "LQ144P1JX01"
+      },
+      {
+        "name": "DP-1",
+        "model": "G34WQC"
+      }
+    ]
+  },
   "showOnLastDisplay": {},
   "niriOutputSettings": {},
   "hyprlandOutputSettings": {},

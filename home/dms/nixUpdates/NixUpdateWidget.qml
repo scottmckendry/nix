@@ -16,6 +16,20 @@ PluginComponent {
     property string state: "idle" // idle, behind, building, ready
     property var currentPr: null // { number, title, url }
 
+    // Hide entirely when up-to-date
+    Binding {
+        target: root
+        property: "_visibilityOverride"
+        value: true
+        when: true
+    }
+    Binding {
+        target: root
+        property: "_visibilityOverrideValue"
+        value: root.state !== "idle"
+        when: true
+    }
+
     // Derived icon properties (avoid duplicating in both pills)
     readonly property string stateIcon: ({
         "building": "progress_activity",

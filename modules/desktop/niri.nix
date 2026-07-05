@@ -16,6 +16,7 @@
         services.greetd.settings.default_session.user = "scott";
 
         programs.dank-material-shell.enable = true;
+        programs.dank-material-shell.systemd.enable = true;
         programs.dank-material-shell.greeter = {
           enable = true;
           compositor.name = "niri";

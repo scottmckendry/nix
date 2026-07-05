@@ -127,15 +127,15 @@
     {
       "id": "wifi",
       "enabled": true,
-      "width": 50
+      "width": 25
+    },
+    {
+      "id": "builtin_vpn",
+      "enabled": true,
+      "width": 25
     },
     {
       "id": "bluetooth",
-      "enabled": true,
-      "width": 50
-    },
-    {
-      "id": "audioOutput",
       "enabled": true,
       "width": 50
     },
@@ -145,12 +145,7 @@
       "width": 50
     },
     {
-      "id": "nightMode",
-      "enabled": true,
-      "width": 50
-    },
-    {
-      "id": "darkMode",
+      "id": "audioOutput",
       "enabled": true,
       "width": 50
     },
@@ -160,9 +155,14 @@
       "width": 50
     },
     {
-      "id": "doNotDisturb",
+      "id": "nightMode",
       "enabled": true,
-      "width": 50
+      "width": 25
+    },
+    {
+      "id": "darkMode",
+      "enabled": true,
+      "width": 25
     }
   ],
   "showWorkspaceIndex": false,
@@ -667,7 +667,12 @@
         },
         {
           "id": "controlCenterButton",
-          "enabled": true
+          "enabled": true,
+          "showBluetoothIcon": false,
+          "showAudioIcon": false,
+          "showAudioPercent": false,
+          "showVpnIcon": false,
+          "showScreenSharingIcon": false
         }
       ],
       "spacing": 0,

@@ -569,6 +569,16 @@
         "name": "DP-1",
         "model": "G34WQC"
       }
+    ],
+    "lockScreen": [
+      {
+        "name": "eDP-1",
+        "model": "LQ144P1JX01"
+      },
+      {
+        "name": "DP-1",
+        "model": "G34WQC"
+      }
     ]
   },
   "showOnLastDisplay": {},

@@ -646,14 +646,6 @@
           "enabled": true
         },
         {
-          "id": "notificationButton",
-          "enabled": true
-        },
-        {
-          "id": "network_speed_monitor",
-          "enabled": true
-        },
-        {
           "id": "cpuTemp",
           "enabled": true,
           "minimumWidth": true
@@ -673,6 +665,10 @@
         },
         {
           "id": "nixUpdates",
+          "enabled": true
+        },
+        {
+          "id": "notificationButton",
           "enabled": true
         },
         {

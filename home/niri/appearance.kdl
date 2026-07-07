@@ -1,8 +1,8 @@
 prefer-no-csd
+overview { backdrop-color "#000000"; }
 layout {
     // --- Window Gaps & Background ---
     gaps                  40
-    background-color      "transparent"
     center-focused-column "on-overflow"
     default-column-display "tabbed"
     always-center-single-column
@@ -60,3 +60,4 @@ blur {
     noise 0.05
     saturation 1.25
 }
+

@@ -40,6 +40,11 @@
             output "DP-5" { off; }
             output "DP-6" { off; }
             hotkey-overlay { skip-at-startup; }
+            overview { backdrop-color "#000000"; }
+            cursor {
+                xcursor-theme "Bibata-Modern-Classic"
+                xcursor-size 16
+            }
           '';
         };
 

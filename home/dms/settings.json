@@ -348,7 +348,7 @@
   "notepadShowLineNumbers": false,
   "notepadAutoSave": false,
   "notepadSlideoutSide": "right",
-  "notepadDefaultMode": "slideout",
+  "notepadDefaultMode": "popout",
   "notepadTransparencyOverride": -1,
   "notepadLastCustomTransparency": 0.7,
   "notepadUseCompositorGap": false,
@@ -377,7 +377,7 @@
   "batteryCriticalThreshold": 10,
   "batteryNotifyCritical": true,
   "batteryLowThreshold": 20,
-  "batteryNotifyLow": false,
+  "batteryNotifyLow": true,
   "batteryChargeLimitNotificationType": 0,
   "batteryLowNotificationType": 0,
   "batteryCriticalNotificationType": 0,
@@ -799,6 +799,9 @@
   "builtInPluginSettings": {
     "dms_settings_search": {
       "trigger": "?"
+    },
+    "dms_clipboard_search": {
+      "trigger": "cb"
     }
   },
   "clipboardClickToPaste": false,
@@ -830,7 +833,7 @@
   "frameCloseGaps": true,
   "frameLauncherEmergeSide": "top",
   "frameLauncherArcExtender": true,
-  "frameLauncherEdgeHover": true,
+  "frameLauncherEdgeHover": false,
   "frameMode": "connected",
   "barInsetPaddingShared": -1,
   "barInsetPaddingSyncAll": false,

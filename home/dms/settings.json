@@ -32,7 +32,7 @@
   "firstDayOfWeek": -1,
   "showWeekNumber": false,
   "calendarBackend": "auto",
-  "use24HourClock": false,
+  "clockFormat": "auto",
   "showSeconds": false,
   "padHours12Hour": false,
   "useFahrenheit": false,
@@ -247,9 +247,6 @@
   "greeterEnableFprint": false,
   "greeterEnableU2f": false,
   "greeterWallpaperPath": "",
-  "greeterUse24HourClock": true,
-  "greeterShowSeconds": false,
-  "greeterPadHours12Hour": false,
   "greeterLockDateFormat": "",
   "greeterFontFamily": "",
   "greeterWallpaperFillMode": "",
@@ -549,6 +546,7 @@
   "updaterIntervalSeconds": 1800,
   "updaterIncludeFlatpak": true,
   "updaterAllowAUR": true,
+  "updaterIgnoredPackages": [],
   "displayNameMode": "system",
   "screenPreferences": {
     "osd": [

@@ -210,6 +210,7 @@
   "scrollTitleEnabled": true,
   "mediaAdaptiveWidthEnabled": true,
   "audioVisualizerEnabled": true,
+  "mediaUseAlbumArtAccent": false,
   "audioScrollMode": "volume",
   "audioWheelScrollAmount": 5,
   "audioDeviceScrollVolumeEnabled": false,
@@ -362,15 +363,15 @@
   "muteSoundsWhenMediaPlaying": true,
   "acMonitorTimeout": 600,
   "acLockTimeout": 300,
-  "acSuspendTimeout": 1200,
+  "acSuspendTimeout": 0,
   "acSuspendBehavior": 2,
-  "acProfileName": "",
+  "acProfileName": "2",
   "acPostLockMonitorTimeout": 0,
   "batteryMonitorTimeout": 600,
   "batteryLockTimeout": 300,
-  "batterySuspendTimeout": 900,
+  "batterySuspendTimeout": 1200,
   "batterySuspendBehavior": 2,
-  "batteryProfileName": "",
+  "batteryProfileName": "1",
   "batteryPostLockMonitorTimeout": 0,
   "batteryChargeLimit": 100,
   "batteryNotifyChargeLimit": false,
@@ -379,8 +380,8 @@
   "batteryLowThreshold": 20,
   "batteryNotifyLow": true,
   "batteryChargeLimitNotificationType": 0,
-  "batteryLowNotificationType": 0,
-  "batteryCriticalNotificationType": 0,
+  "batteryLowNotificationType": 1,
+  "batteryCriticalNotificationType": 1,
   "batteryAutoPowerSaver": false,
   "lockBeforeSuspend": true,
   "loginctlLockIntegration": true,
@@ -533,7 +534,7 @@
     "restart"
   ],
   "powerMenuDefaultAction": "logout",
-  "powerMenuGridLayout": false,
+  "powerMenuGridLayout": true,
   "customPowerActionLock": "",
   "customPowerActionLogout": "",
   "customPowerActionSuspend": "",
@@ -566,7 +567,7 @@
         "model": "LQ144P1JX01"
       },
       {
-        "name": "DP-1",
+        "name": "DVI-I-1",
         "model": "G34WQC"
       }
     ],
@@ -576,7 +577,7 @@
         "model": "LQ144P1JX01"
       },
       {
-        "name": "DP-1",
+        "name": "DVI-I-1",
         "model": "G34WQC"
       }
     ]
@@ -609,7 +610,7 @@
           "model": "LQ144P1JX01"
         },
         {
-          "name": "DP-1",
+          "name": "DVI-I-1",
           "model": "G34WQC"
         }
       ],

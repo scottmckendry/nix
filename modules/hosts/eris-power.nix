@@ -27,6 +27,7 @@
         };
         services.logind.settings.Login = {
           HandleLidSwitch = "suspend-then-hibernate";
+          HandleLidSwitchExternalPower = "ignore";
           HandlePowerKey = "ignore";
           HandlePowerKeyLongPress = "poweroff";
         };

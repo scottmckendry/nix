@@ -11,7 +11,6 @@
       networking
       niri
       niri-session
-      nvidia
       packages
       secure-boot
       silent-boot
@@ -26,18 +25,14 @@
           ./_eris-hardware.nix
         ];
 
-        # NVIDIA PRIME (hybrid graphics)
-        hardware.nvidia = {
-          powerManagement.finegrained = true;
-          prime = {
-            offload = {
-              enable = true;
-              enableOffloadCmd = true;
-            };
-            intelBusId = "PCI:00:02:0";
-            nvidiaBusId = "PCI:243:00:0";
-          };
-        };
+        # Disable NVIDIA GPU entirely - use Intel GPU only
+        boot.blacklistedKernelModules = [
+          "nvidia"
+          "nvidia_modeset"
+          "nvidia_uvm"
+          "nvidia_drm"
+          "nouveau"
+        ];
 
         # Touchpad sensitivity overrides
         # see https://wayland.freedesktop.org/libinput/doc/latest/touchpad-pressure-debugging.html

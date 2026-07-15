@@ -6,5 +6,4 @@
 cursor {
     xcursor-theme "Bibata-Modern-Classic"
     xcursor-size 16
-    hide-when-typing
 }

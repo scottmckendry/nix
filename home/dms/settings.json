@@ -250,6 +250,7 @@
   "greeterLockDateFormat": "",
   "greeterFontFamily": "",
   "greeterWallpaperFillMode": "",
+  "greeterPamExternallyManaged": false,
   "greeterSyncPending": false,
   "greeterSyncBaseline": {},
   "mediaSize": 1,
@@ -267,6 +268,7 @@
   "spotlightSectionViewModes": {},
   "appDrawerSectionViewModes": {},
   "niriOverviewOverlayEnabled": true,
+  "niriOverviewLauncherStyle": "full",
   "dankLauncherV2Size": "compact",
   "dankLauncherV2ShowSourceBadges": true,
   "dankLauncherV2BorderEnabled": false,
@@ -304,7 +306,7 @@
       "enabled": true
     }
   ],
-  "networkPreference": "auto",
+  "networkPreference": "wifi",
   "iconThemeDark": "System Default",
   "iconThemeLight": "System Default",
   "iconThemePerMode": false,
@@ -362,13 +364,13 @@
   "acLockTimeout": 300,
   "acSuspendTimeout": 0,
   "acSuspendBehavior": 2,
-  "acProfileName": "2",
+  "acProfileName": "",
   "acPostLockMonitorTimeout": 0,
   "batteryMonitorTimeout": 600,
   "batteryLockTimeout": 300,
   "batterySuspendTimeout": 1200,
   "batterySuspendBehavior": 2,
-  "batteryProfileName": "1",
+  "batteryProfileName": "",
   "batteryPostLockMonitorTimeout": 0,
   "batteryChargeLimit": 100,
   "batteryNotifyChargeLimit": false,
@@ -483,6 +485,11 @@
   "maxFprintTries": 15,
   "enableU2f": true,
   "u2fMode": "or",
+  "lockPamPath": "",
+  "lockPamInlineFprint": false,
+  "lockPamInlineU2f": false,
+  "lockPamExternallyManaged": true,
+  "lockU2fPamPath": "",
   "lockScreenInactiveColor": "#000000",
   "lockScreenNotificationMode": 0,
   "lockScreenVideoEnabled": false,
@@ -547,35 +554,29 @@
   "updaterIncludeFlatpak": true,
   "updaterAllowAUR": true,
   "updaterIgnoredPackages": [],
-  "displayNameMode": "system",
+  "displayNameMode": "model",
   "screenPreferences": {
     "osd": [
       {
-        "name": "eDP-1",
         "model": "LQ144P1JX01"
       },
       {
-        "name": "DP-1",
         "model": "G34WQC"
       }
     ],
     "notifications": [
       {
-        "name": "eDP-1",
         "model": "LQ144P1JX01"
       },
       {
-        "name": "DVI-I-1",
         "model": "G34WQC"
       }
     ],
     "lockScreen": [
       {
-        "name": "eDP-1",
         "model": "LQ144P1JX01"
       },
       {
-        "name": "DVI-I-1",
         "model": "G34WQC"
       }
     ]
@@ -604,11 +605,9 @@
       "position": 0,
       "screenPreferences": [
         {
-          "name": "eDP-1",
           "model": "LQ144P1JX01"
         },
         {
-          "name": "DVI-I-1",
           "model": "G34WQC"
         }
       ],

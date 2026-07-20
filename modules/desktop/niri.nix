@@ -6,7 +6,7 @@
       {
         imports = [
           inputs.dms.nixosModules.dank-material-shell
-          inputs.dms.nixosModules.greeter
+          inputs.dms-greeter.nixosModules.default
         ];
 
         programs.niri.enable = lib.mkForce true;
@@ -17,7 +17,7 @@
 
         programs.dank-material-shell.enable = true;
         programs.dank-material-shell.systemd.enable = true;
-        programs.dank-material-shell.greeter = {
+        programs.dms-greeter = {
           enable = true;
           compositor.name = "niri";
           configHome = "/home/scott";

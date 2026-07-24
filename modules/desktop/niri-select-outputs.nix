@@ -32,8 +32,8 @@
       lib.mkIf config.programs.niri.enable {
         systemd.user.services.niri-select-outputs = {
           description = "Select niri output config based on dock presence";
-          before = [ "niri-session.service" ];
-          wantedBy = [ "niri-session.service" ];
+          before = [ "wayland-wm@niri-session.service" ];
+          wantedBy = [ "wayland-session-pre@niri-session.target" ];
           serviceConfig = {
             Type = "oneshot";
             ExecStart = "${niri-select-outputs}/bin/niri-select-outputs";

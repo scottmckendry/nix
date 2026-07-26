@@ -11,7 +11,7 @@
 
         programs.niri = {
           enable = lib.mkForce true;
-          package = inputs.niri.packages.${pkgs.system}.niri;
+          package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
         };
         environment.systemPackages = [ pkgs.xwayland-satellite ];
         services.upower.enable = true;

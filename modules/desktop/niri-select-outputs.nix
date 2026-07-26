@@ -30,6 +30,8 @@
         };
       in
       lib.mkIf config.programs.niri.enable {
+        environment.systemPackages = [ niri-select-outputs ];
+
         systemd.user.services.niri-select-outputs = {
           description = "Select niri output config based on dock presence";
           before = [ "wayland-wm@niri-session.service" ];

@@ -228,6 +228,27 @@
         "type": "github"
       }
     },
+    "niri": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785024249,
+        "narHash": "sha256-evRiYp57/t2T2zw4c9/ZgKBa8IWovsoweoHAhMvm+7s=",
+        "owner": "scottmckendry",
+        "repo": "niri",
+        "rev": "89ece627345b65549e807eb969537eb028410d8e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "scottmckendry",
+        "ref": "smithay-master-build",
+        "repo": "niri",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1784497964,
@@ -307,6 +328,7 @@
         "hjem": "hjem",
         "import-tree": "import-tree",
         "lanzaboote": "lanzaboote",
+        "niri": "niri",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
         "sops-nix": "sops-nix",

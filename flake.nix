@@ -13,6 +13,11 @@
       url = "github:vic/den";
     };
 
+    niri = {
+      url = "github:scottmckendry/niri/smithay-master-build";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     dms = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";

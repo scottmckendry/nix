@@ -9,7 +9,10 @@
           inputs.dms-greeter.nixosModules.default
         ];
 
-        programs.niri.enable = lib.mkForce true;
+        programs.niri = {
+          enable = lib.mkForce true;
+          package = inputs.niri.packages.${pkgs.system}.niri;
+        };
         environment.systemPackages = [ pkgs.xwayland-satellite ];
         services.upower.enable = true;
         services.udisks2.enable = true;

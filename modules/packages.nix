@@ -94,6 +94,7 @@
           vlc
           wget
           wl-clipboard
+          wl-mirror
           yazi
           yq-go
           zen-browser

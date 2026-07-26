@@ -14,6 +14,7 @@ binds {
     Mod+Shift+C      { spawn-sh "dms color pick -a"; }
     Mod+Shift+Escape { spawn "btop-kitty"; }
     Mod+Shift+O      { spawn-sh "grim -g \"$(slurp)\" - | tesseract stdin stdout | wl-copy"; }
+    Mod+P            { spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"; }
 
     // --- System Actions ---
     Mod+Shift+P { power-off-monitors; }

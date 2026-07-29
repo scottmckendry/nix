@@ -13,7 +13,7 @@ PluginComponent {
     readonly property string updateScriptPath: "/home/scott/scripts/nixos-update.sh"
     readonly property int checkInterval: 30
 
-    property string state: "idle" // idle, behind, building, ready
+    property string state: "idle" // idle, behind, building, ready, failed
     property var currentPr: null // { number, title, url }
 
     // Hide entirely when up-to-date
@@ -34,12 +34,14 @@ PluginComponent {
     readonly property string stateIcon: ({
         "building": "progress_activity",
         "ready": "update",
-        "behind": "update"
+        "behind": "update",
+        "failed": "error"
     })[state] || "check_circle"
 
     readonly property color stateColor: ({
         "ready": Theme.primary,
-        "behind": Theme.warning
+        "behind": Theme.warning,
+        "failed": Theme.error
     })[state] || Theme.surfaceVariantText
 
     // --- Processes ---
@@ -72,7 +74,13 @@ PluginComponent {
                         var pr = prs[0];
                         var labels = (pr.labels || []).map(function(l) { return l.name || ""; });
                         root.currentPr = { number: pr.number, title: pr.title, url: pr.url };
-                        root.state = labels.indexOf("cachix-ready") >= 0 ? "ready" : "building";
+                        if (labels.indexOf("cachix-ready") >= 0) {
+                            root.state = "ready";
+                        } else if (labels.indexOf("build-failed") >= 0) {
+                            root.state = "failed";
+                        } else {
+                            root.state = "building";
+                        }
                     } else {
                         root.currentPr = null;
                         checkBehind.running = true;
@@ -184,6 +192,8 @@ PluginComponent {
                     return "PR #" + root.currentPr.number + " building...";
                 if (root.state === "behind")
                     return "Main branch is behind remote";
+                if (root.state === "failed")
+                    return "PR #" + root.currentPr.number + " build failed";
                 return "No pending updates";
             }
             showCloseButton: true
@@ -209,9 +219,9 @@ PluginComponent {
                         Row {
                             spacing: Theme.spacingS
                             DankIcon {
-                                name: root.state === "ready" ? "check_circle" : "hourglass_top"
+                                name: root.state === "ready" ? "check_circle" : root.state === "failed" ? "error" : "hourglass_top"
                                 size: Theme.iconSize
-                                color: root.state === "ready" ? Theme.primary : Theme.surfaceVariantText
+                                color: root.state === "ready" ? Theme.primary : root.state === "failed" ? Theme.error : Theme.surfaceVariantText
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                             StyledText {
@@ -222,7 +232,7 @@ PluginComponent {
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                             StyledText {
-                                text: root.state === "ready" ? "(cachix-ready)" : "(building...)"
+                                text: root.state === "ready" ? "(cachix-ready)" : root.state === "failed" ? "(build failed)" : "(building...)"
                                 font.pixelSize: Theme.fontSizeSmall
                                 color: Theme.surfaceVariantText
                                 anchors.verticalCenter: parent.verticalCenter
@@ -280,17 +290,27 @@ PluginComponent {
                     DankButton {
                         width: buttonRow.bw
                         text: root.state === "ready" ? "Rebase & Build"
-                            : root.state === "behind" ? "Rebuild Now" : "Up to Date"
+                            : root.state === "behind" ? "Rebuild Now"
+                            : root.state === "failed" ? "View Failure" : "Up to Date"
                         iconName: root.state === "ready" ? "merge_type"
-                            : root.state === "behind" ? "build" : "check"
-                        enabled: root.state === "ready" || root.state === "behind"
-                        onClicked: { root.doMergeAndApply(); popout.closePopout(); }
+                            : root.state === "behind" ? "build"
+                            : root.state === "failed" ? "open_in_new" : "check"
+                        enabled: root.state === "ready" || root.state === "behind" || root.state === "failed"
+                        onClicked: {
+                            if (root.state === "failed") {
+                                root.doOpenInGitHub();
+                            } else {
+                                root.doMergeAndApply();
+                            }
+                            popout.closePopout();
+                        }
                     }
 
                     DankButton {
                         width: buttonRow.bw
                         text: root.currentPr ? "Open PR" : "Open Repo"
                         iconName: "open_in_new"
+                        visible: root.state !== "failed"
                         onClicked: { root.doOpenInGitHub(); popout.closePopout(); }
                     }
                 }

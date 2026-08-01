@@ -235,16 +235,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1785026558,
-        "narHash": "sha256-AMmpfyoCe07xqpiDecbV89tI7lFnBIRkL5RdAYOmGKo=",
-        "owner": "scottmckendry",
+        "lastModified": 1784572181,
+        "narHash": "sha256-6B3fjN7OlxriPw7H2mvVXim8C/faiTQirOyyB18Skm8=",
+        "owner": "niri-wm",
         "repo": "niri",
-        "rev": "44a9bcacae7ac0e85430a5d2959e563bf6895ab3",
+        "rev": "e9416913f3cef60460bdbc7dc22791ac8631421c",
         "type": "github"
       },
       "original": {
-        "owner": "scottmckendry",
-        "ref": "smithay-master-build",
+        "owner": "niri-wm",
+        "ref": "update-smithay",
         "repo": "niri",
         "type": "github"
       }

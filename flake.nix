@@ -14,7 +14,7 @@
     };
 
     niri = {
-      url = "github:scottmckendry/niri/smithay-master-build";
+      url = "github:niri-wm/niri/update-smithay";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 

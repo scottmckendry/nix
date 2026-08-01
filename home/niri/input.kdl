@@ -1,6 +1,7 @@
 input {
     keyboard { xkb { layout "us"; }; }
     focus-follows-mouse max-scroll-amount="0%"
+    disable-power-key-handling // see https://github.com/niri-wm/niri/issues/2233
     touchpad {
         tap
         natural-scroll

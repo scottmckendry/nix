@@ -45,8 +45,8 @@
             hotkey-overlay { skip-at-startup; }
             overview { backdrop-color "#000000"; }
             cursor {
-                xcursor-theme "Bibata-Modern-Classic"
-                xcursor-size 16
+                xcursor-theme "capitaine-cursors"
+                xcursor-size 18
             }
           '';
         };

@@ -14,12 +14,12 @@
           ansible
           appimage-run
           bat
-          bibata-cursors
           brightnessctl
           btop
           btop-kitty
           bun
           calibre
+          capitaine-cursors
           cargo
           cliphist
           cups-pk-helper

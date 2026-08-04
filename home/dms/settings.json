@@ -331,8 +331,8 @@
   "iconThemePerMode": false,
   "lastAppliedIconTheme": "",
   "cursorSettings": {
-    "theme": "Bibata-Modern-Classic",
-    "size": 16,
+    "theme": "capitaine-cursors",
+    "size": 18,
     "niri": {
       "hideWhenTyping": false,
       "hideAfterInactiveMs": 0
@@ -502,6 +502,8 @@
   "enableU2f": true,
   "u2fMode": "or",
   "lockPamPath": "",
+  "lockScreenSecurityKeyShortcut": "Ctrl+Q",
+  "lockScreenSecurityKeyShortcutEnabled": false,
   "lockPamInlineFprint": false,
   "lockPamInlineU2f": false,
   "lockPamExternallyManaged": true,

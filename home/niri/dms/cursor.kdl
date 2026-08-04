@@ -4,6 +4,6 @@
 // ! PLACE YOUR CUSTOM CONFIGURATION ELSEWHERE !
 
 cursor {
-    xcursor-theme "Bibata-Modern-Classic"
-    xcursor-size 16
+    xcursor-theme "capitaine-cursors"
+    xcursor-size 18
 }

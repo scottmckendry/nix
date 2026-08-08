@@ -31,11 +31,10 @@
       in
       lib.mkIf config.programs.niri.enable {
         environment.systemPackages = [ niri-select-outputs ];
-
         systemd.user.services.niri-select-outputs = {
           description = "Select niri output config based on dock presence";
-          before = [ "wayland-wm@niri-session.service" ];
-          wantedBy = [ "wayland-session-pre@niri-session.target" ];
+          before = [ "graphical-session-pre.target" ];
+          wantedBy = [ "graphical-session-pre.target" ];
           serviceConfig = {
             Type = "oneshot";
             ExecStart = "${niri-select-outputs}/bin/niri-select-outputs";
@@ -44,13 +43,7 @@
 
         services.udev.extraRules = ''
           # re-select niri outputs on Dell D6000 dock connect/disconnect
-          ACTION=="add", \
-          ENV{ID_BUS}=="usb", \
-          ENV{ID_VENDOR_ID}=="17e9", \
-          ENV{ID_MODEL_ID}=="6006", \
-          RUN+="${pkgs.su}/bin/su scott -c 'HOME=/home/scott ${niri-select-outputs}/bin/niri-select-outputs'"
-
-          ACTION=="remove", \
+          ACTION=="add|remove", \
           ENV{ID_BUS}=="usb", \
           ENV{ID_VENDOR_ID}=="17e9", \
           ENV{ID_MODEL_ID}=="6006", \

@@ -1,4 +1,4 @@
-// Output configuration is selected dynamically by niri-select-outputs.sh
+// Output configuration is selected dynamically by niri-select-outputs
 // which symlinks output-active.kdl to either output-docked.kdl or output-mobile.kdl
 // based on whether the Dell Universal Dock D6000 (17e9:6006) is present.
 

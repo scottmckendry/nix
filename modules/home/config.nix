@@ -21,9 +21,6 @@ in
           ".config/lazygit/config.yml".source = ../../home/lazygit/config.yml;
           ".config/mimeapps.list".source = ../../home/mimeapps.list;
           ".local/share/applications/mimeapps.list".source = ../../home/mimeapps.list;
-          ".config/opencode/agent.txt".source = ../../home/opencode/agent.txt;
-          ".config/opencode/opencode.json".source = ../../home/opencode/opencode.json;
-          ".config/opencode/tui.json".source = ../../home/opencode/tui.json;
           ".config/posting/config.yaml".source = ../../home/posting/config.yaml;
           ".config/starship.toml".source = ../../home/starship.toml;
           ".config/user-dirs.dirs".source = ../../home/user-dirs.dirs;
@@ -34,6 +31,7 @@ in
           ".config/DankMaterialShell/plugins/nixUpdates".source = mkSym "${nixDir}/home/dms/nixUpdates";
           ".config/niri".source = mkSym "${nixDir}/home/niri";
           ".config/nvim".source = mkSym "${nixDir}/nvim";
+          ".pi".source = mkSym "${nixDir}/home/pi";
           "scripts".source = mkSym "${nixDir}/scripts";
           ".config/opencode/skills/azure-devops-boards".source =
             mkSym "/run/secrets/opencode/skills/azure-devops-boards";

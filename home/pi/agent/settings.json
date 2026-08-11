@@ -1,0 +1,10 @@
+{
+  "lastChangelogVersion": "0.84.0",
+  "theme": "cyberdream-muted",
+  "defaultProvider": "opencode",
+  "defaultModel": "mimo-v2.5-free",
+  "showCacheMissNotices": true,
+  "defaultThinkingLevel": "low",
+  "tuiMode": "fullscreen",
+  "fullscreenScrollbar": "auto"
+}

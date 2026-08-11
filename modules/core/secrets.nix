@@ -13,14 +13,6 @@
             owner = config.users.users.scott.name;
             path = "/home/scott/.config/Yubico/u2f_keys";
           };
-          secrets.azure_devops_pat_txt = {
-            owner = config.users.users.scott.name;
-            path = "/run/secrets/azure_devops_pat";
-          };
-          secrets.azure_devops_skill_md = {
-            owner = config.users.users.scott.name;
-            path = "/run/secrets/opencode/skills/azure-devops-boards/SKILL.md";
-          };
         };
       };
   };

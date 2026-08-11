@@ -6,3 +6,6 @@ hypr/hyprpaper.conf
 /home/niri/dms/colors.kdl
 /home/niri/output-active.kdl
 /home/dms/plugin_settings.json
+/home/pi/agent/auth.json
+/home/pi/agent/models-store.json
+/home/pi/agent/sessions

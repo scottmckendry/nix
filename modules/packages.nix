@@ -66,6 +66,7 @@
           odin
           opencode
           openssl
+          pi-coding-agent
           playerctl
           posting
           powershell

@@ -33,10 +33,9 @@ in
           ".config/nvim".source = mkSym "${nixDir}/nvim";
           ".pi".source = mkSym "${nixDir}/home/pi";
           "scripts".source = mkSym "${nixDir}/scripts";
-          ".config/opencode/skills/azure-devops-boards".source =
-            mkSym "/run/secrets/opencode/skills/azure-devops-boards";
 
           # cyberdream themes
+          ".pi/agent/themes/cyberdream-muted.json".source = "${thm.pi}/cyberdream-muted.json";
           ".config/bat/themes/cyberdream.tmTheme".source = "${thm.textmate}/cyberdream-muted.tmTheme";
           ".config/btop/themes/cyberdream.theme".source = "${thm.btop}/cyberdream-muted.theme";
           ".config/k9s/skins/cyberdream.yaml".source = "${thm.k9s}/cyberdream-muted.yml";

@@ -6,5 +6,9 @@
   "showCacheMissNotices": true,
   "defaultThinkingLevel": "low",
   "tuiMode": "fullscreen",
-  "fullscreenScrollbar": "auto"
+  "fullscreenScrollbar": "auto",
+  "packages": [
+    "npm:pi-code-previews@0.1.36",
+    "npm:pi-web-access@0.22.0"
+  ]
 }

@@ -834,6 +834,7 @@
   "clipboardClickToPaste": false,
   "clipboardEnterToPaste": false,
   "clipboardRememberTypeFilter": false,
+  "clipboardUseOverlayLayer": false,
   "clipboardTypeFilter": "all",
   "clipboardVisibleEntryActions": [
     "pin",

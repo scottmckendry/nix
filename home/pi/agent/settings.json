@@ -10,7 +10,8 @@
   "packages": [
     "npm:pi-code-previews@0.1.36",
     "npm:pi-web-access@0.22.0",
-    "git:github.com/scottmckendry/pi-copium"
+    "npm:pi-lens@4.0.0",
+    "/home/scott/git/pi-copium/"
   ],
   "steeringMode": "all",
   "quietStartup": true,

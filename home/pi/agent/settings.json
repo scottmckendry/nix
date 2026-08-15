@@ -9,7 +9,8 @@
   "fullscreenScrollbar": "auto",
   "packages": [
     "npm:pi-code-previews@0.1.36",
-    "npm:pi-web-access@0.22.0"
+    "npm:pi-web-access@0.22.0",
+    "git:github.com/scottmckendry/pi-copium"
   ],
   "steeringMode": "all",
   "quietStartup": true,

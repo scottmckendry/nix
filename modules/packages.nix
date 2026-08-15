@@ -56,7 +56,7 @@
           mermaid-cli
           neovim
           nh
-          nil
+          nixd
           nix-index
           nixfmt
           nodejs

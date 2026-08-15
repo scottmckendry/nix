@@ -1,0 +1,28 @@
+format = """$model$tokens$cost$fill$extension_status"""
+
+[model]
+format = "[$model ]($style)"
+symbol = ''
+
+[tokens]
+symbol = ''
+
+[extension_status]
+symbol = ''
+icons = { "fallback" = '' }
+
+[cost]
+symbol = ''
+format = "[ \\$$cost ]($style)"
+[[cost.display]]
+threshold = 0
+style = "bold green"
+hidden = false
+[[cost.display]]
+threshold = 0.5
+style = "bold yellow"
+hidden = false
+[[cost.display]]
+threshold = 1
+style = "bold red"
+hidden = false

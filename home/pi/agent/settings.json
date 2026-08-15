@@ -11,6 +11,7 @@
     "npm:pi-code-previews@0.1.36",
     "npm:pi-web-access@0.22.0",
     "npm:pi-lens@4.0.0",
+    "npm:@narumitw/pi-starship@0.51.0",
     "/home/scott/git/pi-copium/"
   ],
   "steeringMode": "all",

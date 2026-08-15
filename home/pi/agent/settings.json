@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.84.0",
+  "lastChangelogVersion": "0.84.1",
   "theme": "cyberdream-muted",
-  "defaultProvider": "opencode",
-  "defaultModel": "mimo-v2.5-free",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "mimo-v2.5-pro",
   "showCacheMissNotices": true,
   "defaultThinkingLevel": "low",
   "tuiMode": "fullscreen",
@@ -10,5 +10,8 @@
   "packages": [
     "npm:pi-code-previews@0.1.36",
     "npm:pi-web-access@0.22.0"
-  ]
+  ],
+  "steeringMode": "all",
+  "quietStartup": true,
+  "doubleEscapeAction": "none"
 }

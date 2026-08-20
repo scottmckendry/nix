@@ -1,12 +1,16 @@
 {
   "lastChangelogVersion": "0.84.1",
   "theme": "cyberdream-muted",
-  "defaultProvider": "opencode-go",
-  "defaultModel": "mimo-v2.5-pro",
   "showCacheMissNotices": true,
   "defaultThinkingLevel": "low",
   "tuiMode": "fullscreen",
-  "fullscreenScrollbar": "auto",
+  "fullscreenScrollbar": "always",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "glm-5.3",
+  "steeringMode": "all",
+  "quietStartup": true,
+  "doubleEscapeAction": "none",
+  "editorPaddingX": 1,
   "packages": [
     "npm:pi-code-previews@0.1.36",
     "npm:pi-web-access@0.22.0",
@@ -14,7 +18,11 @@
     "npm:@narumitw/pi-starship@0.51.0",
     "/home/scott/git/pi-copium/"
   ],
-  "steeringMode": "all",
-  "quietStartup": true,
-  "doubleEscapeAction": "none"
+  "enabledModels": [
+    "opencode-go/glm-5.3",
+    "github-copilot/gpt-5.6-terra",
+    "github-copilot/gpt-5.6-luna",
+    "opencode-go/mimo-v2.5-pro",
+    "github-copilot/claude-opus-4.8"
+  ]
 }

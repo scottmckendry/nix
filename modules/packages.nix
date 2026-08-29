@@ -21,6 +21,8 @@
           calibre
           capitaine-cursors
           cargo
+          clang
+          clang-tools
           cliphist
           cups-pk-helper
           delta

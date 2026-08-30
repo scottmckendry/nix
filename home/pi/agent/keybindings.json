@@ -1,3 +1,4 @@
 {
-  "app.interrupt": "ctrl+q"
+  "app.interrupt": "ctrl+q",
+  "tui.altScreen.search": "ctrl+f"
 }

@@ -43,6 +43,7 @@
             output "PNP(AOC) 24G2W1G5 0x00002384" { off; }
             hotkey-overlay { skip-at-startup; }
             overview { backdrop-color "#000000"; }
+            layout { background-color "#000000"; }
             cursor {
                 xcursor-theme "capitaine-cursors"
                 xcursor-size 18

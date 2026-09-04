@@ -7,6 +7,7 @@ layout {
     default-column-display "tabbed"
     always-center-single-column
     empty-workspace-above-first
+    background-color "#00000000"
 
     // --- Column Widths ---
     default-column-width { proportion 0.5; }

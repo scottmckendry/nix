@@ -7,9 +7,8 @@ binds {
     Mod+RETURN       { spawn "kitty"; }
     Mod+B            { spawn "zen"; }
     Mod+E            { spawn "nautilus"; }
-    Mod+R            { spawn-sh "dms ipc call spotlight toggle"; }
+    Mod+R            { spawn-sh "dms ipc call spotlight-bar toggle"; }
     Mod+V            { spawn-sh "dms ipc call clipboard toggle"; }
-    Mod+Period       { spawn-sh "dms ipc call spotlight toggleQuery ':e'"; }
     Mod+Alt+L        { spawn-sh "dms ipc call lock lock"; }
     Mod+Shift+C      { spawn-sh "dms color pick -a"; }
     Mod+Shift+Escape { spawn "btop-kitty"; }

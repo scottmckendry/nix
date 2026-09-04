@@ -89,6 +89,7 @@
           tdf
           tela-icon-theme
           tesseract
+          tokei
           tree
           typescript
           typst
@@ -102,6 +103,7 @@
           yq-go
           zen-browser
           zig
+          zizmor
           zoxide
         ];
       };

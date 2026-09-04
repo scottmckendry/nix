@@ -151,10 +151,6 @@
       "showOnLastDisplay": false,
       "leftWidgets": [
         {
-          "id": "launcherButton",
-          "enabled": true
-        },
-        {
           "id": "workspaceSwitcher",
           "enabled": true
         },
@@ -217,9 +213,9 @@
         }
       ],
       "spacing": 0,
-      "innerPadding": -4,
+      "innerPadding": -6,
       "bottomGap": 0,
-      "transparency": 1,
+      "transparency": 0.9,
       "widgetTransparency": 1,
       "squareCorners": true,
       "noBackground": true,
@@ -292,6 +288,12 @@
     },
     "dms_clipboard_search": {
       "trigger": "cb"
+    },
+    "dms_power": {
+      "trigger": "pw"
+    },
+    "dms_qr_generator": {
+      "trigger": "qrg"
     }
   },
   "launcherPluginVisibility": {

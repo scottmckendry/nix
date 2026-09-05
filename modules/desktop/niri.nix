@@ -45,7 +45,7 @@
             overview { backdrop-color "#000000"; }
             layout { background-color "#000000"; }
             cursor {
-                xcursor-theme "capitaine-cursors"
+                xcursor-theme "Adwaita";
                 xcursor-size 18
             }
           '';

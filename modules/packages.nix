@@ -19,7 +19,6 @@
           btop-kitty
           bun
           calibre
-          capitaine-cursors
           cargo
           clang
           clang-tools

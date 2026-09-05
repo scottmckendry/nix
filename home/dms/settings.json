@@ -1,10 +1,18 @@
 {
   "currentThemeName": "dynamic",
   "currentThemeCategory": "dynamic",
+  "matugenScheme": "scheme-smart",
+  "popupTransparency": 0.7,
+  "floatingWindowSyncGlobal": false,
+  "floatingWindowTransparency": 0.7,
+  "floatingWindowForegroundLayers": false,
+  "floatingWindowForegroundTransparency": 0.5,
   "cornerRadius": 8,
   "niriLayoutGapsOverride": -2,
   "niriLayoutBorderSize": 1,
   "m3ElevationEnabled": false,
+  "blurEnabled": true,
+  "blurForegroundLayers": false,
   "systemTrayIconTintMode": "primary",
   "controlCenterShowMicPercent": true,
   "controlCenterWidgets": [
@@ -66,7 +74,7 @@
   "dankLauncherV2ShowFooter": false,
   "networkPreference": "wifi",
   "cursorSettings": {
-    "theme": "capitaine-cursors",
+    "theme": "Adwaita",
     "size": 18,
     "niri": {
       "hideWhenTyping": false,
@@ -215,7 +223,7 @@
       "spacing": 0,
       "innerPadding": -6,
       "bottomGap": 0,
-      "transparency": 0.9,
+      "transparency": 0.7,
       "widgetTransparency": 1,
       "squareCorners": true,
       "noBackground": true,
@@ -301,12 +309,5 @@
       "allowWithoutTrigger": false
     }
   },
-  "frameThickness": 4,
-  "frameRounding": 16,
-  "frameBarSize": 30,
-  "frameShowOnOverview": true,
-  "frameLauncherEmergeSide": "top",
-  "frameLauncherArcExtender": true,
-  "frameBarInsetPadding": 6,
   "configVersion": 16
 }

@@ -19,3 +19,17 @@ window-rule {
     tiled-state true
     draw-border-with-background false
 }
+
+layer-rule {
+    exclude namespace="^dms:bar$"
+    background-effect {
+        xray false
+    }
+}
+
+window-rule {
+    match app-id="^com.danklinux.dms$"
+    background-effect {
+        xray false
+    }
+}

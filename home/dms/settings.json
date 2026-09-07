@@ -13,6 +13,7 @@
   "m3ElevationEnabled": false,
   "blurEnabled": true,
   "blurForegroundLayers": false,
+  "blurBorderEnabled": false,
   "systemTrayIconTintMode": "primary",
   "controlCenterShowMicPercent": true,
   "controlCenterWidgets": [
@@ -207,6 +208,10 @@
           "enabled": true
         },
         {
+          "id": "spotlightWallpapers",
+          "enabled": true
+        },
+        {
           "id": "notificationButton",
           "enabled": true
         },
@@ -223,7 +228,7 @@
       "spacing": 0,
       "innerPadding": -6,
       "bottomGap": 0,
-      "transparency": 0.7,
+      "transparency": 0.9,
       "widgetTransparency": 1,
       "squareCorners": true,
       "noBackground": true,
@@ -309,5 +314,5 @@
       "allowWithoutTrigger": false
     }
   },
-  "configVersion": 16
+  "configVersion": 17
 }

@@ -10,6 +10,9 @@
   "cornerRadius": 8,
   "niriLayoutGapsOverride": -2,
   "niriLayoutBorderSize": 1,
+  "springBounce": 2,
+  "animationVariant": 1,
+  "motionEffect": 1,
   "m3ElevationEnabled": false,
   "blurEnabled": true,
   "blurForegroundLayers": false,
@@ -73,7 +76,7 @@
   "clockDateFormat": "ddd d",
   "lockDateFormat": "ddd d",
   "dankLauncherV2ShowFooter": false,
-  "networkPreference": "wifi",
+  "networkPreference": "ethernet",
   "cursorSettings": {
     "theme": "Adwaita",
     "size": 18,
@@ -266,7 +269,8 @@
       "shadowCustomColor": "#000000",
       "clickThrough": false,
       "hoverPopouts": true,
-      "hoverPopoutDelay": 50
+      "hoverPopoutDelay": 50,
+      "attachToScreenEdge": false
     }
   ],
   "desktopClockCustomColor": {

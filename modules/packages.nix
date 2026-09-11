@@ -99,6 +99,7 @@
           yazi
           yq-go
           zen-browser
+          zellij
           zig
           zizmor
           zoxide

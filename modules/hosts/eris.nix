@@ -4,7 +4,6 @@
     includes = with den.aspects; [
       core
       displaylink
-      docker
       gnome
       hibernate
       intune
@@ -12,6 +11,7 @@
       niri
       niri-session
       packages
+      podman
       secure-boot
       silent-boot
       work

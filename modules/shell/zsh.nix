@@ -2,7 +2,7 @@
 {
   den.aspects.zsh = {
     nixos =
-      { pkgs, ... }:
+      { ... }:
       {
         programs.zsh = {
           enable = true;
@@ -23,7 +23,7 @@
             ls = "eza";
             lt = "eza --tree";
             rebuild = "~/scripts/rebuild.sh";
-            s = "kitten ssh";
+            s = "ssh";
           };
           interactiveShellInit = ''
             eval "$(zoxide init zsh)"

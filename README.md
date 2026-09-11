@@ -9,7 +9,7 @@
 - _DE/Compositor_: niri
 - _Shell_: zsh
 - _Editor_: neovim
-- _Terminal_: kitty
+- _Terminal_: ghostty
 
 The rest doesn't really matter.
 

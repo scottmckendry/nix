@@ -17,10 +17,11 @@ in
           ".config/git/config".source = ../../home/git/config;
           ".config/k9s/aliases.yaml".source = ../../home/k9s/aliases.yaml;
           ".config/k9s/config.yaml".source = ../../home/k9s/config.yaml;
-          ".config/kitty/kitty.conf".source = ../../home/kitty/kitty.conf;
+          ".config/ghostty/config".source = ../../home/ghostty/config;
           ".config/lazygit/config.yml".source = ../../home/lazygit/config.yml;
           ".config/mimeapps.list".source = ../../home/mimeapps.list;
           ".local/share/applications/mimeapps.list".source = ../../home/mimeapps.list;
+          ".local/share/applications/nvim-xdg.desktop".source = ../../home/applications/nvim-xdg.desktop;
           ".config/posting/config.yaml".source = ../../home/posting/config.yaml;
           ".config/starship.toml".source = ../../home/starship.toml;
           ".config/user-dirs.dirs".source = ../../home/user-dirs.dirs;
@@ -40,7 +41,7 @@ in
           ".config/bat/themes/cyberdream.tmTheme".source = "${thm.textmate}/cyberdream-muted.tmTheme";
           ".config/btop/themes/cyberdream.theme".source = "${thm.btop}/cyberdream-muted.theme";
           ".config/k9s/skins/cyberdream.yaml".source = "${thm.k9s}/cyberdream-muted.yml";
-          ".config/kitty/theme.conf".source = "${thm.kitty}/cyberdream-muted.conf";
+          ".config/ghostty/theme.conf".source = "${thm.ghostty}/cyberdream-muted";
           ".config/opencode/themes/cyberdream.json".source = "${thm.opencode}/cyberdream-muted.json";
           ".config/posting/themes/cyberdream.yaml".source = "${thm.posting}/cyberdream-muted.yaml";
           ".config/yazi/theme.toml".source = "${thm.yazi}/cyberdream-muted.toml";

@@ -125,8 +125,7 @@ PluginComponent {
     Process {
         id: rebuildProcess
         command: ["sh", "-c",
-            "kitty @ --to unix:/tmp/kitty-socket launch --type=tab zsh -c '"
-            + updateScriptPath + "; exec zsh' 2>/dev/null || kitty -e zsh -c '"
+            "ghostty -e zsh -c '"
             + updateScriptPath + "; exec zsh'"]
         onExited: exitCode => {
             if (exitCode !== 0)

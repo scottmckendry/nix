@@ -41,7 +41,7 @@ layer-rule {
 
 // Blur effects
 window-rule {
-    match app-id=r#"(?i)^kitty$"#
+    match app-id=r#"(?i)^com.mitchellh.ghostty$"#
     background-effect {
         blur true
     }

@@ -16,7 +16,6 @@
           bat
           brightnessctl
           btop
-          btop-kitty
           bun
           calibre
           cargo
@@ -35,6 +34,7 @@
           gh
           gh-markdown-preview
           ghostscript
+          ghostty
           gimp
           git
           gnumake
@@ -48,7 +48,6 @@
           just
           k9s
           killall
-          kitty-wrapped
           kubectl
           kubectl-cnpg
           lazygit
@@ -57,11 +56,10 @@
           mermaid-cli
           neovim
           nh
-          nixd
           nix-index
+          nixd
           nixfmt
           nodejs
-          nvim-xdg
           obs-studio
           obsidian
           odin

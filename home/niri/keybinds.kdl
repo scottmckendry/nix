@@ -4,14 +4,14 @@ binds {
 
     // --- Applications / Utility ---
     Mod+Shift+S      { screenshot; }
-    Mod+RETURN       { spawn "kitty"; }
+    Mod+RETURN       { spawn "ghostty"; }
     Mod+B            { spawn "zen"; }
     Mod+E            { spawn "nautilus"; }
     Mod+R            { spawn-sh "dms ipc call spotlight-bar toggle"; }
     Mod+V            { spawn-sh "dms ipc call clipboard toggle"; }
     Mod+Alt+L        { spawn-sh "dms ipc call lock lock"; }
     Mod+Shift+C      { spawn-sh "dms color pick -a"; }
-    Mod+Shift+Escape { spawn "btop-kitty"; }
+    Mod+Shift+Escape { spawn-sh "ghostty -e btop"; }
     Mod+Shift+O      { spawn-sh "grim -g \"$(slurp)\" - | tesseract stdin stdout | wl-copy"; }
     Mod+P            { spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"; }
 

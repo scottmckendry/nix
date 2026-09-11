@@ -30,4 +30,4 @@ text/x-yaml=nvim-xdg.desktop
 x-scheme-handler/about=zen.desktop
 x-scheme-handler/http=zen.desktop
 x-scheme-handler/https=zen.desktop
-x-scheme-handler/terminal=kitty.desktop
+x-scheme-handler/terminal=com.mitchellh.ghostty.desktop

@@ -1,0 +1,19 @@
+# Theme (colors from cyberdream-muted, symlinked in by nix)
+config-file = /home/scott/.config/ghostty/theme.conf
+
+# Font
+font-family = JetBrainsMono Nerd Font
+font-size = 10
+adjust-cell-height = 15%
+
+# Window appearance
+window-decoration = false
+window-padding-x = 10
+window-padding-y = 10
+background-opacity = 0.85
+
+# Window behavior
+gtk-single-instance = true
+gtk-wide-tabs = false
+focus-follows-mouse = true
+confirm-close-surface = false

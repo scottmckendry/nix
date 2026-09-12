@@ -1,0 +1,27 @@
+/* ".bottom-bar" targets tabs when placed at the bottom of the window, while ".top-bar" targets tabs when placed at the top of the window. */
+
+/* seamless transparent tabs */
+.bottom-bar,
+.top-bar {
+  background: alpha(#16181a, 0.85);
+  box-shadow: none;
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 11px;
+}
+
+tabbar tabbox {
+  min-height: 14px;
+  padding-top: 2;
+  padding-bottom: 2;
+}
+
+tabbar tabbox tab,
+tabbox tab button.image-button {
+  min-height: 14px;
+}
+
+/* hide the "x" buttons on tabs */
+.bottom-bar image,
+.top-bar image {
+  opacity: 0;
+}

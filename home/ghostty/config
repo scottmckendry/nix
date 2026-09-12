@@ -1,5 +1,6 @@
-# Theme (colors from cyberdream-muted, symlinked in by nix)
+# Theme
 config-file = /home/scott/.config/ghostty/theme.conf
+gtk-custom-css = gtk.css
 
 # Font
 font-family = JetBrainsMono Nerd Font

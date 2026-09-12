@@ -11,13 +11,13 @@ in
         mkSym = utils.mkSymlink pkgs;
       in
       {
+        clobberFiles = true;
         files = {
           ".config/bat/config".source = ../../home/bat/config;
           ".config/btop/btop.conf".source = ../../home/btop/btop.conf;
           ".config/git/config".source = ../../home/git/config;
           ".config/k9s/aliases.yaml".source = ../../home/k9s/aliases.yaml;
           ".config/k9s/config.yaml".source = ../../home/k9s/config.yaml;
-          ".config/ghostty/config".source = ../../home/ghostty/config;
           ".config/lazygit/config.yml".source = ../../home/lazygit/config.yml;
           ".config/mimeapps.list".source = ../../home/mimeapps.list;
           ".local/share/applications/mimeapps.list".source = ../../home/mimeapps.list;
@@ -30,6 +30,7 @@ in
           # symlinks
           ".config/DankMaterialShell".source = mkSym "${nixDir}/home/dms";
           ".config/DankMaterialShell/plugins/nixUpdates".source = mkSym "${nixDir}/home/dms/nixUpdates";
+          ".config/ghostty".source = mkSym "${nixDir}/home/ghostty";
           ".config/niri".source = mkSym "${nixDir}/home/niri";
           ".config/nvim".source = mkSym "${nixDir}/nvim";
           ".pi".source = mkSym "${nixDir}/home/pi";

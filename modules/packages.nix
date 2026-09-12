@@ -63,7 +63,6 @@
           obs-studio
           obsidian
           odin
-          opencode
           openssl
           pi-coding-agent
           playerctl

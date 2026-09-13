@@ -19,11 +19,6 @@
     ];
   };
 
-  den.hosts.x86_64-linux.atlas = {
-    users.scott = { };
-    swapSize = 16 * 1024;
-  };
-
   den.hosts.x86_64-linux.eris = {
     users.scott = { };
     luksDevices = [ "luks-0074ecff-31d1-498a-9571-b38b8b85a1fd" ];

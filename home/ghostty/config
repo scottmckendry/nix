@@ -18,3 +18,7 @@ gtk-single-instance = true
 gtk-wide-tabs = false
 focus-follows-mouse = true
 confirm-close-surface = false
+
+# shaders
+custom-shader = ./cursor_warp.glsl
+custom-shader = ./ripple_cursor.glsl

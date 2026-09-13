@@ -11,17 +11,20 @@
 
 tabbar tabbox {
   min-height: 14px;
-  padding-top: 2;
-  padding-bottom: 2;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-tabbar tabbox tab,
-tabbox tab button.image-button {
+tabbar tabbox tab {
   min-height: 14px;
 }
 
-/* hide the "x" buttons on tabs */
-.bottom-bar image,
-.top-bar image {
+/* hide tab "x" close buttons */
+.bottom-bar tab button.tab-close-button,
+.top-bar tab button.tab-close-button {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
   opacity: 0;
+  -gtk-icon-size: 0px;
 }

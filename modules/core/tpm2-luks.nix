@@ -1,6 +1,6 @@
 { ... }:
 {
-  den.aspects.secure-boot = {
+  den.aspects.core = {
     includes = [
       (
         { host, lib, ... }:

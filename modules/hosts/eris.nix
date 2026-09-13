@@ -12,8 +12,6 @@
       niri-session
       packages
       podman
-      secure-boot
-      silent-boot
       work
       zsh
     ];

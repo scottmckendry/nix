@@ -1,6 +1,6 @@
 { ... }:
 {
-  den.aspects.silent-boot = {
+  den.aspects.core = {
     includes = [
       (
         { host, ... }:

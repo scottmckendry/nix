@@ -5,4 +5,4 @@ let
   ) (builtins.attrNames (builtins.readDir ./.));
 in
 # Return a list of overlays for composeManyExtensions
-builtins.map (file: import (./. + "/${file}")) overlayFiles
+map (file: import (./. + "/${file}")) overlayFiles

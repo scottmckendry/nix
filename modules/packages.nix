@@ -2,9 +2,9 @@
 {
   den.aspects.packages = {
     nixos =
-      { pkgs, ... }:
+      { pkgs, system, ... }:
       let
-        zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        zen-browser = inputs.zen-browser.packages."${system}".default;
       in
       {
         environment.systemPackages = with pkgs; [

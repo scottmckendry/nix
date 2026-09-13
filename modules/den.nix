@@ -6,7 +6,6 @@
 }:
 {
   imports = [ inputs.den.flakeModule ];
-  systems = [ "x86_64-linux" ];
   _module.args.utils = import ../utils;
 
   den.schema.user.classes = lib.mkDefault [ "hjem" ];

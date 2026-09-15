@@ -72,6 +72,7 @@
           python3
           restic
           ripgrep
+          ruff
           rustc
           rustfmt
           slurp

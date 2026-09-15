@@ -4,6 +4,7 @@
 .bottom-bar,
 .top-bar {
   background: alpha(#16181a, 0.85);
+  color: #e878d8;
   box-shadow: none;
   font-family: JetBrainsMono Nerd Font;
   font-size: 11px;

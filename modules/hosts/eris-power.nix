@@ -12,14 +12,16 @@
     ];
 
     nixos =
-      { pkgs, ... }:
+      { ... }:
       {
         powerManagement.enable = true;
-        powerManagement.powertop.enable = true;
-        environment.systemPackages = [ pkgs.powertop ];
-
-        services.power-profiles-daemon.enable = true;
-
+        services.tlp = {
+          enable = true;
+          settings = {
+            USB_DENYLIST = "3554:f58a"; # VXE Mouse
+          };
+        };
+        services.power-profiles-daemon.enable = false; # conflicts with TLP
         systemd.sleep.settings.Sleep = {
           AllowHibernation = "yes";
           HibernateMode = "platform shutdown";

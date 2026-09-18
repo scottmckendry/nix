@@ -34,7 +34,6 @@ in
           ".config/niri".source = mkSym "${nixDir}/home/niri";
           ".config/nvim".source = mkSym "${nixDir}/nvim";
           ".pi".source = mkSym "${nixDir}/home/pi";
-          ".pi-lens/config.json".source = mkSym "${nixDir}/home/pi/lens/config.json";
           "scripts".source = mkSym "${nixDir}/scripts";
 
           # cyberdream themes

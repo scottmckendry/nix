@@ -14,7 +14,7 @@ return {
             markdown = { "prettier" },
             mdx = { "prettier" },
             nix = { "nixfmt" },
-            python = { "black" },
+            python = { "ruff_organize_imports", "ruff_format" },
             qml = { "qmlformat" },
             rust = { "rustfmt" },
             scss = { "prettier" },

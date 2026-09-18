@@ -27,12 +27,11 @@
           u2f.settings.authfile = "/etc/u2f_keys";
           services = {
             login.u2fAuth = true;
+            login.enableGnomeKeyring = true;
             sudo.u2fAuth = true;
             su.u2fAuth = true;
             quickshell.u2fAuth = true;
             quickshell.enableGnomeKeyring = true;
-            greetd.enableGnomeKeyring = true;
-            tuigreet.enableGnomeKeyring = true;
           };
         };
 

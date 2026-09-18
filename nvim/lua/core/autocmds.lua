@@ -37,18 +37,6 @@ autocmd("BufEnter", {
     desc = "Enable spell checking on specific filetypes",
 })
 
-autocmd("BufEnter", {
-    pattern = { "*.md" },
-    callback = function()
-        local toggle = utils.copilot_toggle()
-        if toggle:get() then
-            toggle:toggle()
-        end
-    end,
-    group = general,
-    desc = "Disable copilot in markdown files",
-})
-
 autocmd("BufWinEnter", {
     callback = function(data)
         utils.open_help(data.buf)

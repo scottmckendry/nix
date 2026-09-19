@@ -6,7 +6,7 @@
   "tuiMode": "fullscreen",
   "fullscreenScrollbar": "always",
   "defaultProvider": "opencode-go",
-  "defaultModel": "glm-5.3",
+  "defaultModel": "kimi-k2.7-code",
   "steeringMode": "all",
   "quietStartup": false,
   "doubleEscapeAction": "none",
@@ -22,6 +22,7 @@
     "github-copilot/gpt-5.6-terra",
     "github-copilot/gpt-5.6-luna",
     "opencode-go/mimo-v2.5-pro",
-    "github-copilot/claude-opus-4.8"
+    "github-copilot/claude-opus-4.8",
+    "opencode-go/kimi-k2.7-code"
   ]
 }

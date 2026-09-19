@@ -42,6 +42,7 @@
           NPM_CONFIG_CACHE = "$HOME/.cache/npm";
           NUGET_PACKAGES = "$HOME/.local/share/nuget";
           OBSIDIAN_PATH = "$HOME/Documents/obsidian";
+          PI_CODING_AGENT_DIR = "$HOME/.config/pi";
           TALOSCONFIG = "$HOME/.config/talos/config";
         };
       };

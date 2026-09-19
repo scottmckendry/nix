@@ -6,8 +6,9 @@ hypr/hyprpaper.conf
 /home/niri/dms/colors.kdl
 /home/niri/output-active.kdl
 /home/dms/plugin_settings.json
-/home/pi/agent/auth.json
-/home/pi/agent/models-store.json
-/home/pi/agent/sessions
-/home/pi/agent/themes
-/home/pi/agent/trust.json
+/home/pi/auth.json
+/home/pi/models-store.json
+/home/pi/sessions
+/home/pi/themes
+/home/pi/trust.json
+/home/pi/web-search-cache

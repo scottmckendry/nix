@@ -76,6 +76,7 @@
           rustc
           rustfmt
           slurp
+          sops
           spotify
           sqlc
           sqlite

@@ -4,7 +4,6 @@
     includes = with den.aspects; [
       core
       displaylink
-      gnome
       hibernate
       intune
       networking

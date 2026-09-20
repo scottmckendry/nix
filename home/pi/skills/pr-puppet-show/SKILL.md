@@ -1,5 +1,5 @@
 ---
-name: fight-slop-with-slop
+name: pr-puppet-show
 description: "Retrieves and addresses copilot review comments, don't use this for human code review."
 disable-model-invocation: true
 ---
@@ -7,10 +7,6 @@ disable-model-invocation: true
 # Review PR Comments
 
 Fetches the current PR number, then reviews and addresses unresolved review threads.
-
-## Usage
-
-Run via `/skill:review-pr-comments` or ask pi to review PR comments.
 
 ## Steps
 

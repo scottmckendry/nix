@@ -1,10 +1,14 @@
-format = """$model$tokens$cost$fill$extension_status"""
+format = """$model$tokens$cost$fill$turn$context$extension_status"""
 
 [model]
+style = "purple"
 format = "[$model ]($style)"
 symbol = ''
 
 [tokens]
+symbol = ''
+
+[turn]
 symbol = ''
 
 [extension_status]
@@ -26,3 +30,12 @@ hidden = false
 threshold = 1
 style = "bold red"
 hidden = false
+
+
+[context]
+format = "[ $percentage ]($style)"
+
+[[context.display]]
+threshold = 0
+hidden = false
+style = "bold green"

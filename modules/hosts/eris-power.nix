@@ -19,6 +19,7 @@
           enable = true;
           pd.enable = true;
           settings = {
+            TLP_AUTO_SWITCH = 0; # disable auto-profile switching
             USB_DENYLIST = "3554:f58a"; # VXE Mouse
           };
         };

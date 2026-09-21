@@ -25,3 +25,9 @@ symbol = " "
 
 [line_break]
 disabled = true
+
+[custom.nix]
+command = "cat ~/.cache/nix-update-status 2>/dev/null"
+when = "test -s ~/.cache/nix-update-status"
+style = "bold yellow"
+format = "[$symbol$output]($style) "

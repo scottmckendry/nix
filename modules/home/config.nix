@@ -5,6 +5,28 @@ let
 in
 {
   den.aspects.scott = {
+    nixos = {
+      systemd.user.timers.nix-update-check = {
+        description = "Check for nix flake updates";
+        wantedBy = [ "timers.target" ];
+        timerConfig = {
+          OnBootSec = "1min";
+          OnUnitActiveSec = "5min";
+        };
+      };
+      systemd.user.services.nix-update-check = {
+        description = "Check for nix flake updates";
+        serviceConfig = {
+          Type = "oneshot";
+          ExecStart = "/home/scott/scripts/nix-update-check.sh";
+          Environment = [
+            "HOME=/home/scott"
+            "PATH=/run/wrappers/bin:/run/current-system/sw/bin:%h/.nix-profile/bin"
+          ];
+        };
+      };
+    };
+
     hjem =
       { pkgs, ... }:
       let
@@ -29,7 +51,6 @@ in
 
           # symlinks
           ".config/DankMaterialShell".source = mkSym "${nixDir}/home/dms";
-          ".config/DankMaterialShell/plugins/nixUpdates".source = mkSym "${nixDir}/home/dms/nixUpdates";
           ".config/ghostty".source = mkSym "${nixDir}/home/ghostty";
           ".config/niri".source = mkSym "${nixDir}/home/niri";
           ".config/nvim".source = mkSym "${nixDir}/nvim";

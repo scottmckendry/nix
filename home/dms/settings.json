@@ -207,10 +207,6 @@
           "enabled": true
         },
         {
-          "id": "nixUpdates",
-          "enabled": true
-        },
-        {
           "id": "spotlightWallpapers",
           "enabled": true
         },

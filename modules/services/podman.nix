@@ -4,7 +4,10 @@
     nixos =
       { pkgs, ... }:
       {
-        environment.systemPackages = [ pkgs.docker-compose ];
+        environment = {
+          systemPackages = [ pkgs.docker-compose ];
+          variables.PODMAN_COMPOSE_WARNING_LOGS = "false";
+        };
 
         virtualisation.podman = {
           enable = true;

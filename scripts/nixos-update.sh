@@ -15,7 +15,6 @@ if [ "$pr_json" != "[]" ]; then
         gh pr merge "$num" --repo "$REPO" --rebase --delete-branch
     else
         echo "⏳ PR #$num building"
-        "$HOME/scripts/nix-update-check.sh"
         exit 0
     fi
 else
@@ -26,7 +25,6 @@ else
         : # behind, fall through to rebuild
     else
         echo "✓ Up to date"
-        "$HOME/scripts/nix-update-check.sh"
         exit 0
     fi
 fi
@@ -37,5 +35,3 @@ git pull
 
 echo "==> Rebuilding..."
 "$HOME/scripts/rebuild.sh" switch
-
-"$HOME/scripts/nix-update-check.sh"

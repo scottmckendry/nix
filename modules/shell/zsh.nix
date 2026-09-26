@@ -24,6 +24,7 @@
             lt = "eza --tree";
             rebuild = "~/scripts/rebuild.sh";
             s = "ssh";
+            update = "~/scripts/nixos-update.sh";
           };
           interactiveShellInit = ''
             eval "$(zoxide init zsh)"

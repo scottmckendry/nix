@@ -9,6 +9,7 @@
       {
         environment.systemPackages = with pkgs; [
           adwaita-icon-theme
+          adw-gtk3
           age
           air
           ansible
@@ -102,6 +103,7 @@
           zellij
           zig
           zizmor
+          zmk-studio
           zoxide
         ];
       };

@@ -8,6 +8,7 @@
       in
       {
         environment.systemPackages = with pkgs; [
+          adw-gtk3
           adwaita-icon-theme
           age
           air
@@ -98,10 +99,11 @@
           wl-mirror
           yazi
           yq-go
-          zen-browser
           zellij
+          zen-browser
           zig
           zizmor
+          zmk-studio
           zoxide
         ];
       };

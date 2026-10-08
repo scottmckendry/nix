@@ -23,13 +23,11 @@ return {
                     "Trouble",
                     "alpha",
                     "copilot-chat",
-                    "dashboard",
                     "help",
                     "lazy",
                     "mason",
                     "neotree",
                     "notify",
-                    "snacks_dashboard",
                     "snacks_terminal",
                 },
                 callback = function()

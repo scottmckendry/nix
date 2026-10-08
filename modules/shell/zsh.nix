@@ -40,6 +40,7 @@
           EDITOR = "nvim";
           GOPATH = "$HOME/.local/share/go";
           KUBECONFIG = "$HOME/.config/kube/config";
+          MANPAGER = "nvim +Man!";
           NPM_CONFIG_CACHE = "$HOME/.cache/npm";
           NUGET_PACKAGES = "$HOME/.local/share/nuget";
           OBSIDIAN_PATH = "$HOME/Documents/obsidian";

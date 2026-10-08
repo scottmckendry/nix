@@ -12,7 +12,6 @@
   "doubleEscapeAction": "none",
   "editorPaddingX": 1,
   "packages": [
-    "npm:pi-code-previews",
     "npm:pi-web-access",
     "npm:@narumitw/pi-starship",
     "/home/scott/git/pi-copium/"

@@ -2,7 +2,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.autoformat = true
 vim.g.user = os.getenv("USERNAME") or os.getenv("USER")
-vim.g.host = vim.fn.hostname()
 
 local opt = vim.opt
 opt.shell = "zsh"
@@ -36,7 +35,7 @@ opt.linebreak = true
 opt.spelllang = "en_nz"
 opt.showtabline = 0
 opt.title = true
-opt.titlestring = string.format("%s@%s - nvim %%t", vim.g.user, vim.g.host)
+opt.titlestring = "%{fnamemodify(getcwd(), ':t')} - %t"
 
 -- Set statusline
 opt.laststatus = 3

@@ -15,7 +15,6 @@ background-opacity = 0.85
 
 # Window behavior
 gtk-single-instance = true
-gtk-wide-tabs = false
 focus-follows-mouse = true
 confirm-close-surface = false
 

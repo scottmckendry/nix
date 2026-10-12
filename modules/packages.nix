@@ -27,8 +27,8 @@
           delta
           discord
           eza
-          fastfetch
           fd
+          fetch
           fluxcd
           fzf
           gcc

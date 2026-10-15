@@ -1,12 +1,12 @@
 {
-  "lastChangelogVersion": "1.0.3",
+  "lastChangelogVersion": "1.1.0",
   "theme": "cyberdream-muted",
   "showCacheMissNotices": true,
   "defaultThinkingLevel": "low",
   "tuiMode": "fullscreen",
   "fullscreenScrollbar": "always",
   "defaultProvider": "opencode-go",
-  "defaultModel": "kimi-k2.7-code",
+  "defaultModel": "deepseek-v4.1-flash",
   "steeringMode": "all",
   "quietStartup": false,
   "doubleEscapeAction": "none",
@@ -17,11 +17,10 @@
     "/home/scott/git/pi-copium/"
   ],
   "enabledModels": [
-    "opencode-go/glm-5.3",
     "github-copilot/gpt-5.6-terra",
     "github-copilot/gpt-5.6-luna",
     "opencode-go/mimo-v2.5-pro",
-    "github-copilot/claude-opus-4.8",
-    "opencode-go/kimi-k2.7-code"
+    "github-copilot/claude-haiku-5.5",
+    "opencode-go/deepseek-v4.1-flash"
   ]
 }

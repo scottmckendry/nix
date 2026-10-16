@@ -1,11 +1,8 @@
-{ inputs, ... }:
+{ ... }:
 {
   den.aspects.packages = {
     nixos =
-      { pkgs, system, ... }:
-      let
-        zen-browser = inputs.zen-browser.packages."${system}".default;
-      in
+      { pkgs, ... }:
       {
         environment.systemPackages = with pkgs; [
           adw-gtk3
@@ -100,7 +97,6 @@
           yazi
           yq-go
           zellij
-          zen-browser
           zig
           zizmor
           zmk-studio

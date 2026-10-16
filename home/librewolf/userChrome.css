@@ -1,0 +1,241 @@
+/* LibreWolf chrome: toolbar + Sidebery auto-hide, both overlays */
+
+:root {
+  --uc-autohide-toolbox-delay: 200ms;
+  --uc-toolbox-rotation: 78deg; /* lower = taller hidden sliver = easier to hit */
+  --wide-tab-width: 248px;
+  --thin-tab-width: 6px; /* collapsed width doubles as the hover hit area */
+  --sidebar-background: var(--lwt-accent-color, #2b2a33);
+}
+
+:root[sizemode="maximized"] {
+  --uc-toolbox-rotation: 84deg;
+}
+
+/* Toolbar auto-hide (MrOtherGuy/firefox-csshacks), minimal implementation */
+
+:root[sizemode="fullscreen"],
+:root[sizemode="fullscreen"] #navigator-toolbox {
+  margin-top: 0 !important;
+}
+
+#navigator-toolbox {
+  --browser-area-z-index-toolbox: 3;
+  position: fixed !important;
+  background: inherit;
+  background-color: var(--lwt-accent-color, black) !important;
+  transition:
+    transform 82ms linear,
+    opacity 82ms linear !important;
+  transition-delay: var(--uc-autohide-toolbox-delay) !important;
+  transform-origin: top;
+  transform: rotateX(var(--uc-toolbox-rotation));
+  opacity: 0;
+  line-height: 0;
+  z-index: 1;
+  pointer-events: none;
+  width: 100vw;
+  border-bottom: none !important;
+}
+
+#navigator-toolbox.chrome-block {
+  margin-top: 0 !important;
+  border-top-width: 0px !important;
+}
+
+/* Collapse the breakout urlbar while the toolbox is hidden. */
+:root[sessionrestored] #urlbar:popover-open {
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    transform 82ms linear var(--uc-autohide-toolbox-delay),
+    opacity 0ms calc(var(--uc-autohide-toolbox-delay) + 82ms);
+  transform-origin: 0px
+    calc(
+      0px - var(--tab-min-height) -
+        var(--tab-margin-block, var(--tab-block-margin, 0px)) * 2
+    );
+  transform: rotateX(89.9deg);
+}
+
+/* Reveal on hover / focus / open popup / tab drag. */
+:root[window-modal-open] #navigator-toolbox,
+#mainPopupSet:has(
+    > [panelopen]:not(
+        #ask-chat-shortcuts,
+        #selection-shortcut-action-panel,
+        #chat-shortcuts-options-panel,
+        #tab-preview-panel
+      ),
+    > #tab-group-editor > [panelopen]
+  )
+  ~ toolbox,
+#navigator-toolbox:has(#urlbar:is([open], [focus-within])),
+#navigator-toolbox:is(:hover, :focus-within, [movingtab]) {
+  transition-delay: 33ms !important;
+  transform: rotateX(0);
+  opacity: 1;
+}
+
+/* Re-show the urlbar popover whenever the toolbox itself is showing. */
+:root:is([window-modal-open], [customizing]) #urlbar:popover-open,
+#mainPopupSet:has(
+    > [panelopen]:not(
+        #ask-chat-shortcuts,
+        #selection-shortcut-action-panel,
+        #chat-shortcuts-options-panel,
+        #tab-preview-panel
+      ),
+    > #tab-group-editor > [panelopen]
+  )
+  ~ toolbox
+  #urlbar:popover-open,
+#navigator-toolbox:is(:hover, :focus-within, [movingtab]) #urlbar:popover-open,
+:where(:root[sessionrestored])
+  #urlbar-container
+  > #urlbar:popover-open:is([focused], [open]) {
+  pointer-events: auto;
+  opacity: 1;
+  transition-delay: 33ms;
+  transform: rotateX(0deg);
+}
+
+#navigator-toolbox > * {
+  line-height: normal;
+  pointer-events: auto;
+}
+
+:root:not([sessionrestored]) #navigator-toolbox {
+  /* no transform until the window is fully created */
+  transform: none !important;
+}
+
+:root[customizing] #navigator-toolbox {
+  /* never hide while customizing */
+  position: relative !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+#navigator-toolbox[inFullscreen] > #PersonalToolbar,
+#PersonalToolbar:is([collapsed=""], [collapsed="true"]) {
+  display: none;
+}
+
+/* Zero-height urlbar after leaving customize mode. */
+:is(#urlbar)[breakout][breakout-extend]:popover-open > .urlbar-input-container {
+  padding-block: calc(
+    min(4px, (var(--urlbar-container-height) - var(--urlbar-height)) / 2) +
+      var(--urlbar-container-padding)
+  ) !important;
+}
+
+/* Sidebery owns tabs: keep #TabsToolbar for window controls, hide its contents. */
+
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"])
+  #TabsToolbar
+  > .toolbar-items {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+  visibility: collapse !important;
+}
+
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"])
+  #TabsToolbar
+  .titlebar-spacer {
+  border-inline-end: none;
+}
+
+#titlebar {
+  appearance: none !important;
+  height: 0px;
+}
+
+#TabsToolbar > .titlebar-buttonbox-container {
+  /* move controls over the nav-bar; no-op with niri's prefer-no-csd */
+  display: block;
+  position: absolute;
+  top: 14px;
+}
+
+#nav-bar {
+  margin-left: 0px !important;
+  margin-top: 0px;
+  border-top: 0px !important;
+  padding-left: 65px !important; /* room for repositioned controls */
+}
+
+/* Sidebery auto-hide (CleanFox), left-edge reveal. */
+
+#sidebar-box > #browser,
+#webextpanels-window {
+  background: var(--sidebar-background) !important;
+}
+
+/* Negative margin cancels the box's layout width, so the page keeps full width
+ * and the (invisible) strip floats over its left edge; same on hover, so the
+ * expanded panel overlays instead of reflowing. */
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] {
+  position: relative !important;
+  margin-top: 0 !important;
+  margin-right: calc(-1 * var(--thin-tab-width)) !important;
+  border-right: none !important;
+  width: 100% !important;
+  z-index: 1000 !important;
+  overflow: hidden !important;
+  background: var(--sidebar-background);
+  opacity: 0;
+  transition: all 200ms !important;
+  min-width: var(--thin-tab-width) !important;
+  max-width: var(--thin-tab-width) !important;
+}
+
+/* browser.nova rounds the sidebar's top corners; keep them square. */
+#sidebar-box,
+#sidebar-box #sidebar {
+  border-radius: 0 !important;
+  border-start-start-radius: 0 !important;
+  border-start-end-radius: 0 !important;
+}
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]::after {
+  /* 1px separator at the expanded panel's edge */
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  margin-left: 207px;
+  z-index: 9999999;
+  background: var(--sidebar-background) !important;
+}
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover::after {
+  top: 42px;
+}
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover,
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
+  #sidebar:hover {
+  min-width: var(--wide-tab-width) !important;
+  max-width: var(--wide-tab-width) !important;
+  margin-right: calc(-1 * var(--wide-tab-width)) !important;
+  opacity: 1;
+  transition: all 200ms !important;
+}
+
+/* Hide Firefox's sidebar chrome; Sidebery draws its own. */
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
+  #sidebar-header {
+  visibility: collapse;
+}
+
+.sidebar-splitter,
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
+  + #sidebar-splitter {
+  display: none !important;
+}

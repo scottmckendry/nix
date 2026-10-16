@@ -27,6 +27,11 @@ in
           ".config/user-dirs.dirs".source = ../../home/user-dirs.dirs;
           ".config/yazi/yazi.toml".source = ../../home/yazi/yazi.toml;
 
+          # librewolf
+          ".librewolf/profiles.ini".source = ../../home/librewolf/profiles.ini;
+          ".librewolf/default/user.js".source = ../../home/librewolf/user.js;
+          ".librewolf/default/chrome/userChrome.css".source = ../../home/librewolf/userChrome.css;
+
           # symlinks
           ".config/DankMaterialShell".source = mkSym "${nixDir}/home/dms";
           ".config/ghostty".source = mkSym "${nixDir}/home/ghostty";

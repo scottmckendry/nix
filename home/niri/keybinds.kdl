@@ -5,7 +5,7 @@ binds {
     // --- Applications / Utility ---
     Mod+Shift+S      { screenshot; }
     Mod+RETURN       { spawn "ghostty"; }
-    Mod+B            { spawn "zen"; }
+    Mod+B            { spawn "librewolf"; }
     Mod+E            { spawn "nautilus"; }
     Mod+R            { spawn-sh "dms ipc call spotlight-bar toggle"; }
     Mod+V            { spawn-sh "dms ipc call clipboard toggle"; }

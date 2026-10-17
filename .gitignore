@@ -3,11 +3,15 @@ hypr/hyprpaper.conf
 
 /home/dms/plugins/*
 /home/dms/zen.css
+/home/ghostty/theme.conf
+/home/ghostty/themes
 /home/niri/dms/colors.kdl
 /home/niri/output-active.kdl
 /home/dms/plugin_settings.json
 /home/pi/auth.json
+/home/pi/git
 /home/pi/models-store.json
+/home/pi/npm
 /home/pi/sessions
 /home/pi/themes
 /home/pi/trust.json

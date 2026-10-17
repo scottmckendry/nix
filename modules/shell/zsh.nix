@@ -22,9 +22,9 @@
             lla = "eza -la";
             ls = "eza";
             lt = "eza --tree";
-            rebuild = "~/scripts/rebuild.sh";
+            rebuild = "~/scripts/nix-update.sh rebuild";
             s = "ssh";
-            update = "~/scripts/nixos-update.sh";
+            update = "~/scripts/nix-update.sh update";
           };
           interactiveShellInit = ''
             eval "$(zoxide init zsh)"

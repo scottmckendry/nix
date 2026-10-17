@@ -2,44 +2,18 @@
 {
   den.aspects.core = {
     nixos =
-      { pkgs, ... }:
+      { pkgs, config, ... }:
       let
-        nix-update-check = pkgs.writeShellApplication {
-          name = "nix-update-check";
-          runtimeInputs = [
-            pkgs.gh
-            pkgs.git
-            pkgs.jq
+        user = config.users.users.scott;
+        nix-update = pkgs.writeShellApplication {
+          name = "nix-update";
+          runtimeInputs = with pkgs; [
+            gh
+            git
+            gnugrep
+            jq
           ];
-          text = ''
-            CACHE="$HOME/.cache/nix-update-status"
-            REPO="scottmckendry/nix"
-
-            mkdir -p "$(dirname "$CACHE")"
-
-            pr_json=$(gh pr list --repo "$REPO" --label nix --state open \
-                --json number,labels --limit 1 2>/dev/null || echo "[]")
-
-            if [ "$pr_json" != "[]" ]; then
-                labels=$(echo "$pr_json" | jq -r '.[0].labels[].name' 2>/dev/null || true)
-                if echo "$labels" | grep -qw "cachix-ready"; then
-                    echo "" >"$CACHE"
-                elif echo "$labels" | grep -qw "build-failed"; then
-                    echo "" >"$CACHE"
-                else
-                    echo "󱤛" >"$CACHE"
-                fi
-            else
-                local=$(git -C "$HOME/git/nix" rev-parse HEAD 2>/dev/null || echo "")
-                remote=$(gh api "repos/$REPO/git/ref/heads/main" \
-                    --jq .object.sha 2>/dev/null || echo "")
-                if [ -n "$local" ] && [ -n "$remote" ] && [ "$local" != "$remote" ]; then
-                    echo "behind" >"$CACHE"
-                else
-                    : >"$CACHE"
-                fi
-            fi
-          '';
+          text = builtins.readFile ../../scripts/nix-update.sh;
         };
       in
       {
@@ -55,11 +29,12 @@
           description = "Check for nix flake updates";
           serviceConfig = {
             Type = "oneshot";
-            User = "scott";
-            ExecStart = "${nix-update-check}/bin/nix-update-check";
+            User = user.name;
+            ExecStart = "${nix-update}/bin/nix-update glyph";
             Environment = [
-              "HOME=/home/scott"
-              "PATH=/run/wrappers/bin:/run/current-system/sw/bin:/home/scott/.nix-profile/bin"
+              "HOME=${user.home}"
+              "PATH=/run/wrappers/bin:/run/current-system/sw/bin:${user.home}/.nix-profile/bin"
+              "NIX_REPO_DIR=${user.home}/git/nix"
             ];
           };
         };

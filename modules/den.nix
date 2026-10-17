@@ -13,6 +13,7 @@
   den.aspects.scott = {
     includes = [
       den.provides.define-user
+      den.aspects.librewolf
       den.provides.primary-user
       (den.provides.user-shell "zsh")
     ];

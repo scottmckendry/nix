@@ -6,7 +6,6 @@
       displaylink
       hibernate
       intune
-      librewolf
       networking
       niri
       niri-session

@@ -2,7 +2,7 @@
 {
   den.aspects.niri = {
     nixos =
-      { pkgs, ... }:
+      { pkgs, config, ... }:
       {
         programs.niri = {
           enable = lib.mkForce true;
@@ -16,7 +16,7 @@
         services.displayManager.dms-greeter = {
           enable = true;
           compositor.name = "niri";
-          configHome = "/home/scott";
+          configHome = config.users.users.scott.home;
           compositor.customConfig = ''
             output "GIGA-BYTE TECHNOLOGY CO., LTD. G34WQC 20482B004420" {
                 mode      "3440x1440@144"

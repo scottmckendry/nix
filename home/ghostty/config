@@ -1,5 +1,5 @@
 # Theme
-config-file = /home/scott/.config/ghostty/theme.conf
+config-file = ~/.config/ghostty/theme.conf
 gtk-custom-css = gtk.css
 
 # Font

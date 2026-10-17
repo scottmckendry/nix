@@ -41,13 +41,14 @@
           };
         };
 
+        # re-select niri outputs on Dell D6000 dock connect/disconnect
         services.udev.extraRules = ''
-          # re-select niri outputs on Dell D6000 dock connect/disconnect
           ACTION=="add|remove", \
           ENV{ID_BUS}=="usb", \
           ENV{ID_VENDOR_ID}=="17e9", \
           ENV{ID_MODEL_ID}=="6006", \
-          RUN+="${pkgs.su}/bin/su scott -c 'HOME=/home/scott ${niri-select-outputs}/bin/niri-select-outputs'"
+          TAG+="systemd", \
+          ENV{SYSTEMD_USER_WANTS}+="niri-select-outputs.service"
         '';
       };
   };

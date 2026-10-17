@@ -8,15 +8,19 @@
         nix-update = pkgs.writeShellApplication {
           name = "nix-update";
           runtimeInputs = with pkgs; [
+            coreutils
             gh
             git
             gnugrep
             jq
+            nh
           ];
-          text = builtins.readFile ../../scripts/nix-update.sh;
+          text = builtins.readFile ./nix-update.sh;
         };
       in
       {
+        environment.systemPackages = [ nix-update ];
+
         systemd.timers.nix-update-check = {
           description = "Check for nix flake updates";
           wantedBy = [ "timers.target" ];

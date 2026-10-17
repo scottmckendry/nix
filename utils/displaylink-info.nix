@@ -12,7 +12,17 @@ let
       })
     ];
   };
-  msg = pkgs.displaylink.src.message;
-  matches = builtins.match ".*(https://www\\.synaptics\\.com/sites/default/files/exe_files/[^ \n]+).*" msg;
+  src = pkgs.displaylink.src;
+  msg = src.message;
+  urlPattern = ".*(https://www\\.synaptics\\.com/sites/default/files/exe_files/[^ \n]+).*";
+  matches = builtins.match urlPattern msg;
 in
-"name=${pkgs.lib.escapeShellArg pkgs.displaylink.src.name} url=${pkgs.lib.escapeShellArg (builtins.head matches)}"
+if matches == null then
+  throw ''
+    displaylink-info: could not extract a Synaptics download URL from the
+    displaylink src message. The upstream package message format may have
+    changed. Message was:
+    ${msg}
+  ''
+else
+  "name=${pkgs.lib.escapeShellArg src.name} url=${pkgs.lib.escapeShellArg (builtins.head matches)}"

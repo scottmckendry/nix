@@ -18,13 +18,6 @@
 
         hardware.bluetooth.enable = true;
         hardware.bluetooth.powerOnBoot = true;
-
-        # useful ports to open for web dev
-        networking.firewall.allowedTCPPorts = [
-          3000
-          1337
-          8080
-        ];
       };
   };
 }

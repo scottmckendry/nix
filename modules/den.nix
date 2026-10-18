@@ -1,23 +1,9 @@
-{
-  inputs,
-  lib,
-  den,
-  ...
-}:
+{ inputs, lib, ... }:
 {
   imports = [ inputs.den.flakeModule ];
   _module.args.utils = import ../utils;
 
   den.schema.user.classes = lib.mkDefault [ "hjem" ];
-
-  den.aspects.scott = {
-    includes = [
-      den.provides.define-user
-      den.aspects.librewolf
-      den.provides.primary-user
-      (den.provides.user-shell "zsh")
-    ];
-  };
 
   den.hosts.x86_64-linux.eris = {
     users.scott = { };

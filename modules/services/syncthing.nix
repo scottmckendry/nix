@@ -1,9 +1,9 @@
 { ... }:
 {
-  den.aspects.niri-session = {
+  den.aspects.syncthing = {
     nixos =
-      { config, lib, ... }:
-      lib.mkIf config.programs.niri.enable {
+      { config, ... }:
+      {
         services.syncthing = {
           enable = true;
           user = "scott";

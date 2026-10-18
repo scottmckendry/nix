@@ -28,7 +28,6 @@
             output "Sharp Corporation LQ144P1JX01 0x340012A0" {
                 mode      "2400x1600@120"
                 scale     1.2
-                variable-refresh-rate
                 position  x=920 y=1080
             }
             output "Dell Inc. DELL P2319H H5FH3V2" { off; }

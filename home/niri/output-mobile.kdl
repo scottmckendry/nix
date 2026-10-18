@@ -2,8 +2,10 @@
 output "Sharp Corporation LQ144P1JX01 0x340012A0" {
     mode      "2400x1600@120"
     scale     1.2
-    variable-refresh-rate
     position  x=920 y=1080
+    // NOTE: you may be tempted to use VRR here. Don't.
+    // This panel has built-in PSR (Panel Self Refresh) and
+    // VRR blocks it, adding roughly 10w extra power draw.
 }
 
 // Right AOC monitor

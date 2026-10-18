@@ -4,7 +4,7 @@
     includes = with den.aspects; [
       core
       displaylink
-      hibernate
+      power-management
       intune
       networking
       niri

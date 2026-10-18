@@ -1,11 +1,13 @@
 { ... }:
 {
-  den.aspects.hibernate = {
+  den.aspects.power-management = {
     includes = [
       (
         { host, ... }:
         {
-          nixos.boot.kernelParams = [ "resume_offset=${toString host.swapResumeOffset}" ];
+          nixos.boot.kernelParams = [
+            "resume_offset=${toString host.swapResumeOffset}"
+          ];
           nixos.boot.resumeDevice = "/dev/mapper/${builtins.head (host.luksDevices or [ "" ])}";
         }
       )
@@ -19,8 +21,11 @@
           enable = true;
           pd.enable = true;
           settings = {
-            TLP_AUTO_SWITCH = 0; # disable auto-profile switching
             USB_DENYLIST = "3554:f58a"; # VXE Mouse
+            WIFI_PWR_ON_AC = "off";
+            WIFI_PWR_ON_BAT = "on";
+            PCIE_ASPM_ON_BAT = "powersupersave";
+            PLATFORM_PROFILE_ON_BAT = "low-power";
           };
         };
         services.power-profiles-daemon.enable = false; # conflicts with TLP

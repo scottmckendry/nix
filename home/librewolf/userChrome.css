@@ -2,14 +2,14 @@
 
 :root {
   --uc-autohide-toolbox-delay: 200ms;
-  --uc-toolbox-rotation: 78deg; /* lower = taller hidden sliver = easier to hit */
+  --uc-toolbox-rotation: 72deg; /* lower = taller hidden sliver = easier to hit */
   --wide-tab-width: 248px;
-  --thin-tab-width: 6px; /* collapsed width doubles as the hover hit area */
+  --thin-tab-width: 16px; /* collapsed width doubles as the hover hit area */
   --sidebar-background: var(--lwt-accent-color, #2b2a33);
 }
 
 :root[sizemode="maximized"] {
-  --uc-toolbox-rotation: 84deg;
+  --uc-toolbox-rotation: 80deg;
 }
 
 /* Toolbar auto-hide (MrOtherGuy/firefox-csshacks), minimal implementation */
@@ -168,6 +168,23 @@
   padding-left: 65px !important; /* room for repositioned controls */
 }
 
+/* hide single-pixel borders that appear when sidebar/toolbox are hidden */
+#browser,
+.browserStack,
+.browserStack > browser,
+.browserContainer,
+#appcontent,
+#tabbrowser-tabbox,
+#tabbrowser-tabpanels,
+#sidebar-box,
+#sidebar {
+  border: none !important;
+  border-top: none !important;
+  border-inline-start: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* Sidebery auto-hide (CleanFox), left-edge reveal. */
 
 #sidebar-box > #browser,
@@ -212,10 +229,12 @@
   margin-left: 207px;
   z-index: 9999999;
   background: var(--sidebar-background) !important;
+  display: none;
 }
 
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover::after {
   top: 42px;
+  display: block;
 }
 
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover,

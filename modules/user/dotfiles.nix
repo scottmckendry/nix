@@ -24,7 +24,6 @@ in
         ".config/posting/config.yaml".source = ../../home/posting/config.yaml;
         ".config/starship.toml".source = ../../home/starship.toml;
         ".config/user-dirs.dirs".source = ../../home/user-dirs.dirs;
-        ".config/yazi/yazi.toml".source = ../../home/yazi/yazi.toml;
 
         # symlinks
         ".config/DankMaterialShell".source = mkSym "${nixDir}/home/dms";
@@ -40,7 +39,6 @@ in
         ".config/k9s/skins/cyberdream.yaml".source = "${thm.k9s}/cyberdream-muted.yml";
         ".config/ghostty/theme.conf".source = "${thm.ghostty}/cyberdream-muted";
         ".config/posting/themes/cyberdream.yaml".source = "${thm.posting}/cyberdream-muted.yaml";
-        ".config/yazi/theme.toml".source = "${thm.yazi}/cyberdream-muted.toml";
       };
     };
 }

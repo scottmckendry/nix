@@ -10,12 +10,10 @@
           age
           air
           ansible
-          appimage-run
           bat
           brightnessctl
           btop
           bun
-          calibre
           cargo
           clang
           clang-tools
@@ -33,14 +31,12 @@
           gh-markdown-preview
           ghostscript
           ghostty
-          gimp
           git
           gnumake
           go
           go-task
           gopls
           grim
-          hugo
           inotify-tools
           jq
           just
@@ -58,13 +54,10 @@
           nixd
           nixfmt
           nodejs
-          obs-studio
-          obsidian
           odin
           openssl
           pi-coding-agent
           playerctl
-          posting
           powershell
           presenterm
           python3
@@ -81,22 +74,17 @@
           starship
           tailwindcss_4
           talosctl
-          tdf
           tela-icon-theme
           tesseract
           tokei
           tree
           typescript
-          typst
           unzip
           uv
           vlc
           wget
           wl-clipboard
           wl-mirror
-          yazi
-          yq-go
-          zellij
           zig
           zizmor
           zmk-studio

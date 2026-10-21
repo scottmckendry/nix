@@ -4,8 +4,11 @@
     nixos =
       { pkgs, ... }:
       let
-        azure-cli-stable =
-          inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.azure-cli;
+        stablePkgs = inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+
+        azure-cli = stablePkgs.azure-cli;
+        azure-functions-core-tools = stablePkgs.azure-functions-core-tools;
+        bicep = stablePkgs.bicep;
 
         dotnet-combined =
           with pkgs.dotnetCorePackages;
@@ -19,9 +22,9 @@
         services.twingate.enable = true;
 
         environment.systemPackages = with pkgs; [
-          (azure-cli-stable.withExtensions [
-            azure-cli-stable.extensions.azure-devops
-            azure-cli-stable.extensions.ssh
+          (azure-cli.withExtensions [
+            azure-cli.extensions.azure-devops
+            azure-cli.extensions.ssh
           ])
           azure-functions-core-tools
           azurite

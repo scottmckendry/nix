@@ -3,9 +3,27 @@
   den.aspects.displaylink = {
     nixos =
       { pkgs, config, ... }:
+      # TODO: remove entire let block when available in unstable channel
+      # https://github.com/NixOS/nixpkgs/pull/576405
+      let
+        evdi = config.boot.kernelPackages.evdi.overrideAttrs (old: {
+          makeFlags = builtins.filter (flag: flag != "module") old.makeFlags ++ [
+            "DESTDIR=${placeholder "out"}"
+          ];
+          buildFlags = [ "module" ];
+          installFlags = [
+            "-C"
+            "module"
+          ];
+          installPhase = null;
+          postInstall = ''
+            install -Dm755 library/libevdi.so $out/lib/libevdi.so
+          '';
+        });
+      in
       {
         boot = {
-          extraModulePackages = [ config.boot.kernelPackages.evdi ];
+          extraModulePackages = [ evdi ];
           kernelModules = [ "evdi" ];
         };
 

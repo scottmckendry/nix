@@ -7,6 +7,7 @@
         programs.zsh = {
           enableCompletion = true;
           autosuggestions.enable = true;
+          setOptions = [ "correct" ];
           ohMyZsh = {
             enable = true;
             plugins = [ "git" ];
@@ -29,8 +30,6 @@
             eval "$(starship init zsh)"
           '';
         };
-
-        programs.pay-respects.enable = true;
 
         environment.sessionVariables = {
           BUN_INSTALL = "$HOME/.local/share/bun";

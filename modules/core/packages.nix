@@ -15,12 +15,9 @@
           btop
           bun
           cargo
-          clang
-          clang-tools
           cliphist
           cups-pk-helper
           delta
-          discord
           eza
           fd
           fetch
@@ -36,8 +33,6 @@
           go
           go-task
           gopls
-          grim
-          inotify-tools
           jq
           just
           k9s
@@ -50,7 +45,6 @@
           mermaid-cli
           neovim
           nh
-          nix-index
           nixd
           nixfmt
           nodejs
@@ -66,16 +60,12 @@
           ruff
           rustc
           rustfmt
-          slurp
           sops
-          spotify
           sqlc
           sqlite
           starship
-          tailwindcss_4
           talosctl
           tela-icon-theme
-          tesseract
           tokei
           tree
           typescript
@@ -85,9 +75,7 @@
           wget
           wl-clipboard
           wl-mirror
-          zig
           zizmor
-          zmk-studio
           zoxide
         ];
       };

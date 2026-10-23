@@ -17,7 +17,3 @@ background-opacity = 0.85
 gtk-single-instance = true
 focus-follows-mouse = true
 confirm-close-surface = false
-
-# shaders
-custom-shader = ./cursor_warp.glsl
-custom-shader = ./ripple_cursor.glsl

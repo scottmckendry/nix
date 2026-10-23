@@ -102,10 +102,11 @@
           wantedBy = [ "timers.target" ];
           timerConfig = {
             OnBootSec = "5min";
-            OnUnitActiveSec = "1h";
-            RandomizedDelaySec = "5min";
+            OnUnitActiveSec = "15min";
+            RandomizedDelaySec = "2min";
           };
         };
+
         systemd.services.nix-update-check = {
           description = "Check for nix flake updates";
           unitConfig.OnSuccess = [ "nix-update-prebuild.service" ];

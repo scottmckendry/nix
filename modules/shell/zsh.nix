@@ -21,9 +21,8 @@
             lla = "eza -la";
             ls = "eza";
             lt = "eza --tree";
-            rebuild = "nix-update rebuild";
+            rebuild = "nh os switch .";
             s = "ssh";
-            update = "nix-update update";
           };
           interactiveShellInit = ''
             eval "$(zoxide init zsh)"

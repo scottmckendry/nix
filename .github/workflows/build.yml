@@ -1,18 +1,21 @@
+name: Build
+
 on:
-  pull_request:
+  push:
     branches:
       - main
-    paths:
-      - "flake.lock"
+      - ci/prebuild
+  workflow_dispatch:
 
-name: Build
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: write
     strategy:
       fail-fast: false
       matrix:
@@ -41,35 +44,3 @@ jobs:
           nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel \
             --no-link \
             --print-build-logs
-
-  label:
-    needs: build
-    runs-on: ubuntu-latest
-    if: success()
-    permissions:
-      pull-requests: write
-    steps:
-      - name: Add cachix-ready label
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh pr edit "${{ github.event.pull_request.number }}" \
-            --repo "${{ github.repository }}" \
-            --add-label "cachix-ready" \
-            --remove-label "build-failed" || true
-
-  label-failure:
-    needs: build
-    runs-on: ubuntu-latest
-    if: failure()
-    permissions:
-      pull-requests: write
-    steps:
-      - name: Add build-failed label
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh pr edit "${{ github.event.pull_request.number }}" \
-            --repo "${{ github.repository }}" \
-            --add-label "build-failed" \
-            --remove-label "cachix-ready" || true

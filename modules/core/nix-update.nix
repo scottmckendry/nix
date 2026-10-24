@@ -8,73 +8,50 @@
 
         nix-update-check = pkgs.writeShellApplication {
           name = "nix-update-check";
-          runtimeInputs = with pkgs; [
-            coreutils
-            diffutils
-            gh
-            jq
+          runtimeInputs = [
+            pkgs.coreutils
+            pkgs.git
+            pkgs.jq
           ];
           text = ''
             readonly REPO_DIR="''${NIX_REPO_DIR:-$HOME/git/nix}"
             readonly CACHE="''${NIX_UPDATE_CACHE:-$HOME/.cache/nix-update-status}"
-            readonly DISPATCHED="''${NIX_UPDATE_DISPATCHED:-$HOME/.cache/nix-update-dispatched}"
-            readonly GH_REPO="''${NIX_UPDATE_GH_REPO:-scottmckendry/nix}"
-            readonly WORKFLOW="''${NIX_UPDATE_WORKFLOW:-build.yml}"
 
-            desired=$(mktemp)
-            err=$(mktemp)
-            trap 'rm -f "$desired" "$err"' EXIT
+            resolved=$(mktemp)
+            trap 'rm -f "$resolved"' EXIT
 
-            if ! nix flake update --flake "$REPO_DIR" --output-lock-file "$desired" >/dev/null 2>"$err"; then
-                printf 'offline\n'
-                cat "$err" >&2
-                exit 0
+            if ! nix flake update --flake "$REPO_DIR" --output-lock-file "$resolved" >/dev/null 2>&1; then
+              exit 0 # offline or broken: leave the indicator untouched
             fi
 
-            if jq -S . "$REPO_DIR/flake.lock" | cmp -s - <(jq -S . "$desired"); then
-                printf 'current\n'
-                rm -f "$CACHE"
-                exit 0
-            fi
-
-            printf 'stale\n'
-            mkdir -p "$(dirname "$CACHE")" "$(dirname "$DISPATCHED")"
-            printf '' >"$CACHE"
-
-            hash=$(sha256sum "$desired" | cut -d' ' -f1)
-            if [[ -f $DISPATCHED ]] && [[ $(<"$DISPATCHED") == "$hash" ]]; then
-                exit 0
-            fi
-
-            printf '==> Dispatching %s on %s\n' "$WORKFLOW" "$GH_REPO" >&2
-            if gh workflow run "$WORKFLOW" --repo "$GH_REPO" -f update=true; then
-                printf '%s\n' "$hash" >"$DISPATCHED"
+            if jq -S . "$REPO_DIR/flake.lock" | cmp -s - <(jq -S . "$resolved"); then
+              rm -f "$CACHE"
             else
-                printf 'failed to dispatch %s\n' "$WORKFLOW" >&2
+              mkdir -p "$(dirname "$CACHE")"
+              printf '' >"$CACHE"
             fi
           '';
         };
       in
       {
         systemd.timers.nix-update-check = {
-          description = "Check for nix flake updates";
+          description = "Check for flake updates upstream";
           wantedBy = [ "timers.target" ];
           timerConfig = {
-            OnBootSec = "5min";
-            OnUnitActiveSec = "15min";
-            RandomizedDelaySec = "2min";
+            OnBootSec = "1min";
+            OnUnitActiveSec = "7min";
           };
         };
 
         systemd.services.nix-update-check = {
-          description = "Check for nix flake updates";
+          description = "Check for flake updates upstream";
           serviceConfig = {
             Type = "oneshot";
             User = user.name;
             ExecStart = "${nix-update-check}/bin/nix-update-check";
+            TimeoutStartSec = "5min";
             Environment = [
               "HOME=${user.home}"
-              "PATH=/run/wrappers/bin:/run/current-system/sw/bin:${user.home}/.nix-profile/bin"
               "NIX_REPO_DIR=${user.home}/git/nix"
             ];
           };

@@ -5,17 +5,11 @@ on:
     branches:
       - main
   schedule:
-    # Daily at 12:00 UTC: resolve latest flake inputs and build that result.
-    - cron: "0 12 * * *"
+    - cron: "0 */6 * * *" # every 6 hours
   workflow_dispatch:
-    inputs:
-      update:
-        description: Run nix flake update before building
-        type: boolean
-        default: false
 
 concurrency:
-  group: build-${{ github.event_name == 'schedule' && 'schedule' || github.ref }}
+  group: build
   cancel-in-progress: true
 
 jobs:
@@ -23,10 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    strategy:
-      fail-fast: false
-      matrix:
-        host: [eris]
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -41,17 +31,29 @@ jobs:
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - name: Update flake.lock
-        if: github.event_name == 'schedule' || inputs.update
         run: nix flake update --print-build-logs
 
-      - name: Pre-fetch DisplayLink zip (eris only)
-        if: matrix.host == 'eris'
+      - name: Check what needs warming
+        id: plan
+        run: |
+          top=$(nix eval --raw \
+            .#nixosConfigurations.eris.config.system.build.toplevel.outPath)
+          echo "toplevel: $top"
+          if nix path-info --store https://scottmckendry.cachix.org "$top" >/dev/null 2>&1; then
+            echo 'Already in Cachix; nothing to push.'
+          else
+            echo 'warm=true' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Pre-fetch DisplayLink zip
+        if: steps.plan.outputs.warm == 'true'
         run: |
           eval "$(nix eval --impure --raw --file utils/displaylink-info.nix)"
           nix-prefetch-url --name "$name" "$url"
 
-      - name: Build ${{ matrix.host }}
+      - name: Build eris
+        if: steps.plan.outputs.warm == 'true'
         run: |
-          nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel \
+          nix build .#nixosConfigurations.eris.config.system.build.toplevel \
             --no-link \
             --print-build-logs

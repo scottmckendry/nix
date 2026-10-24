@@ -1,20 +1,30 @@
-# ❄️ NixOS Configuration
+<h1 align="center">NixOS</h1>
 
-"Multi-host" modular NixOS configuration. Powered by [Nix Flakes](https://nixos.wiki/wiki/Flakes).
+<p align="center">
+  <i>"Multi-host" NixOS config built on Nix flakes, den and hjem.</i>
+</p>
 
-<img width="1918" height="1079" alt="image" src="https://github.com/user-attachments/assets/f6340728-1f22-4484-b1a4-0d117eeaa2dc" />
+---
 
-## ⚙️ Info
+<p align="center">
+  <img width="1200" alt="Desktop screenshot" src="https://github.com/user-attachments/assets/977364d5-ed61-4f05-9792-7056f9380bdd" />
+</p>
 
-- _DE/Compositor_: niri
-- _Shell_: zsh
-- _Editor_: neovim
-- _Terminal_: ghostty
+## Info
 
-The rest doesn't really matter.
+- _Compositor_: [niri](https://github.com/niri-wm/niri)
+- _Desktop_: [Dux Shell](https://duxlabs.dev/)
+- _Terminal_: [Ghostty](https://ghostty.org/)
+- _Theme_: [cyberdream](https://github.com/scottmckendry/cyberdream.nvim)
+- _Editor_: [neovim](https://neovim.io/)
 
-## 🖥️ Hosts
+## Structure
 
-| Hostname | Description |
-| -------- | ----------- |
-| `eris`   | Laptop      |
+- `modules/` — den aspects (hosts, desktop, services, user)
+- `home/` — dotfiles managed by hjem
+- `nvim/` — neovim config
+- `overlays/` — package overlays
+
+<p align="center">
+  <sub>Built with <a href="https://github.com/NixOS/nix">Nix</a>, <a href="https://github.com/vic/den">den</a> &amp; <a href="https://github.com/feel-co/hjem">hjem</a>.</sub>
+</p>

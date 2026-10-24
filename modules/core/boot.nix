@@ -17,7 +17,6 @@
           };
 
           consoleLogLevel = 3;
-          initrd.verbose = false;
           kernelParams = [
             "quiet"
             "boot.shell_on_fail"

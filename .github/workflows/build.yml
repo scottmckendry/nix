@@ -4,11 +4,18 @@ on:
   push:
     branches:
       - main
-      - ci/prebuild
+  schedule:
+    # Daily at 12:00 UTC: resolve latest flake inputs and build that result.
+    - cron: "0 12 * * *"
   workflow_dispatch:
+    inputs:
+      update:
+        description: Run nix flake update before building
+        type: boolean
+        default: false
 
 concurrency:
-  group: build-${{ github.ref }}
+  group: build-${{ github.event_name == 'schedule' && 'schedule' || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -32,6 +39,10 @@ jobs:
         with:
           name: scottmckendry
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: Update flake.lock
+        if: github.event_name == 'schedule' || inputs.update
+        run: nix flake update --print-build-logs
 
       - name: Pre-fetch DisplayLink zip (eris only)
         if: matrix.host == 'eris'

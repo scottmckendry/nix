@@ -11,9 +11,11 @@
         environment.systemPackages = [ pkgs.xwayland-satellite ];
         services.upower.enable = true;
         services.udisks2.enable = true;
-        programs.dms-shell.enable = true;
-        programs.dms-shell.systemd.enable = true;
-        services.displayManager.dms-greeter = {
+        # TDOO: Add dux-files when 576721 lands in nixpkgs.
+        # This will replace nautilus.
+        programs.dux-shell.enable = true;
+        programs.dux-shell.systemd.enable = true;
+        services.displayManager.dux-greeter = {
           enable = true;
           compositor.name = "niri";
           configHome = config.users.users.scott.home;

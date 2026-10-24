@@ -26,13 +26,14 @@ in
         ".config/user-dirs.dirs".source = ../../home/user-dirs.dirs;
 
         # symlinks
-        ".config/DankMaterialShell".source = mkSym "${nixDir}/home/dms";
+        ".config/dms".source = mkSym "${nixDir}/home/dms";
         ".config/ghostty".source = mkSym "${nixDir}/home/ghostty";
         ".config/niri".source = mkSym "${nixDir}/home/niri";
         ".config/nvim".source = mkSym "${nixDir}/nvim";
         ".config/pi".source = mkSym "${nixDir}/home/pi";
 
         # cyberdream themes
+        ".config/dms/themes/cyberdream-muted.json".source = "${thm.dux}/cyberdream-muted.json";
         ".config/pi/themes/cyberdream-muted.json".source = "${thm.pi}/cyberdream-muted.json";
         ".config/bat/themes/cyberdream.tmTheme".source = "${thm.textmate}/cyberdream-muted.tmTheme";
         ".config/btop/themes/cyberdream.theme".source = "${thm.btop}/cyberdream-muted.theme";

@@ -1,13 +1,14 @@
 lazy-lock.json
-hypr/hyprpaper.conf
 
+/home/dms/.*
+/home/dms/plugin_settings.json
 /home/dms/plugins/*
+/home/dms/themes
 /home/dms/zen.css
 /home/ghostty/theme.conf
 /home/ghostty/themes
 /home/niri/dms/colors.kdl
 /home/niri/output-active.kdl
-/home/dms/plugin_settings.json
 /home/pi/auth.json
 /home/pi/git
 /home/pi/models-store.json

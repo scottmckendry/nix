@@ -2,11 +2,11 @@
   "nodes": {
     "cyberdream": {
       "locked": {
-        "lastModified": 1791221887,
-        "narHash": "sha256-V72/C7YicMyMmbI6E3eZ0zTsrlP5i7BpthjCh42G7rU=",
+        "lastModified": 1792800646,
+        "narHash": "sha256-iTyxXeNQpn29NGB5/zFNVU7wNiddyET/RADMh9rM9U4=",
         "owner": "scottmckendry",
         "repo": "cyberdream.nvim",
-        "rev": "642c55ad2225f9f4809905918121b2c6d252ad58",
+        "rev": "81b3e39ceb87db2987255123af3212beeb75bf6d",
         "type": "github"
       },
       "original": {
@@ -72,16 +72,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1792502884,
-        "narHash": "sha256-IoNisKcGbUjdd45qCqywGMCYmZ5EnkxezvLII0FWwNA=",
+        "lastModified": 1792734696,
+        "narHash": "sha256-nAY7gNcbuoQkfPHxwVuRFcazYHptzBpKZN/I1/18Vaw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "02c087f3fe673c9e317f206a627cb6b910336dbe",
+        "rev": "3a32588c117116d2bf0edc33915981398fab2b00",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "ref": "nixos-unstable-small",
         "repo": "nixpkgs",
         "type": "github"
       }

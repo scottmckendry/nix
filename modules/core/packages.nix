@@ -26,7 +26,6 @@
           gcc
           gh
           gh-markdown-preview
-          ghostscript
           ghostty
           git
           gnumake
@@ -42,7 +41,6 @@
           lazygit
           libnotify
           libsecret
-          mermaid-cli
           neovim
           nh
           nixd

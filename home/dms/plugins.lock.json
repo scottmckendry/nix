@@ -3,7 +3,7 @@
   "plugins": {
     "calculator": {
       "repo": "https://github.com/rochacbruno/DankCalculator",
-      "commit": "1db5865419a40a33171a475855a59e0b8bf7187f"
+      "commit": "a27b80ad8c3dd42da11af83461674fb362817515"
     },
     "emojiLauncher": {
       "repo": "https://github.com/devnullvoid/dms-emoji-launcher",

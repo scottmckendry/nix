@@ -221,9 +221,9 @@
           "all"
         ],
         "syncPositionAcrossScreens": true,
-        "style": "expressive",
-        "profileVisibility": "always",
-        "passwordVisibility": "always"
+        "style": "ring",
+        "profileVisibility": "never",
+        "passwordVisibility": "typing"
       }
     },
     {
@@ -311,9 +311,9 @@
           "all"
         ],
         "syncPositionAcrossScreens": true,
-        "style": "expressive",
-        "profileVisibility": "always",
-        "passwordVisibility": "always"
+        "style": "ring",
+        "profileVisibility": "never",
+        "passwordVisibility": "typing"
       }
     },
     {

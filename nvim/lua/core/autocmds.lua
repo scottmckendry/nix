@@ -37,14 +37,6 @@ autocmd("BufEnter", {
     desc = "Enable spell checking on specific filetypes",
 })
 
-autocmd("BufWinEnter", {
-    callback = function(data)
-        utils.open_help(data.buf)
-    end,
-    group = general,
-    desc = "Redirect help to floating window",
-})
-
 autocmd("FileType", {
     group = general,
     pattern = {

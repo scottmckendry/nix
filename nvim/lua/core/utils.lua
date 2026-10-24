@@ -55,28 +55,6 @@ function M.parse_hex(int_color)
     return string.format("#%x", int_color)
 end
 
---- Open the help window in a floating window
---- @param buf number The buffer number
-function M.open_help(buf)
-    if buf ~= nil and vim.bo[buf].filetype == "help" and not vim.bo[buf].modifiable then
-        local help_win = vim.api.nvim_get_current_win()
-        local new_win = vim.api.nvim_open_win(buf, true, {
-            relative = "editor",
-            row = 0,
-            col = vim.o.columns - 80,
-            width = 80,
-            height = vim.o.lines - 3,
-            border = "rounded",
-        })
-
-        -- set scroll position
-        vim.wo[help_win].scroll = vim.wo[new_win].scroll
-
-        -- close the help window
-        vim.api.nvim_win_close(help_win, true)
-    end
-end
-
 --- Write a table of lines to a file
 --- @param file string Path to the file
 --- @param lines table Table of lines to write to the file

@@ -10,43 +10,45 @@
         ...
       }:
       let
+        mill = host.settings.fleet.flakemill;
         user = config.users.users.${host.settings.fleet.primaryUser};
         repo = host.settings.fleet.repoRoot;
         cacheDir = "${user.home}/.cache";
         statusFile = "${cacheDir}/nix-update-status";
         lockFile = "${statusFile}.lock";
+        millPubKey = pkgs.writeText "flakemill.pub" mill.publicKey;
         indicator = "";
 
         nix-update-check = pkgs.writeShellApplication {
           name = "nix-update-check";
           runtimeInputs = [
             pkgs.coreutils
+            pkgs.curl
             pkgs.diffutils
-            pkgs.nix
+            pkgs.minisign
             pkgs.util-linux
           ];
           text = ''
+            readonly URL="${mill.url}"
             readonly LOCK="${repo}/flake.lock"
             readonly STATUS="${statusFile}"
+            readonly PUBKEY="${millPubKey}"
             tmp=$(mktemp -d)
             trap 'rm -rf "$tmp"' EXIT
 
             mkdir -p "$(dirname "$STATUS")"
-            while true; do
-              cp "$LOCK" "$tmp/original.lock"
-              cp "$tmp/original.lock" "$tmp/updated.lock"
-              nix flake update --flake "${repo}" \
-                --output-lock-file "$tmp/updated.lock" --refresh
+            # Copy the key alongside the lock so they're verified together.
+            cp "$PUBKEY" "$tmp/flakemill.pub"
+            curl -fsS --max-time 60 "$URL/flake.lock" -o "$tmp/updated.lock"
+            curl -fsS --max-time 60 "$URL/flake.lock.minisig" \
+              -o "$tmp/flake.lock.minisig"
+            minisign -Vm "$tmp/updated.lock" -p "$tmp/flakemill.pub"
 
-              # Serialize publication with the path-triggered cache clear.
-              exec 9>"$STATUS.lock"
-              flock 9
-              if ! cmp -s "$LOCK" "$tmp/original.lock"; then
-                flock -u 9
-                continue
-              fi
+            # Serialize publication with the path-triggered cache clear.
+            exec 9>"$STATUS.lock"
+            flock 9
 
-              if cmp -s "$tmp/original.lock" "$tmp/updated.lock"; then
+            if cmp -s "$LOCK" "$tmp/updated.lock"; then
                 rm -f "$STATUS"
               else
                 # Publish atomically: starship reads this without the lock. Write
@@ -54,18 +56,57 @@
                 printf '%s' ${lib.escapeShellArg indicator} >"$STATUS.tmp"
                 mv -f "$STATUS.tmp" "$STATUS"
               fi
-              break
-            done
+          '';
+        };
+
+        # Applies the mill's published lock to the source checkout.
+        up = pkgs.writeShellApplication {
+          name = "up";
+          runtimeInputs = [
+            pkgs.coreutils
+            pkgs.curl
+            pkgs.minisign
+            pkgs.util-linux
+          ];
+          text = ''
+            readonly URL="${mill.url}"
+            readonly LOCK="${repo}/flake.lock"
+            readonly STATUS="${statusFile}"
+            readonly PUBKEY="${millPubKey}"
+            tmp=$(mktemp -d)
+            trap 'rm -rf "$tmp"' EXIT
+
+            # Fetch and verify the mill's published lock.
+            cp "$PUBKEY" "$tmp/flakemill.pub"
+            curl -fsS --max-time 60 "$URL/flake.lock" -o "$tmp/flake.lock"
+            curl -fsS --max-time 60 "$URL/flake.lock.minisig" \
+              -o "$tmp/flake.lock.minisig"
+            minisign -Vm "$tmp/flake.lock" -p "$tmp/flakemill.pub"
+
+            if cmp -s "$LOCK" "$tmp/flake.lock"; then
+              echo "already up to date"
+              exit 0
+            fi
+
+            exec 9>"$STATUS.lock"
+            flock 9
+            cp "$tmp/flake.lock" "$LOCK.tmp"
+            mv -f "$LOCK.tmp" "$LOCK"
+            # Update consumed; drop the starship indicator.
+            rm -f "$STATUS"
+            echo "rolled in fleet lock"
           '';
         };
       in
-      {
+      lib.mkIf (mill != null) {
         programs.starship.settings.custom.nix = {
           when = "test -e ${lib.escapeShellArg statusFile}";
           symbol = indicator;
           style = "bold yellow";
           format = "[$symbol]($style) ";
         };
+
+        environment.systemPackages = [ up ];
 
         systemd.timers.nix-update-check = {
           description = "Check for flake updates upstream";

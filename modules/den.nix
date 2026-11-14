@@ -21,6 +21,13 @@
           name = "scottmckendry";
           publicKey = "scottmckendry.cachix.org-1:jB2i6xNpH0TiZfTe2p3VfIejB3nUT8bf7PYsn9uOV3I=";
         };
+        flakemill = {
+          publicKey = ''
+            untrusted comment: minisign public key 4A72914B77DDFC8E
+            RWSO/N13S5FySmCJeP8Jh7aPVYeE1h9ZPN75Okp+F1TjtvD9z0KPMYWq
+          '';
+          url = "https://flakemill.axis.scottmckendry.tech";
+        };
       };
 
       locale = {

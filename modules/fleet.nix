@@ -26,6 +26,23 @@
         default = null;
         description = "Optional personal cachix cache";
       };
+
+      flakemill = lib.mkOption {
+        type = lib.types.nullOr (lib.types.submodule {
+          options = {
+            url = lib.mkOption {
+              type = lib.types.str;
+              description = "Base URL of the flakemill HTTP service";
+            };
+            publicKey = lib.mkOption {
+              type = lib.types.str;
+              description = "Full minisign public key file used to verify published locks";
+            };
+          };
+        });
+        default = null;
+        description = "Pull verified flake locks from the flakemill service";
+      };
     };
   };
 }

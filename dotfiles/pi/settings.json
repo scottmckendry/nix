@@ -6,13 +6,16 @@
   "tuiMode": "fullscreen",
   "fullscreenScrollbar": "hidden",
   "defaultProvider": "opencode-go",
-  "defaultModel": "deepseek-v4.1-flash",
+  "defaultModel": "glm-5.3-flash",
   "steeringMode": "all",
   "quietStartup": false,
   "doubleEscapeAction": "none",
   "editorPaddingX": 1,
   "shellCommandPrefix": "eval \"$(direnv export bash 2>/dev/null)\"",
-  "packages": ["npm:pi-web-access", "/home/scott/git/pi-copium/"],
+  "packages": [
+    "npm:pi-web-access",
+    "/home/scott/git/pi-copium/"
+  ],
   "extensionChangelogVersions": {
     "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0"
   },

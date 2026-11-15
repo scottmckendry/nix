@@ -18,6 +18,11 @@
       url = "github:vic/den";
     };
 
+    flakemill = {
+      url = "git+https://github.com/scottmckendry/flakemill";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
     };

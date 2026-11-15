@@ -6,7 +6,7 @@
     security
     swap
     luks
-    nix-update
+    flakemill
     nix-settings
     locale
     fonts

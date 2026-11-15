@@ -19,7 +19,12 @@
     };
 
     flakemill = {
-      url = "git+https://github.com/scottmckendry/flakemill";
+      url = "github:scottmckendry/flakemill";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    haunt = {
+      url = "github:scottmckendry/haunt";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

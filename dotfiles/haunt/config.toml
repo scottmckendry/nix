@@ -23,6 +23,6 @@ cmd = ["lazygit"]
 size = "full"
 
 [apps.k9s]
-bind = "ctrl+k"
+bind = "ctrl+shift+k"
 cmd = ["k9s"]
 size = "full"

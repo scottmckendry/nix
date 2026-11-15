@@ -1,12 +1,21 @@
-{ theme, utils, ... }:
+{
+  inputs,
+  theme,
+  utils,
+  ...
+}:
 {
   den.aspects.ghostty.hjem =
     { host, pkgs, ... }:
     let
       mkSym = utils.mkSymlink host.settings.fleet.repoRoot pkgs;
+      haunt = inputs.haunt.packages.${pkgs.stdenv.hostPlatform.system}.default;
     in
     {
-      packages = [ pkgs.ghostty ];
+      packages = [
+        pkgs.ghostty
+        haunt
+      ];
       files = {
         ".config/haunt/config.toml".source = mkSym "dotfiles/haunt/config.toml";
         ".config/ghostty/config".source = mkSym "dotfiles/ghostty/config";

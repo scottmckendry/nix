@@ -19,14 +19,11 @@
         millPubKey = pkgs.writeText "flakemill.pub" mill.publicKey;
         flakemill = inputs.flakemill.packages.${pkgs.stdenv.hostPlatform.system}.flakemill;
         indicator = "";
-        clientArgs = lib.escapeShellArgs [
-          "--url"
-          mill.url
-          "--public-key"
-          "${millPubKey}"
-          "--lock"
-          "${repo}/flake.lock"
-        ];
+        clientEnv = {
+          FLAKEMILL_URL = mill.url;
+          FLAKEMILL_PUBLIC_KEY = "${millPubKey}";
+          FLAKEMILL_LOCK = "${repo}/flake.lock";
+        };
 
         nix-update-check = pkgs.writeShellApplication {
           name = "nix-update-check";
@@ -39,7 +36,7 @@
 
             # check exits 0 when up to date, 1 when an update is available,
             # and 2 on error.
-            if flakemill check ${clientArgs} --quiet; then
+            if flakemill check --quiet; then
               rm -f ${lib.escapeShellArg statusFile}
             else
               rc=$?
@@ -51,19 +48,6 @@
             fi
           '';
         };
-
-        up = pkgs.writeShellApplication {
-          name = "up";
-          runtimeInputs = [
-            pkgs.coreutils
-            flakemill
-          ];
-          text = ''
-            # Fetch, verify, and atomically replace the local lock.
-            flakemill apply ${clientArgs}
-            rm -f ${lib.escapeShellArg statusFile}
-          '';
-        };
       in
       lib.mkIf (mill != null) {
         programs.starship.settings.custom.nix = {
@@ -73,7 +57,8 @@
           format = "[$symbol]($style) ";
         };
 
-        environment.systemPackages = [ up ];
+        environment.systemPackages = [ flakemill ];
+        environment.variables = clientEnv;
 
         systemd.timers.nix-update-check = {
           description = "Check flakemill for a newer flake.lock";
@@ -86,12 +71,14 @@
 
         systemd.services.nix-update-check = {
           description = "Check flakemill for a newer flake.lock";
+          environment = clientEnv // {
+            HOME = user.home;
+          };
           serviceConfig = {
             Type = "oneshot";
             User = user.name;
             ExecStart = "${nix-update-check}/bin/nix-update-check";
             TimeoutStartSec = "10min";
-            Environment = [ "HOME=${user.home}" ];
           };
         };
 

@@ -10,7 +10,13 @@
         ...
       }:
       let
-        mill = host.settings.fleet.flakemill;
+        mill = {
+          url = "https://flakemill.axis.scottmckendry.tech";
+          publicKey = ''
+            untrusted comment: minisign public key 4A72914B77DDFC8E
+            RWSO/N13S5FySmCJeP8Jh7aPVYeE1h9ZPN75Okp+F1TjtvD9z0KPMYWq
+          '';
+        };
         user = config.users.users.${host.settings.fleet.primaryUser};
         repo = host.settings.fleet.repoRoot;
         cacheDir = "${user.home}/.cache";
@@ -49,7 +55,7 @@
           '';
         };
       in
-      lib.mkIf (mill != null) {
+      {
         programs.starship.settings.custom.nix = {
           when = "test -e ${lib.escapeShellArg statusFile}";
           symbol = indicator;

@@ -1,11 +1,8 @@
-{ inputs, lib, ... }:
+{ inputs, ... }:
 {
   den.aspects.nix-settings = {
     nixos =
       { host, pkgs, ... }:
-      let
-        cache = host.settings.fleet.cachix;
-      in
       {
         nix.settings = {
           warn-dirty = false;
@@ -15,12 +12,12 @@
           ];
           substituters = [
             "https://cache.nixos.org"
-          ]
-          ++ lib.optional (cache != null) "https://${cache.name}.cachix.org";
+            "https://scottmckendry.cachix.org"
+          ];
           trusted-public-keys = [
             "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-          ]
-          ++ lib.optional (cache != null) cache.publicKey;
+            "scottmckendry.cachix.org-1:jB2i6xNpH0TiZfTe2p3VfIejB3nUT8bf7PYsn9uOV3I="
+          ];
         };
 
         programs.nix-ld.enable = true;

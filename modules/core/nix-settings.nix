@@ -4,6 +4,11 @@
     nixos =
       { host, pkgs, ... }:
       {
+        imports = [ inputs.iets.nixosModules.default ];
+
+        iets.classic.enable = true;
+        iets.direnv.enable = false;
+
         nix.settings = {
           warn-dirty = false;
           experimental-features = [

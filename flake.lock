@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "crane": {
+      "locked": {
+        "lastModified": 1793836618,
+        "narHash": "sha256-TREenflwEjxOSq292FYwbc3kEm7TDRtXCZRNWEdjBmg=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "79fd63528501446749c09f08cad486a58c7d173e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
     "cyberdream": {
       "locked": {
         "lastModified": 1794896888,
@@ -111,6 +126,27 @@
         "type": "github"
       }
     },
+    "iets": {
+      "inputs": {
+        "crane": "crane",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794385027,
+        "narHash": "sha256-YFfGtsQEw5MQECnyIQqfMC1Wp51Tz/8oPD062mptAbE=",
+        "owner": "numtide",
+        "repo": "iets",
+        "rev": "9157ca1a2a50c085bcd7fd0004d9ba71e2b7c1e0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "iets",
+        "type": "github"
+      }
+    },
     "neovim-nightly": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -208,6 +244,7 @@
         "flakemill": "flakemill",
         "haunt": "haunt",
         "hjem": "hjem",
+        "iets": "iets",
         "neovim-nightly": "neovim-nightly",
         "niri": "niri",
         "nixpkgs": "nixpkgs",

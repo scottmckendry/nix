@@ -5,8 +5,13 @@
       { host, pkgs, ... }:
       {
         environment = {
-          systemPackages = [ pkgs.docker-compose ];
-          variables.PODMAN_COMPOSE_WARNING_LOGS = "false";
+          systemPackages = [
+            pkgs.podman-compose
+            (pkgs.writeShellScriptBin "docker-compose" ''
+              exec ${pkgs.podman-compose}/bin/podman-compose "$@"
+            '')
+          ];
+          variables.PODMAN_COMPOSE_PROVIDER = "${pkgs.podman-compose}/bin/podman-compose";
         };
 
         virtualisation.podman = {
